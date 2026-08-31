@@ -1,0 +1,12 @@
+Complexity,Loss,Equation
+1,322.1912,"54.39569"
+3,292.39252,"54.395607 + aou"
+4,233.2932,"56.86045 - exp(temperature)"
+5,85.05138,"(aou + 3.5321848) * 15.399895"
+7,16.735802,"((aou - temperature) * 9.95106) + 54.39563"
+9,12.913891,"((aou - temperature) * (11.368984 - temperature)) + 52.853294"
+10,11.825253,"exp((aou - (temperature / 0.64538306)) / 5.2945523) * 50.56988"
+11,10.552485,"((9.889021 - temperature) * (aou - (temperature * 1.3702012))) + 52.483097"
+12,10.120023,"exp((aou - (temperature / 0.6930392)) / 4.9514437) * (50.453255 - salinity)"
+13,9.667981,"(((aou - (temperature * 1.2415053)) * (10.408736 - temperature)) + 52.611794) - salinity"
+14,9.069327,"exp((aou - (temperature / 0.74011046)) / 4.6516757) * ((50.33816 - salinity) - salinity)"

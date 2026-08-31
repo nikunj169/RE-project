@@ -1,0 +1,288 @@
+python validation_enhanced.py
+Loading GLODAP data...
+
+================================================================================
+BASIN: Atlantic
+================================================================================
+Sample size: 122,690
+
+1. Full Dataset Performance:
+----------------------------------------
+R² = 0.8851
+RMSE = 13.40 μmol/kg
+MAE = 9.48 μmol/kg
+Bias = 0.00 μmol/kg
+Normalized RMSE = 0.62%
+Within ±10 μmol/kg: 64.3%
+Within ±20 μmol/kg: 90.1%
+Within ±30 μmol/kg: 97.1%
+
+2. Train/Test Split (80/20):
+----------------------------------------
+Test R² = 0.8907
+Test RMSE = 12.98 μmol/kg
+Test Bias = -0.12 μmol/kg
+Overfitting indicator (R² drop): -0.0055
+✓ Model generalizes well
+
+3. 5-Fold Cross-Validation:
+----------------------------------------
+Mean CV R² = 0.8851 ± 0.0055
+Mean CV RMSE = 13.40 ± 0.37 μmol/kg
+✓ Excellent cross-validation performance
+
+4. Baseline Comparison (MLR):
+----------------------------------------
+MLR Test R² = 0.8718
+MLR Test RMSE = 14.06 μmol/kg
+
+Your Model Test R² = 0.8907
+Your Model Test RMSE = 12.98 μmol/kg
+
+➤ Improvement over MLR: 7.7% reduction in RMSE
+⚠️  Modest improvement - justify added complexity
+
+5. Depth-Stratified Performance:
+----------------------------------------
+   0- 100m (n=11991): R²=0.6788, RMSE=24.78 μmol/kg
+ 100- 500m (n=31200): R²=0.8732, RMSE=14.63 μmol/kg
+ 500-1000m (n=21086): R²=0.8677, RMSE=10.96 μmol/kg
+1000-3000m (n=40258): R²=0.8210, RMSE=9.05 μmol/kg
+3000-7000m (n=18155): R²=0.8138, RMSE=10.92 μmol/kg
+
+6. Parameter Uncertainty (Bootstrap):
+----------------------------------------
+Running bootstrap... Done (100/100 successful fits)
+
+Parameter Estimates (95% Confidence Intervals):
+Alpha (S)   :   1.8742 [  1.8014,   1.9556]
+Beta (T)    :  -0.2913 [ -0.3037,  -0.2806]
+Gamma (AOU) :   2.7927 [  2.7041,   2.8903]
+Delta       : -53.9235 [-57.1732, -51.0130]
+Epsilon     : 2022.6315 [2014.0566, 2032.1879]
+
+================================================================================
+BASIN: Pacific
+================================================================================
+Sample size: 145,865
+
+1. Full Dataset Performance:
+----------------------------------------
+R² = 0.9860
+RMSE = 14.29 μmol/kg
+MAE = 9.84 μmol/kg
+Bias = 0.00 μmol/kg
+Normalized RMSE = 0.64%
+Within ±10 μmol/kg: 66.8%
+Within ±20 μmol/kg: 87.7%
+Within ±30 μmol/kg: 95.2%
+
+2. Train/Test Split (80/20):
+----------------------------------------
+Test R² = 0.9854
+Test RMSE = 14.48 μmol/kg
+Test Bias = 0.04 μmol/kg
+Overfitting indicator (R² drop): 0.0005
+✓ Model generalizes well
+
+3. 5-Fold Cross-Validation:
+----------------------------------------
+Mean CV R² = 0.9859 ± 0.0003
+Mean CV RMSE = 14.29 ± 0.15 μmol/kg
+✓ Excellent cross-validation performance
+
+4. Baseline Comparison (MLR):
+----------------------------------------
+MLR Test R² = 0.9809
+MLR Test RMSE = 16.59 μmol/kg
+
+Your Model Test R² = 0.9854
+Your Model Test RMSE = 14.48 μmol/kg
+
+➤ Improvement over MLR: 12.7% reduction in RMSE
+⚠️  Modest improvement - justify added complexity
+
+5. Depth-Stratified Performance:
+----------------------------------------
+   0- 100m (n=13350): R²=0.8704, RMSE=28.60 μmol/kg
+ 100- 500m (n=41795): R²=0.9717, RMSE=16.53 μmol/kg
+ 500-1000m (n=24954): R²=0.9703, RMSE=11.47 μmol/kg
+1000-3000m (n=40048): R²=0.9462, RMSE=7.33 μmol/kg
+3000-7000m (n=25717): R²=0.7982, RMSE=8.80 μmol/kg
+
+6. Parameter Uncertainty (Bootstrap):
+----------------------------------------
+Running bootstrap... Done (100/100 successful fits)
+
+Parameter Estimates (95% Confidence Intervals):
+Alpha (S)   :   1.1964 [  1.1847,   1.2044]
+Beta (T)    :  -0.2874 [ -0.2893,  -0.2851]
+Gamma (AOU) :   1.8211 [  1.8104,   1.8320]
+Delta       : -22.2871 [-22.6293, -21.8644]
+Epsilon     : 1828.4540 [1823.7913, 1832.9655]
+
+================================================================================
+BASIN: Indian
+================================================================================
+Sample size: 28,054
+
+1. Full Dataset Performance:
+----------------------------------------
+R² = 0.9725
+RMSE = 15.35 μmol/kg
+MAE = 10.44 μmol/kg
+Bias = 0.00 μmol/kg
+Normalized RMSE = 0.69%
+Within ±10 μmol/kg: 61.9%
+Within ±20 μmol/kg: 88.9%
+Within ±30 μmol/kg: 95.1%
+
+2. Train/Test Split (80/20):
+----------------------------------------
+Test R² = 0.9739
+Test RMSE = 15.14 μmol/kg
+Test Bias = 0.12 μmol/kg
+Overfitting indicator (R² drop): -0.0014
+✓ Model generalizes well
+
+3. 5-Fold Cross-Validation:
+----------------------------------------
+Mean CV R² = 0.9725 ± 0.0008
+Mean CV RMSE = 15.36 ± 0.32 μmol/kg
+✓ Excellent cross-validation performance
+
+4. Baseline Comparison (MLR):
+----------------------------------------
+MLR Test R² = 0.9712
+MLR Test RMSE = 15.90 μmol/kg
+
+Your Model Test R² = 0.9739
+Your Model Test RMSE = 15.14 μmol/kg
+
+➤ Improvement over MLR: 4.8% reduction in RMSE
+❌ Minimal improvement - consider simpler model
+
+5. Depth-Stratified Performance:
+----------------------------------------
+   0- 100m (n= 1753): R²=0.8534, RMSE=33.19 μmol/kg
+ 100- 500m (n= 7537): R²=0.9469, RMSE=16.67 μmol/kg
+ 500-1000m (n= 4630): R²=0.9471, RMSE=13.79 μmol/kg
+1000-3000m (n= 9085): R²=0.8446, RMSE=10.37 μmol/kg
+3000-7000m (n= 5049): R²=0.6484, RMSE=12.01 μmol/kg
+
+6. Parameter Uncertainty (Bootstrap):
+----------------------------------------
+Running bootstrap... Done (100/100 successful fits)
+
+Parameter Estimates (95% Confidence Intervals):
+Alpha (S)   :   0.5030 [  0.4799,   0.5221]
+Beta (T)    :  -0.2081 [ -0.2156,  -0.2007]
+Gamma (AOU) :   1.6134 [  1.5569,   1.6728]
+Delta       :   4.8272 [  3.3949,   6.1995]
+Epsilon     : 1686.4128 [1646.5495, 1722.1562]
+
+================================================================================
+BASIN: Southern Ocean
+================================================================================
+Sample size: 122,060
+
+1. Full Dataset Performance:
+----------------------------------------
+R² = 0.9758
+RMSE = 9.53 μmol/kg
+MAE = 6.82 μmol/kg
+Bias = 0.00 μmol/kg
+Normalized RMSE = 0.43%
+Within ±10 μmol/kg: 77.9%
+Within ±20 μmol/kg: 95.0%
+Within ±30 μmol/kg: 99.1%
+
+2. Train/Test Split (80/20):
+----------------------------------------
+Test R² = 0.9757
+Test RMSE = 9.50 μmol/kg
+Test Bias = 0.11 μmol/kg
+Overfitting indicator (R² drop): 0.0001
+✓ Model generalizes well
+
+3. 5-Fold Cross-Validation:
+----------------------------------------
+Mean CV R² = 0.9758 ± 0.0002
+Mean CV RMSE = 9.54 ± 0.05 μmol/kg
+✓ Excellent cross-validation performance
+
+4. Baseline Comparison (MLR):
+----------------------------------------
+MLR Test R² = 0.9729
+MLR Test RMSE = 10.02 μmol/kg
+
+Your Model Test R² = 0.9757
+Your Model Test RMSE = 9.50 μmol/kg
+
+➤ Improvement over MLR: 5.2% reduction in RMSE
+⚠️  Modest improvement - justify added complexity
+
+5. Depth-Stratified Performance:
+----------------------------------------
+   0- 100m (n=13295): R²=0.9262, RMSE=15.03 μmol/kg
+ 100- 500m (n=33631): R²=0.9783, RMSE=9.94 μmol/kg
+ 500-1000m (n=19527): R²=0.9802, RMSE=6.86 μmol/kg
+1000-3000m (n=36488): R²=0.8922, RMSE=8.45 μmol/kg
+3000-7000m (n=19118): R²=0.7810, RMSE=8.06 μmol/kg
+
+6. Parameter Uncertainty (Bootstrap):
+----------------------------------------
+Running bootstrap... Done (100/100 successful fits)
+
+Parameter Estimates (95% Confidence Intervals):
+Alpha (S)   :   0.7416 [  0.7306,   0.7545]
+Beta (T)    :  -0.3028 [ -0.3068,  -0.2988]
+Gamma (AOU) :   2.4335 [  2.4010,   2.4669]
+Delta       : -12.1239 [-12.6476, -11.7546]
+Epsilon     : 1982.2005 [1977.1353, 1987.1437]
+
+================================================================================
+VALIDATION SUMMARY TABLE
+================================================================================
+
+Model Performance:
+         Basin  Full_R2  Test_R2  CV_R2_mean  Full_RMSE  Test_RMSE
+      Atlantic 0.885129 0.890658    0.885110  13.400993  12.980095
+       Pacific 0.985951 0.985443    0.985948  14.286661  14.476647
+        Indian 0.972542 0.973912    0.972479  15.351566  15.141903
+Southern Ocean 0.975790 0.975674    0.975786   9.534646   9.499687
+
+Comparison to Baseline (MLR):
+         Basin  MLR_RMSE  Test_RMSE  Improvement_pct
+      Atlantic 14.057298  12.980095         7.662946
+       Pacific 16.590252  14.476647        12.740043
+        Indian 15.897051  15.141903         4.750238
+Southern Ocean 10.023911   9.499687         5.229730
+
+Model Coefficients:
+         Basin    Alpha      Beta    Gamma     Epsilon
+      Atlantic 1.879595 -0.292101 2.799181 2023.356582
+       Pacific 1.196199 -0.287358 1.821034 1828.431907
+        Indian 0.502822 -0.208235 1.614354 1687.613239
+Southern Ocean 0.742563 -0.302606 2.431319 1981.947035
+
+✓ Results saved to 'validation_results_comprehensive.csv'
+
+================================================================================
+PUBLICATION READINESS ASSESSMENT
+================================================================================
+
+Criteria Checklist:
+⚠️ Cross-validation R² > 0.85 (good, but room for improvement)
+⚠️ Test RMSE < 25 μmol/kg (acceptable: max=15.1)
+❌ Minimal improvement over MLR (min=4.8%)
+✓ No overfitting detected (max R² drop=0.0005)
+
+Overall: 1/4 criteria passed, 2/4 warnings, 1/4 failures
+
+❌❌ MODEL NEEDS SIGNIFICANT IMPROVEMENT
+Next steps: Address failed criteria before proceeding to publication
+
+================================================================================
+See 'research_roadmap.md' for detailed next steps
+================================================================================

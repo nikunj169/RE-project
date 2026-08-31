@@ -1,0 +1,7 @@
+Basin,Layer,n_outliers,pct_of_layer,mean_residual
+Atlantic,0–100 m,86,2.48,8.14
+Atlantic,100–500 m,2,0.08,-94.09
+Pacific,0–100 m,262,4.26,65.57
+Pacific,100–500 m,41,0.52,67.45
+Pacific,500–1000 m,2,0.04,-68.87
+Southern Ocean,0–100 m,60,4.99,-35.95

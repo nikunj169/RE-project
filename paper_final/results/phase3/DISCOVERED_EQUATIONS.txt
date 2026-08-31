@@ -1,0 +1,57 @@
+======================================================================
+ DISCOVERED GOVERNING EQUATIONS
+ Symbolic Regression with PySR
+======================================================================
+
+## FULL MODEL (5 Features)
+----------------------------------------------------------------------
+
+Features: salinity, temperature, aou, stratification_index, c_atm
+
+Test R²: 0.9729
+Test RMSE: 2.9051
+
+Equation:
+(salinity/(3.054312 - aou) + temperature - (aou + 6.475268))**2 + 10.15233
+
+Feature Mapping:
+  x0 = salinity
+  x1 = temperature
+  x2 = aou
+  x3 = stratification_index
+  x4 = c_atm
+
+
+======================================================================
+
+## SIMPLIFIED MODEL (3 Features)
+----------------------------------------------------------------------
+
+Features: salinity, temperature, aou
+
+Test R²: 0.9599
+Test RMSE: 3.5375
+
+Equation:
+(11.368984 - temperature)*(aou - temperature) + 52.853294
+
+Feature Mapping:
+  x0 = salinity
+  x1 = temperature
+  x2 = aou
+
+
+======================================================================
+ SCIENTIFIC INTERPRETATION
+======================================================================
+
+These equations represent the first data-driven, interpretable
+mathematical model of the Salinity-CO₂(aq) relationship in the
+Southern Ocean.
+
+Key advantages over black-box ML:
+1. Human-readable and verifiable
+2. Can be integrated into numerical ocean models
+3. Reveals physical mechanisms (e.g., exp/log terms)
+4. Enables extrapolation beyond training data
+5. Suitable for policy and climate impact assessments

@@ -1,0 +1,4 @@
+Basin,R2_test,RMSE_test,sigma_resid,N_boot_ok,PI_coverage_pct,PI_mean_width,Alpha,Beta,Gamma,Delta,Epsilon
+Atlantic,0.9074,20.174,15.701,300,88.9,60.64,1.4859,-0.2377,2.2196,-36.6249,1923.48
+Pacific,0.9852,16.001,15.961,300,94.0,61.68,1.1594,-0.2696,1.7753,-20.1514,1790.25
+Southern Ocean,0.9681,10.575,9.039,300,89.6,34.9,0.7289,-0.2307,1.6378,-6.2013,1811.15

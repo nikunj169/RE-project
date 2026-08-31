@@ -1,0 +1,5 @@
+Model,R2,RMSE,Overall_Bias,South_Atlantic_Bias,North_Atlantic_Bias,Improvement_vs_OLS_pct,Improvement_vs_MLR_pct
+OLS Quadratic,0.9074,20.174,7.576,18.259,8.951,0.0,13.81
+Lat-Corrected Quad,0.9074,20.174,7.576,18.259,8.951,0.0,13.81
+Stratified Quad,0.9151,19.323,7.017,10.166,9.69,4.22,17.44
+MLR+AOU Benchmark,0.8754,23.406,7.152,17.794,4.25,-16.02,0.0

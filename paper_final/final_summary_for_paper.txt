@@ -1,0 +1,82 @@
+======================================================================
+MANUSCRIPT NUMBERS — COPY INTO PAPER
+======================================================================
+
+MODEL EQUATION:
+  TCO₂ = (α·S + β·T + γ·AOU/100 + δ)² + ε
+
+TABLE 1: MODEL COEFFICIENTS
+         Basin  α (S)   β (T)  γ (AOU/100)        δ       ε  RMSE_best (μmol/kg)  R²_best  σ_resid
+      Atlantic 1.4859 -0.2377       2.2196 -36.6249 1923.48               19.720   0.9116   15.701
+        Indian 0.4992 -0.1693       1.2860  10.0677 1433.09               14.493   0.9853   16.506
+       Pacific 1.1594 -0.2696       1.7753 -20.1514 1790.25               16.001   0.9852   15.961
+Southern Ocean 0.7289 -0.2307       1.6378  -6.2013 1811.15               10.575   0.9681    9.039
+
+TABLE 2: VALIDATION METRICS (best model per basin)
+         Basin Best_Model  N_test  R2_Best  RMSE_Best  Bias_Best  R2_MLR  RMSE_MLR  Improvement_pct  R2_Ext  RMSE_Ext  PI_Coverage
+      Atlantic AAIW-Gauss   11436   0.9116     19.720      7.493  0.8754    23.406            15.75  0.9210    17.676         89.0
+        Indian        OLS    3764   0.9853     14.493      8.247  0.9868    13.729            -5.56  0.9682    18.442         95.7
+       Pacific        OLS   31767   0.9852     16.001      4.562  0.9862    15.430            -3.70  0.9899    13.819         93.9
+Southern Ocean        OLS    6483   0.9681     10.575      5.493  0.9700    10.248            -3.19  0.9651     8.985         89.7
+
+TABLE 3: DEPTH-STRATIFIED PERFORMANCE
+         Basin       Layer    n      R2   RMSE  MLR_RMSE  Improvement_pct
+      Atlantic     0–100 m 3469  0.7554 28.132    36.464            22.85
+      Atlantic   100–500 m 2477  0.7881 17.907    16.554            -8.18
+      Atlantic  500–1000 m 1559  0.5854 16.041    14.975            -7.12
+      Atlantic 1000–3000 m 2625  0.7644 11.295    11.390             0.83
+      Atlantic 3000–7000 m 1306  0.8387 11.457    14.738            22.26
+        Indian     0–100 m  504  0.8999 24.766    23.701            -4.49
+        Indian   100–500 m  961  0.9524 14.833    14.534            -2.05
+        Indian  500–1000 m  591  0.9872  5.701     8.657            34.14
+        Indian 1000–3000 m 1181  0.7026 11.918    10.164           -17.25
+        Indian 3000–7000 m  527  0.4680 12.556    10.407           -20.65
+       Pacific     0–100 m 6150  0.8544 27.209    26.484            -2.74
+       Pacific   100–500 m 7866  0.9697 15.824    14.989            -5.57
+       Pacific  500–1000 m 4614  0.9823  9.963     9.497            -4.91
+       Pacific 1000–3000 m 8121  0.9623  8.682     8.716             0.40
+       Pacific 3000–7000 m 5016  0.8039 10.385     9.468            -9.68
+Southern Ocean     0–100 m 1202  0.8677 17.934    16.959            -5.75
+Southern Ocean   100–500 m 1652  0.9610 10.459    10.551             0.87
+Southern Ocean  500–1000 m  975  0.9800  5.994     6.793            11.77
+Southern Ocean 1000–3000 m 1799  0.8782  6.470     5.915            -9.37
+Southern Ocean 3000–7000 m  855 -0.1739  7.447     7.119            -4.60
+
+======================================================================
+PUBLICATION READINESS CHECKLIST
+======================================================================
+  ✓  Atlantic: R²=0.9116 ≥ 0.90
+  ✓  Atlantic: External RMSE (17.68) within 110% of test RMSE (19.72)
+  ✓  Atlantic: Positive improvement over MLR+AOU (+15.8%)
+  ✓  Atlantic: PI coverage 89.0% ≥ 88%
+  ✓  Indian: R²=0.9853 ≥ 0.90
+  ✗  Indian: External RMSE (18.44) within 110% of test RMSE (14.49)
+  ✗  Indian: Positive improvement over MLR+AOU (-5.6%)
+  ✓  Indian: PI coverage 95.7% ≥ 88%
+  ✓  Pacific: R²=0.9852 ≥ 0.90
+  ✓  Pacific: External RMSE (13.82) within 110% of test RMSE (16.00)
+  ✗  Pacific: Positive improvement over MLR+AOU (-3.7%)
+  ✓  Pacific: PI coverage 93.9% ≥ 88%
+  ✓  Southern Ocean: R²=0.9681 ≥ 0.90
+  ✓  Southern Ocean: External RMSE (8.98) within 110% of test RMSE (10.57)
+  ✗  Southern Ocean: Positive improvement over MLR+AOU (-3.2%)
+  ✓  Southern Ocean: PI coverage 89.7% ≥ 88%
+
+  RESULT: 12/16 checks passed
+  VERDICT: ADDRESS FAILED ITEMS FIRST
+
+SUGGESTED ABSTRACT METRICS (use these numbers exactly):
+  Atlantic: R²=0.9116, RMSE=19.72 μmol/kg (vs MLR+AOU RMSE=23.41, +15.8%), external holdout R²=0.9210
+  Indian: R²=0.9853, RMSE=14.49 μmol/kg (vs MLR+AOU RMSE=13.73, -5.6%), external holdout R²=0.9682
+  Pacific: R²=0.9852, RMSE=16.00 μmol/kg (vs MLR+AOU RMSE=15.43, -3.7%), external holdout R²=0.9899
+  Southern Ocean: R²=0.9681, RMSE=10.57 μmol/kg (vs MLR+AOU RMSE=10.25, -3.2%), external holdout R²=0.9651
+
+SUGGESTED METHODS TEXT FOR PREDICTION INTERVALS:
+  Prediction uncertainties were quantified via parametric bootstrap
+  (300 resamples). Each iteration resampled the training set with
+  replacement, refitted the model, and added a random draw from
+  N(0, σ_resid) to each test-set prediction, where σ_resid is the
+  standard deviation of training residuals (Table 1). The 2.5th
+  and 97.5th percentiles form the reported 95% prediction interval.
+  Empirical coverage was verified on the held-out test set.
+======================================================================
