@@ -1,0 +1,5 @@
+Basin,N_clusters,N_boot_cluster,N_boot_obs,Coverage_cluster,Coverage_obs,Width_cluster,Width_obs,Coverage_diff
+Atlantic,154,497,500,90.7,89.2,62.78,61.01,1.5
+Indian,88,500,500,96.3,95.9,64.79,64.13,0.4
+Pacific,239,500,500,94.0,94.0,62.29,61.97,0.0
+Southern Ocean,231,500,500,90.1,90.1,35.2,35.09,0.1

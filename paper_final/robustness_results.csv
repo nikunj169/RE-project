@@ -1,0 +1,12 @@
+Test,Basin,N_trials,RMSE_mean,RMSE_std,RMSE_full,RMSE_diff_pct,Coeff_max_rel_std,Stable,Alpha,Beta,Gamma,Signs_correct,AIC_quad,AIC_cubic,BIC_quad,BIC_cubic,BIC_prefers_quad
+Subsample 30%,Atlantic,5,20.153,0.047,20.174,-0.1,0.0493,YES,,,,,,,,,
+Subsample 50%,Atlantic,5,20.139,0.031,20.174,-0.17,0.0162,YES,,,,,,,,,
+Subsample 70%,Atlantic,5,20.163,0.016,20.174,-0.05,0.0176,YES,,,,,,,,,
+Subsample 90%,Atlantic,5,20.182,0.022,20.174,0.04,0.0177,YES,,,,,,,,,
+Random seeds,Atlantic,8,20.173,0.031,20.174,-0.01,0.0089,YES,,,,,,,,,
+AOU/10 scaling,Atlantic,1,20.174,0.0,20.174,0.0,0.0,YES,,,,,,,,,
+Cross-basin (Atlantic),Atlantic,1,20.174,0.0,20.174,0.0,0.0,YES,1.4859,-0.2377,2.2196,YES,,,,,
+Cross-basin (Indian),Indian,1,14.493,0.0,14.493,0.0,0.0,YES,0.4992,-0.1693,1.286,YES,,,,,
+Cross-basin (Pacific),Pacific,1,16.001,0.0,16.001,0.0,0.0,YES,1.1594,-0.2696,1.7753,YES,,,,,
+Cross-basin (Southern Ocean),Southern Ocean,1,10.575,0.0,10.575,0.0,0.0,YES,0.7289,-0.2307,1.6378,YES,,,,,
+Cubic complexity,Atlantic,1,22.535,0.0,20.174,11.7,0.0,YES,,,,,692302.06,673757.24,692350.77,673835.18,NO

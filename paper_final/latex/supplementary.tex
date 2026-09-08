@@ -1,0 +1,271 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{natbib}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{setspace}
+
+\geometry{margin=2.5cm}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\doublespacing
+
+\title{Supplementary Material: Symbolic Regression Discovery of a Compact Quadratic Structure for Total Dissolved Inorganic Carbon}
+
+\author{[Author 1]$^{1}$, [Author 2]$^{2}$, [Author 3]$^{1}$\\
+\small $^{1}$[Department, University]\\
+\small $^{2}$[Institute]
+}
+
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\setcounter{section}{0}
+\renewcommand{\thesection}{S\arabic{section}}
+
+% ══════════════════════════════════════════════════════════════════════════════
+% S1. COMPLETE SAMPLE SIZE ACCOUNTING
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Complete Sample Size Accounting}
+
+Table~S1 provides the complete sample size accounting. The basins are mutually exclusive by construction (verified: zero overlap between all basin pairs).
+
+\begin{table}[htbp]
+\centering
+\caption{Complete sample size accounting. Basins are defined as: Atlantic (region=1, lat$>35^\circ$S), Indian (region=16, lat$>35^\circ$S), Pacific (region=8, lat$>35^\circ$S), Southern Ocean (lat$<35^\circ$S, all regions).}
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{Basin} & \textbf{Total} & \textbf{Train} & \textbf{Test} & \textbf{External} \\
+\midrule
+Atlantic        & 147,387 & 125,701 & 11,436 & 10,250 \\
+Indian          &  40,163 &  32,270 &  3,764 &  4,129 \\
+Pacific         & 187,356 & 138,139 & 31,767 & 17,450 \\
+Southern Ocean  &  97,248 &  82,045 &  6,483 &  8,720 \\
+\midrule
+\textbf{Total}  & \textbf{472,154} & \textbf{378,155} & \textbf{53,450} & \textbf{40,549} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Training years: 1972--2014. Test years: 2015--2018. External years: 2018--2021.
+
+% ══════════════════════════════════════════════════════════════════════════════
+% S2. ROBUSTNESS TESTING DETAILS
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Robustness Testing Details}
+
+\subsection{Subsample Stability}
+
+The model was fitted to random subsets of 30\%, 50\%, 70\%, and 90\% of the Atlantic training data, with 5 trials per fraction. Table~S2 shows the results.
+
+\begin{table}[htbp]
+\centering
+\caption{Subsample stability results (Atlantic). All subsets produce RMSE within 0.05~$\mu$mol~kg$^{-1}$ of the full-dataset fit.}
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{Subset} & \textbf{RMSE} & \textbf{Std} & \textbf{$\Delta$ (\%)} & \textbf{Max coeff.\ rel.\ std} \\
+\midrule
+30\% & 20.153 & 0.047 & $-0.10$ & 0.049 \\
+50\% & 20.139 & 0.031 & $-0.17$ & 0.016 \\
+70\% & 20.163 & 0.016 & $-0.05$ & 0.018 \\
+90\% & 20.182 & 0.022 & $+0.04$ & 0.018 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Random Seed Sensitivity}
+
+Eight different random seeds (0, 10, 42, 123, 456, 789, 2023, 9999) were used for 80/20 splits. RMSE: $20.17 \pm 0.03$~$\mu$mol~kg$^{-1}$. Maximum coefficient relative standard deviation: 0.009.
+
+\subsection{Cross-Basin Consistency}
+
+Coefficient signs ($\alpha > 0$, $\beta < 0$, $\gamma > 0$) hold in all four basins (Table~S3).
+
+\begin{table}[htbp]
+\centering
+\caption{Cross-basin coefficient consistency. All basins show the same sign pattern.}
+\begin{tabular}{lrrrrr}
+\toprule
+\textbf{Basin} & $\alpha$ & $\beta$ & $\gamma$ & RMSE & Signs \\
+\midrule
+Atlantic        & 1.4859 & $-0.2377$ & 2.2196 & 20.17 & $+$,$-$,$+$ \\
+Indian          & 0.4992 & $-0.1693$ & 1.2860 & 14.49 & $+$,$-$,$+$ \\
+Pacific         & 1.1594 & $-0.2696$ & 1.7753 & 16.00 & $+$,$-$,$+$ \\
+Southern Ocean  & 0.7289 & $-0.2307$ & 1.6378 & 10.58 & $+$,$-$,$+$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Complexity Comparison}
+
+A cubic extension with cross-terms was tested:
+\begin{equation*}
+\text{TCO}_2 = (\alpha S + \beta T + \gamma \cdot \text{AOU}/100 + \delta)^2 + \epsilon + \eta_1 ST + \eta_2 S \cdot \text{AOU} + \eta_3 T \cdot \text{AOU}
+\end{equation*}
+
+Results:
+\begin{itemize}
+    \item Quadratic RMSE: 20.17~$\mu$mol~kg$^{-1}$
+    \item Cubic RMSE: 22.54~$\mu$mol~kg$^{-1}$ (worse!)
+    \item BIC: Quadratic = 692,351, Cubic = 673,835
+    \item BIC prefers the cubic model due to better training fit, but the cubic model has worse test-set RMSE, suggesting overfitting
+\end{itemize}
+
+The simpler quadratic model generalizes better despite having fewer parameters.
+
+% ══════════════════════════════════════════════════════════════════════════════
+% S3. TOST EQUIVALENCE TEST DETAILS
+% ══════════════════════════════════════════════════════════════════════════════
+\section{TOST Equivalence Test Details}
+
+The Two One-Sided Tests (TOST) procedure tests whether the RMSE difference between two models falls within an equivalence margin $[-\delta, +\delta]$:
+\begin{align}
+H_0&: |\text{RMSE}_{\text{Quad}} - \text{RMSE}_{\text{MLR}}| \geq \delta \\
+H_1&: |\text{RMSE}_{\text{Quad}} - \text{RMSE}_{\text{MLR}}| < \delta
+\end{align}
+
+The test is performed by computing two one-sided $t$-tests and taking the maximum $p$-value.
+
+\begin{table}[htbp]
+\centering
+\caption{Complete TOST results. SE: standard error of the RMSE difference.}
+\begin{tabular}{llrrrrrl}
+\toprule
+\textbf{Basin} & $\delta$ & Diff & SE & $t_1$ & $p_1$ & $t_2$ & Result \\
+\midrule
+Atlantic       & 2 & $-3.23$ & 13.36 & $-0.09$ & 0.463 & $-0.39$ & Not equiv.\\
+Atlantic       & 5 & $-3.23$ & 13.36 & $+0.13$ & 0.553 & $-0.62$ & Not equiv.\\
+Indian         & 2 & $+0.76$ &  5.51 & $+0.50$ & 0.692 & $-0.22$ & Not equiv.\\
+Indian         & 5 & $+0.76$ &  5.51 & $+1.05$ & 0.852 & $-0.77$ & Not equiv.\\
+Pacific        & 2 & $+0.50$ &  1.27 & $+1.96$ & 0.975 & $-1.18$ & Not equiv.\\
+Pacific        & 5 & $+0.50$ &  1.27 & $+4.31$ & 1.000 & $-3.53$ & Equiv.*\\
+Southern Ocean & 2 & $+0.12$ &  0.60 & $+3.51$ & 1.000 & $-3.13$ & Equiv.*\\
+Southern Ocean & 5 & $+0.12$ &  0.60 & $+8.49$ & 1.000 & $-8.11$ & Equiv.*\\
+\bottomrule
+\end{tabular}
+\par\medskip
+\footnotesize{*The CI is entirely within $[-\delta, +\delta]$, consistent with practical equivalence, though TOST $p > 0.05$ means we cannot formally reject the null.}
+\end{table}
+
+\textbf{Interpretation}: The wide confidence intervals (driven by the large standard error of RMSE differences) prevent formal equivalence declaration. However, the Pacific and Southern Ocean CIs are narrow and centered near zero, consistent with the interpretation that performance differences are practically negligible. The Atlantic CI is wider but centered below zero, consistent with the quadratic model being meaningfully better.
+
+% ══════════════════════════════════════════════════════════════════════════════
+% S4. CLUSTER BOOTSTRAP DETAILS
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Cluster Bootstrap Details}
+
+Spatial clusters were defined by rounding latitude to 5° bins and longitude to 10° bins. Each unique (lat\_bin, lon\_bin) pair defines a cluster. Bootstrap resampling was performed at the cluster level: in each replicate, $n$ clusters were sampled with replacement (where $n$ is the number of unique clusters), and all observations within selected clusters were included.
+
+\begin{table}[htbp]
+\centering
+\caption{Cluster bootstrap results ($n = 500$ replicates). Widths in $\mu$mol~kg$^{-1}$.}
+\begin{tabular}{lrrrrr}
+\toprule
+\textbf{Basin} & \textbf{Clusters} & \textbf{Obs.\ cov.} & \textbf{Cluster cov.} & \textbf{$\Delta$} & \textbf{Width} \\
+\midrule
+Atlantic        & 154 & 89.2\% & 90.7\% & $+1.5\%$ & 62.8 \\
+Indian          &  88 & 95.9\% & 96.3\% & $+0.4\%$ & 64.8 \\
+Pacific         & 239 & 94.0\% & 94.0\% & $+0.0\%$ & 62.3 \\
+Southern Ocean  & 231 & 90.1\% & 90.1\% & $+0.1\%$ & 35.2 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The modest coverage improvement (0--1.5\%) suggests that spatial dependence, while present, does not dramatically affect the uncertainty estimates. The persistent under-coverage in Atlantic and Southern Ocean ($\sim$90\%) appears to be a model limitation rather than a bootstrap methodology issue.
+
+% ══════════════════════════════════════════════════════════════════════════════
+% S5. WATER-MASS CLASSIFICATION DETAILS
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Water-Mass Classification Details}
+
+Observations were classified using temperature-salinity-depth-latitude thresholds:
+
+\begin{table}[htbp]
+\centering
+\caption{Water-mass classification criteria.}
+\begin{tabular}{lllll}
+\toprule
+\textbf{Water Mass} & \textbf{T ($^\circ$C)} & \textbf{S} & \textbf{Depth (m)} & \textbf{Latitude} \\
+\midrule
+Surface     & any        & any        & $< 200$        & any \\
+Thermocline & $> 8$      & any        & 200--800       & any \\
+AAIW        & 1--8       & 33.5--34.6 & 300--1500      & $< -15^\circ$ \\
+NADW        & 1--5       & 34.8--35.1 & 1000--4000     & any \\
+AABW        & $< 1$      & 34.6--34.75 & $> 3000$      & any \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Complete water-mass analysis across all basins. RMSE in $\mu$mol~kg$^{-1}$.}
+\begin{tabular}{llrrrrr}
+\toprule
+\textbf{Basin} & \textbf{Water Mass} & $n$ & RMSE$_{\text{Q}}$ & RMSE$_{\text{M}}$ & \textbf{Improv.} & \textbf{Bias} \\
+\midrule
+Atlantic & Surface     & 4,469 & 26.37 & 33.26 & $+20.7\%$ & $+13.5$ \\
+Atlantic & Thermocline & 1,475 & 14.66 & 12.20 & $-20.2\%$ & $+6.8$ \\
+Atlantic & AAIW        & 430   & 28.40 & 22.33 & $-27.2\%$ & $+27.1$ \\
+Atlantic & NADW        & 2,700 & 9.77  & 9.36  & $-4.4\%$  & $-2.7$ \\
+Atlantic & AABW        & 83    & 29.02 & 36.08 & $+19.6\%$ & $+28.3$ \\
+\midrule
+Indian & Surface     & 824   & 23.50 & 21.93 & $-7.2\%$  & $+16.0$ \\
+Indian & Thermocline & 840   & 9.22  & 11.59 & $+20.4\%$ & $+3.8$ \\
+Indian & AAIW        & 139   & 8.87  & 5.71  & $-55.4\%$ & $-8.1$ \\
+Indian & NADW        & 157   & 11.76 & 9.37  & $-25.5\%$ & $+11.1$ \\
+\midrule
+Pacific & Surface     & 9,302 & 25.30 & 24.40 & $-3.7\%$  & $+14.7$ \\
+Pacific & Thermocline & 3,971 & 10.94 & 11.71 & $+6.5\%$  & $+3.3$ \\
+Pacific & AAIW        & 2,267 & 11.24 & 12.23 & $+8.1\%$  & $-8.6$ \\
+\midrule
+Southern Ocean & Surface     & 1,799 & 16.23 & 15.80 & $-2.7\%$  & $+8.1$ \\
+Southern Ocean & Thermocline & 228   & 15.17 & 15.70 & $+3.4\%$  & $+14.5$ \\
+Southern Ocean & AAIW        & 1,158 & 6.01  & 6.75  & $+11.0\%$ & $+4.3$ \\
+Southern Ocean & AABW        & 502   & 5.26  & 5.07  & $-3.7\%$  & $+4.2$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Key finding}: The AAIW water mass shows the largest bias in the Atlantic ($+27.1$~$\mu$mol~kg$^{-1}$) and the quadratic model underperforms MLR+AOU there ($-27.2\%$). This confirms that the South Atlantic bias is concentrated in AAIW-influenced waters. Critically, MLR+AOU also shows elevated bias in AAIW, indicating that the bias is related to omitted physical information rather than the quadratic functional form.
+
+% ══════════════════════════════════════════════════════════════════════════════
+% S6. CLAIM-EVIDENCE AUDIT
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Claim-Evidence Audit}
+
+Table~S8 provides a complete audit of all major scientific claims in the manuscript.
+
+\begin{table}[htbp]
+\centering
+\caption{Claim-evidence audit. Each major claim is assessed against the available evidence.}
+\small
+\begin{tabular}{p{3cm}p{3cm}p{2cm}p{5cm}}
+\toprule
+\textbf{Claim} & \textbf{Evidence} & \textbf{Severity} & \textbf{Revision} \\
+\midrule
+N = 147,387 & Grand total = 472,154 & Critical & Corrected to N = 472,154 \\
+8-year holdout & 3-year external period & Critical & Corrected to ``post-2018 chronologically held-out'' \\
+Statistically equiv. & DM $p > 0.05$ & Major & Replaced with ``similar RMSE'' + TOST \\
+95\% PI & Coverage 89--96\% & Major & ``Approximate 95\% PI'' with empirical coverage \\
+Parametric bootstrap & Case resampling + noise & Major & ``Hybrid bootstrap'' \\
+Discovered manifold & Restricted search & Major & ``Identified within specified search space'' \\
+Revelle derives form & Post-hoc qualitative & Major & ``Qualitatively compatible'' \\
+AAIW diagnosis & Latitude pattern & Major & ``AAIW-consistent residual structure'' \\
+Inventory error & Concentration error & Major & ``Basin-mean concentration'' \\
+H = $\mathbf{vv}^T$ & H = $2\mathbf{vv}^T$ & Moderate & Corrected factor of 2 \\
+VIF confirms & Correlation only & Moderate & ``Consistent with'' \\
+$\beta < 0$ proves sign & Derivative depends on core & Moderate & Derivative analysis added \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\end{document}

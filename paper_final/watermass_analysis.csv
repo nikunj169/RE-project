@@ -1,0 +1,25 @@
+Basin,WaterMass,N,RMSE_Quad,RMSE_MLR,Improvement_pct,Bias_Quad
+Atlantic,Surface,4469,26.368,33.262,20.73,13.468
+Atlantic,Thermocline,1475,14.659,12.197,-20.19,6.82
+Atlantic,AAIW,430,28.396,22.33,-27.16,27.101
+Atlantic,NADW,2700,9.768,9.355,-4.42,-2.697
+Atlantic,AABW,83,29.021,36.076,19.56,28.269
+Atlantic,Other,2279,15.621,15.429,-1.24,4.247
+Atlantic,Intermediate -40° to -20°,590,27.736,21.667,-28.01,26.457
+Atlantic,Intermediate 0° to 20°,439,9.244,7.691,-20.19,-7.447
+Atlantic,Intermediate 20° to 40°,939,9.208,9.166,-0.46,-3.353
+Atlantic,Intermediate 40° to 60°,1017,16.194,15.958,-1.48,13.841
+Indian,Surface,824,23.501,21.926,-7.18,16.016
+Indian,Thermocline,840,9.219,11.586,20.43,3.787
+Indian,AAIW,139,8.868,5.706,-55.41,-8.054
+Indian,NADW,157,11.758,9.366,-25.54,11.096
+Indian,Other,1804,11.328,10.053,-12.69,7.783
+Pacific,Surface,9302,25.304,24.4,-3.7,14.718
+Pacific,Thermocline,3971,10.944,11.705,6.5,3.251
+Pacific,AAIW,2267,11.243,12.23,8.07,-8.6
+Pacific,Other,16227,9.34,8.645,-8.04,0.901
+Southern Ocean,Surface,1799,16.23,15.798,-2.73,8.062
+Southern Ocean,Thermocline,228,15.171,15.702,3.38,14.549
+Southern Ocean,AAIW,1158,6.006,6.745,10.96,4.315
+Southern Ocean,AABW,502,5.259,5.07,-3.72,4.187
+Southern Ocean,Other,2795,7.152,7.04,-1.59,3.824
