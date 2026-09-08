@@ -1,0 +1,9 @@
+Basin,Margin,Delta,Mean_AE_diff,SE,TOST_p,Equiv_by_test,CI_lo,CI_hi,CI_within_bounds,N
+Atlantic,2umol,2.0,0.6421,0.1007,1.0,NO,0.4447,0.8395,YES,11436
+Atlantic,5umol,5.0,0.6421,0.1007,1.0,NO,0.4447,0.8395,YES,11436
+Indian,2umol,2.0,-0.373,0.1174,1.0,NO,-0.6031,-0.1429,YES,3764
+Indian,5umol,5.0,-0.373,0.1174,1.0,NO,-0.6031,-0.1429,YES,3764
+Pacific,2umol,2.0,-0.3865,0.023,1.0,NO,-0.4316,-0.3414,YES,31767
+Pacific,5umol,5.0,-0.3865,0.023,1.0,NO,-0.4316,-0.3414,YES,31767
+Southern Ocean,2umol,2.0,0.0543,0.0182,1.0,NO,0.0186,0.0899,YES,6483
+Southern Ocean,5umol,5.0,0.0543,0.0182,1.0,NO,0.0186,0.0899,YES,6483

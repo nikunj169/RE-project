@@ -1,0 +1,5 @@
+Basin,frac_dS_positive,frac_dT_negative,frac_dA_positive,dS_median,dT_median,dA_median,core_median,core_min,core_max
+Atlantic,99.99,99.99,99.99,45.97,-7.35,0.6868,15.47,-5.38,19.97
+Indian,100.0,100.0,100.0,28.74,-9.75,0.7403,28.78,20.77,30.15
+Pacific,100.0,100.0,100.0,51.01,-11.86,0.7811,22.0,5.56,24.82
+Southern Ocean,100.0,100.0,100.0,30.42,-9.63,0.6835,20.87,10.7,22.46
