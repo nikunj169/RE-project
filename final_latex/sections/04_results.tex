@@ -1,0 +1,156 @@
+\section{Results}
+
+\subsection{Dataset and baseline reproduction}
+Quality control filtering of GLODAP v2.2023 yielded $472{,}530$ high-quality global observations across the four ocean basins (Atlantic: $147{,}448$; Indian: $40{,}391$; Pacific: $187{,}443$; Southern Ocean: $97{,}248$). Figure~\ref{fig:data_overview} illustrates the global sampling distribution in $T$--$S$ space colored by $\tco$. Baseline model fitting confirmed exact reproduction of all primary pipeline results.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig1_data_overview.png}
+\caption{Distribution of quality-controlled GLODAP v2.2023 observations across four ocean basins in temperature--salinity space, colored by measured $\tco$ ($\mu\mathrm{mol}\,\mathrm{kg}^{-1}$).}
+\label{fig:data_overview}
+\end{figure}
+
+\subsection{Model-complexity hierarchy}
+Table~\ref{tab:model_hierarchy} and Table~\ref{tab:model_comparison} compare temporal validation performance across the complete model hierarchy. Linear regression ($K=4$) achieves validation RMSEs of $21.59, 14.96, 17.77,$ and $10.66\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$ in the Atlantic, Indian, Pacific, and Southern Ocean, respectively. Introducing a single quadratic direction in the rank-1 model ($K=5, C=8$) reduces validation RMSE to $20.17, 14.48, 16.00,$ and $10.58\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$, delivering immediate performance gains over linear models in all basins.
+
+\input{tables/table6_model_hierarchy.tex}
+\input{tables/table5_model_comparison.tex}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig2_model_comparison.png}
+\caption{Temporal validation RMSE across the predefined model hierarchy. Parameter count ($K$) is indicated above each bar.}
+\label{fig:model_hierarchy}
+\end{figure}
+
+\subsection{Symbolic-regression candidate recurrence}
+Across the 48 PySR evolutionary searches, a total of 599 candidate expressions were retained, of which 252 entries lay on basin-specific Pareto frontiers. Structurally, 86 expressions belonged to the rank-1 quadratic family. Rank-1 candidates recurred in 24 of the 48 search cells (50.0\% cell-level recurrence), appearing in all four ocean basins.
+
+However, recurrence exhibited strong operator-space dependence (Table~\ref{tab:recurrence} and Figure~\ref{fig:recurrence}). In the Atlantic Ocean, rank-1 candidates were recovered exclusively in Search C ($+,-,\times,\div,(\cdot)^2,\sqrt{\cdot}$), where explicit squaring operators were available. In basic arithmetic (Search A) and exponential/logarithmic spaces (Search B), PySR failed to discover rank-1 quadratic expressions in the Atlantic. This confirms that symbolic recovery depends on operator space parameterization.
+
+{\small
+\input{tables/table7_recurrence.tex}
+}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig4_rank1_recurrence.png}
+\caption{Rank-1 recurrence across 48 search cells ($4\text{ basins} \times 4\text{ operator sets} \times 3\text{ random seeds}$). Green cells indicate successful recovery of rank-1 candidates.}
+\label{fig:recurrence}
+\end{figure}
+
+\subsection{Pareto frontier and accuracy/complexity tradeoff}
+Figure~\ref{fig:pareto_frontier} presents the empirical Pareto frontiers of validation RMSE versus PySR expression complexity ($C$). Higher-complexity symbolic expressions achieve the lowest raw validation RMSE in all basins (Atlantic: $19.00\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$ at $C=15$; Indian: $12.80\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$ at $C=25$; Pacific: $15.49\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$ at $C=20$; Southern Ocean: $9.99\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$ at $C=21$).
+
+However, as shown in Table~\ref{tab:pareto_summary}, these 3--12\% RMSE improvements require two- to three-fold higher expression complexity. The rank-1 quadratic ($K=5, C=8$) occupies the low-complexity portion of the Pareto frontier. Across strict 1\%, 2\%, and 5\% accuracy tolerance thresholds, rank-1 satisfies the 5\% tolerance threshold only in the Pacific Ocean, confirming that rank-1 is an efficient low-complexity approximation rather than a universal Pareto knee.
+
+\input{tables/table4_pareto_summary.tex}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig1_pareto_frontier_final.png}
+\caption{Empirical Pareto frontiers of validation RMSE versus PySR expression complexity ($C$). The rank-1 quadratic model ($C=8$) is highlighted relative to symbolic candidates and classical baseline models.}
+\label{fig:pareto_frontier}
+\end{figure}
+
+\subsection{Rank-1 versus rank-2 quadratic comparison}
+A central structural finding of this study is the comparison between rank-1 ($K=5$) and rank-2 ($K=9$) quadratic models. Adding a second quadratic direction ($z_2^2$) provides no meaningful predictive benefit:
+\begin{itemize}[nosep]
+\item \textbf{Atlantic}: Rank-2 validation RMSE increases by $+1.98\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$ ($22.16$ vs.\ $20.17$), indicating overfitting.
+\item \textbf{Indian}: Rank-2 validation RMSE increases by $+0.25\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$ ($14.74$ vs.\ $14.48$).
+\item \textbf{Pacific}: Rank-2 validation RMSE decreases marginally by $-0.29\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$ ($15.71$ vs.\ $16.00$).
+\item \textbf{Southern Ocean}: Rank-2 validation RMSE decreases negligibly by $-0.04\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$ ($10.54$ vs.\ $10.58$).
+\end{itemize}
+This result demonstrates that quadratic curvature in empirical $\tco$ predictor space is essentially one-dimensional.
+
+\subsection{Comparison with full quadratic and cubic models}
+The full quadratic model ($K=10$) fits all 10 unconstrained second-order coefficients. In the Atlantic, rank-1 ($20.17\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$) outperforms full quadratic ($23.41\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$) by $13.8\%$ due to unconstrained polynomial overfitting in data-sparse boundary regions. In the Indian, Pacific, and Southern Ocean, full quadratic improves upon rank-1 by small margins ($0.75, 0.50,$ and $0.12\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$, respectively). Cubic models ($K=20$) yield further modest reductions ($11.83, 14.24, 10.04\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$) at four times the parameter cost of rank-1.
+
+\subsection{Temporal generalization}
+Temporal out-of-sample performance was evaluated on the temporal validation set ($2015$--$2017$). The rank-1 model maintained consistent performance without temporal degradation, achieving validation $R^2$ values of $0.907$ (Atlantic), $0.985$ (Indian), $0.985$ (Pacific), and $0.968$ (Southern Ocean).
+
+\subsection{Spatial and cruise generalization}
+Table~\ref{tab:spatial_validation} reports out-of-sample performance under spatial-block ($5^\circ \times 10^\circ$) and cruise-blocked GroupKFold cross-validation on pre-2018 data. Spatial-blocked rank-1 RMSEs were $16.30\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$ (Atlantic), $16.61\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$ (Indian), $16.03\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$ (Pacific), and $9.16\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$ (Southern Ocean). Cruise-blocked rank-1 RMSEs were $16.91, 17.39, 16.03,$ and $9.22\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$.
+
+While rank-1 maintains low generalization error under blocked sampling, model rankings change across validation regimes. For example, in Atlantic spatial validation, rank-2 ($15.46\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$) and full quadratic ($15.55\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$) achieve lower RMSE than rank-1 ($16.30\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$), demonstrating that model ranking is regime-dependent.
+
+\input{tables/table8_spatial_validation.tex}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig5_generalization.png}
+\caption{Model RMSE across temporal validation, spatial-block validation, cruise-block validation, and locked external post-2018 holdout.}
+\label{fig:generalization}
+\end{figure}
+
+\subsection{External post-2018 evaluation}
+On the locked external holdout ($N=40{,}549$, years $\ge 2018$), rank-1 performance remained strong:
+\begin{itemize}[nosep]
+\item \textbf{Atlantic}: $\mathrm{RMSE} = 17.67\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}, R^2 = 0.921$;
+\item \textbf{Indian}: $\mathrm{RMSE} = 18.41\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}, R^2 = 0.968$;
+\item \textbf{Pacific}: $\mathrm{RMSE} = 13.82\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}, R^2 = 0.990$; and
+\item \textbf{Southern Ocean}: $\mathrm{RMSE} = 8.99\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}, R^2 = 0.965$.
+\end{itemize}
+These results confirm temporal robustness across multi-year shifts in observational sampling.
+
+\subsection{Depth dependence}
+Table~\ref{tab:depth_stratified} and Figure~\ref{fig:depth_stratified} present performance stratified across five depth layers. Performance varies substantially with depth: error is highest in surface waters ($0$--$100$\,m; RMSE $22.5$--$35.1\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$) driven by seasonal air--sea gas exchange and biological productivity, reaches minimal absolute error in intermediate depths ($500$--$3000$\,m), and exhibits low variance in deep waters.
+
+\input{tables/table9_depth_stratified.tex}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig5_depth_stratified.png}
+\caption{Depth-stratified RMSE ($\mu\mathrm{mol}\,\mathrm{kg}^{-1}$) for key model families across ocean depth layers.}
+\label{fig:depth_stratified}
+\end{figure}
+
+\subsection{Water-mass dependence}
+Table~\ref{tab:watermass_results} and Figure~\ref{fig:watermass} details model performance across major water mass classes in the Atlantic Ocean. While rank-1 performs accurately in North Atlantic Deep Water (NADW; RMSE $13.62\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$, bias $+0.92\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$), performance degrades in specific water masses.
+
+\input{tables/table10_watermass_results.tex}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig7_watermass_performance.png}
+\caption{Atlantic Ocean RMSE and mean bias ($\mu\mathrm{mol}\,\mathrm{kg}^{-1}$) across hydrographic water mass classes.}
+\label{fig:watermass}
+\end{figure}
+
+\subsection{Antarctic Intermediate Water (AAIW) failure regime}
+Antarctic Intermediate Water (AAIW, $N=428$ in Atlantic test subset) represents a major regional failure domain. The rank-1 model exhibits severe systematic bias ($+27.14\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$) and elevated RMSE ($28.43\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}, R^2 = -0.115$). The full quadratic model also exhibits substantial bias ($+21.13\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}, \mathrm{RMSE} = 22.33\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}, R^2 = 0.312$). This shared failure indicates that the $S$--$T$--$\aou$ predictor triplet lacks sufficient state information to capture AAIW biogeochemical properties.
+
+\subsection{Southern Ocean abyssal failure regime}
+In the Southern Ocean abyss ($>3000$\,m, $T < 1.0\,^\circ\mathrm{C}$), applying the globally fitted Southern Ocean rank-1 model results in severe performance failure ($R^2 = -0.174, \mathrm{RMSE} = 7.45\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$). However, when a rank-1 model is refit locally to abyssal observations alone, performance improves dramatically ($R^2 = 0.786, \mathrm{RMSE} = 3.18\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$). Figure~\ref{fig:southern_abyss} illustrates this contrast, establishing that the failure stems from global coefficient transfer failure across distinct circulation regimes rather than intrinsic unpredictability.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/fig8_southern_abyss.png}
+\caption{Comparison of globally fitted versus locally refit rank-1 models in the Southern Ocean abyss ($>3000$\,m), demonstrating coefficient transfer failure.}
+\label{fig:southern_abyss}
+\end{figure}
+
+\subsection{Derivative and curvature structure}
+Evaluating partial derivatives of the fitted rank-1 surface across all $472{,}530$ observations reveals that the core linear projection $z = \alpha S + \beta T + \gamma \aou_{100} + \delta$ remains positive for $100\%$ of data points in all four basins (Table~\ref{tab:derivatives} and Figure~\ref{fig:derivatives}). Consequently, derivative signs are strictly monotonic over the empirical domain:
+\begin{align}
+\frac{\partial \tco}{\partial S} > 0 \quad (100\%), \quad \frac{\partial \tco}{\partial T} < 0 \quad (100\%), \quad \frac{\partial \tco}{\partial \aou} > 0 \quad (100\%).
+\end{align}
+These signs match established oceanographic qualitative expectations (increasing $\tco$ with salinity and organic remineralization, decreasing with temperature). However, these derivatives describe empirical surface curvature and do not constitute proof of causal mechanisms.
+
+\input{tables/table13_derivatives.tex}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig_derivative_analysis.png}
+\caption{Empirical partial derivative distributions ($\partial\tco/\partial S$, $\partial\tco/\partial T$, $\partial\tco/\partial\aou$) across ocean basins for the rank-1 model.}
+\label{fig:derivatives}
+\end{figure}
+
+\subsection{Dependence-aware error comparisons}
+Table~\ref{tab:equivalence} and Table~\ref{tab:equivalence_margins} report spatial-block bootstrap equivalence testing between rank-1 and full quadratic models. In the Pacific Ocean, the 95\% dependence-aware confidence interval for paired absolute error difference is $[-0.63, -0.14]\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$. Because this interval is entirely negative, formal equivalence is rejected in the Pacific, establishing a statistically detectable performance advantage for the full quadratic model.
+
+\input{tables/table11_equivalence.tex}
+\input{tables/table12_equivalence_margins.tex}
+
+\subsection{Prediction interval performance}
+Empirical coverage of $95\%$ prediction intervals constructed via residual quantile regression achieved $94.2\%$--$95.6\%$ coverage across test splits, confirming robust residual calibration.

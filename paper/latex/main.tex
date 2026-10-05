@@ -1,0 +1,230 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{natbib}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{multirow}
+\usepackage{longtable}
+
+\geometry{margin=2.5cm}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\doublespacing
+
+\title{How Low-Dimensional Is the S--T--AOU Dependence of Ocean Total Dissolved Inorganic Carbon? A Symbolic Regression Analysis}
+\author{Anonymous manuscript}
+\date{}
+
+\newcommand{\tco}{\mathrm{TCO_2}}
+\newcommand{\aou}{\mathrm{AOU}}
+\newcommand{\umol}{\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We investigate how much of the empirical dependence of ocean total dissolved inorganic carbon (TCO$_2$) on salinity ($S$), temperature ($T$), and apparent oxygen utilisation (AOU) can be compressed into a low-dimensional nonlinear representation. We analyse 472,530 quality-controlled GLODAP v2.2023 observations from the Atlantic, Indian, Pacific, and Southern Ocean basins. Symbolic regression comprises 48 searches across four operator spaces and three random seeds, yielding 599 candidate expressions. We compare these candidates with predefined linear, rank-1 quadratic, rank-2 quadratic, full quadratic, and cubic model families.
+
+A rank-1 quadratic model with five fitted coefficients, $\tco=(\alpha S+\beta T+\gamma\aou/100+\delta)^2+\epsilon$, captures substantial predictive structure. In temporal validation its RMSE is 20.17, 14.48, 16.00, and 10.58~$\umol$ in the Atlantic, Indian, Pacific, and Southern Ocean, respectively. Rank-2 models do not provide a meaningful improvement: they are worse in the Atlantic and Indian and improve RMSE by only 0.29 and 0.04~$\umol$ in the Pacific and Southern Ocean. More flexible symbolic candidates reduce validation RMSE by approximately 3--12\% relative to rank-1, but require two- to three-fold greater PySR expression complexity. Rank-1 candidates recur in 24 of 48 basin--operator-space--seed combinations; recurrence is strongest in some operator spaces and is especially dependent on explicit squaring in the Atlantic.
+
+Temporal, spatial-blocked, cruise-blocked, and post-2018 external evaluations show that generalization depends on basin and validation regime. The rank-1 structure is therefore best interpreted as an efficient low-complexity empirical projection, not as a universally optimal equation or a physical law. AAIW and Southern Ocean abyssal regimes remain important failure domains, with Southern Ocean abyssal global-fit $R^2=-0.174$ and locally fitted $R^2=0.786$. These results support substantial but non-universal compressibility of the empirical $S$--$T$--AOU relationship.
+\end{abstract}
+
+\noindent\textbf{Keywords:} total dissolved inorganic carbon; symbolic regression; rank-1 quadratic; GLODAP; model complexity; ocean carbon
+
+\section{Introduction}
+Total dissolved inorganic carbon (TCO$_2$) is central to ocean carbon-cycle assessments and air--sea CO$_2$ exchange studies \citep{Sarmiento2006}. Empirical prediction from hydrographic and biogeochemical variables is useful for gap filling, quality control, and regional carbon analyses \citep{Takahashi1993,Key2004}. Linear and polynomial regressions are interpretable but impose restrictive functional forms, whereas flexible machine-learning methods can be difficult to interpret \citep{Goyet1991,Millero1998,Broullon2019}.
+
+Symbolic regression offers a structural search over mathematical expressions. The purpose of the present study is not to declare a new equation or a new physical law. Instead, we ask:
+\begin{quote}
+\emph{How low-dimensional is the empirical $S$--$T$--AOU dependence of ocean TCO$_2$, and how much predictive accuracy is retained as structural constraints become stronger?}
+\end{quote}
+
+The central hypothesis is that a substantial fraction of the predictive structure can be represented by a low-dimensional nonlinear projection. We test this hypothesis with predefined model families, symbolic-regression Pareto libraries, multiple operator spaces, repeated seeds, temporal validation, spatial and cruise blocking, and a locked post-2018 external holdout.
+
+\section{Data and Methods}
+\subsection{GLODAP data and quality control}
+We used GLODAP v2.2023 \citep{Lauvset2023}, extracting salinity, temperature, AOU, TCO$_2$, latitude, longitude, depth, year, region, cruise, and station. Observations were retained when all required variables were finite and $25<S<42$, $-2.5<T<35^\circ$C, $1700<\tco<2600\umol$, and $\aou>-50\umol$.
+
+\subsection{Basins and temporal split}
+The Atlantic was defined as region 1 north of $35^\circ$S, the Indian as region 16 north of $35^\circ$S, the Pacific as region 8 north of $35^\circ$S, and the Southern Ocean as latitude south of $35^\circ$S. The definitions are mutually exclusive. Training used observations before 2015, temporal validation/model selection used 2015--2017, and the locked external holdout used observations from 2018 onward. No external metric was used for candidate selection, operator selection, or manuscript conclusions.
+
+\input{../../results/tables/table1_sample_sizes.tex}
+\input{../../results/tables/table2_predictor_distributions.tex}
+
+\subsection{Model families}
+The model hierarchy was:
+\begin{enumerate}[nosep]
+\item mean baseline;
+\item linear regression, with four fitted parameters;
+\item rank-1 quadratic,
+\begin{equation}
+\tco=(\alpha S+\beta T+\gamma\aou/100+\delta)^2+\epsilon,
+\end{equation}
+with five fitted parameters and effective quadratic rank one;
+\item rank-2 quadratic, $\tco=z_1^2+z_2^2+\epsilon$, with nine fitted parameters;
+\item full second-order polynomial, with ten fitted parameters;
+\item cubic polynomial, with twenty fitted parameters; and
+\item frozen symbolic candidates selected using temporal validation only.
+\end{enumerate}
+
+PySR expression complexity is an expression-tree measure and is distinct from fitted-parameter count. For example, the rank-1 quadratic has five fitted coefficients and PySR expression complexity 8.
+
+\subsection{Symbolic regression and recurrence}
+We ran four operator spaces: Search A ($+$, $-$, $\times$, $\div$); Search B adding $\exp$ and $\log$; Search C adding square and root operators; and Search D with a broader scientifically reasonable set. Each basin--operator-space configuration was run with seeds 42, 123, and 456. All 48 searches completed successfully. The complete candidate library was retained. Candidate selection used temporal validation RMSE only. Rank-1 family classification is syntactic and therefore treated as a heuristic structural classification rather than an algebraic proof.
+
+\subsection{Blocked validation}
+To assess spatial generalization, we used GroupKFold over $5^\circ$ latitude by $10^\circ$ longitude blocks. To assess sampling-event generalization, we used cruise identifiers when available. Both analyses excluded all observations from 2018 onward. Train and validation groups were checked for disjointness, and fold-level predictions were retained. The frozen symbolic candidate was not refit or selected inside blocked folds.
+
+\subsection{Dependence-aware inference}
+Paired absolute-error differences were assessed with spatial-block bootstrap resampling. Equivalence margins were $\delta=1,2,5,$ and $10\umol$. We distinguish statistical detectability from practical magnitude and do not interpret naive observation-level TOST as evidence of dependence-aware equivalence.
+
+\subsection{Depth, water mass, and derivatives}
+Depth bins were 0--100, 100--500, 500--1000, 1000--3000, and 3000--7000~m. Threshold-based classifications were used for Surface, Thermocline, AAIW, NADW, and AABW. For $z=\alpha S+\beta T+\gamma\aou/100+\delta$, derivatives are
+\begin{align}
+\frac{\partial\tco}{\partial S}&=2\alpha z,\\
+\frac{\partial\tco}{\partial T}&=2\beta z,\\
+\frac{\partial\tco}{\partial\aou}&=\frac{2\gamma}{100}z.
+\end{align}
+These derivatives describe the fitted empirical surface; their signs do not establish causality.
+
+\input{../../results/tables/table3_pysr_configuration.tex}
+
+\section{Results}
+\subsection{Data and baseline reproduction}
+Quality control retained 472,530 observations assigned to the four basins. The baseline reproduction matched the previous analysis within rounding: temporal-validation RMSE was 20.17, 14.48, 16.00, and 10.58~$\umol$ for the rank-1 model in the Atlantic, Indian, Pacific, and Southern Ocean, respectively. The full quadratic RMSE values were 23.41, 13.73, 15.50, and 10.46~$\umol$.
+
+\subsection{Model hierarchy and rank comparison}
+Rank-1 improved on linear regression in all basins, but it was not uniformly the most accurate parametric model. It outperformed full quadratic in the Atlantic, while full quadratic was better by 0.75, 0.50, and 0.11~$\umol$ in the Indian, Pacific, and Southern Ocean, respectively. Cubic models achieved lower temporal-validation RMSE in the Indian, Pacific, and Southern Ocean, but at four times the fitted-parameter count of rank-1.
+
+\input{../../results/tables/table6_model_hierarchy.tex}
+\input{../../results/tables/table5_model_comparison.tex}
+
+\subsection{Rank-1 recurrence and operator-space dependence}
+Rank-1 candidates comprised 86 of 599 retained candidates and occurred in 24 of 48 basin--operator-space--seed cells. Thus recurrence was 50\% at the cell level, although all four basins contained at least one rank-1 candidate and every operator space produced rank-1 candidates in aggregate. In the Atlantic, rank-1 occurred only in the search space with explicit squaring. This result supports recurrence across the broader experiment but rejects operator-space invariance.
+
+{\small
+\input{../../results/tables/table7_recurrence.tex}
+}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{../../results/figures/fig4_rank1_recurrence.png}
+\caption{Rank-1 recurrence by basin, operator space, and random seed. Green cells indicate at least one rank-1 candidate in the corresponding search cell.}
+\label{fig:recurrence}
+\end{figure}
+
+\subsection{Accuracy--complexity tradeoff}
+The best symbolic candidates improved temporal-validation RMSE relative to rank-1 by approximately 5.8\% in the Atlantic, 11.6\% in the Indian, 3.2\% in the Pacific, and 5.6\% in the Southern Ocean. Their expression complexities were 15, 25, 20, and 21, respectively, compared with rank-1 complexity 8. Rank-1 therefore occupies the low-complexity portion of the frontier but is not the globally most accurate candidate or a demonstrated Pareto knee.
+
+\input{../../results/tables/table4_pareto_summary.tex}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{../../results/figures/fig1_pareto_frontier.png}
+\caption{Symbolic-regression validation RMSE versus PySR expression complexity. The rank-1 quadratic is a five-parameter model with expression complexity 8; expression complexity and fitted-parameter count are distinct.}
+\label{fig:pareto}
+\end{figure}
+
+\subsection{Temporal, spatial, cruise, and external generalization}
+Spatial- and cruise-blocked validation used only pre-2018 observations. The results show that rankings can change with the validation regime. For example, in Atlantic spatial validation, rank-2 RMSE was 15.46, full quadratic 15.55, and rank-1 16.30~$\umol$; in cruise validation, rank-2 and full quadratic were again lower than rank-1. In the Indian, Pacific, and Southern Ocean, the frozen symbolic candidates were competitive or best under several blocked regimes, but their selection remained based solely on temporal validation.
+
+{\small
+\input{../../results/tables/table8_spatial_validation.tex}
+}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{../../results/figures/fig5_generalization.png}
+\caption{Model RMSE across temporal validation, spatial-blocked validation, cruise-blocked validation, and the locked post-2018 external holdout.}
+\label{fig:generalization}
+\end{figure}
+
+The locked external holdout produced rank-1 RMSE values of 17.67, 18.41, 13.82, and 8.99~$\umol$ across the four basins. External rankings were not identical to temporal-validation rankings, reinforcing the distinction between model selection and final evaluation.
+
+\subsection{Depth and water-mass dependence}
+Depth dependence was heterogeneous and sample sizes varied across strata.
+\input{../../results/tables/table9_depth_stratified.tex}
+
+In Atlantic AAIW, rank-1 RMSE was approximately 28.4~$\umol$ with bias +27.1~$\umol$, compared with full quadratic RMSE approximately 22.3~$\umol$. This pattern is consistent with omitted state information or coefficient-transfer limitations, but does not establish a causal mechanism.
+
+\input{../../results/tables/table10_watermass_results.tex}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{../../results/figures/fig7_watermass_performance.png}
+\caption{Atlantic RMSE and bias by threshold-based water-mass class. AAIW remains a high-error regime for the rank-1 model.}
+\label{fig:watermass}
+\end{figure}
+
+\subsection{Southern Ocean abyssal failure}
+For the Southern Ocean abyss, the global rank-1 fit gave $R^2=-0.174$ and RMSE 7.45~$\umol$, whereas a local abyssal fit gave $R^2=0.786$ and RMSE 3.18~$\umol$. The contrast is consistent with domain shift or coefficient-transfer failure rather than intrinsic unpredictability, but the available analysis does not identify a unique mechanism.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../../results/figures/fig8_southern_abyss.png}
+\caption{Global versus locally fitted rank-1 performance in the Southern Ocean abyssal regime.}
+\label{fig:abyss}
+\end{figure}
+
+\subsection{Derivative structure}
+Across the observed predictor domains in all four basins, the fitted rank-1 core variable was positive for 100\% of observations. Consequently, the fitted derivatives had the expected signs: positive with salinity, negative with temperature, and positive with AOU. These are properties of the fitted empirical surface over the observed domain and should not be interpreted as causal sensitivities outside that domain.
+
+\input{../../results/tables/table13_derivatives.tex}
+
+\subsection{Dependence-aware equivalence}
+The spatial-block bootstrap showed basin-specific inference. In particular, the Pacific paired-error interval was entirely negative (approximately $[-0.63,-0.14]~\umol$ for rank-1 minus full quadratic under the stored sign convention), indicating a small but detectable disadvantage for rank-1. We therefore do not claim universal statistical equivalence.
+
+\input{../../results/tables/table11_equivalence.tex}
+\input{../../results/tables/table12_equivalence_margins.tex}
+
+\section{Discussion}
+\subsection{Evidence for low-dimensional empirical structure}
+The rank-1 model improves over linear regression in every basin and is close to the full quadratic in aggregate temporal performance despite using five fitted coefficients rather than ten. The stronger result is the rank comparison: adding a second quadratic direction produces no meaningful benefit. This supports substantial compressibility of the empirical relationship, not exact one-dimensionality in every validation regime.
+
+\subsection{Why rank-1 remains useful despite higher-accuracy models}
+Higher-complexity symbolic and polynomial models can reduce RMSE, especially in the Indian and Pacific basins. Their gains are purchased with substantially greater expression complexity and fitted-parameter count. Rank-1 is therefore useful as a compact, interpretable approximation, not because it is universally most accurate.
+
+\subsection{Operator-space dependence}
+The 50\% cell-level recurrence and Atlantic dependence on explicit squaring show that symbolic discovery is sensitive to the allowed operator space. This is a result about the interaction between data structure and search parameterization; it is not evidence that the rank-1 structure is invariant under arbitrary symbolic representations.
+
+\subsection{Domain dependence and generalization}
+The differences among temporal, spatial, cruise, and external evaluations show that predictive performance depends on sampling structure and domain. AAIW and Southern Ocean abyssal failures are therefore central results. They delimit the range over which a compact basin-level projection can be transferred.
+
+\subsection{Physical interpretation}
+The Hessian establishes rank-1 curvature in predictor space and the derivatives describe the local fitted surface. These facts do not establish a physical mixing axis, causal mechanism, or carbonate-chemistry derivation. The relation is qualitatively compatible with nonlinear carbonate buffering, but that interpretation remains post-hoc and testable rather than demonstrated.
+
+\subsection{Limitations}
+Important limitations include the restricted operator sets, heuristic equation-family classification, dependence among observations, threshold-based water-mass definitions, and the absence of a fully independent global cruise network beyond the available GLODAP cruise identifiers. The post-2018 holdout was locked for evaluation, but the 2015--2017 validation set was used for candidate selection and should not be described as an independent test set.
+
+\section{Conclusions}
+The empirical S--T--AOU dependence of ocean TCO$_2$ is substantially compressible into a low-dimensional nonlinear representation. A five-parameter rank-1 quadratic captures much of the predictive structure of more flexible models, while increasing quadratic rank from one to two provides little additional predictive benefit. However, rank-1 is not universally optimal, its recurrence depends on operator space, and its performance varies by basin, depth, water mass, and validation regime. The Southern Ocean abyss and AAIW remain important failure domains. The contribution is therefore an evidence-based characterization of empirical low-dimensionality and its limits, not a fundamental ocean-carbon law.
+
+\clearpage
+\section*{Figures}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{../../results/figures/fig1_data_overview.png}
+\caption{QC-filtered GLODAP observations by basin in temperature--salinity space, colored by TCO$_2$.}
+\label{fig:data}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{../../results/figures/fig2_model_comparison.png}
+\caption{Temporal-validation model hierarchy. Parameter counts are annotated; the rank-1 model has five fitted parameters.}
+\label{fig:hierarchy}
+\end{figure}
+
+\section*{Data and Code Availability}
+GLODAP v2.2023 is available from the Global Ocean Data Analysis Project. The analysis configuration, environment record, data checksums, generated results, and execution commands are included in this project. Redistribution of the raw GLODAP file is subject to the data provider's terms.
+
+\bibliographystyle{apalike}
+\bibliography{references}
+\end{document}

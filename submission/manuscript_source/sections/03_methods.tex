@@ -1,0 +1,44 @@
+\subsection{Model hierarchy}
+The main comparison included a basin training-mean baseline, a linear model, two rank-constrained quadratic models, a full second-order polynomial, a full cubic polynomial, and frozen symbolic candidates. The rank-1 model was
+\begin{equation}
+\tco=(\alpha S+\beta T+\gamma\aou_{100}+\delta)^2+\epsilon,
+\label{eq:rank1}
+\end{equation}
+with five fitted parameters. Its Hessian with respect to $(S,T,\aou_{100})$ is $2\mathbf{v}\mathbf{v}^{\mathsf T}$, where $\mathbf{v}=(\alpha,\beta,\gamma)^{\mathsf T}$, so the fitted model has quadratic rank one by construction.
+
+The rank-2 model was
+\begin{equation}
+\tco=z_1^2+z_2^2+\epsilon,
+\qquad z_j=a_jS+b_jT+c_j\aou_{100}+d_j,
+\label{eq:rank2}
+\end{equation}
+with nine fitted parameters. No orthogonality, normalization, or canonical ordering constraint was imposed on the two coefficient vectors. Their decomposition is therefore rotationally non-identifiable, and the resulting quadratic form has rank at most two. Comparisons with rank-1 are consequently predictive comparisons between parameterizations, not tests of uniquely interpretable latent directions.
+
+The full quadratic and cubic benchmarks contained 10 and 20 fitted coefficients, respectively. We distinguish fitted-parameter count $K$ from PySR expression complexity $C$, an expression-tree measure. The rank-1 model has $K=5$ and $C=8$. The hierarchy and temporal-validation results are summarized in Table~\ref{tab:model_performance}.
+
+\begin{table}[htbp]
+\centering
+\caption{Temporal-validation RMSE by model family. RMSE is in $\mu\mathrm{mol}\,\mathrm{kg}^{-1}$. $K$ is the fitted-parameter count; $C$ is PySR expression complexity where defined.}
+\label{tab:model_performance}
+\small
+\begin{tabular}{lrrrrrr}
+\toprule
+Model & $K$ & $C$ & Atlantic & Indian & Pacific & Southern Ocean \\
+\midrule
+Mean baseline & 1 & 1 & 66.879 & 122.473 & 131.396 & 59.190 \\
+Linear & 4 & 4 & 21.591 & 14.960 & 17.769 & 10.664 \\
+Rank-1 quadratic & 5 & 8 & 20.172 & 14.483 & 16.002 & 10.575 \\
+Rank-2 quadratic & 9 & 16 & 22.155 & 14.737 & 15.712 & 10.540 \\
+Full quadratic & 10 & 20 & 23.406 & 13.729 & 15.504 & 10.461 \\
+Cubic & 20 & 30 & 22.598 & 11.827 & 14.244 & 10.042 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Symbolic regression}
+Symbolic regression used PySR with four operator spaces, three seeds (42, 123, and 456), and one search for each basin--operator--seed combination, for 48 completed searches. The completed runs used 20 populations, population size 40, 50 iterations, maximum expression size 25, deterministic serial execution, and at most 30,000 training observations per run. Candidates were generated from training data, evaluated on the 2015--2017 validation set, and selected by validation RMSE, with complexity used to break ties. The post-2018 holdout remained locked.
+
+The resulting library contains 599 raw, non-deduplicated candidate rows. A heuristic syntax-based classifier identified 86 rows as rank-1 quadratic candidates; this is a recurrence diagnostic, not a count of unique algebraic expressions. Pareto frontiers were computed from validation RMSE and expression complexity. Operator spaces differed in their ability to recover the rank-1 form, so recurrence is reported by search cell rather than treated as operator-invariant.
+
+\subsection{Blocked validation and regional diagnostics}
+Spatial generalization was evaluated with GroupKFold over $5^{\circ}$ latitude by $10^{\circ}$ longitude blocks, and sampling-event generalization with GroupKFold over available cruise identifiers. Both procedures used pre-2018 observations and maintained group disjointness between training and held-out folds. We also evaluated depth bins and threshold-based Atlantic water-mass classes. These classes are simplified screening categories rather than definitive hydrographic identifications. Finally, we compared the globally fitted Southern Ocean rank-1 model with a local refit for abyssal observations below 3000 m and colder than $1\,^{\circ}\mathrm{C}$.

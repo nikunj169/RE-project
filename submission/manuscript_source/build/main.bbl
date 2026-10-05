@@ -1,0 +1,50 @@
+\begin{thebibliography}{}
+
+\bibitem[Broull\'{o}n et~al., 2019]{Broullon2019}
+Broull\'{o}n, D. et~al. (2019).
+\newblock A global monthly climatology of total ocean dissolved inorganic
+  carbon: A neural network approach.
+\newblock {\em Earth System Science Data}, 11:1429--1447.
+
+\bibitem[Cranmer, 2023]{Cranmer2023}
+Cranmer, M. (2023).
+\newblock Interpretable machine learning for science with {PySR} and
+  {SymbolicRegression.jl}.
+\newblock {\em arXiv preprint arXiv:2305.01582}.
+
+\bibitem[Goyet and Davis, 1991]{Goyet1991}
+Goyet, C. and Davis, D. (1991).
+\newblock Estimation of total {CO$_2$} concentration throughout the water
+  column.
+\newblock {\em Deep Sea Research Part A}, 38:871--886.
+
+\bibitem[Key et~al., 2004]{Key2004}
+Key, R.~M. et~al. (2004).
+\newblock A global ocean carbon climatology: Results from {Global Data Analysis
+  Project (GLODAP)}.
+\newblock {\em Global Biogeochemical Cycles}, 18.
+
+\bibitem[Lauvset et~al., 2023]{Lauvset2023}
+Lauvset, S.~K. et~al. (2023).
+\newblock {GLODAP} v2.2023: the second update of the global ocean data analysis
+  product.
+\newblock {\em Earth System Science Data}, 15:3661--3685.
+
+\bibitem[Millero, 1998]{Millero1998}
+Millero, F.~J. (1998).
+\newblock Partitioning of {CO$_2$} in the ocean.
+\newblock {\em Marine Chemistry}, 62:31--47.
+
+\bibitem[Sarmiento and Gruber, 2006]{Sarmiento2006}
+Sarmiento, J.~L. and Gruber, N. (2006).
+\newblock {\em Ocean Biogeochemical Dynamics}.
+\newblock Princeton University Press.
+
+\bibitem[Takahashi et~al., 1993]{Takahashi1993}
+Takahashi, T. et~al. (1993).
+\newblock Global air-sea flux of {CO$_2$}: An estimate based on measurements of
+  sea-air {pCO$_2$} difference.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  90:11655--11659.
+
+\end{thebibliography}

@@ -1,0 +1,20 @@
+\begin{table}[htbp]
+\centering
+\caption{Rank-1 residual quantile prediction intervals (2.5th--97.5th percentiles of training residuals) evaluated on temporal validation and the locked external holdout. This is a nonparametric residual interval, not a model of observation dependence.}
+\label{tab:pi}
+\small
+\begin{tabular}{llrrrr}
+\toprule
+Basin & Split & $N$ & Interval width & Empirical coverage (\%) \\
+\midrule
+Atlantic & validation & 11,436 & 54.34 & 87.1 \\
+Atlantic & external & 10,250 & 54.34 & 90.0 \\
+Indian & validation & 3,764 & 62.68 & 96.7 \\
+Indian & external & 4,129 & 62.68 & 92.9 \\
+Pacific & validation & 31,791 & 65.77 & 95.7 \\
+Pacific & external & 17,450 & 65.77 & 97.5 \\
+Southern Ocean & validation & 6,483 & 36.48 & 91.2 \\
+Southern Ocean & external & 8,720 & 36.48 & 93.8 \\
+\bottomrule
+\end{tabular}
+\end{table}

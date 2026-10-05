@@ -1,0 +1,40 @@
+\clearpage
+\appendix
+\section*{Supplementary Material}
+
+\subsection*{Supplementary Table S1: Basin-Specific Rank-1 Coefficients}
+Table~\ref{tab:rank1_coefficients} provides the five fitted numerical coefficients ($\alpha, \beta, \gamma, \delta, \epsilon$) for the rank-1 quadratic model:
+\begin{equation}
+\tco = \left( \alpha S + \beta T + \gamma \frac{\aou}{100} + \delta \right)^2 + \epsilon,
+\end{equation}
+fitted on training observations ($<2015$) for each ocean basin.
+
+\begin{table}[htbp]
+\caption{Fitted rank-1 quadratic coefficients across ocean basins.}
+\label{tab:rank1_coefficients}
+\centering
+\begin{tabular}{lrrrrr}
+\toprule
+Basin & $\alpha$ ($S$) & $\beta$ ($T$) & $\gamma$ ($\aou_{100}$) & $\delta$ (const) & $\epsilon$ (offset) \\
+\midrule
+Atlantic & 1.4855 & -0.2377 & 2.2196 & -36.6107 & 1923.4537 \\
+Indian & 0.5010 & -0.1696 & 1.2878 & 9.9550 & 1435.8891 \\
+Pacific & 1.1594 & -0.2696 & 1.7755 & -20.1526 & 1790.2828 \\
+Southern Ocean & 0.7289 & -0.2307 & 1.6378 & -6.2013 & 1811.1494 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{Supplementary Methods: PySR Evolutionary Algorithm Details}
+Symbolic regression searches were executed using PySR version 0.16+ driven by Julia 1.9+. Parameter settings for each search cell were as follows:
+\begin{itemize}[nosep]
+\item \texttt{niterations}: 100
+\item \texttt{populations}: 33
+\item \texttt{population\_size}: 500
+\item \texttt{maxsize}: 30
+\item \texttt{binary\_operators}: Space-dependent ($\{+,-,*,\slash\}$ for Search A/B; with square/root for Search C/D)
+\item \texttt{unary\_operators}: Space-dependent ($\{\exp,\log\}$ for Search B; square/root for Search C; broad set for Search D)
+\item \texttt{elementwise\_loss}: \texttt{L2DistLoss()}
+\end{itemize}
+
+Candidate selection from the 599-expression candidate library was performed using temporal validation set RMSE ($2015$--$2017$) alone. No post-2018 external holdout observations were used during expression extraction, filtering, or model selection.

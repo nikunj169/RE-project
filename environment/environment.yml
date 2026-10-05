@@ -1,0 +1,23 @@
+name: revised_tco2
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python>=3.11,<3.14
+  - numpy>=1.24
+  - pandas>=2.0
+  - scipy>=1.10
+  - scikit-learn>=1.2
+  - matplotlib>=3.7
+  - seaborn>=0.12
+  - gsw>=3.6
+  - h5py>=3.8
+  - pyyaml>=6.0
+  - joblib>=1.3
+  - pip
+  - pip:
+    - pysr>=1.0
+    - sympy>=1.12
+    - xarray>=2023.1
+    - pytest>=7.0
+    - pytest-cov>=4.0

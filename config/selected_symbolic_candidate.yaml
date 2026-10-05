@@ -1,0 +1,57 @@
+selection_data_external_excluded: true
+external_start_year: 2018
+candidates:
+- basin: Atlantic
+  candidate_id: Atlantic|SearchC_sqrt_square|456|9
+  search_space: SearchC_sqrt_square
+  seed: 456
+  candidate_idx: 9
+  equation: (((sal + sal) * (aou100 + 11.69944495709961)) + 3837.461568330087) - ((tmp
+    * 4.910491180939108) + 2507.3692229564926)
+  sympy_format: (aou100 + 11.69944495709961)*(sal + sal) - (tmp*4.910491180939108
+    + 2507.3692229564926) + 3837.461568330087
+  complexity: 15
+  selection_rule: minimum temporal validation RMSE; ties by complexity then identifiers
+  selection_data: year 2015-2017 validation only
+  external_holdout_locked: true
+- basin: Indian
+  candidate_id: Indian|SearchB_explog|456|16
+  search_space: SearchB_explog
+  seed: 456
+  candidate_idx: 16
+  equation: ((sal * (((aou100 * aou100) / (exp(0.6026579176631501) + tmp)) + 24.64908191370035))
+    + (((tmp * -8.161975873295532) + 1319.5815776236552) + (aou100 * 58.19297855390591)))
+    + exp(aou100)
+  sympy_format: aou100*58.19297855390591 + sal*(aou100*aou100/(tmp + exp(0.6026579176631501))
+    + 24.64908191370035) + tmp*(-8.161975873295532) + exp(aou100) + 1319.5815776236552
+  complexity: 25
+  selection_rule: minimum temporal validation RMSE; ties by complexity then identifiers
+  selection_data: year 2015-2017 validation only
+  external_holdout_locked: true
+- basin: Pacific
+  candidate_id: Pacific|SearchB_explog|123|12
+  search_space: SearchB_explog
+  seed: 123
+  candidate_idx: 12
+  equation: ((((aou100 * 81.4786767777088) + sal) + 606.3908260321563) * exp(tmp /
+    -60.103345290836984)) - ((-4.4416349688936885 - (sal * 0.6289512874704254)) *
+    58.86194927899649)
+  sympy_format: -58.86194927899649*(-0.6289512874704254*sal - 4.4416349688936885)
+    + (aou100*81.4786767777088 + sal + 606.3908260321563)*exp(tmp/(-60.103345290836984))
+  complexity: 20
+  selection_rule: minimum temporal validation RMSE; ties by complexity then identifiers
+  selection_data: year 2015-2017 validation only
+  external_holdout_locked: true
+- basin: Southern Ocean
+  candidate_id: Southern Ocean|SearchA_basic|42|9
+  search_space: SearchA_basic
+  seed: 42
+  candidate_idx: 9
+  equation: (((sal * 30.141567366126722) - (tmp * (aou100 - (sal * -0.2348267227312138))))
+    + 1131.423744123369) + (((aou100 * aou100) - -63.207385887273475) * aou100)
+  sympy_format: aou100*(aou100*aou100 - 1*(-63.207385887273475)) + sal*30.141567366126722
+    - tmp*(aou100 - (-0.2348267227312138)*sal) + 1131.423744123369
+  complexity: 21
+  selection_rule: minimum temporal validation RMSE; ties by complexity then identifiers
+  selection_data: year 2015-2017 validation only
+  external_holdout_locked: true

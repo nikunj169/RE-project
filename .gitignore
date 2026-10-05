@@ -12,6 +12,25 @@ venv/
 *.mat
 *.npz
 *.csv.gz
+data/
+results/processed/spatial_cruise_validation_predictions.csv
+*.csv
+
+# Exceptions for small reference/metadata CSVs if needed
+!final_latex/**/*.csv
+!paper_final/**/*.csv
+!config/**/*.csv
+
+# IDE and tool caches
+.commandcode/
+.kilo/
+.pytest_cache/
+*.png
+!paper_final/**/*.png
+!final_latex/**/*.png
+!paper/**/*.png
+!submission/**/*.png
+
 
 # OS files
 .DS_Store

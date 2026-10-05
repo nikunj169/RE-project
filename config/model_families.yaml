@@ -1,0 +1,76 @@
+# Model family definitions for the systematic comparison
+# Each model is defined by its functional form and parameter count
+
+model_families:
+
+  Model0_mean:
+    name: "Baseline Mean"
+    description: "Predict training-set mean TCO2"
+    parameter_count: 1
+    effective_rank: 0
+    complexity: 1
+    category: "baseline"
+
+  Model1_linear:
+    name: "Linear Regression"
+    description: "TCO2 = b0 + b1*S + b2*T + b3*A"
+    parameter_count: 4
+    effective_rank: 0  # linear, no quadratic
+    complexity: 4
+    category: "linear"
+
+  Model2_rank1_quad:
+    name: "Rank-1 Quadratic"
+    description: "TCO2 = (alpha*S + beta*T + gamma*A + delta)^2 + epsilon"
+    parameter_count: 5
+    effective_rank: 1
+    complexity: 8  # 5 params + squared structure
+    category: "quadratic"
+    note: "Old discovered structure"
+
+  Model3_rank2_quad:
+    name: "Rank-2 Quadratic"
+    description: "TCO2 = z1^2 + z2^2 + epsilon, where z_i are linear in S,T,A"
+    parameter_count: 9  # 2*(3 coefficients + 1 intercept) + 1 epsilon
+    effective_rank: 2
+    complexity: 16
+    category: "quadratic"
+    note: "Requires careful parameterization for identifiability"
+
+  Model4_full_quad:
+    name: "Full Second-Order Polynomial"
+    description: "TCO2 = b0 + b1*S + b2*T + b3*A + b4*S^2 + b5*T^2 + b6*A^2 + b7*ST + b8*SA + b9*TA"
+    parameter_count: 10
+    effective_rank: 3  # full rank quadratic
+    complexity: 20
+    category: "polynomial"
+
+  Model5_cubic:
+    name: "Cubic Polynomial"
+    description: "Full cubic extension with cross-terms"
+    parameter_count: 19  # 1 + 3 + 6 + 10 terms (including pure cubic)
+    effective_rank: null
+    complexity: 30
+    category: "polynomial"
+
+  Model6_symbolic:
+    name: "Symbolic Regression Candidates"
+    description: "Pareto-optimal expressions from PySR search"
+    parameter_count: null  # varies by candidate
+    effective_rank: null
+    complexity: null  # varies by candidate
+    category: "symbolic"
+
+# Equivalence margins for comparison
+equivalence_margins: [1.0, 2.0, 5.0, 10.0]  # μmol/kg
+
+# Metrics to compute for each model
+metrics:
+  - RMSE
+  - MAE
+  - R2
+  - Bias
+  - NRMSE
+  - Within_10  # fraction within ±10 μmol/kg
+  - Within_20
+  - Within_30

@@ -1,0 +1,623 @@
+2026-09-10 15:12:40,982 INFO ======================================================================
+2026-09-10 15:12:40,983 INFO COMPLETE SYMBOLIC REGRESSION EXPERIMENT
+2026-09-10 15:12:40,983 INFO ======================================================================
+2026-09-10 15:12:41,521 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:41,523 INFO Starting: Atlantic | SearchA_basic | seed=42
+2026-09-10 15:12:41,528 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:41,529 INFO Running PySR with seed=42, operators=['+', '-', '*', '/']
+2026-09-10 15:12:41,857 ERROR   FAILED: Atlantic/SearchA_basic/seed=42: Variable name S is already a function name.
+2026-09-10 15:12:41,857 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:41,857 INFO Starting: Atlantic | SearchA_basic | seed=123
+2026-09-10 15:12:41,864 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:41,865 INFO Running PySR with seed=123, operators=['+', '-', '*', '/']
+2026-09-10 15:12:41,868 ERROR   FAILED: Atlantic/SearchA_basic/seed=123: Variable name S is already a function name.
+2026-09-10 15:12:41,868 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:41,868 INFO Starting: Atlantic | SearchA_basic | seed=456
+2026-09-10 15:12:41,872 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:41,872 INFO Running PySR with seed=456, operators=['+', '-', '*', '/']
+2026-09-10 15:12:41,873 ERROR   FAILED: Atlantic/SearchA_basic/seed=456: Variable name S is already a function name.
+2026-09-10 15:12:41,873 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:41,873 INFO Starting: Atlantic | SearchB_explog | seed=42
+2026-09-10 15:12:41,875 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:41,876 INFO Running PySR with seed=42, operators=['+', '-', '*', '/', 'exp', 'log']
+2026-09-10 15:12:41,877 ERROR   FAILED: Atlantic/SearchB_explog/seed=42: Variable name S is already a function name.
+2026-09-10 15:12:41,878 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:41,878 INFO Starting: Atlantic | SearchB_explog | seed=123
+2026-09-10 15:12:41,884 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:41,884 INFO Running PySR with seed=123, operators=['+', '-', '*', '/', 'exp', 'log']
+2026-09-10 15:12:41,885 ERROR   FAILED: Atlantic/SearchB_explog/seed=123: Variable name S is already a function name.
+2026-09-10 15:12:41,885 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:41,885 INFO Starting: Atlantic | SearchB_explog | seed=456
+2026-09-10 15:12:41,888 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:41,889 INFO Running PySR with seed=456, operators=['+', '-', '*', '/', 'exp', 'log']
+2026-09-10 15:12:41,890 ERROR   FAILED: Atlantic/SearchB_explog/seed=456: Variable name S is already a function name.
+2026-09-10 15:12:41,890 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:41,890 INFO Starting: Atlantic | SearchC_sqrt_square | seed=42
+2026-09-10 15:12:41,893 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:41,893 INFO Running PySR with seed=42, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log']
+2026-09-10 15:12:41,894 ERROR   FAILED: Atlantic/SearchC_sqrt_square/seed=42: Variable name S is already a function name.
+2026-09-10 15:12:41,894 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:41,894 INFO Starting: Atlantic | SearchC_sqrt_square | seed=123
+2026-09-10 15:12:41,896 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:41,896 INFO Running PySR with seed=123, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log']
+2026-09-10 15:12:41,897 ERROR   FAILED: Atlantic/SearchC_sqrt_square/seed=123: Variable name S is already a function name.
+2026-09-10 15:12:41,897 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:41,897 INFO Starting: Atlantic | SearchC_sqrt_square | seed=456
+2026-09-10 15:12:41,900 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:41,901 INFO Running PySR with seed=456, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log']
+2026-09-10 15:12:41,902 ERROR   FAILED: Atlantic/SearchC_sqrt_square/seed=456: Variable name S is already a function name.
+2026-09-10 15:12:41,902 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:41,902 INFO Starting: Atlantic | SearchD_broad | seed=42
+2026-09-10 15:12:41,906 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:41,906 INFO Running PySR with seed=42, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log', 'abs', 'cube', 'cbrt']
+2026-09-10 15:12:41,907 ERROR   FAILED: Atlantic/SearchD_broad/seed=42: Variable name S is already a function name.
+2026-09-10 15:12:41,907 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:41,907 INFO Starting: Atlantic | SearchD_broad | seed=123
+2026-09-10 15:12:41,909 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:41,909 INFO Running PySR with seed=123, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log', 'abs', 'cube', 'cbrt']
+2026-09-10 15:12:41,910 ERROR   FAILED: Atlantic/SearchD_broad/seed=123: Variable name S is already a function name.
+2026-09-10 15:12:41,910 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:41,910 INFO Starting: Atlantic | SearchD_broad | seed=456
+2026-09-10 15:12:41,912 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:41,912 INFO Running PySR with seed=456, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log', 'abs', 'cube', 'cbrt']
+2026-09-10 15:12:41,913 ERROR   FAILED: Atlantic/SearchD_broad/seed=456: Variable name S is already a function name.
+2026-09-10 15:12:41,944 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:41,944 INFO Starting: Indian | SearchA_basic | seed=42
+2026-09-10 15:12:41,946 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:41,946 INFO Running PySR with seed=42, operators=['+', '-', '*', '/']
+2026-09-10 15:12:41,947 ERROR   FAILED: Indian/SearchA_basic/seed=42: Variable name S is already a function name.
+2026-09-10 15:12:41,947 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:41,947 INFO Starting: Indian | SearchA_basic | seed=123
+2026-09-10 15:12:41,948 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:41,948 INFO Running PySR with seed=123, operators=['+', '-', '*', '/']
+2026-09-10 15:12:41,949 ERROR   FAILED: Indian/SearchA_basic/seed=123: Variable name S is already a function name.
+2026-09-10 15:12:41,949 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:41,949 INFO Starting: Indian | SearchA_basic | seed=456
+2026-09-10 15:12:41,950 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:41,950 INFO Running PySR with seed=456, operators=['+', '-', '*', '/']
+2026-09-10 15:12:41,951 ERROR   FAILED: Indian/SearchA_basic/seed=456: Variable name S is already a function name.
+2026-09-10 15:12:41,952 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:41,952 INFO Starting: Indian | SearchB_explog | seed=42
+2026-09-10 15:12:41,953 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:41,953 INFO Running PySR with seed=42, operators=['+', '-', '*', '/', 'exp', 'log']
+2026-09-10 15:12:41,955 ERROR   FAILED: Indian/SearchB_explog/seed=42: Variable name S is already a function name.
+2026-09-10 15:12:41,955 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:41,955 INFO Starting: Indian | SearchB_explog | seed=123
+2026-09-10 15:12:41,956 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:41,957 INFO Running PySR with seed=123, operators=['+', '-', '*', '/', 'exp', 'log']
+2026-09-10 15:12:41,958 ERROR   FAILED: Indian/SearchB_explog/seed=123: Variable name S is already a function name.
+2026-09-10 15:12:41,958 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:41,958 INFO Starting: Indian | SearchB_explog | seed=456
+2026-09-10 15:12:41,959 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:41,959 INFO Running PySR with seed=456, operators=['+', '-', '*', '/', 'exp', 'log']
+2026-09-10 15:12:41,960 ERROR   FAILED: Indian/SearchB_explog/seed=456: Variable name S is already a function name.
+2026-09-10 15:12:41,960 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:41,960 INFO Starting: Indian | SearchC_sqrt_square | seed=42
+2026-09-10 15:12:41,961 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:41,961 INFO Running PySR with seed=42, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log']
+2026-09-10 15:12:41,962 ERROR   FAILED: Indian/SearchC_sqrt_square/seed=42: Variable name S is already a function name.
+2026-09-10 15:12:41,963 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:41,963 INFO Starting: Indian | SearchC_sqrt_square | seed=123
+2026-09-10 15:12:41,965 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:41,965 INFO Running PySR with seed=123, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log']
+2026-09-10 15:12:41,966 ERROR   FAILED: Indian/SearchC_sqrt_square/seed=123: Variable name S is already a function name.
+2026-09-10 15:12:41,966 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:41,966 INFO Starting: Indian | SearchC_sqrt_square | seed=456
+2026-09-10 15:12:41,968 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:41,968 INFO Running PySR with seed=456, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log']
+2026-09-10 15:12:41,969 ERROR   FAILED: Indian/SearchC_sqrt_square/seed=456: Variable name S is already a function name.
+2026-09-10 15:12:41,969 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:41,969 INFO Starting: Indian | SearchD_broad | seed=42
+2026-09-10 15:12:41,969 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:41,969 INFO Running PySR with seed=42, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log', 'abs', 'cube', 'cbrt']
+2026-09-10 15:12:41,970 ERROR   FAILED: Indian/SearchD_broad/seed=42: Variable name S is already a function name.
+2026-09-10 15:12:41,970 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:41,970 INFO Starting: Indian | SearchD_broad | seed=123
+2026-09-10 15:12:41,971 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:41,972 INFO Running PySR with seed=123, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log', 'abs', 'cube', 'cbrt']
+2026-09-10 15:12:41,973 ERROR   FAILED: Indian/SearchD_broad/seed=123: Variable name S is already a function name.
+2026-09-10 15:12:41,973 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:41,973 INFO Starting: Indian | SearchD_broad | seed=456
+2026-09-10 15:12:41,973 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:41,974 INFO Running PySR with seed=456, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log', 'abs', 'cube', 'cbrt']
+2026-09-10 15:12:41,974 ERROR   FAILED: Indian/SearchD_broad/seed=456: Variable name S is already a function name.
+2026-09-10 15:12:42,014 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:42,014 INFO Starting: Pacific | SearchA_basic | seed=42
+2026-09-10 15:12:42,017 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:42,017 INFO Running PySR with seed=42, operators=['+', '-', '*', '/']
+2026-09-10 15:12:42,018 ERROR   FAILED: Pacific/SearchA_basic/seed=42: Variable name S is already a function name.
+2026-09-10 15:12:42,018 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:42,018 INFO Starting: Pacific | SearchA_basic | seed=123
+2026-09-10 15:12:42,020 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:42,020 INFO Running PySR with seed=123, operators=['+', '-', '*', '/']
+2026-09-10 15:12:42,021 ERROR   FAILED: Pacific/SearchA_basic/seed=123: Variable name S is already a function name.
+2026-09-10 15:12:42,021 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:42,021 INFO Starting: Pacific | SearchA_basic | seed=456
+2026-09-10 15:12:42,023 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:42,023 INFO Running PySR with seed=456, operators=['+', '-', '*', '/']
+2026-09-10 15:12:42,024 ERROR   FAILED: Pacific/SearchA_basic/seed=456: Variable name S is already a function name.
+2026-09-10 15:12:42,024 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:42,024 INFO Starting: Pacific | SearchB_explog | seed=42
+2026-09-10 15:12:42,027 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:42,027 INFO Running PySR with seed=42, operators=['+', '-', '*', '/', 'exp', 'log']
+2026-09-10 15:12:42,028 ERROR   FAILED: Pacific/SearchB_explog/seed=42: Variable name S is already a function name.
+2026-09-10 15:12:42,028 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:42,028 INFO Starting: Pacific | SearchB_explog | seed=123
+2026-09-10 15:12:42,032 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:42,033 INFO Running PySR with seed=123, operators=['+', '-', '*', '/', 'exp', 'log']
+2026-09-10 15:12:42,033 ERROR   FAILED: Pacific/SearchB_explog/seed=123: Variable name S is already a function name.
+2026-09-10 15:12:42,033 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:42,033 INFO Starting: Pacific | SearchB_explog | seed=456
+2026-09-10 15:12:42,036 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:42,036 INFO Running PySR with seed=456, operators=['+', '-', '*', '/', 'exp', 'log']
+2026-09-10 15:12:42,037 ERROR   FAILED: Pacific/SearchB_explog/seed=456: Variable name S is already a function name.
+2026-09-10 15:12:42,037 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:42,037 INFO Starting: Pacific | SearchC_sqrt_square | seed=42
+2026-09-10 15:12:42,039 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:42,039 INFO Running PySR with seed=42, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log']
+2026-09-10 15:12:42,040 ERROR   FAILED: Pacific/SearchC_sqrt_square/seed=42: Variable name S is already a function name.
+2026-09-10 15:12:42,040 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:42,040 INFO Starting: Pacific | SearchC_sqrt_square | seed=123
+2026-09-10 15:12:42,042 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:42,042 INFO Running PySR with seed=123, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log']
+2026-09-10 15:12:42,043 ERROR   FAILED: Pacific/SearchC_sqrt_square/seed=123: Variable name S is already a function name.
+2026-09-10 15:12:42,043 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:42,043 INFO Starting: Pacific | SearchC_sqrt_square | seed=456
+2026-09-10 15:12:42,045 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:42,046 INFO Running PySR with seed=456, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log']
+2026-09-10 15:12:42,046 ERROR   FAILED: Pacific/SearchC_sqrt_square/seed=456: Variable name S is already a function name.
+2026-09-10 15:12:42,046 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:42,046 INFO Starting: Pacific | SearchD_broad | seed=42
+2026-09-10 15:12:42,049 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:42,049 INFO Running PySR with seed=42, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log', 'abs', 'cube', 'cbrt']
+2026-09-10 15:12:42,050 ERROR   FAILED: Pacific/SearchD_broad/seed=42: Variable name S is already a function name.
+2026-09-10 15:12:42,050 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:42,050 INFO Starting: Pacific | SearchD_broad | seed=123
+2026-09-10 15:12:42,052 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:42,052 INFO Running PySR with seed=123, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log', 'abs', 'cube', 'cbrt']
+2026-09-10 15:12:42,053 ERROR   FAILED: Pacific/SearchD_broad/seed=123: Variable name S is already a function name.
+2026-09-10 15:12:42,053 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:42,053 INFO Starting: Pacific | SearchD_broad | seed=456
+2026-09-10 15:12:42,056 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:42,056 INFO Running PySR with seed=456, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log', 'abs', 'cube', 'cbrt']
+2026-09-10 15:12:42,057 ERROR   FAILED: Pacific/SearchD_broad/seed=456: Variable name S is already a function name.
+2026-09-10 15:12:42,091 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:42,091 INFO Starting: Southern Ocean | SearchA_basic | seed=42
+2026-09-10 15:12:42,095 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:42,096 INFO Running PySR with seed=42, operators=['+', '-', '*', '/']
+2026-09-10 15:12:42,097 ERROR   FAILED: Southern Ocean/SearchA_basic/seed=42: Variable name S is already a function name.
+2026-09-10 15:12:42,097 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:42,097 INFO Starting: Southern Ocean | SearchA_basic | seed=123
+2026-09-10 15:12:42,098 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:42,099 INFO Running PySR with seed=123, operators=['+', '-', '*', '/']
+2026-09-10 15:12:42,100 ERROR   FAILED: Southern Ocean/SearchA_basic/seed=123: Variable name S is already a function name.
+2026-09-10 15:12:42,100 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:42,100 INFO Starting: Southern Ocean | SearchA_basic | seed=456
+2026-09-10 15:12:42,103 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:42,104 INFO Running PySR with seed=456, operators=['+', '-', '*', '/']
+2026-09-10 15:12:42,105 ERROR   FAILED: Southern Ocean/SearchA_basic/seed=456: Variable name S is already a function name.
+2026-09-10 15:12:42,105 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:42,105 INFO Starting: Southern Ocean | SearchB_explog | seed=42
+2026-09-10 15:12:42,106 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:42,107 INFO Running PySR with seed=42, operators=['+', '-', '*', '/', 'exp', 'log']
+2026-09-10 15:12:42,108 ERROR   FAILED: Southern Ocean/SearchB_explog/seed=42: Variable name S is already a function name.
+2026-09-10 15:12:42,108 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:42,108 INFO Starting: Southern Ocean | SearchB_explog | seed=123
+2026-09-10 15:12:42,112 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:42,112 INFO Running PySR with seed=123, operators=['+', '-', '*', '/', 'exp', 'log']
+2026-09-10 15:12:42,113 ERROR   FAILED: Southern Ocean/SearchB_explog/seed=123: Variable name S is already a function name.
+2026-09-10 15:12:42,113 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:42,113 INFO Starting: Southern Ocean | SearchB_explog | seed=456
+2026-09-10 15:12:42,116 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:42,116 INFO Running PySR with seed=456, operators=['+', '-', '*', '/', 'exp', 'log']
+2026-09-10 15:12:42,117 ERROR   FAILED: Southern Ocean/SearchB_explog/seed=456: Variable name S is already a function name.
+2026-09-10 15:12:42,117 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:42,117 INFO Starting: Southern Ocean | SearchC_sqrt_square | seed=42
+2026-09-10 15:12:42,119 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:42,119 INFO Running PySR with seed=42, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log']
+2026-09-10 15:12:42,120 ERROR   FAILED: Southern Ocean/SearchC_sqrt_square/seed=42: Variable name S is already a function name.
+2026-09-10 15:12:42,120 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:42,120 INFO Starting: Southern Ocean | SearchC_sqrt_square | seed=123
+2026-09-10 15:12:42,122 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:42,122 INFO Running PySR with seed=123, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log']
+2026-09-10 15:12:42,123 ERROR   FAILED: Southern Ocean/SearchC_sqrt_square/seed=123: Variable name S is already a function name.
+2026-09-10 15:12:42,123 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:42,123 INFO Starting: Southern Ocean | SearchC_sqrt_square | seed=456
+2026-09-10 15:12:42,124 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:42,125 INFO Running PySR with seed=456, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log']
+2026-09-10 15:12:42,126 ERROR   FAILED: Southern Ocean/SearchC_sqrt_square/seed=456: Variable name S is already a function name.
+2026-09-10 15:12:42,126 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:42,127 INFO Starting: Southern Ocean | SearchD_broad | seed=42
+2026-09-10 15:12:42,131 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:42,132 INFO Running PySR with seed=42, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log', 'abs', 'cube', 'cbrt']
+2026-09-10 15:12:42,133 ERROR   FAILED: Southern Ocean/SearchD_broad/seed=42: Variable name S is already a function name.
+2026-09-10 15:12:42,133 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:42,133 INFO Starting: Southern Ocean | SearchD_broad | seed=123
+2026-09-10 15:12:42,136 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:42,137 INFO Running PySR with seed=123, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log', 'abs', 'cube', 'cbrt']
+2026-09-10 15:12:42,138 ERROR   FAILED: Southern Ocean/SearchD_broad/seed=123: Variable name S is already a function name.
+2026-09-10 15:12:42,138 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:12:42,138 INFO Starting: Southern Ocean | SearchD_broad | seed=456
+2026-09-10 15:12:42,143 INFO Subsampled to 30000 training observations
+2026-09-10 15:12:42,143 INFO Running PySR with seed=456, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log', 'abs', 'cube', 'cbrt']
+2026-09-10 15:12:42,144 ERROR   FAILED: Southern Ocean/SearchD_broad/seed=456: Variable name S is already a function name.
+2026-09-10 15:12:42,144 INFO 
+======================================================================
+2026-09-10 15:12:42,144 INFO Saving results...
+2026-09-10 15:12:42,150 INFO 
+======================================================================
+2026-09-10 15:12:42,150 INFO SYMBOLIC REGRESSION EXPERIMENT COMPLETE
+2026-09-10 15:12:42,150 INFO   Total candidates: 0
+2026-09-10 15:12:42,150 INFO   Successful runs: 0
+2026-09-10 15:12:42,150 INFO   Failed runs: 48
+2026-09-10 15:12:42,150 INFO ======================================================================
+2026-09-10 15:13:39,828 INFO ======================================================================
+2026-09-10 15:13:39,828 INFO COMPLETE SYMBOLIC REGRESSION EXPERIMENT
+2026-09-10 15:13:39,828 INFO ======================================================================
+2026-09-10 15:13:40,274 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:13:40,274 INFO Starting: Atlantic | SearchA_basic | seed=42
+2026-09-10 15:13:40,277 INFO Subsampled to 30000 training observations
+2026-09-10 15:13:40,277 INFO Running PySR with seed=42, operators=['+', '-', '*', '/']
+2026-09-10 15:14:58,971 INFO   Atlantic/SearchA_basic/seed=42: 12 candidates in 79s
+2026-09-10 15:14:58,973 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:14:58,973 INFO Starting: Atlantic | SearchA_basic | seed=123
+2026-09-10 15:14:58,982 INFO Subsampled to 30000 training observations
+2026-09-10 15:14:58,982 INFO Running PySR with seed=123, operators=['+', '-', '*', '/']
+2026-09-10 15:15:51,882 INFO   Atlantic/SearchA_basic/seed=123: 12 candidates in 53s
+2026-09-10 15:15:51,885 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:15:51,885 INFO Starting: Atlantic | SearchA_basic | seed=456
+2026-09-10 15:15:51,897 INFO Subsampled to 30000 training observations
+2026-09-10 15:15:51,898 INFO Running PySR with seed=456, operators=['+', '-', '*', '/']
+2026-09-10 15:16:51,008 INFO   Atlantic/SearchA_basic/seed=456: 9 candidates in 59s
+2026-09-10 15:16:51,012 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:16:51,012 INFO Starting: Atlantic | SearchB_explog | seed=42
+2026-09-10 15:16:51,026 INFO Subsampled to 30000 training observations
+2026-09-10 15:16:51,027 INFO Running PySR with seed=42, operators=['+', '-', '*', '/', 'exp', 'log']
+2026-09-10 15:18:07,905 INFO   Atlantic/SearchB_explog/seed=42: 9 candidates in 77s
+2026-09-10 15:18:07,907 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:18:07,907 INFO Starting: Atlantic | SearchB_explog | seed=123
+2026-09-10 15:18:07,912 INFO Subsampled to 30000 training observations
+2026-09-10 15:18:07,912 INFO Running PySR with seed=123, operators=['+', '-', '*', '/', 'exp', 'log']
+2026-09-10 15:19:27,323 INFO   Atlantic/SearchB_explog/seed=123: 10 candidates in 79s
+2026-09-10 15:19:27,325 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:19:27,325 INFO Starting: Atlantic | SearchB_explog | seed=456
+2026-09-10 15:19:27,332 INFO Subsampled to 30000 training observations
+2026-09-10 15:19:27,333 INFO Running PySR with seed=456, operators=['+', '-', '*', '/', 'exp', 'log']
+2026-09-10 15:20:34,609 INFO   Atlantic/SearchB_explog/seed=456: 10 candidates in 67s
+2026-09-10 15:20:34,610 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:20:34,610 INFO Starting: Atlantic | SearchC_sqrt_square | seed=42
+2026-09-10 15:20:34,617 INFO Subsampled to 30000 training observations
+2026-09-10 15:20:34,618 INFO Running PySR with seed=42, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log']
+2026-09-10 15:21:25,788 INFO   Atlantic/SearchC_sqrt_square/seed=42: 13 candidates in 51s
+2026-09-10 15:21:25,789 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:21:25,789 INFO Starting: Atlantic | SearchC_sqrt_square | seed=123
+2026-09-10 15:21:25,793 INFO Subsampled to 30000 training observations
+2026-09-10 15:21:25,793 INFO Running PySR with seed=123, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log']
+2026-09-10 15:22:19,475 INFO   Atlantic/SearchC_sqrt_square/seed=123: 13 candidates in 54s
+2026-09-10 15:22:19,476 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:22:19,476 INFO Starting: Atlantic | SearchC_sqrt_square | seed=456
+2026-09-10 15:22:19,481 INFO Subsampled to 30000 training observations
+2026-09-10 15:22:19,482 INFO Running PySR with seed=456, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log']
+2026-09-10 15:23:31,336 INFO   Atlantic/SearchC_sqrt_square/seed=456: 13 candidates in 72s
+2026-09-10 15:23:31,338 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:23:31,338 INFO Starting: Atlantic | SearchD_broad | seed=42
+2026-09-10 15:23:31,350 INFO Subsampled to 30000 training observations
+2026-09-10 15:23:31,351 INFO Running PySR with seed=42, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log', 'abs', 'cube', 'cbrt']
+2026-09-10 15:25:12,760 INFO   Atlantic/SearchD_broad/seed=42: 16 candidates in 101s
+2026-09-10 15:25:12,764 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:25:12,765 INFO Starting: Atlantic | SearchD_broad | seed=123
+2026-09-10 15:25:12,782 INFO Subsampled to 30000 training observations
+2026-09-10 15:25:12,783 INFO Running PySR with seed=123, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log', 'abs', 'cube', 'cbrt']
+2026-09-10 15:26:14,288 INFO   Atlantic/SearchD_broad/seed=123: 11 candidates in 61s
+2026-09-10 15:26:14,292 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:26:14,292 INFO Starting: Atlantic | SearchD_broad | seed=456
+2026-09-10 15:26:14,298 INFO Subsampled to 30000 training observations
+2026-09-10 15:26:14,299 INFO Running PySR with seed=456, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log', 'abs', 'cube', 'cbrt']
+2026-09-10 15:27:17,999 INFO   Atlantic/SearchD_broad/seed=456: 16 candidates in 64s
+2026-09-10 15:27:18,123 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:27:18,124 INFO Starting: Indian | SearchA_basic | seed=42
+2026-09-10 15:27:18,127 INFO Subsampled to 30000 training observations
+2026-09-10 15:27:18,128 INFO Running PySR with seed=42, operators=['+', '-', '*', '/']
+2026-09-10 15:28:15,066 INFO   Indian/SearchA_basic/seed=42: 11 candidates in 57s
+2026-09-10 15:28:15,068 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:28:15,068 INFO Starting: Indian | SearchA_basic | seed=123
+2026-09-10 15:28:15,076 INFO Subsampled to 30000 training observations
+2026-09-10 15:28:15,078 INFO Running PySR with seed=123, operators=['+', '-', '*', '/']
+2026-09-10 15:29:13,419 INFO   Indian/SearchA_basic/seed=123: 11 candidates in 58s
+2026-09-10 15:29:13,420 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:29:13,420 INFO Starting: Indian | SearchA_basic | seed=456
+2026-09-10 15:29:13,424 INFO Subsampled to 30000 training observations
+2026-09-10 15:29:13,424 INFO Running PySR with seed=456, operators=['+', '-', '*', '/']
+2026-09-10 15:29:56,974 INFO   Indian/SearchA_basic/seed=456: 12 candidates in 44s
+2026-09-10 15:29:56,978 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:29:56,978 INFO Starting: Indian | SearchB_explog | seed=42
+2026-09-10 15:29:56,980 INFO Subsampled to 30000 training observations
+2026-09-10 15:29:56,980 INFO Running PySR with seed=42, operators=['+', '-', '*', '/', 'exp', 'log']
+2026-09-10 15:31:11,554 INFO   Indian/SearchB_explog/seed=42: 11 candidates in 75s
+2026-09-10 15:31:11,556 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:31:11,556 INFO Starting: Indian | SearchB_explog | seed=123
+2026-09-10 15:31:11,558 INFO Subsampled to 30000 training observations
+2026-09-10 15:31:11,559 INFO Running PySR with seed=123, operators=['+', '-', '*', '/', 'exp', 'log']
+2026-09-10 15:32:21,826 INFO   Indian/SearchB_explog/seed=123: 15 candidates in 70s
+2026-09-10 15:32:21,829 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:32:21,829 INFO Starting: Indian | SearchB_explog | seed=456
+2026-09-10 15:32:21,835 INFO Subsampled to 30000 training observations
+2026-09-10 15:32:21,835 INFO Running PySR with seed=456, operators=['+', '-', '*', '/', 'exp', 'log']
+2026-09-10 15:33:25,231 INFO   Indian/SearchB_explog/seed=456: 17 candidates in 63s
+2026-09-10 15:33:25,236 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:33:25,236 INFO Starting: Indian | SearchC_sqrt_square | seed=42
+2026-09-10 15:33:25,241 INFO Subsampled to 30000 training observations
+2026-09-10 15:33:25,242 INFO Running PySR with seed=42, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log']
+2026-09-10 15:34:13,231 INFO   Indian/SearchC_sqrt_square/seed=42: 13 candidates in 48s
+2026-09-10 15:34:13,234 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:34:13,235 INFO Starting: Indian | SearchC_sqrt_square | seed=123
+2026-09-10 15:34:13,247 INFO Subsampled to 30000 training observations
+2026-09-10 15:34:13,247 INFO Running PySR with seed=123, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log']
+2026-09-10 15:34:59,151 INFO   Indian/SearchC_sqrt_square/seed=123: 12 candidates in 46s
+2026-09-10 15:34:59,152 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:34:59,152 INFO Starting: Indian | SearchC_sqrt_square | seed=456
+2026-09-10 15:34:59,159 INFO Subsampled to 30000 training observations
+2026-09-10 15:34:59,160 INFO Running PySR with seed=456, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log']
+2026-09-10 15:35:46,101 INFO   Indian/SearchC_sqrt_square/seed=456: 10 candidates in 47s
+2026-09-10 15:35:46,102 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:35:46,103 INFO Starting: Indian | SearchD_broad | seed=42
+2026-09-10 15:35:46,104 INFO Subsampled to 30000 training observations
+2026-09-10 15:35:46,104 INFO Running PySR with seed=42, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log', 'abs', 'cube', 'cbrt']
+2026-09-10 15:36:34,628 INFO   Indian/SearchD_broad/seed=42: 14 candidates in 48s
+2026-09-10 15:36:34,630 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:36:34,630 INFO Starting: Indian | SearchD_broad | seed=123
+2026-09-10 15:36:34,631 INFO Subsampled to 30000 training observations
+2026-09-10 15:36:34,632 INFO Running PySR with seed=123, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log', 'abs', 'cube', 'cbrt']
+2026-09-10 15:37:19,669 INFO   Indian/SearchD_broad/seed=123: 15 candidates in 45s
+2026-09-10 15:37:19,670 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:37:19,670 INFO Starting: Indian | SearchD_broad | seed=456
+2026-09-10 15:37:19,675 INFO Subsampled to 30000 training observations
+2026-09-10 15:37:19,675 INFO Running PySR with seed=456, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log', 'abs', 'cube', 'cbrt']
+2026-09-10 15:38:22,602 INFO   Indian/SearchD_broad/seed=456: 11 candidates in 63s
+2026-09-10 15:38:22,786 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:38:22,786 INFO Starting: Pacific | SearchA_basic | seed=42
+2026-09-10 15:38:22,794 INFO Subsampled to 30000 training observations
+2026-09-10 15:38:22,795 INFO Running PySR with seed=42, operators=['+', '-', '*', '/']
+2026-09-10 15:39:00,062 INFO   Pacific/SearchA_basic/seed=42: 11 candidates in 37s
+2026-09-10 15:39:00,064 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:39:00,064 INFO Starting: Pacific | SearchA_basic | seed=123
+2026-09-10 15:39:00,067 INFO Subsampled to 30000 training observations
+2026-09-10 15:39:00,068 INFO Running PySR with seed=123, operators=['+', '-', '*', '/']
+2026-09-10 15:39:39,896 INFO   Pacific/SearchA_basic/seed=123: 12 candidates in 40s
+2026-09-10 15:39:39,898 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:39:39,898 INFO Starting: Pacific | SearchA_basic | seed=456
+2026-09-10 15:39:39,903 INFO Subsampled to 30000 training observations
+2026-09-10 15:39:39,903 INFO Running PySR with seed=456, operators=['+', '-', '*', '/']
+2026-09-10 15:40:21,369 INFO   Pacific/SearchA_basic/seed=456: 13 candidates in 41s
+2026-09-10 15:40:21,371 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:40:21,372 INFO Starting: Pacific | SearchB_explog | seed=42
+2026-09-10 15:40:21,377 INFO Subsampled to 30000 training observations
+2026-09-10 15:40:21,377 INFO Running PySR with seed=42, operators=['+', '-', '*', '/', 'exp', 'log']
+2026-09-10 15:41:22,484 INFO   Pacific/SearchB_explog/seed=42: 13 candidates in 61s
+2026-09-10 15:41:22,485 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:41:22,485 INFO Starting: Pacific | SearchB_explog | seed=123
+2026-09-10 15:41:22,489 INFO Subsampled to 30000 training observations
+2026-09-10 15:41:22,489 INFO Running PySR with seed=123, operators=['+', '-', '*', '/', 'exp', 'log']
+2026-09-10 15:42:12,650 INFO   Pacific/SearchB_explog/seed=123: 14 candidates in 50s
+2026-09-10 15:42:12,652 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:42:12,652 INFO Starting: Pacific | SearchB_explog | seed=456
+2026-09-10 15:42:12,657 INFO Subsampled to 30000 training observations
+2026-09-10 15:42:12,657 INFO Running PySR with seed=456, operators=['+', '-', '*', '/', 'exp', 'log']
+2026-09-10 15:43:10,401 INFO   Pacific/SearchB_explog/seed=456: 11 candidates in 58s
+2026-09-10 15:43:10,403 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:43:10,403 INFO Starting: Pacific | SearchC_sqrt_square | seed=42
+2026-09-10 15:43:10,407 INFO Subsampled to 30000 training observations
+2026-09-10 15:43:10,407 INFO Running PySR with seed=42, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log']
+2026-09-10 15:44:00,038 INFO   Pacific/SearchC_sqrt_square/seed=42: 17 candidates in 50s
+2026-09-10 15:44:00,040 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:44:00,040 INFO Starting: Pacific | SearchC_sqrt_square | seed=123
+2026-09-10 15:44:00,049 INFO Subsampled to 30000 training observations
+2026-09-10 15:44:00,051 INFO Running PySR with seed=123, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log']
+2026-09-10 15:44:47,217 INFO   Pacific/SearchC_sqrt_square/seed=123: 11 candidates in 47s
+2026-09-10 15:44:47,219 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:44:47,219 INFO Starting: Pacific | SearchC_sqrt_square | seed=456
+2026-09-10 15:44:47,223 INFO Subsampled to 30000 training observations
+2026-09-10 15:44:47,224 INFO Running PySR with seed=456, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log']
+2026-09-10 15:45:35,134 INFO   Pacific/SearchC_sqrt_square/seed=456: 13 candidates in 48s
+2026-09-10 15:45:35,136 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:45:35,137 INFO Starting: Pacific | SearchD_broad | seed=42
+2026-09-10 15:45:35,142 INFO Subsampled to 30000 training observations
+2026-09-10 15:45:35,142 INFO Running PySR with seed=42, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log', 'abs', 'cube', 'cbrt']
+2026-09-10 15:46:17,174 INFO   Pacific/SearchD_broad/seed=42: 13 candidates in 42s
+2026-09-10 15:46:17,175 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:46:17,175 INFO Starting: Pacific | SearchD_broad | seed=123
+2026-09-10 15:46:17,179 INFO Subsampled to 30000 training observations
+2026-09-10 15:46:17,180 INFO Running PySR with seed=123, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log', 'abs', 'cube', 'cbrt']
+2026-09-10 15:47:03,572 INFO   Pacific/SearchD_broad/seed=123: 16 candidates in 46s
+2026-09-10 15:47:03,575 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:47:03,575 INFO Starting: Pacific | SearchD_broad | seed=456
+2026-09-10 15:47:03,581 INFO Subsampled to 30000 training observations
+2026-09-10 15:47:03,581 INFO Running PySR with seed=456, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log', 'abs', 'cube', 'cbrt']
+2026-09-10 15:47:48,393 INFO   Pacific/SearchD_broad/seed=456: 14 candidates in 45s
+2026-09-10 15:47:48,535 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:47:48,535 INFO Starting: Southern Ocean | SearchA_basic | seed=42
+2026-09-10 15:47:48,537 INFO Subsampled to 30000 training observations
+2026-09-10 15:47:48,537 INFO Running PySR with seed=42, operators=['+', '-', '*', '/']
+2026-09-10 15:48:28,927 INFO   Southern Ocean/SearchA_basic/seed=42: 11 candidates in 40s
+2026-09-10 15:48:28,929 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:48:28,929 INFO Starting: Southern Ocean | SearchA_basic | seed=123
+2026-09-10 15:48:28,935 INFO Subsampled to 30000 training observations
+2026-09-10 15:48:28,936 INFO Running PySR with seed=123, operators=['+', '-', '*', '/']
+2026-09-10 15:49:06,107 INFO   Southern Ocean/SearchA_basic/seed=123: 10 candidates in 37s
+2026-09-10 15:49:06,108 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:49:06,108 INFO Starting: Southern Ocean | SearchA_basic | seed=456
+2026-09-10 15:49:06,116 INFO Subsampled to 30000 training observations
+2026-09-10 15:49:06,116 INFO Running PySR with seed=456, operators=['+', '-', '*', '/']
+2026-09-10 15:49:48,882 INFO   Southern Ocean/SearchA_basic/seed=456: 9 candidates in 43s
+2026-09-10 15:49:48,884 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:49:48,884 INFO Starting: Southern Ocean | SearchB_explog | seed=42
+2026-09-10 15:49:48,888 INFO Subsampled to 30000 training observations
+2026-09-10 15:49:48,889 INFO Running PySR with seed=42, operators=['+', '-', '*', '/', 'exp', 'log']
+2026-09-10 15:50:49,443 INFO   Southern Ocean/SearchB_explog/seed=42: 13 candidates in 61s
+2026-09-10 15:50:49,444 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:50:49,444 INFO Starting: Southern Ocean | SearchB_explog | seed=123
+2026-09-10 15:50:49,448 INFO Subsampled to 30000 training observations
+2026-09-10 15:50:49,448 INFO Running PySR with seed=123, operators=['+', '-', '*', '/', 'exp', 'log']
+2026-09-10 15:51:50,607 INFO   Southern Ocean/SearchB_explog/seed=123: 11 candidates in 61s
+2026-09-10 15:51:50,608 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:51:50,609 INFO Starting: Southern Ocean | SearchB_explog | seed=456
+2026-09-10 15:51:50,619 INFO Subsampled to 30000 training observations
+2026-09-10 15:51:50,621 INFO Running PySR with seed=456, operators=['+', '-', '*', '/', 'exp', 'log']
+2026-09-10 15:52:53,378 INFO   Southern Ocean/SearchB_explog/seed=456: 13 candidates in 63s
+2026-09-10 15:52:53,380 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:52:53,380 INFO Starting: Southern Ocean | SearchC_sqrt_square | seed=42
+2026-09-10 15:52:53,388 INFO Subsampled to 30000 training observations
+2026-09-10 15:52:53,388 INFO Running PySR with seed=42, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log']
+2026-09-10 15:53:57,826 INFO   Southern Ocean/SearchC_sqrt_square/seed=42: 13 candidates in 64s
+2026-09-10 15:53:57,828 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:53:57,828 INFO Starting: Southern Ocean | SearchC_sqrt_square | seed=123
+2026-09-10 15:53:57,833 INFO Subsampled to 30000 training observations
+2026-09-10 15:53:57,833 INFO Running PySR with seed=123, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log']
+2026-09-10 15:54:56,438 INFO   Southern Ocean/SearchC_sqrt_square/seed=123: 11 candidates in 59s
+2026-09-10 15:54:56,440 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:54:56,440 INFO Starting: Southern Ocean | SearchC_sqrt_square | seed=456
+2026-09-10 15:54:56,446 INFO Subsampled to 30000 training observations
+2026-09-10 15:54:56,447 INFO Running PySR with seed=456, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log']
+2026-09-10 15:55:46,677 INFO   Southern Ocean/SearchC_sqrt_square/seed=456: 14 candidates in 50s
+2026-09-10 15:55:46,683 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:55:46,683 INFO Starting: Southern Ocean | SearchD_broad | seed=42
+2026-09-10 15:55:46,690 INFO Subsampled to 30000 training observations
+2026-09-10 15:55:46,691 INFO Running PySR with seed=42, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log', 'abs', 'cube', 'cbrt']
+2026-09-10 15:56:46,560 INFO   Southern Ocean/SearchD_broad/seed=42: 11 candidates in 60s
+2026-09-10 15:56:46,561 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:56:46,562 INFO Starting: Southern Ocean | SearchD_broad | seed=123
+2026-09-10 15:56:46,566 INFO Subsampled to 30000 training observations
+2026-09-10 15:56:46,566 INFO Running PySR with seed=123, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log', 'abs', 'cube', 'cbrt']
+2026-09-10 15:57:43,371 INFO   Southern Ocean/SearchD_broad/seed=123: 13 candidates in 57s
+2026-09-10 15:57:43,373 INFO 
+────────────────────────────────────────────────────────────
+2026-09-10 15:57:43,374 INFO Starting: Southern Ocean | SearchD_broad | seed=456
+2026-09-10 15:57:43,385 INFO Subsampled to 30000 training observations
+2026-09-10 15:57:43,386 INFO Running PySR with seed=456, operators=['+', '-', '*', '/', 'sqrt', 'square', 'exp', 'log', 'abs', 'cube', 'cbrt']
+2026-09-10 15:58:47,426 INFO   Southern Ocean/SearchD_broad/seed=456: 16 candidates in 64s
+2026-09-10 15:58:47,429 INFO 
+======================================================================
+2026-09-10 15:58:47,429 INFO Saving results...
+2026-09-10 15:58:47,472 INFO   Saved 599 total candidates to /Users/nikunjmahajan/Desktop/RE/revised_symbolic_tco2/results/raw/symbolic_regression/symbolic_candidates_all.csv
+2026-09-10 15:58:47,518 INFO Computing Pareto frontiers...
+2026-09-10 15:58:47,526 INFO Pareto frontier: 15 / 33 candidates
+2026-09-10 15:58:47,532 INFO Pareto frontier: 11 / 29 candidates
+2026-09-10 15:58:47,536 INFO Pareto frontier: 13 / 39 candidates
+2026-09-10 15:58:47,539 INFO Pareto frontier: 17 / 43 candidates
+2026-09-10 15:58:47,542 INFO Pareto frontier: 10 / 34 candidates
+2026-09-10 15:58:47,545 INFO Pareto frontier: 18 / 43 candidates
+2026-09-10 15:58:47,548 INFO Pareto frontier: 19 / 35 candidates
+2026-09-10 15:58:47,551 INFO Pareto frontier: 11 / 40 candidates
+2026-09-10 15:58:47,554 INFO Pareto frontier: 15 / 36 candidates
+2026-09-10 15:58:47,556 INFO Pareto frontier: 22 / 38 candidates
+2026-09-10 15:58:47,559 INFO Pareto frontier: 20 / 41 candidates
+2026-09-10 15:58:47,562 INFO Pareto frontier: 22 / 43 candidates
+2026-09-10 15:58:47,565 INFO Pareto frontier: 15 / 30 candidates
+2026-09-10 15:58:47,569 INFO Pareto frontier: 15 / 37 candidates
+2026-09-10 15:58:47,572 INFO Pareto frontier: 14 / 38 candidates
+2026-09-10 15:58:47,576 INFO Pareto frontier: 15 / 40 candidates
+2026-09-10 15:58:47,582 INFO   Saved Pareto frontiers: 252 entries
+2026-09-10 15:58:47,583 INFO Computing equation family frequencies...
+2026-09-10 15:58:47,635 INFO   Saved equation family frequencies
+2026-09-10 15:58:47,644 INFO 
+======================================================================
+2026-09-10 15:58:47,644 INFO SYMBOLIC REGRESSION EXPERIMENT COMPLETE
+2026-09-10 15:58:47,644 INFO   Total candidates: 599
+2026-09-10 15:58:47,644 INFO   Successful runs: 48
+2026-09-10 15:58:47,645 INFO   Failed runs: 0
+2026-09-10 15:58:47,645 INFO ======================================================================

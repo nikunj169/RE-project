@@ -1,0 +1,16 @@
+\section{Conclusions}
+This study evaluated the empirical low-dimensionality of ocean total dissolved inorganic carbon ($\tco$) as a function of salinity ($S$), temperature ($T$), and apparent oxygen utilisation ($\aou$) across $472{,}530$ quality-controlled GLODAP v2.2023 observations. By systematically comparing a 599-expression symbolic regression candidate library against a rigorous model hierarchy across four ocean basins, we draw the following conclusions:
+
+\begin{enumerate}[label=\arabic*.]
+\item \textbf{Substantial Empirical Compressibility}: The empirical $S$--$T$--$\aou$ dependence of ocean $\tco$ is substantially compressible into a low-dimensional nonlinear representation. A five-parameter rank-1 quadratic model,
+\begin{equation*}
+\tco = \left(\alpha S + \beta T + \gamma \frac{\aou}{100} + \delta\right)^2 + \epsilon,
+\end{equation*}
+captures much of the predictive structure of unconstrained quadratic and polynomial models.
+\item \textbf{One-Dimensional Quadratic Curvature}: Increasing the quadratic rank from one to two provides no meaningful predictive benefit ($\Delta\mathrm{RMSE} = +1.98, +0.25, -0.29, -0.04\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$), establishing that quadratic curvature in predictor space is effectively one-dimensional.
+\item \textbf{Accuracy versus Complexity Tradeoff}: Higher-complexity symbolic expressions achieve 3--12\% lower RMSE, but require two- to three-fold higher PySR expression complexity. The rank-1 quadratic functions as an efficient, low-complexity empirical approximation rather than a universally optimal equation.
+\item \textbf{Operator-Space Sensitivity}: Symbolic recovery depends on operator space configuration. While rank-1 candidates recurred in 24 of 48 search cells across all four basins, Atlantic recovery required explicit squaring operators.
+\item \textbf{Domain and Water-Mass Boundaries}: Generalization is bounded by oceanographic regime. Antarctic Intermediate Water (AAIW; RMSE $28.43\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$, bias $+27.14\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$) and the Southern Ocean abyss ($>3000$\,m; global fit $R^2 = -0.174$ vs.\ local fit $R^2 = 0.786$) represent key failure domains where global basin models cannot be naively transferred.
+\end{enumerate}
+
+In summary, the rank-1 quadratic model provides an interpretable, parameter-efficient representation for empirical ocean carbon parameterizations. However, its application must be contextualized by operator choice, geographic basin, depth layer, and hydrographic water-mass boundaries rather than interpreted as a fundamental physical law.

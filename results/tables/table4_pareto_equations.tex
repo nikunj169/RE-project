@@ -1,0 +1,264 @@
+\begin{table}
+\caption{Pareto-optimal symbolic-regression candidates.}
+\label{tab:pareto_equations}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrrrr}
+\toprule
+pareto\_basin & pareto\_search & seed & complexity & RMSE\_val & MAE\_val & R2\_val & family & equation \\
+\midrule
+Atlantic & SearchA\_basic & 42 & 1 & 66.858 & 49.974 & -0.017 & constant & 2152.4483653700686 \\
+Atlantic & SearchA\_basic & 123 & 1 & 66.802 & 50.074 & -0.015 & constant & 2152.0028468545293 \\
+Atlantic & SearchB\_explog & 42 & 1 & 66.859 & 49.972 & -0.017 & constant & 2152.4566089161726 \\
+Atlantic & SearchB\_explog & 123 & 1 & 66.805 & 50.069 & -0.015 & constant & 2152.0229918011596 \\
+Atlantic & SearchC\_sqrt\_square & 42 & 1 & 66.861 & 49.968 & -0.017 & constant & 2152.4726663386673 \\
+Atlantic & SearchC\_sqrt\_square & 123 & 1 & 66.804 & 50.070 & -0.015 & constant & 2152.021520000061 \\
+Atlantic & SearchD\_broad & 42 & 1 & 66.861 & 49.968 & -0.017 & constant & 2152.4737855791273 \\
+Atlantic & SearchD\_broad & 123 & 1 & 66.803 & 50.072 & -0.015 & constant & 2152.012738543408 \\
+Atlantic & SearchA\_basic & 42 & 3 & 61.924 & 45.283 & 0.128 & constant & 2160.6363404581016 - tmp \\
+Atlantic & SearchA\_basic & 123 & 3 & 61.890 & 45.351 & 0.129 & constant & 2160.3313677046926 - tmp \\
+Atlantic & SearchB\_explog & 42 & 3 & 61.932 & 45.267 & 0.128 & constant & 2160.70777875071 - tmp \\
+Atlantic & SearchC\_sqrt\_square & 42 & 3 & 61.901 & 45.329 & 0.128 & constant & 2160.429767649538 - tmp \\
+Atlantic & SearchD\_broad & 42 & 3 & 61.955 & 45.224 & 0.127 & constant & 2160.904191828163 - tmp \\
+Atlantic & SearchD\_broad & 123 & 3 & 61.889 & 45.354 & 0.129 & constant & 2160.3203438145333 - tmp \\
+Atlantic & SearchC\_sqrt\_square & 42 & 4 & 41.196 & 30.447 & 0.614 & constant & square(aou100 + 45.80190959939799) \\
+Atlantic & SearchC\_sqrt\_square & 123 & 4 & 41.185 & 30.447 & 0.614 & constant & square(-45.801276297187044 - aou100) \\
+Atlantic & SearchD\_broad & 123 & 4 & 61.879 & 45.334 & 0.129 & constant & 2160.3203438145333 - abs(tmp) \\
+Atlantic & SearchA\_basic & 42 & 5 & 41.442 & 30.179 & 0.609 & constant & 2103.0346062516974 - (aou100 * -83.66499917339515) \\
+Atlantic & SearchB\_explog & 42 & 5 & 41.316 & 30.175 & 0.612 & constant & (aou100 * 85.82591528210386) + 2101.9444215718886 \\
+Atlantic & SearchD\_broad & 456 & 5 & 41.622 & 30.186 & 0.606 & constant & 2104.178116046034 - (aou100 * -82.03092215168255) \\
+Atlantic & SearchD\_broad & 123 & 5 & 41.616 & 30.182 & 0.606 & constant & (aou100 * 82.29079517740225) + 2104.1204702342675 \\
+Atlantic & SearchD\_broad & 42 & 5 & 41.509 & 30.175 & 0.608 & constant & (aou100 * 83.52659875063519) + 2103.4034476137044 \\
+Atlantic & SearchB\_explog & 42 & 6 & 36.108 & 24.640 & 0.703 & constant & 2252.0844772641885 - exp(5.0810930889260915 - aou100) \\
+Atlantic & SearchB\_explog & 123 & 6 & 35.932 & 24.593 & 0.706 & constant & (-162.7910189689642 / exp(aou100)) + 2252.7747649018843 \\
+Atlantic & SearchC\_sqrt\_square & 456 & 6 & 38.255 & 25.457 & 0.667 & constant & 2250.3467914612525 - exp(5.004983909737426 - aou100) \\
+Atlantic & SearchC\_sqrt\_square & 42 & 6 & 36.723 & 27.188 & 0.693 & constant & square(aou100 + 45.80190959939799) - tmp \\
+Atlantic & SearchC\_sqrt\_square & 123 & 6 & 36.023 & 24.605 & 0.705 & constant & 2253.403598654374 - exp(5.0923559131407625 - aou100) \\
+Atlantic & SearchD\_broad & 42 & 6 & 36.542 & 24.555 & 0.696 & constant & cbrt(aou100 * 899021.3996739452) + 2085.4131502436194 \\
+Atlantic & SearchA\_basic & 42 & 7 & 37.552 & 25.387 & 0.679 & constant & (2114.84556958552 - (aou100 * -78.52162266020827)) - tmp \\
+Atlantic & SearchA\_basic & 456 & 7 & 37.460 & 25.397 & 0.681 & constant & (2114.367145731081 - (aou100 / -0.012808639292935268)) - tmp \\
+Atlantic & SearchA\_basic & 123 & 7 & 37.457 & 25.393 & 0.681 & constant & (aou100 * 78.7893121711236) + (2114.295859932233 - tmp) \\
+Atlantic & SearchB\_explog & 42 & 8 & 32.910 & 21.141 & 0.754 & constant & (2254.996471986057 - tmp) - exp(5.029891021224454 - aou100) \\
+Atlantic & SearchC\_sqrt\_square & 123 & 8 & 33.065 & 21.165 & 0.751 & constant & (2254.06446249038 - tmp) - exp(5.016613361538504 - aou100) \\
+Atlantic & SearchD\_broad & 456 & 8 & 34.828 & 23.007 & 0.724 & constant & (cube(aou100 - 5.929029248484393) - tmp) + 2315.8536368477126 \\
+Atlantic & SearchA\_basic & 456 & 9 & 34.774 & 21.827 & 0.725 & constant & ((2125.4305470796116 - tmp) - (aou100 / -0.013602727770910298)) - tmp \\
+Atlantic & SearchD\_broad & 456 & 9 & 33.888 & 20.230 & 0.739 & constant & ((aou100 * 66.54228290591568) + 2141.9576701496076) - (tmp * 3.4587340032211684) \\
+Atlantic & SearchB\_explog & 123 & 10 & 31.834 & 19.011 & 0.770 & constant & 2256.0203103810445 - (((52.84278326545515 / exp(aou100)) + tmp) * 2.4902394491177877) \\
+Atlantic & SearchC\_sqrt\_square & 123 & 10 & 31.716 & 19.256 & 0.771 & constant & (2253.0933860882424 - exp(4.921252628429372 - aou100)) - (tmp + tmp) \\
+Atlantic & SearchD\_broad & 456 & 10 & 33.838 & 20.018 & 0.740 & constant & ((aou100 * 66.65436505955813) - -2141.389313595243) - abs(tmp * 3.3415866566375767) \\
+Atlantic & SearchD\_broad & 42 & 10 & 33.690 & 20.148 & 0.742 & constant & ((aou100 * 67.9831215954305) + 2139.7870360488473) - abs(tmp * 3.292394783538947) \\
+Atlantic & SearchA\_basic & 123 & 11 & 28.620 & 19.094 & 0.814 & constant & ((((sal + aou100) / 0.16060327951861392) - tmp) - -73.16013948367784) / 0.1337064585753823 \\
+Atlantic & SearchA\_basic & 456 & 11 & 28.305 & 19.052 & 0.818 & constant & (tmp - ((aou100 - (-12.450460758569136 - sal)) * 6.169340310057207)) / -0.13446919527624243 \\
+Atlantic & SearchC\_sqrt\_square & 123 & 11 & 25.812 & 17.269 & 0.848 & constant & (((aou100 + sal) * 44.47128897618676) - (tmp * 7.205289771874676)) + 622.7200907383714 \\
+Atlantic & SearchD\_broad & 123 & 11 & 29.383 & 19.606 & 0.804 & constant & (((aou100 + 11.33993429717238) + sal) - (tmp * 0.16214241628140094)) * 46.99172586751171 \\
+Atlantic & SearchB\_explog & 456 & 12 & 21.543 & 15.186 & 0.894 & constant & log(sal) * (((aou100 + 600.9018810137317) - tmp) - (aou100 * -19.00384064892896)) \\
+Atlantic & SearchD\_broad & 42 & 12 & 21.931 & 15.275 & 0.891 & constant & ((aou100 - 6.395891975487947) * (tmp + sal)) - (sqrt(sal) * -405.69933793080685) \\
+Atlantic & SearchA\_basic & 123 & 13 & 25.549 & 16.633 & 0.852 & constant & (((aou100 / 0.0949806405311872) + ((sal / 0.15353395434431205) - tmp)) - -100.6095353999976) / 0.15218147936498508 \\
+Atlantic & SearchA\_basic & 42 & 13 & 22.684 & 15.164 & 0.883 & constant & (((aou100 * 65.64116480576868) + 827.0898430394084) - (tmp * 6.193131755496527)) + (sal * 37.991123077801525) \\
+Atlantic & SearchC\_sqrt\_square & 123 & 13 & 21.021 & 14.300 & 0.899 & constant & ((((aou100 * 1.8910636857460514) + 34.8345337959278) * sal) - (tmp * 5.921472486000751)) + 935.9334401299369 \\
+Atlantic & SearchD\_broad & 123 & 13 & 21.529 & 14.557 & 0.895 & constant & (((aou100 * 65.43706605177603) + (sal * 36.19529076263461)) + 888.2285746198964) - (tmp * 5.949714401485337) \\
+Atlantic & SearchD\_broad & 456 & 13 & 19.041 & 13.167 & 0.918 & constant & (((sal * 27.882756178116036) + (aou100 * 65.81431297354338)) + 1178.2545512759) - (tmp * 5.503241265793456) \\
+Atlantic & SearchB\_explog & 456 & 14 & 19.353 & 13.899 & 0.915 & constant & (log(sal) * (1085.675428909554 - (tmp - (aou100 * 19.724479482267938)))) + (-1716.6926099530576 - tmp) \\
+Atlantic & SearchA\_basic & 456 & 15 & 20.656 & 14.151 & 0.903 & constant & (tmp - ((33.95702255252885 - (aou100 * -11.334946854963372)) - ((-22.165386102096658 - sal) * 5.844392136229622))) / -0.1708190981563644 \\
+Atlantic & SearchA\_basic & 123 & 15 & 20.501 & 14.141 & 0.904 & constant & ((((sal + ((aou100 + 30.148562078869887) + aou100)) / 0.49351950725437876) / 0.36143494608146004) - tmp) / 0.16944767564786284 \\
+Atlantic & SearchC\_sqrt\_square & 456 & 15 & 18.998 & 13.292 & 0.918 & constant & (((sal + sal) * (aou100 + 11.69944495709961)) + 3837.461568330087) - ((tmp * 4.910491180939108) + 2507.3692229564926) \\
+Atlantic & SearchB\_explog & 123 & 19 & 19.302 & 13.415 & 0.915 & constant & ((((tmp * -4.317061742807079) + 1252.074170043184) + ((aou100 + 25.70013287318051) * sal)) - (tmp - aou100)) - (aou100 * -30.710789561835007) \\
+Indian & SearchA\_basic & 42 & 1 & 122.424 & 105.613 & -0.052 & constant & 2194.4570000001772 \\
+Indian & SearchB\_explog & 42 & 1 & 122.438 & 105.641 & -0.052 & constant & 2194.392745430795 \\
+Indian & SearchC\_sqrt\_square & 42 & 1 & 122.422 & 105.609 & -0.052 & constant & 2194.4659309334943 \\
+Indian & SearchD\_broad & 42 & 1 & 122.419 & 105.603 & -0.052 & constant & 2194.4795999998314 \\
+Indian & SearchA\_basic & 42 & 3 & 114.782 & 99.453 & 0.076 & constant & 2204.0913455997543 - tmp \\
+Indian & SearchB\_explog & 42 & 3 & 114.838 & 99.555 & 0.075 & constant & 2203.8575486512514 - tmp \\
+Indian & SearchC\_sqrt\_square & 42 & 3 & 114.805 & 99.494 & 0.075 & constant & 2203.9963144000067 - tmp \\
+Indian & SearchD\_broad & 42 & 3 & 114.588 & 99.088 & 0.079 & constant & 2204.9330234794165 - tmp \\
+Indian & SearchC\_sqrt\_square & 42 & 4 & 65.770 & 51.423 & 0.696 & constant & square(aou100 + 45.56878493879677) \\
+Indian & SearchD\_broad & 42 & 4 & 65.776 & 51.560 & 0.696 & constant & square(aou100 + 45.560530523747) \\
+Indian & SearchD\_broad & 123 & 4 & 65.771 & 51.467 & 0.696 & constant & square(aou100 + 45.56606498201125) \\
+Indian & SearchA\_basic & 42 & 5 & 50.367 & 41.718 & 0.822 & constant & (tmp * -12.516241355306022) - -2317.079714359089 \\
+Indian & SearchA\_basic & 123 & 5 & 50.363 & 41.660 & 0.822 & constant & (tmp * -12.589280756018418) + 2317.660090052829 \\
+Indian & SearchB\_explog & 42 & 5 & 50.270 & 41.593 & 0.823 & constant & 2317.9163093339444 - (tmp * 12.595836018261942) \\
+Indian & SearchB\_explog & 456 & 5 & 50.267 & 41.535 & 0.823 & constant & 2318.5354816027866 - (tmp * 12.671707951841682) \\
+Indian & SearchC\_sqrt\_square & 42 & 5 & 50.323 & 41.664 & 0.822 & constant & 2317.4318580312683 - (tmp * 12.549253655228453) \\
+Indian & SearchC\_sqrt\_square & 456 & 5 & 50.194 & 41.622 & 0.823 & constant & (tmp * -12.490112766554944) - -2317.2612241003894 \\
+Indian & SearchD\_broad & 42 & 5 & 50.027 & 41.368 & 0.824 & constant & 2319.164140389256 - (tmp * 12.683964015959353) \\
+Indian & SearchA\_basic & 42 & 7 & 42.356 & 35.566 & 0.874 & constant & ((aou100 + -12.760727858139749) * tmp) - -2311.5032247494405 \\
+Indian & SearchB\_explog & 42 & 7 & 42.447 & 35.167 & 0.874 & constant & ((tmp - aou100) * -12.221988302100137) + 2298.6994724899946 \\
+Indian & SearchC\_sqrt\_square & 456 & 7 & 42.868 & 35.508 & 0.871 & constant & 2297.301653297077 - ((tmp - aou100) * 12.143974635982968) \\
+Indian & SearchC\_sqrt\_square & 42 & 7 & 42.307 & 35.109 & 0.874 & constant & ((aou100 - tmp) * 12.110745938532878) - -2298.312093909177 \\
+Indian & SearchD\_broad & 42 & 7 & 41.907 & 34.782 & 0.877 & constant & 2299.694815305983 - ((tmp - aou100) * 12.188996262462489) \\
+Indian & SearchB\_explog & 456 & 8 & 26.386 & 21.395 & 0.951 & constant & (tmp * (exp(aou100) + -13.772777481496902)) + 2296.8463017203003 \\
+Indian & SearchC\_sqrt\_square & 123 & 8 & 25.334 & 20.588 & 0.955 & constant & square((tmp * -0.07045999855611802) - (-46.24118537320519 - aou100)) \\
+Indian & SearchD\_broad & 456 & 8 & 22.804 & 17.104 & 0.964 & constant & ((tmp - exp(aou100)) * -10.945444385811872) + 2248.4085190799806 \\
+Indian & SearchA\_basic & 42 & 9 & 19.068 & 13.598 & 0.974 & constant & ((tmp * -7.953827551186228) - -2182.049981161671) + (aou100 * 71.03950974139684) \\
+Indian & SearchB\_explog & 123 & 9 & 20.076 & 14.532 & 0.972 & constant & ((aou100 * 71.84671500781124) + 2177.272728142803) - (tmp * 7.592730981518669) \\
+Indian & SearchB\_explog & 456 & 9 & 19.526 & 13.988 & 0.973 & constant & ((tmp * -7.781411592926985) + 2180.6366157191137) + (aou100 * 70.94035147160132) \\
+Indian & SearchB\_explog & 42 & 9 & 18.995 & 13.562 & 0.975 & constant & (tmp / -0.12467425128011984) - ((aou100 * -71.03538366310428) + -2182.325757394563) \\
+Indian & SearchC\_sqrt\_square & 456 & 9 & 18.914 & 13.461 & 0.975 & constant & ((aou100 + 31.306961392813193) * 69.78854167798592) - (tmp * 8.078183801017781) \\
+Indian & SearchD\_broad & 456 & 9 & 19.231 & 13.792 & 0.974 & constant & (aou100 * 71.23377638968105) + ((tmp * -7.928673043268524) + 2180.9970579106957) \\
+Indian & SearchD\_broad & 42 & 10 & 18.933 & 13.799 & 0.975 & constant & 2126.835778791333 - ((tmp - square(aou100 - -2.8574052075975)) * 8.450930330530642) \\
+Indian & SearchA\_basic & 123 & 11 & 15.776 & 12.439 & 0.983 & constant & (tmp * (sal + -43.36735736685797)) + ((aou100 * 70.5797288719128) + 2183.374699361422) \\
+Indian & SearchB\_explog & 123 & 11 & 18.793 & 13.435 & 0.975 & constant & (((aou100 * sal) * 2.0234791370301504) + 2184.3875332518633) - (tmp * 8.194592260738204) \\
+Indian & SearchC\_sqrt\_square & 42 & 11 & 18.764 & 13.517 & 0.975 & constant & sal + (2148.044142521959 - ((aou100 * -70.53355847755392) - (tmp * -8.03425898430753))) \\
+Indian & SearchD\_broad & 123 & 11 & 17.824 & 14.220 & 0.978 & constant & ((aou100 + 8.586623169615029) * ((sal - tmp) + sal)) + 1596.8102931865994 \\
+Indian & SearchC\_sqrt\_square & 123 & 12 & 15.408 & 12.055 & 0.983 & constant & ((tmp * (sal + -43.39966276162031)) + square(aou100 - -34.35406831734569)) - -1004.1173091768809 \\
+Indian & SearchA\_basic & 123 & 13 & 14.755 & 11.837 & 0.985 & constant & (((tmp + (aou100 * -9.37959702894048)) + 10.163226245948138) * (sal + -42.82370156797155)) + 2254.314505628302 \\
+Indian & SearchB\_explog & 123 & 13 & 15.395 & 11.385 & 0.983 & constant & ((aou100 - -7.934815038105935) * (((sal + sal) + aou100) - tmp)) + 1623.8956585390522 \\
+Indian & SearchB\_explog & 456 & 13 & 15.120 & 11.805 & 0.984 & constant & (sal * 25.140417298342054) + (((tmp * -8.827596766919564) + 1311.4996488574952) + (aou100 * 70.60405931253601)) \\
+Indian & SearchC\_sqrt\_square & 42 & 13 & 15.369 & 12.097 & 0.983 & constant & (1335.0090588846854 - ((aou100 * -68.67710304653549) - (tmp * -8.848398793114486))) + (sal * 24.52979734316059) \\
+Indian & SearchD\_broad & 456 & 13 & 13.797 & 10.866 & 0.987 & constant & ((1280.5964210284446 - (tmp * 8.68646711729092)) - (aou100 * -73.91511314642996)) - (sal * -25.967090397031193) \\
+Indian & SearchC\_sqrt\_square & 123 & 14 & 15.099 & 11.789 & 0.984 & constant & ((tmp * (sal + -43.39966276162031)) + square(aou100 - -34.35406831734569)) - (-1004.1173091768809 - 0.5413711631652309) \\
+Indian & SearchA\_basic & 42 & 15 & 14.248 & 10.688 & 0.986 & constant & (aou100 * (82.4117322556167 - tmp)) + ((tmp * -7.957430526505237) + (1230.3155890589485 - (sal * -27.029440516889654))) \\
+Indian & SearchB\_explog & 456 & 15 & 15.047 & 11.978 & 0.984 & constant & (((tmp * -8.75095406956638) + ((102.61554228587727 - sal) * aou100)) + (sal * 25.375628968781914)) + 1306.0443649451643 \\
+Indian & SearchB\_explog & 123 & 15 & 14.329 & 11.266 & 0.986 & constant & (((sal + 38.4829375503618) + ((tmp * -1.3860101301109746) + tmp)) * (aou100 - -21.139933130307146)) + 631.5612149951565 \\
+Indian & SearchC\_sqrt\_square & 456 & 15 & 14.719 & 11.494 & 0.985 & constant & (((aou100 + tmp) * 0.7068944340216985) - ((tmp * 0.7995880879268502) + -23.14513769700354)) * (sal + 59.902380818862675) \\
+Indian & SearchC\_sqrt\_square & 42 & 15 & 14.621 & 11.385 & 0.985 & constant & ((24.52979734316059 * sal) + (1335.0090588846854 - ((-68.67710304653549 * aou100) - (-8.848398793114486 * tmp)))) + aou100 \\
+Indian & SearchB\_explog & 123 & 16 & 13.489 & 10.887 & 0.987 & constant & (((sal - (tmp / log(aou100 + tmp))) + aou100) * (aou100 - -32.83236449968171)) + 1086.8394248439063 \\
+Indian & SearchC\_sqrt\_square & 42 & 17 & 14.224 & 10.735 & 0.986 & constant & ((sal * 29.18685768119421) - (((aou100 / tmp) + 8.626877902804758) * (tmp + (aou100 * -8.165683292956373)))) + 1164.2567198873528 \\
+Indian & SearchC\_sqrt\_square & 123 & 18 & 14.218 & 10.909 & 0.986 & constant & square((((sal * tmp) / (-243.82750258542714 - tmp)) - (-19.250546703298703 - aou100)) - (sal * -0.4625537939397332)) + 940.2134535276754 \\
+Indian & SearchB\_explog & 456 & 20 & 13.095 & 9.846 & 0.988 & constant & ((sal * 23.121013352469976) + (aou100 * 64.29763386712384)) + (((exp(aou100 + aou100) / tmp) + 1378.0212415570302) + (tmp * -8.447559376014915)) \\
+Indian & SearchA\_basic & 456 & 21 & 13.952 & 11.394 & 0.986 & constant & (tmp * -8.759374205521596) + ((((aou100 * 7.833143761343921) + ((sal * -8.57443213768772) + 351.4017030232245)) * aou100) + ((sal * 31.61436948638657) + 1091.1095833956956)) \\
+Indian & SearchC\_sqrt\_square & 123 & 21 & 14.150 & 10.712 & 0.986 & constant & (sal + square((-22.09758572265358 - (sal * ((tmp / (exp(aou100 / -22.57722696653874) * -287.9709377388133)) - -0.4127992760476728))) - aou100)) + 820.5326890389613 \\
+Indian & SearchC\_sqrt\_square & 42 & 23 & 13.067 & 10.373 & 0.988 & constant & ((sal * 29.334306063335262) + 1151.5735165065398) - (aou100 + (((aou100 / tmp) + ((aou100 / tmp) + 8.032026735935517)) * (tmp + (aou100 * -8.562657601068304)))) \\
+Indian & SearchB\_explog & 456 & 24 & 12.963 & 9.863 & 0.988 & constant & ((tmp * -8.161975873295532) + (((sal * (((aou100 / (aou100 + tmp)) * aou100) + 24.64908191370035)) + exp(aou100)) + (aou100 * 58.19297855390591))) + 1319.5815776236552 \\
+Indian & SearchB\_explog & 456 & 25 & 12.800 & 9.702 & 0.989 & constant & ((sal * (((aou100 * aou100) / (exp(0.6026579176631501) + tmp)) + 24.64908191370035)) + (((tmp * -8.161975873295532) + 1319.5815776236552) + (aou100 * 58.19297855390591))) + exp(aou100) \\
+Pacific & SearchA\_basic & 42 & 1 & 131.398 & 116.440 & -0.001 & constant & 2208.29670379956 \\
+Pacific & SearchA\_basic & 123 & 1 & 131.384 & 116.342 & -0.000 & constant & 2208.864159967266 \\
+Pacific & SearchA\_basic & 456 & 1 & 131.375 & 116.261 & -0.000 & constant & 2209.341564344439 \\
+Pacific & SearchB\_explog & 42 & 1 & 131.399 & 116.445 & -0.001 & constant & 2208.2657519220757 \\
+Pacific & SearchB\_explog & 456 & 1 & 131.374 & 116.256 & -0.000 & constant & 2209.36720700912 \\
+Pacific & SearchC\_sqrt\_square & 42 & 1 & 131.396 & 116.430 & -0.001 & constant & 2208.356799381609 \\
+Pacific & SearchC\_sqrt\_square & 456 & 1 & 131.373 & 116.247 & -0.000 & constant & 2209.4238199993015 \\
+Pacific & SearchD\_broad & 42 & 1 & 131.398 & 116.439 & -0.001 & constant & 2208.3041398497776 \\
+Pacific & SearchD\_broad & 123 & 1 & 131.386 & 116.358 & -0.001 & constant & 2208.76999999995 \\
+Pacific & SearchD\_broad & 456 & 1 & 131.372 & 116.235 & -0.000 & constant & 2209.489320000219 \\
+Pacific & SearchA\_basic & 456 & 3 & 124.503 & 110.405 & 0.102 & constant & 2217.469561280177 - tmp \\
+Pacific & SearchB\_explog & 42 & 3 & 124.540 & 110.636 & 0.101 & constant & 2216.113012132796 - tmp \\
+Pacific & SearchB\_explog & 456 & 3 & 124.495 & 110.335 & 0.102 & constant & 2217.8825489997107 - tmp \\
+Pacific & SearchC\_sqrt\_square & 42 & 3 & 124.537 & 110.624 & 0.101 & constant & 2216.181510345513 - tmp \\
+Pacific & SearchC\_sqrt\_square & 456 & 3 & 124.520 & 110.521 & 0.101 & constant & 2216.7837827834906 - tmp \\
+Pacific & SearchD\_broad & 42 & 3 & 124.537 & 110.623 & 0.101 & constant & 2216.1880149961908 - tmp \\
+Pacific & SearchD\_broad & 123 & 3 & 124.507 & 110.434 & 0.102 & constant & 2217.294306800316 - tmp \\
+Pacific & SearchD\_broad & 456 & 3 & 124.496 & 110.348 & 0.102 & constant & 2217.804634399391 - tmp \\
+Pacific & SearchC\_sqrt\_square & 42 & 4 & 56.601 & 46.468 & 0.814 & constant & square(-45.53485588228527 - aou100) \\
+Pacific & SearchC\_sqrt\_square & 123 & 4 & 56.593 & 46.461 & 0.814 & constant & square(aou100 + 45.535606592803056) \\
+Pacific & SearchD\_broad & 456 & 4 & 124.496 & 110.344 & 0.102 & constant & 2217.8306623998274 - abs(tmp) \\
+Pacific & SearchD\_broad & 123 & 4 & 56.599 & 46.466 & 0.814 & constant & square(aou100 - -45.53505317724587) \\
+Pacific & SearchD\_broad & 42 & 4 & 56.595 & 46.463 & 0.814 & constant & square(aou100 + 45.535405179146025) \\
+Pacific & SearchA\_basic & 456 & 5 & 47.031 & 40.450 & 0.872 & constant & (aou100 * 130.58511299603316) + 2017.9007547269073 \\
+Pacific & SearchA\_basic & 42 & 5 & 46.996 & 40.420 & 0.872 & constant & (aou100 - -15.4578816248253) * 130.55734074702363 \\
+Pacific & SearchB\_explog & 42 & 5 & 47.153 & 40.562 & 0.871 & constant & (aou100 * 131.37984473722204) - -2016.4875550923537 \\
+Pacific & SearchB\_explog & 456 & 5 & 47.007 & 40.429 & 0.872 & constant & 2018.1080101523107 - (aou100 * -130.51756858074978) \\
+Pacific & SearchC\_sqrt\_square & 456 & 5 & 46.946 & 40.374 & 0.872 & constant & (aou100 * 130.45192273654985) + 2018.5556898157126 \\
+Pacific & SearchC\_sqrt\_square & 123 & 5 & 46.921 & 40.343 & 0.872 & constant & (aou100 * 129.79728990606733) + 2019.315415673477 \\
+Pacific & SearchD\_broad & 456 & 5 & 46.973 & 40.402 & 0.872 & constant & (aou100 * 130.90676644398673) + 2017.9997001006375 \\
+Pacific & SearchD\_broad & 123 & 5 & 46.749 & 40.190 & 0.873 & constant & (aou100 * 130.66627352260457) - -2019.8379419551409 \\
+Pacific & SearchB\_explog & 123 & 6 & 44.658 & 38.336 & 0.884 & constant & log(aou100 + 6.753288959592275) * 1052.7498073000781 \\
+Pacific & SearchD\_broad & 456 & 6 & 42.350 & 35.771 & 0.896 & constant & cube(aou100 + -7.895087852721372) + 2496.026469589598 \\
+Pacific & SearchA\_basic & 42 & 7 & 43.322 & 37.235 & 0.891 & constant & ((aou100 - -16.355723674458208) * 124.43346850148646) - tmp \\
+Pacific & SearchA\_basic & 123 & 7 & 43.256 & 37.178 & 0.892 & constant & ((aou100 / 0.008040303583236671) - -2035.6386470992086) - tmp \\
+Pacific & SearchB\_explog & 42 & 7 & 43.741 & 37.606 & 0.889 & constant & ((aou100 * 126.43798731579372) - tmp) - -2031.3264059331239 \\
+Pacific & SearchB\_explog & 456 & 7 & 43.380 & 37.284 & 0.891 & constant & ((aou100 * 124.35476445178219) - tmp) - -2034.9408820357178 \\
+Pacific & SearchB\_explog & 123 & 7 & 43.136 & 37.070 & 0.892 & constant & ((aou100 * 124.56796559296289) - tmp) + 2036.2532441511823 \\
+Pacific & SearchC\_sqrt\_square & 42 & 7 & 43.412 & 37.321 & 0.891 & constant & (2033.9222680815803 - tmp) + (aou100 * 125.35137528583233) \\
+Pacific & SearchB\_explog & 123 & 8 & 37.729 & 32.174 & 0.917 & constant & (1025.1095881404137 - tmp) * log(aou100 + 7.371056949329184) \\
+Pacific & SearchC\_sqrt\_square & 123 & 8 & 31.678 & 25.001 & 0.942 & constant & square(aou100 + 46.10249447216929) + (tmp / -0.153246330214713) \\
+Pacific & SearchC\_sqrt\_square & 42 & 8 & 31.197 & 24.470 & 0.944 & constant & square((-46.117228413052565 - aou100) - (tmp / -13.81037428835362)) \\
+Pacific & SearchD\_broad & 123 & 8 & 31.290 & 24.581 & 0.943 & constant & square(46.10768048025616 - ((tmp * 0.07200686141103951) - aou100)) \\
+Pacific & SearchD\_broad & 42 & 8 & 31.032 & 24.375 & 0.944 & constant & square((aou100 - (tmp * 0.0714587758382793)) + 46.11364410356707) \\
+Pacific & SearchA\_basic & 42 & 9 & 31.185 & 24.209 & 0.944 & constant & (tmp * -6.9060686003665985) + ((aou100 - -23.619180988013017) * 90.32859878378065) \\
+Pacific & SearchA\_basic & 123 & 9 & 30.849 & 24.082 & 0.945 & constant & ((tmp * -6.666956699158229) + (aou100 * 90.84578456942177)) + 2131.681772043655 \\
+Pacific & SearchB\_explog & 123 & 9 & 31.020 & 24.189 & 0.944 & constant & ((tmp * -6.7474983563989195) - (aou100 * -91.20866307007124)) + 2131.6495718654205 \\
+Pacific & SearchC\_sqrt\_square & 456 & 9 & 30.816 & 23.901 & 0.945 & constant & ((aou100 * 90.27036855022385) - (tmp * 6.885389051146917)) + 2134.9408991804326 \\
+Pacific & SearchC\_sqrt\_square & 42 & 10 & 29.617 & 23.499 & 0.949 & constant & square((-46.13086285318741 - aou100) - ((tmp / sal) * -2.4954076085046553)) \\
+Pacific & SearchD\_broad & 123 & 10 & 30.671 & 24.088 & 0.945 & constant & square(aou100 - ((tmp * 0.07357907915776757) - 45.753379356934744)) + sal \\
+Pacific & SearchA\_basic & 42 & 11 & 16.614 & 11.778 & 0.984 & constant & ((-8.905130226359127 - aou100) * (tmp - 78.85941910811364)) + (sal * 42.743515841273485) \\
+Pacific & SearchB\_explog & 456 & 11 & 29.299 & 21.944 & 0.950 & constant & ((aou100 * 92.92645951201696) + 2133.003433339862) - ((aou100 - -6.626744491788796) * tmp) \\
+Pacific & SearchB\_explog & 42 & 11 & 28.541 & 23.204 & 0.953 & constant & ((sal - tmp) + ((aou100 / 0.05709351245901237) + 349.08464716737427)) / 0.1807155899264334 \\
+Pacific & SearchC\_sqrt\_square & 42 & 11 & 28.458 & 22.700 & 0.953 & constant & square((-46.170276003408546 - ((tmp / square(sal)) * -90.49958116440354)) - aou100) \\
+Pacific & SearchC\_sqrt\_square & 123 & 11 & 24.853 & 17.204 & 0.964 & constant & (((sal + aou100) * 62.68917729685518) - (tmp * 11.02020749255226)) + 48.56263972783691 \\
+Pacific & SearchD\_broad & 456 & 11 & 23.171 & 17.203 & 0.969 & constant & (((aou100 + sal) * 58.01583191379013) + 218.87807581525044) + (tmp * -11.185847250294588) \\
+Pacific & SearchB\_explog & 456 & 12 & 26.784 & 19.131 & 0.958 & constant & (2096.789562406173 - (tmp * (exp(aou100) - -3.8730753141360923))) + (aou100 * 119.2577838460596) \\
+Pacific & SearchC\_sqrt\_square & 42 & 12 & 22.363 & 17.729 & 0.971 & constant & square((-395.25720638508784 / sal) - (-57.634870902706076 - aou100)) - (tmp * 7.041115592124035) \\
+Pacific & SearchD\_broad & 123 & 12 & 17.246 & 13.105 & 0.983 & constant & square(31.382319359454176 - ((tmp * 0.16784531600887784) - aou100)) + (sal * 35.309871870730916) \\
+Pacific & SearchA\_basic & 42 & 13 & 16.458 & 11.752 & 0.984 & constant & ((sal * 40.05340141588756) + ((-9.630671287975405 - aou100) * (tmp - 81.87333963034047))) + tmp \\
+Pacific & SearchB\_explog & 42 & 13 & 23.126 & 17.862 & 0.969 & constant & ((((aou100 / 0.10542820031024798) + sal) - tmp) + (sal + 188.3145116352906)) / 0.11897623770909652 \\
+Pacific & SearchB\_explog & 42 & 14 & 18.038 & 13.720 & 0.981 & constant & ((1402.8829330219216 - (tmp * 2.5126160676509786)) * log(aou100 + (aou100 + sal))) + -2793.229829769721 \\
+Pacific & SearchC\_sqrt\_square & 456 & 14 & 17.376 & 12.842 & 0.983 & constant & (square(((aou100 * 1.6624252609542107) + sal) - 14.180225153819922) + 1768.7190918188187) - (tmp * 9.29100024616265) \\
+Pacific & SearchD\_broad & 123 & 14 & 16.994 & 12.776 & 0.983 & constant & square((((sal - (tmp * 0.23401094392715402)) * -0.4231132285338221) - 32.07701370269147) - (aou100 * 0.7866216706306143)) \\
+Pacific & SearchA\_basic & 123 & 15 & 16.198 & 11.863 & 0.985 & constant & (((aou100 * (82.31223316969718 - tmp)) + (tmp / -0.11865894463212992)) + (sal * 36.12913133268142)) + 920.8900589569962 \\
+Pacific & SearchB\_explog & 123 & 15 & 17.861 & 13.410 & 0.982 & constant & (((aou100 * 74.95109977716248) - ((tmp * 9.151377093817882) + (sal * -39.443780014238484))) + sal) + 783.0252486384217 \\
+Pacific & SearchD\_broad & 42 & 15 & 16.789 & 12.813 & 0.984 & constant & ((aou100 + 39.12519222073845) * (sal + (tmp * -0.22299729180227235))) + ((aou100 * 41.84088310963717) + 824.4392289159277) \\
+Pacific & SearchB\_explog & 123 & 16 & 17.389 & 12.409 & 0.982 & constant & 494.0709066719126 - ((aou100 * -72.82517776167312) + ((exp(tmp / -23.45692593478865) * -363.40004777084107) + (sal * -38.85343174879811))) \\
+Pacific & SearchB\_explog & 42 & 16 & 17.362 & 12.317 & 0.983 & constant & ((log(aou100 + (aou100 + sal)) * 1427.196019628441) - ((aou100 + 9.110221769806968) * tmp)) + -2873.785709154794 \\
+Pacific & SearchC\_sqrt\_square & 456 & 16 & 16.028 & 11.486 & 0.985 & constant & (square((sal - 14.305647896612934) + (aou100 * 1.7598389177110068)) + 1769.7273777640485) - (tmp * (aou100 + 8.88046768987796)) \\
+Pacific & SearchA\_basic & 123 & 17 & 15.905 & 11.061 & 0.985 & constant & (((tmp / -0.12320642329916799) + (aou100 * ((87.26111594838548 - tmp) - tmp))) + 877.9842662360418) + (sal * 37.26624932339649) \\
+Pacific & SearchB\_explog & 123 & 18 & 17.142 & 11.942 & 0.983 & constant & aou100 + (494.0709066719126 - ((aou100 * -72.82517776167312) + ((exp(tmp / -23.45692593478865) * -363.40004777084107) + (sal * -38.85343174879811)))) \\
+Pacific & SearchD\_broad & 123 & 18 & 16.111 & 11.088 & 0.985 & constant & square(-32.846440825665816 - ((sal * 0.39179460070493) - ((tmp * 0.08415037975844077) - aou100))) - ((aou100 * aou100) * tmp) \\
+Pacific & SearchB\_explog & 123 & 20 & 15.488 & 10.706 & 0.986 & constant & ((((aou100 * 81.4786767777088) + sal) + 606.3908260321563) * exp(tmp / -60.103345290836984)) - ((-4.4416349688936885 - (sal * 0.6289512874704254)) * 58.86194927899649) \\
+Pacific & SearchC\_sqrt\_square & 42 & 20 & 15.751 & 11.153 & 0.986 & constant & (square((-58.63515746592582 - aou100) - (-423.37328315523035 / sal)) - (aou100 + (tmp * (aou100 * aou100)))) - (tmp / 0.1335733629201832) \\
+Pacific & SearchA\_basic & 123 & 21 & 15.664 & 10.868 & 0.986 & constant & (((tmp / -0.12379180791466991) + 920.6045874929234) + ((aou100 / tmp) + (aou100 * ((86.91885412514704 - tmp) - tmp)))) + (36.04054148054983 * sal) \\
+Pacific & SearchD\_broad & 456 & 21 & 15.887 & 11.512 & 0.985 & constant & (((sal * -135.02991230403725) + 3728.1446867149393) + (tmp * (-8.659339409494436 - aou100))) + ((sal * (sal * 2.604313085977038)) + (aou100 * 81.76565497603045)) \\
+Pacific & SearchC\_sqrt\_square & 42 & 22 & 15.601 & 10.829 & 0.986 & constant & (square((-58.02126209765996 - (-401.54416089761884 / sal)) - aou100) - (tmp / 0.1345722439449794)) - (tmp * ((aou100 * aou100) + (aou100 * 0.5464588331305861))) \\
+Pacific & SearchD\_broad & 123 & 22 & 15.550 & 10.952 & 0.986 & constant & (tmp * (12.12080913001043 - aou100)) + square(((aou100 * -0.8668777633958863) - -7.530032988519137) - ((sal * 0.39186319590247265) - ((tmp * 0.23557261248107067) - 40.647970906426806))) \\
+Southern Ocean & SearchA\_basic & 42 & 1 & 59.179 & 50.976 & -0.000 & constant & 2211.0555999999115 \\
+Southern Ocean & SearchB\_explog & 42 & 1 & 59.179 & 50.977 & -0.000 & constant & 2211.051799999884 \\
+Southern Ocean & SearchC\_sqrt\_square & 42 & 1 & 59.179 & 50.982 & -0.000 & constant & 2211.029600000062 \\
+Southern Ocean & SearchD\_broad & 42 & 1 & 59.179 & 50.982 & -0.000 & constant & 2211.029600000099 \\
+Southern Ocean & SearchA\_basic & 42 & 3 & 52.951 & 41.750 & 0.199 & constant & sal * 64.07994989912403 \\
+Southern Ocean & SearchA\_basic & 456 & 3 & 52.951 & 41.740 & 0.199 & constant & sal * 64.08077901962996 \\
+Southern Ocean & SearchA\_basic & 123 & 3 & 52.944 & 41.572 & 0.200 & constant & sal / 0.015601964979955639 \\
+Southern Ocean & SearchB\_explog & 456 & 3 & 52.950 & 41.721 & 0.199 & constant & sal * 64.08232639127417 \\
+Southern Ocean & SearchB\_explog & 123 & 3 & 52.943 & 41.556 & 0.200 & constant & sal * 64.09580744232801 \\
+Southern Ocean & SearchC\_sqrt\_square & 42 & 3 & 52.951 & 41.739 & 0.199 & constant & sal * 64.08087059508934 \\
+Southern Ocean & SearchC\_sqrt\_square & 123 & 3 & 52.945 & 41.614 & 0.199 & constant & sal * 64.09102210491767 \\
+Southern Ocean & SearchD\_broad & 42 & 3 & 52.949 & 41.713 & 0.199 & constant & sal / 0.015604770199663545 \\
+Southern Ocean & SearchD\_broad & 456 & 3 & 52.944 & 41.588 & 0.200 & constant & sal * 64.09319522251309 \\
+Southern Ocean & SearchC\_sqrt\_square & 42 & 4 & 25.887 & 20.326 & 0.809 & constant & square(aou100 + 46.081716749815655) \\
+Southern Ocean & SearchC\_sqrt\_square & 456 & 4 & 25.880 & 20.349 & 0.809 & constant & square(aou100 + 46.08746159547861) \\
+Southern Ocean & SearchC\_sqrt\_square & 123 & 4 & 25.879 & 20.355 & 0.809 & constant & square(aou100 + 46.088770449650575) \\
+Southern Ocean & SearchD\_broad & 42 & 4 & 42.012 & 34.120 & 0.496 & constant & 2231.0700112562618 - square(tmp) \\
+Southern Ocean & SearchD\_broad & 456 & 4 & 41.995 & 34.049 & 0.496 & constant & 2231.386812433331 - square(tmp) \\
+Southern Ocean & SearchD\_broad & 123 & 4 & 25.879 & 20.355 & 0.809 & constant & square(aou100 + 46.08875404846314) \\
+Southern Ocean & SearchA\_basic & 42 & 5 & 26.250 & 20.440 & 0.803 & constant & (aou100 * 99.22085279181236) + 2118.4497520591594 \\
+Southern Ocean & SearchA\_basic & 123 & 5 & 26.230 & 20.442 & 0.804 & constant & (aou100 * 99.05159687856876) + 2118.725024563658 \\
+Southern Ocean & SearchB\_explog & 456 & 5 & 26.234 & 20.463 & 0.803 & constant & (aou100 * 99.10368844326614) + 2118.8806125412725 \\
+Southern Ocean & SearchB\_explog & 123 & 5 & 26.160 & 20.406 & 0.805 & constant & (aou100 + 21.54000545496689) * 98.387913985516 \\
+Southern Ocean & SearchB\_explog & 42 & 6 & 25.898 & 19.698 & 0.808 & constant & 2300.359331739882 - (192.45208236954284 / exp(aou100)) \\
+Southern Ocean & SearchB\_explog & 456 & 6 & 25.871 & 19.667 & 0.809 & constant & 2300.7574691112477 - exp(5.2592760781498225 - aou100) \\
+Southern Ocean & SearchC\_sqrt\_square & 456 & 6 & 23.022 & 18.049 & 0.849 & constant & square(aou100 + 46.11699733657206) - tmp \\
+Southern Ocean & SearchD\_broad & 123 & 6 & 23.027 & 18.027 & 0.849 & constant & square(aou100 + 46.11376896393803) - tmp \\
+Southern Ocean & SearchA\_basic & 456 & 7 & 23.303 & 18.075 & 0.845 & constant & ((aou100 + 21.94075540744542) * 96.77628752840796) - tmp \\
+Southern Ocean & SearchA\_basic & 123 & 7 & 23.163 & 18.001 & 0.847 & constant & ((aou100 * 95.53613474791656) + 2124.200117479945) - tmp \\
+Southern Ocean & SearchB\_explog & 42 & 7 & 23.191 & 18.002 & 0.846 & constant & (aou100 * 95.74240939294707) + (2123.9201879817724 - tmp) \\
+Southern Ocean & SearchB\_explog & 42 & 8 & 23.165 & 17.596 & 0.847 & constant & 2299.7126966131677 - ((185.78243853542844 / exp(aou100)) + tmp) \\
+Southern Ocean & SearchC\_sqrt\_square & 123 & 8 & 17.379 & 13.362 & 0.914 & constant & square(aou100 + (46.24967849505451 - (tmp / 14.045064180864841))) \\
+Southern Ocean & SearchD\_broad & 456 & 8 & 14.739 & 10.837 & 0.938 & constant & (97.00456106485466 - cbrt(tmp)) * (aou100 + 22.06442902299416) \\
+Southern Ocean & SearchA\_basic & 123 & 9 & 13.206 & 9.406 & 0.950 & constant & (tmp / -0.14141385967764247) + ((aou100 * 77.51033951408225) + 2155.1278692684023) \\
+Southern Ocean & SearchB\_explog & 42 & 9 & 13.156 & 9.362 & 0.951 & constant & ((aou100 * 77.94092783813987) + 2155.084486144954) - (tmp * 7.06430947142356) \\
+Southern Ocean & SearchB\_explog & 456 & 9 & 12.854 & 9.264 & 0.953 & constant & ((tmp + (aou100 * -11.48937946977507)) * -6.786259185427606) + 2154.555012599077 \\
+Southern Ocean & SearchC\_sqrt\_square & 456 & 9 & 12.860 & 9.216 & 0.953 & constant & (2155.3125701682206 - (tmp * 6.8664229611756955)) - (aou100 * -77.1221230415656) \\
+Southern Ocean & SearchD\_broad & 456 & 9 & 12.921 & 9.236 & 0.952 & constant & (tmp * -6.928306860096641) + ((aou100 + 27.671236442004748) * 77.88350311363314) \\
+Southern Ocean & SearchD\_broad & 123 & 10 & 12.848 & 8.916 & 0.953 & constant & square(aou100 + 37.143719759918746) + (778.7999953427358 - (tmp * 7.248555767114825)) \\
+Southern Ocean & SearchA\_basic & 123 & 11 & 12.830 & 8.948 & 0.953 & constant & (tmp / -0.14578452560870292) + ((aou100 * (80.02870023303602 - tmp)) + 2153.706510978817) \\
+Southern Ocean & SearchA\_basic & 456 & 11 & 11.336 & 8.113 & 0.963 & constant & ((((aou100 + sal) + 8.66149721874952) * 5.2904837362463475) - tmp) / 0.10443917723837376 \\
+Southern Ocean & SearchB\_explog & 123 & 11 & 11.191 & 8.070 & 0.964 & constant & (((sal + (aou100 + 9.719574430210821)) / 0.19324526607614215) - tmp) * 9.559891303332584 \\
+Southern Ocean & SearchC\_sqrt\_square & 456 & 11 & 12.667 & 8.920 & 0.954 & constant & (2152.816896406235 - ((tmp + -81.14923572082068) * aou100)) - (tmp * 6.69216957551284) \\
+Southern Ocean & SearchC\_sqrt\_square & 42 & 11 & 11.130 & 7.307 & 0.965 & constant & ((aou100 + (aou100 + 7.262950658611345)) * (sal - tmp)) + 1916.6587793117371 \\
+Southern Ocean & SearchD\_broad & 123 & 11 & 12.819 & 9.019 & 0.953 & constant & abs(square(aou100 + 37.074419591512104)) + (783.1273514402342 - (tmp * 7.094167555495752)) \\
+Southern Ocean & SearchD\_broad & 42 & 11 & 12.044 & 8.219 & 0.959 & constant & ((aou100 * 70.55831300697582) - ((sal - tmp) * -7.7475210683655416)) + 1896.3758608041476 \\
+Southern Ocean & SearchC\_sqrt\_square & 456 & 12 & 10.429 & 7.626 & 0.969 & constant & ((aou100 * 68.98731717315403) - tmp) - (sqrt(sal) * (tmp + -368.27546300729057)) \\
+Southern Ocean & SearchA\_basic & 456 & 13 & 10.740 & 7.605 & 0.967 & constant & ((((aou100 + 34.489073707209016) + (sal + aou100)) / 0.2692191186391447) - tmp) * 8.47530842517741 \\
+Southern Ocean & SearchA\_basic & 42 & 13 & 10.628 & 7.495 & 0.968 & constant & (((sal + ((aou100 - -35.04313471696815) + aou100)) * 3.6754050319856035) - tmp) * 8.499659390102149 \\
+Southern Ocean & SearchC\_sqrt\_square & 123 & 14 & 10.374 & 7.537 & 0.969 & constant & ((tmp - exp(aou100)) * -8.895405724548983) + (((aou100 + sal) * 39.13037262870567) - -819.6289515381553) \\
+Southern Ocean & SearchD\_broad & 123 & 14 & 11.612 & 7.970 & 0.961 & constant & (square(aou100 + 43.16264932563837) + 284.565668776792) - ((aou100 + 1.5765637973903672) * (tmp * 3.4166797912443094)) \\
+Southern Ocean & SearchA\_basic & 42 & 15 & 10.126 & 6.997 & 0.971 & constant & (((sal * 28.076255632138043) - (aou100 * -66.10856577231746)) - ((aou100 + 8.129925423827709) * tmp)) + 1201.9017632853913 \\
+Southern Ocean & SearchB\_explog & 456 & 15 & 10.689 & 7.567 & 0.967 & constant & (((sal + 30.502856782736206) * ((sal - 72.67953818528065) + aou100)) + (tmp * -8.186873086580261)) + 4650.930351173116 \\
+Southern Ocean & SearchD\_broad & 42 & 17 & 11.558 & 8.184 & 0.962 & constant & ((cube(sqrt(sal)) - sal) + ((aou100 * 71.21724253939003) + 1726.2167603498485)) - ((sal - tmp) * -7.780587661391233) \\
+Southern Ocean & SearchB\_explog & 42 & 19 & 10.499 & 7.361 & 0.969 & constant & (((sal * 28.33549354440582) + (aou100 * 64.27492518916523)) + 27.362790972982033) - ((((tmp * 0.13184606533107385) - -0.4817647192476679) * 62.97310576692387) + -1196.0623338583634) \\
+Southern Ocean & SearchD\_broad & 42 & 19 & 11.085 & 7.844 & 0.965 & constant & (cube(sqrt(sal - -83.21333958801699)) - ((((sal - tmp) * -8.159348121651485) - -11.504336592231345) + (aou100 * -66.94233091103669))) + 620.1792888656191 \\
+Southern Ocean & SearchC\_sqrt\_square & 456 & 20 & 10.080 & 7.157 & 0.971 & constant & ((((aou100 + 63.188746354596574) * aou100) - -67.81873980684426) - ((tmp * aou100) + (tmp * 8.084344467433832))) - (sqrt(sal) * -358.13414477216514) \\
+Southern Ocean & SearchA\_basic & 42 & 21 & 9.988 & 7.032 & 0.972 & constant & (((sal * 30.141567366126722) - (tmp * (aou100 - (sal * -0.2348267227312138)))) + 1131.423744123369) + (((aou100 * aou100) - -63.207385887273475) * aou100) \\
+Southern Ocean & SearchB\_explog & 456 & 21 & 9.989 & 6.943 & 0.972 & constant & ((-8.85159109240992 - aou100) * tmp) + ((((((aou100 - 76.21297400681115) + sal) * (sal + 33.573513866840884)) + tmp) + 5008.200595906814) - aou100) \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}

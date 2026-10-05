@@ -1,0 +1,61 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{natbib}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{multirow}
+\usepackage{longtable}
+
+\geometry{margin=2.5cm}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\doublespacing
+
+\title{How Low-Dimensional Is the S--T--AOU Dependence of Ocean Total Dissolved Inorganic Carbon? A Symbolic Regression Analysis}
+\author{Anonymous Manuscript}
+\date{\today}
+
+\newcommand{\tco}{\mathrm{TCO_2}}
+\newcommand{\aou}{\mathrm{AOU}}
+\newcommand{\umol}{\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We investigate how low-dimensional the empirical dependence of ocean total dissolved inorganic carbon ($\tco$) on salinity ($S$), temperature ($T$), and apparent oxygen utilisation ($\aou$) is. We analyze 472,530 quality-controlled GLODAP v2.2023 observations across the Atlantic, Indian, Pacific, and Southern Ocean basins. Symbolic regression searches (48 runs across four operator spaces and three random seeds) yielded 599 candidate expressions and 252 Pareto-optimal entries. We evaluate these candidates against a systematic model hierarchy: mean baseline, linear regression, rank-1 quadratic, rank-2 quadratic, full quadratic, and cubic polynomials.
+
+A five-parameter rank-1 quadratic model, $\tco = (\alpha S + \beta T + \gamma \aou/100 + \delta)^2 + \epsilon$, captures substantial predictive structure, achieving temporal validation RMSEs of 20.17, 14.48, 16.00, and 10.58~$\umol$ in the Atlantic, Indian, Pacific, and Southern Ocean, respectively. Crucially, increasing the quadratic rank from one to two provides no meaningful predictive benefit (validation $\Delta\mathrm{RMSE}$ of $+1.98$, $+0.25$, $-0.29$, and $-0.04~\umol$), indicating that a single nonlinear projection accounts for nearly all quadratic curvature. While higher-complexity symbolic expressions achieve 3--12\% lower RMSE, they require two- to three-fold higher PySR expression complexity. Rank-1 candidates recurred in 24 of 48 search cells across all four basins, though recovery was sensitive to operator space---particularly in the Atlantic, where explicit squaring operators were required.
+
+Generalization across spatial-blocked ($5^\circ\times 10^\circ$), cruise-blocked, and locked post-2018 external holdout evaluations demonstrates robust temporal transferability but highlights distinct regional limitations. Antarctic Intermediate Water (AAIW; rank-1 RMSE 28.43~$\umol$, bias $+27.14~\umol$) and Southern Ocean abyssal waters (global fit $R^2 = -0.174$ vs.\ local fit $R^2 = 0.786$) represent primary failure regimes. These findings establish that the empirical $S$--$T$--$\aou$ relationship is substantially compressible into a compact rank-1 quadratic structure, but its transferability is bounded by domain and water-mass dynamics rather than representing an invariant physical law.
+\end{abstract}
+
+\noindent\textbf{Keywords:} total dissolved inorganic carbon; symbolic regression; rank-1 quadratic; GLODAP; model complexity; ocean carbon; low-dimensionality
+
+\newpage
+
+\input{sections/01_introduction.tex}
+\input{sections/02_data.tex}
+\input{sections/03_methods.tex}
+\input{sections/04_results.tex}
+\input{sections/05_discussion.tex}
+\input{sections/06_conclusions.tex}
+\input{sections/availability.tex}
+
+\newpage
+\bibliographystyle{apalike}
+\bibliography{references}
+
+\newpage
+\input{supplementary/supplementary.tex}
+
+\end{document}

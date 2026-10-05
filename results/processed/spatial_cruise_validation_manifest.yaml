@@ -1,0 +1,16 @@
+external_start_year: 2018
+external_rows_excluded: 42496
+spatial_block_definition: 5 degree latitude x 10 degree longitude
+cruise_identifier: cruise
+validation_status:
+  spatial: performed
+  cruise: performed
+models:
+- linear
+- rank1
+- rank2
+- full_quadratic
+- frozen_symbolic
+candidate_selection: temporal validation RMSE only; external holdout locked
+processed_data_sha256: f6aab48af20da2a88b6ff6eedef7b05b281f74510d03c70afbec9fe78b577f72
+selected_candidate_config: config/selected_symbolic_candidate.yaml

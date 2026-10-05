@@ -1,0 +1,75 @@
+# PySR search configurations for Pareto frontier analysis
+# Each search space defines a distinct operator set
+
+search_spaces:
+  SearchA_basic:
+    description: "Basic arithmetic operators only"
+    binary_operators: ["+", "-", "*", "/"]
+    unary_operators: []
+    maxsize: 30
+    populations: 30
+    population_size: 50
+    niterations: 100
+    parsimony: 0.003
+
+  SearchB_explog:
+    description: "Arithmetic + exponential and logarithmic"
+    binary_operators: ["+", "-", "*", "/"]
+    unary_operators: ["exp", "log"]
+    maxsize: 30
+    populations: 30
+    population_size: 50
+    niterations: 100
+    parsimony: 0.003
+    constraints:
+      "/": [-1, 5]
+      "exp": 5
+      "log": 5
+
+  SearchC_sqrt_square:
+    description: "Arithmetic + sqrt, square, exp, log"
+    binary_operators: ["+", "-", "*", "/"]
+    unary_operators: ["sqrt", "square", "exp", "log"]
+    maxsize: 30
+    populations: 30
+    population_size: 50
+    niterations: 100
+    parsimony: 0.003
+    constraints:
+      "/": [-1, 5]
+      "exp": 5
+      "log": 5
+
+  SearchD_broad:
+    description: "Broad scientifically reasonable operator set"
+    binary_operators: ["+", "-", "*", "/"]
+    unary_operators: ["sqrt", "square", "exp", "log", "abs", "cube", "cbrt"]
+    maxsize: 35
+    populations: 40
+    population_size: 60
+    niterations: 150
+    parsimony: 0.003
+    constraints:
+      "/": [-1, 5]
+      "exp": 5
+      "log": 5
+
+# Common settings applied to all searches
+common:
+  model_selection: "best"  # Pareto: select by complexity-accuracy tradeoff
+  loss: "loss(x, y) = (x - y)^2"
+  batching: true
+  batch_size: 500
+  turbo: false
+  precision: 64
+  fast_cycle: true
+
+# AOU scaling convention for PySR
+predictors:
+  names: ["S", "T", "A_scaled"]  # A_scaled = AOU / 100
+  target: "TCO2"
+
+# Subsampling for computational feasibility
+subsample:
+  max_train_samples: 50000  # subsample training set if larger
+  stratify_by_basin: true

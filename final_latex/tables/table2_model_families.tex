@@ -1,0 +1,19 @@
+\begin{table}[htbp]
+\centering
+\caption{Model families compared in this study. Fitted parameter count $K$ is distinct from PySR expression complexity $C$.}
+\label{tab:model_families}
+\small
+\begin{tabular}{llp{6.6cm}rr}
+\toprule
+Family & Form & Notes & $K$ & $C$ \\
+\midrule
+Mean & basin training mean & Null baseline & 1 & 1 \\
+Linear & $\alpha S+\beta T+\gamma A_{100}+\delta$ & Additive surface & 4 & 4 \\
+Rank-1 quadratic & $(\alpha S+\beta T+\gamma A_{100}+\delta)^2+\epsilon$ & Hessian $H=2\mathbf{v}\mathbf{v}^\top$ & 5 & 8 \\
+Rank-2 quadratic & $z_1^2+z_2^2+\epsilon$ & Second quadratic direction & 9 & 16 \\
+Full quadratic & all 10 monomials of degree $\le 2$ & Unconstrained second-order surface & 10 & 20 \\
+Cubic & all monomials of degree $\le 3$ & Flexible polynomial benchmark & 20 & 30 \\
+Best SR & basin-specific PySR expression & Frozen on temporal validation RMSE & --- & 15--25 \\
+\bottomrule
+\end{tabular}
+\end{table}

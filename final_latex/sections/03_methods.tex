@@ -1,0 +1,86 @@
+\section{Methods}
+
+\subsection{Model hierarchy and parameterization}
+To test the extent of empirical low-dimensionality, we establish a systematic model hierarchy spanning varying degrees of structural constraint and parameter flexibility:
+\begin{enumerate}[label=\arabic*.]
+\item \textbf{Mean Baseline}: Predicts the basin-specific training mean ($1$ parameter).
+\item \textbf{Linear Model}:
+\begin{equation}
+\tco = \alpha S + \beta T + \gamma \frac{\aou}{100} + \delta + \epsilon,
+\end{equation}
+fitting $4$ parameters with linear combinations of physical state variables.
+\item \textbf{Rank-1 Quadratic Model}:
+\begin{equation}
+\tco = \left( \alpha S + \beta T + \gamma \frac{\aou}{100} + \delta \right)^2 + \epsilon,
+\end{equation}
+fitting $5$ coefficients ($\alpha, \beta, \gamma, \delta, \epsilon$). Mathematically, this enforces an effective rank-1 quadratic Hessian structure $H = 2 \mathbf{v}\mathbf{v}^T$, constraining all quadratic curvature to a single one-dimensional direction $\mathbf{v} = (\alpha, \beta, \gamma)^T$.
+\item \textbf{Rank-2 Quadratic Model}:
+\begin{equation}
+\tco = \left( \alpha_1 S + \beta_1 T + \gamma_1 \frac{\aou}{100} + \delta_1 \right)^2 + \left( \alpha_2 S + \beta_2 T + \gamma_2 \frac{\aou}{100} + \delta_2 \right)^2 + \epsilon,
+\end{equation}
+fitting $9$ parameters ($\alpha_1,\dots,\delta_2, \epsilon$) to evaluate whether adding a second orthogonal quadratic projection improves predictive capacity.
+\item \textbf{Full Quadratic Model}:
+\begin{align}
+\tco &= c_0 + c_1 S + c_2 T + c_3 \aou_{100} + c_4 S^2 + c_5 T^2 + c_6 \aou_{100}^2 \nonumber \\
+&\quad + c_7 ST + c_8 S\aou_{100} + c_9 T\aou_{100} + \epsilon,
+\end{align}
+fitting $10$ parameters, providing the full unconstrained second-order polynomial surface.
+\item \textbf{Cubic Polynomial Model}: A full third-order polynomial expansion in $S, T, \aou_{100}$, fitting $20$ parameters.
+\item \textbf{Symbolic Regression Candidates}: Free-form mathematical expressions constructed by PySR, evaluated across varying expression complexities.
+\end{enumerate}
+
+We explicitly distinguish between the number of fitted numerical coefficients ($K$) and PySR expression complexity ($C$). Expression complexity measure the number of nodes in the symbolic expression tree (e.g., constants, variables, and binary/unary operators). For instance, the rank-1 quadratic model has $K=5$ fitted parameters and an expression complexity of $C=8$.
+
+\subsection{Symbolic regression implementation}
+Symbolic regression was conducted using PySR \citep{Cranmer2023} driven by SymbolicRegression.jl in Julia. Searches were performed independently for each basin to discover regional structural relationships. We executed PySR searches across a factorial design of $4$ basins $\times 4$ operator spaces $\times 3$ random seeds ($42, 123, 456$), totaling $48$ completed evolutionary searches.
+
+Search parameterization maintained strict execution controls:
+\begin{itemize}[nosep]
+\item Population size: $500$ expressions across $33$ sub-populations;
+\item Generations: $100$ iterations per run;
+\item Maximum expression complexity: $C_{\max} = 30$;
+\item Loss function: Mean Squared Error (MSE); and
+\item Deterministic single-threaded execution per seed to ensure numerical reproducibility.
+\end{itemize}
+
+\subsection{Operator space design}
+To assess operator dependence, four operator spaces were constructed:
+\begin{itemize}[nosep]
+\item \textbf{Search A (Basic Arithmetic)}: Binary operators $\{+, -, \times, \div\}$;
+\item \textbf{Search B (Exponential/Logarithmic)}: $\{+, -, \times, \div, \exp, \log\}$;
+\item \textbf{Search C (Square/Root)}: $\{+, -, \times, \div, (\cdot)^2, \sqrt{\cdot}\}$; and
+\item \textbf{Search D (Broad Operator Set)}: $\{+, -, \times, \div, (\cdot)^2, \sqrt{\cdot}, \exp, \log\}$.
+\end{itemize}
+Table~\ref{tab:pysr_config} details the exact PySR search configurations.
+
+\input{tables/table3_pysr_configuration.tex}
+
+\subsection{Candidate library extraction and Pareto frontier}
+From the $48$ PySR runs, all non-dominated expressions were collected into a unified candidate library of $599$ symbolic expressions. For each basin, a global empirical Pareto frontier was constructed by plotting validation RMSE against expression complexity. Candidates were classified into structural equation families (e.g., linear, rank-1 quadratic, rank-2 quadratic, exponential-decay, rational functions) using AST pattern matching.
+
+\subsection{Spatial and cruise blocked validation}
+To test spatial and sampling generalization, two blocked cross-validation schemes were executed on pre-2018 data:
+\begin{enumerate}[label=(\roman*)]
+\item \textbf{Spatial-Block Cross-Validation}: Data were partitioned into spatial tiles of $5^\circ$ latitude by $10^\circ$ longitude using GroupKFold cross-validation.
+\item \textbf{Cruise-Block Cross-Validation}: Data were grouped by GLODAP cruise identifier using GroupKFold cross-validation, evaluating out-of-sample prediction on unobserved research cruises.
+\end{enumerate}
+
+\subsection{Dependence-aware statistical inference}
+Because oceanographic bottle samples exhibit spatial and temporal autocorrelation, standard independent error assumptions underestimate standard errors. We performed dependence-aware inference using spatial-block bootstrap resampling ($1{,}000$ iterations over $5^\circ \times 10^\circ$ spatial blocks). Paired absolute-error differences ($\Delta\mathrm{AE} = |\mathrm{err}_{\text{rank-1}}| - |\mathrm{err}_{\text{full-quad}}|$) were evaluated across equivalence margins of $\delta = 1.0, 2.0, 5.0, 10.0\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$ using Two One-Sided Tests (TOST) \citep{Schuirmann1987}.
+
+\subsection{Depth, water-mass, and derivative analysis}
+Model predictions were stratified across five ocean depth layers ($0$--$100$\,m, $100$--$500$\,m, $500$--$1000$\,m, $1000$--$3000$\,m, and $>3000$\,m) and key hydrographic water masses, including Antarctic Intermediate Water (AAIW), North Atlantic Deep Water (NADW), and Antarctic Bottom Water (AABW). 
+
+For the rank-1 model, partial derivatives with respect to state variables are:
+\begin{align}
+\frac{\partial \tco}{\partial S} &= 2 \alpha z, \quad \frac{\partial \tco}{\partial T} = 2 \beta z, \quad \frac{\partial \tco}{\partial \aou} = \frac{2 \gamma}{100} z,
+\end{align}
+where $z = \alpha S + \beta T + \gamma \aou_{100} + \delta$. The Hessian matrix of second derivatives is:
+\begin{equation}
+H = \begin{pmatrix}
+\frac{\partial^2 \tco}{\partial S^2} & \frac{\partial^2 \tco}{\partial S \partial T} & \frac{\partial^2 \tco}{\partial S \partial \aou_{100}} \\
+\frac{\partial^2 \tco}{\partial T \partial S} & \frac{\partial^2 \tco}{\partial T^2} & \frac{\partial^2 \tco}{\partial T \partial \aou_{100}} \\
+\frac{\partial^2 \tco}{\partial \aou_{100} \partial S} & \frac{\partial^2 \tco}{\partial \aou_{100} \partial T} & \frac{\partial^2 \tco}{\partial \aou_{100}^2}
+\end{pmatrix} = 2 \begin{pmatrix} \alpha \\ \beta \\ \gamma \end{pmatrix} \begin{pmatrix} \alpha & \beta & \gamma \end{pmatrix} = 2 \mathbf{v} \mathbf{v}^T.
+\end{equation}
+Because $H$ is formed by an outer product of a single vector $\mathbf{v}$, it has rank exactly 1.

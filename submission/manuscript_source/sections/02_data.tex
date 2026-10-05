@@ -1,0 +1,28 @@
+\section{Data and Methods}
+
+\subsection{Observations, quality control, and basin assignment}
+We used GLODAP v2.2023 observations of salinity, in situ temperature, apparent oxygen utilisation, and total dissolved inorganic carbon, together with latitude, longitude, depth, year, region, cruise, and station metadata \citep{Lauvset2023}. The primary-variable filters were strict: $25<S<42$, $-2.5<T<35\,^{\circ}\mathrm{C}$, $1700<\tco<2600\umol$, and $\aou>-50\umol$, with finite values required for all four modeled variables. These filters retained 512,384 rows. Basin-specific analyses used the 472,530 rows assigned to one of four mutually exclusive categories: Atlantic (region 1 and latitude $\geq-35^{\circ}$), Indian (region 16 and latitude $\geq-35^{\circ}$), Pacific (region 8 and latitude $\geq-35^{\circ}$), and Southern Ocean (latitude $<-35^{\circ}$). The remaining 39,854 QC-passing rows had no assignment to these four named basins and were excluded from basin-specific model fitting; this accounting explains why the full QC count differs from the main-analysis total. The basin and temporal counts are given in Table~\ref{tab:sample_sizes}.
+
+For the rank-constrained and symbolic models, apparent oxygen utilisation was represented as $\aou_{100}=\aou/100$. This is a numerical scaling convention, not a change of units in the observations. Complete polynomial benchmarks were fitted using the implementation's corresponding polynomial basis; rescaling a predictor changes coefficients but not the span of a complete polynomial family.
+
+\begin{table}[htbp]
+\centering
+\caption{Observations used in the four named-basin analyses. Training years are $<2015$; temporal validation years are 2015--2017; the external holdout is year $\geq2018$. The QC total includes 39,854 rows not assigned to a named basin.}
+\label{tab:sample_sizes}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Basin & Total & Training & Validation & External \\
+\midrule
+Atlantic & 147,448 & 125,762 & 11,436 & 10,250 \\
+Indian & 40,391 & 32,498 & 3,764 & 4,129 \\
+Pacific & 187,443 & 138,202 & 31,791 & 17,450 \\
+Southern Ocean & 97,248 & 82,045 & 6,483 & 8,720 \\
+\midrule
+Named-basin total & 472,530 & 378,507 & 53,474 & 40,549 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Temporal partitioning}
+Observations with year $<2015$ were used for fitting. Observations from 2015 through 2017 formed the temporal validation set used for model comparison and symbolic-candidate selection. Observations from 2018 onward were reserved as a locked external holdout. No external-holdout result was used to select an expression, operator space, or model family.

@@ -1,0 +1,16 @@
+\begin{table}
+\caption{Symbolic-regression search configurations.}
+\label{tab:pysr_configuration}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrr}
+\toprule
+Search & Binary operators & Unary operators & Max size & Populations & Population size & Iterations \\
+\midrule
+SearchA\_basic & +, -, *, / &  & 30 & 30 & 50 & 100 \\
+SearchB\_explog & +, -, *, / & exp, log & 30 & 30 & 50 & 100 \\
+SearchC\_sqrt\_square & +, -, *, / & sqrt, square, exp, log & 30 & 30 & 50 & 100 \\
+SearchD\_broad & +, -, *, / & sqrt, square, exp, log, abs, cube, cbrt & 35 & 40 & 60 & 150 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}

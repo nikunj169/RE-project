@@ -1,0 +1,20 @@
+experiment: symbolic_regression_search
+n_basins: 4
+n_failed_runs: 0
+n_search_spaces: 4
+n_seeds: 3
+n_successful_runs: 48
+pysr_version: 2.3.0
+python_version: 3.14.3 (main, Feb  3 2026, 15:32:20) [Clang 17.0.0 (clang-1700.6.3.2)]
+search_spaces:
+- SearchA_basic
+- SearchB_explog
+- SearchC_sqrt_square
+- SearchD_broad
+seeds:
+- 42
+- 123
+- 456
+subsample_max: 30000
+timestamp: '2026-09-10 15:58:47'
+total_candidates: 599

@@ -1,0 +1,39 @@
+\section{Data and Partitioning}
+
+\subsection{GLODAP v2.2023 dataset}
+Observational data were extracted from the Global Ocean Data Analysis Project version 2 (GLODAP v2.2023) product \citep{Lauvset2023}. GLODAP provides internally consistent, quality-controlled measurements of ocean physical and biogeochemical properties from bottle samples collected on international research cruises. We extracted salinity ($S$), in situ temperature ($T$, $^\circ\mathrm{C}$), apparent oxygen utilisation ($\aou$, $\mu\mathrm{mol}\,\mathrm{kg}^{-1}$), total dissolved inorganic carbon ($\tco$, $\mu\mathrm{mol}\,\mathrm{kg}^{-1}$), as well as metadata including latitude, longitude, depth (m), sampling year, GLODAP region code, and cruise identifier.
+
+\subsection{Quality control filtering}
+Strict quality control filters were applied to ensure dataset integrity. Observations were retained only if all primary variables ($S$, $T$, $\aou$, $\tco$) and metadata fields were non-null, finite, and satisfied physically realistic physical boundaries:
+\begin{align}
+25.0 &< S < 42.0\,\mathrm{PSU}, \\
+-2.5 &< T < 35.0\,^\circ\mathrm{C}, \\
+1700.0 &< \tco < 2600.0\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}, \\
+\aou &> -50.0\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}.
+\end{align}
+Following these QC filters, a total of 472,530 high-quality global observations were retained for downstream model fitting, validation, and evaluation.
+
+\subsection{Basin definitions}
+To account for distinct oceanographic circulation regimes, ventilation pathways, and water-mass characteristics \citep{Tomczak2002}, observations were partitioned into four mutually exclusive geographic basins based on latitude and GLODAP region definitions:
+\begin{enumerate}[label=(\roman*)]
+\item \textbf{Atlantic Ocean}: Region code 1, restricted to latitude $\ge -35.0^\circ$ ($N = 147{,}448$);
+\item \textbf{Indian Ocean}: Region code 16, restricted to latitude $\ge -35.0^\circ$ ($N = 40{,}391$);
+\item \textbf{Pacific Ocean}: Region code 8, restricted to latitude $\ge -35.0^\circ$ ($N = 187{,}443$); and
+\item \textbf{Southern Ocean}: All observations with latitude $< -35.0^\circ$ across all longitudes ($N = 97{,}248$).
+\end{enumerate}
+
+\subsection{Predictor scaling and notation}
+In symbolic regression and polynomial modeling, predictor scaling is critical for numerical stability. We scale $\aou$ by a factor of 100 ($\aou_{100} = \aou / 100$), ensuring that all three predictors ($S$, $T$, $\aou_{100}$) share comparable numerical magnitudes order-of-magnitude wise ($S \sim 35$, $T \sim 0$--$30$, $\aou_{100} \sim -0.5$--$4.0$). All candidate models operate directly on these physical variables without standard z-score normalization to preserve direct scientific interpretability.
+
+\subsection{Temporal partitioning and external holdout}
+To evaluate model stability and prevent temporal data leakage, data were partitioned chronologically into three disjoint subsets:
+\begin{enumerate}[label=(\roman*)]
+\item \textbf{Training set} (Years $< 2015$): $N = 378{,}507$ observations used exclusively for model coefficient fitting and symbolic expression generation;
+\item \textbf{Temporal validation set} (Years $2015$--$2017$): $N = 53{,}474$ observations used for hyperparameter tuning, model family comparison, and Pareto candidate selection; and
+\item \textbf{Locked external holdout} (Years $\ge 2018$): $N = 40{,}549$ observations strictly reserved for final temporal out-of-sample evaluation.
+\end{enumerate}
+
+Importantly, the post-2018 external holdout remained completely locked throughout candidate search and model selection. No hyperparameter adjustment, equation choice, or narrative optimization was performed using post-2018 data. Table~\ref{tab:sample_sizes} summarizes the sample size distributions across basins and temporal splits, and Table~\ref{tab:predictor_distributions} details predictor summary statistics.
+
+\input{tables/table1_sample_sizes.tex}
+\input{tables/table2_predictor_distributions.tex}

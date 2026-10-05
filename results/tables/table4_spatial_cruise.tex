@@ -1,0 +1,56 @@
+\begin{table}[htbp]
+\centering
+\caption{Blocked generalization on pre-2018 observations. Spatial blocks are $5^\circ$ latitude $\times$ $10^\circ$ longitude; cruise blocks use the GLODAP cruise identifier. RMSE is the mean across GroupKFold folds.}
+\label{tab:spatial}
+\small
+\begin{tabular}{llllrrrr}
+\toprule
+Basin & Block & Model & Groups & $N$ & RMSE & $R^2$ & Bias \\
+\midrule
+Atlantic & spatial & Best SR & 159 & 137,198 & 17.93 & 0.888 & -1.72 \\
+ & spatial & Full quad. & 159 & 137,198 & 15.55 & 0.915 & +0.13 \\
+ & spatial & Linear & 159 & 137,198 & 16.93 & 0.900 & +0.06 \\
+ & spatial & Rank-1 & 159 & 137,198 & 16.30 & 0.907 & +0.10 \\
+ & spatial & Rank-2 & 159 & 137,198 & 15.46 & 0.917 & +0.01 \\
+Atlantic & cruise & Best SR & 192 & 137,198 & 17.52 & 0.893 & -1.72 \\
+ & cruise & Full quad. & 192 & 137,198 & 15.63 & 0.914 & +0.24 \\
+ & cruise & Linear & 192 & 137,198 & 16.67 & 0.903 & +0.07 \\
+ & cruise & Rank-1 & 192 & 137,198 & 16.91 & 0.900 & +0.38 \\
+ & cruise & Rank-2 & 192 & 137,198 & 15.58 & 0.915 & +0.18 \\
+\addlinespace
+Indian & spatial & Best SR & 88 & 36,262 & 14.35 & 0.984 & +0.83 \\
+ & spatial & Full quad. & 88 & 36,262 & 14.92 & 0.983 & -0.03 \\
+ & spatial & Linear & 88 & 36,262 & 16.99 & 0.978 & -0.13 \\
+ & spatial & Rank-1 & 88 & 36,262 & 16.61 & 0.979 & -0.12 \\
+ & spatial & Rank-2 & 88 & 36,262 & 16.00 & 0.980 & -0.00 \\
+Indian & cruise & Best SR & 40 & 36,262 & 14.06 & 0.984 & +0.84 \\
+ & cruise & Full quad. & 40 & 36,262 & 15.37 & 0.981 & -0.32 \\
+ & cruise & Linear & 40 & 36,262 & 17.55 & 0.975 & -0.28 \\
+ & cruise & Rank-1 & 40 & 36,262 & 17.39 & 0.975 & -0.29 \\
+ & cruise & Rank-2 & 40 & 36,262 & 16.98 & 0.977 & -0.20 \\
+\addlinespace
+Pacific & spatial & Best SR & 241 & 169,993 & 15.63 & 0.987 & -0.37 \\
+ & spatial & Full quad. & 241 & 169,993 & 16.43 & 0.986 & -0.10 \\
+ & spatial & Linear & 241 & 169,993 & 18.62 & 0.982 & +0.06 \\
+ & spatial & Rank-1 & 241 & 169,993 & 16.03 & 0.987 & +0.02 \\
+ & spatial & Rank-2 & 241 & 169,993 & 16.26 & 0.986 & -0.12 \\
+Pacific & cruise & Best SR & 383 & 169,993 & 15.52 & 0.987 & -0.37 \\
+ & cruise & Full quad. & 383 & 169,993 & 16.10 & 0.986 & -0.25 \\
+ & cruise & Linear & 383 & 169,993 & 18.59 & 0.982 & -0.04 \\
+ & cruise & Rank-1 & 383 & 169,993 & 16.03 & 0.986 & -0.05 \\
+ & cruise & Rank-2 & 383 & 169,993 & 15.87 & 0.986 & -0.10 \\
+\addlinespace
+Southern Ocean & spatial & Best SR & 232 & 88,528 & 9.04 & 0.977 & -0.15 \\
+ & spatial & Full quad. & 232 & 88,528 & 9.38 & 0.975 & -0.02 \\
+ & spatial & Linear & 232 & 88,528 & 9.34 & 0.976 & +0.02 \\
+ & spatial & Rank-1 & 232 & 88,528 & 9.16 & 0.977 & +0.01 \\
+ & spatial & Rank-2 & 232 & 88,528 & 9.14 & 0.976 & +0.00 \\
+Southern Ocean & cruise & Best SR & 114 & 88,528 & 9.05 & 0.978 & -0.15 \\
+ & cruise & Full quad. & 114 & 88,528 & 9.30 & 0.976 & -0.01 \\
+ & cruise & Linear & 114 & 88,528 & 9.42 & 0.976 & +0.01 \\
+ & cruise & Rank-1 & 114 & 88,528 & 9.22 & 0.977 & +0.01 \\
+ & cruise & Rank-2 & 114 & 88,528 & 9.19 & 0.977 & +0.00 \\
+\addlinespace
+\bottomrule
+\end{tabular}
+\end{table}

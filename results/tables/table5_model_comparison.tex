@@ -1,0 +1,36 @@
+\begin{table}
+\caption{Model family comparison. Validation and external holdout metrics.}
+\label{tab:model_comparison}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrrr}
+\toprule
+Basin & Model\_name & Parameters & RMSE\_val & MAE\_val & R2\_val & RMSE\_ext & R2\_ext \\
+\midrule
+Atlantic & Baseline Mean & 1 & 66.879 & 49.937 & -0.017 & 62.940 & -0.001 \\
+Atlantic & Linear Regression & 4 & 21.591 & 14.666 & 0.894 & 18.538 & 0.913 \\
+Atlantic & Rank-1 Quadratic & 5 & 20.172 & 14.926 & 0.907 & 17.672 & 0.921 \\
+Atlantic & Rank-2 Quadratic & 9 & 22.155 & 14.990 & 0.888 & 19.586 & 0.903 \\
+Atlantic & Full Second-Order Polynomial & 10 & 23.406 & 15.570 & 0.875 & 19.621 & 0.903 \\
+Atlantic & Cubic Polynomial & 20 & 22.598 & 14.802 & 0.884 & 18.010 & 0.918 \\
+Indian & Baseline Mean & 1 & 122.473 & 105.708 & -0.052 & 108.518 & -0.102 \\
+Indian & Linear Regression & 4 & 14.960 & 11.748 & 0.984 & 19.137 & 0.966 \\
+Indian & Rank-1 Quadratic & 5 & 14.483 & 11.056 & 0.985 & 18.413 & 0.968 \\
+Indian & Rank-2 Quadratic & 9 & 14.737 & 11.139 & 0.985 & 18.858 & 0.967 \\
+Indian & Full Second-Order Polynomial & 10 & 13.729 & 10.680 & 0.987 & 14.922 & 0.979 \\
+Indian & Cubic Polynomial & 20 & 11.827 & 9.126 & 0.990 & 16.526 & 0.974 \\
+Pacific & Baseline Mean & 1 & 131.396 & 116.426 & -0.001 & 140.892 & -0.046 \\
+Pacific & Linear Regression & 4 & 17.769 & 13.414 & 0.982 & 17.196 & 0.984 \\
+Pacific & Rank-1 Quadratic & 5 & 16.002 & 11.089 & 0.985 & 13.821 & 0.990 \\
+Pacific & Rank-2 Quadratic & 9 & 15.712 & 11.096 & 0.986 & 14.087 & 0.990 \\
+Pacific & Full Second-Order Polynomial & 10 & 15.504 & 10.704 & 0.986 & 14.210 & 0.989 \\
+Pacific & Cubic Polynomial & 20 & 14.244 & 9.341 & 0.988 & 12.451 & 0.992 \\
+Southern Ocean & Baseline Mean & 1 & 59.190 & 50.841 & -0.001 & 51.755 & -0.156 \\
+Southern Ocean & Linear Regression & 4 & 10.664 & 7.478 & 0.968 & 8.930 & 0.966 \\
+Southern Ocean & Rank-1 Quadratic & 5 & 10.575 & 7.549 & 0.968 & 8.985 & 0.965 \\
+Southern Ocean & Rank-2 Quadratic & 9 & 10.540 & 7.607 & 0.968 & 8.895 & 0.966 \\
+Southern Ocean & Full Second-Order Polynomial & 10 & 10.461 & 7.603 & 0.969 & 8.808 & 0.967 \\
+Southern Ocean & Cubic Polynomial & 20 & 10.042 & 7.418 & 0.971 & 8.687 & 0.967 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}

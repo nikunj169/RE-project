@@ -1,0 +1,16 @@
+\begin{table}[htbp]
+\centering
+\caption{PySR operator spaces actually used. Common settings: MSE loss, deterministic serial execution, 64-bit precision, training subsample of 30{,}000 observations per search, PySR 2.3.0, Julia 1.12.7.}
+\label{tab:pysr}
+\small
+\begin{tabular}{llp{4.8cm}rrr}
+\toprule
+Space & Binary & Unary & Max size & Populations $\times$ size & Iterations \\
+\midrule
+A & $+,-,\times,\div$ & none & 30 & $30\times 50$ & 100 \\
+B & $+,-,\times,\div$ & $\exp,\log$ & 30 & $30\times 50$ & 100 \\
+C & $+,-,\times,\div$ & $\mathrm{square},\sqrt{\cdot},\exp,\log$ & 30 & $30\times 50$ & 100 \\
+D & $+,-,\times,\div$ & $\mathrm{square},\sqrt{\cdot},\exp,\log,|\cdot|,\mathrm{cube},\sqrt[3]{\cdot}$ & 35 & $40\times 60$ & 150 \\
+\bottomrule
+\end{tabular}
+\end{table}

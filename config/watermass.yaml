@@ -1,0 +1,44 @@
+# Water-mass classification thresholds
+# Based on oceanographic conventions (Tomczak, 2002)
+# These are threshold-based approximations
+
+water_masses:
+  Surface:
+    depth_max: 200
+    description: "Surface mixed layer"
+
+  Thermocline:
+    depth_min: 200
+    depth_max: 800
+    temperature_min: 8.0
+    description: "Upper thermocline waters"
+
+  AAIW:
+    temperature_min: 1.0
+    temperature_max: 8.0
+    salinity_min: 33.5
+    salinity_max: 34.6
+    depth_min: 300
+    depth_max: 1500
+    latitude_max: -15.0
+    description: "Antarctic Intermediate Water"
+
+  NADW:
+    temperature_min: 1.0
+    temperature_max: 5.0
+    salinity_min: 34.8
+    salinity_max: 35.1
+    depth_min: 1000
+    depth_max: 4000
+    description: "North Atlantic Deep Water"
+
+  AABW:
+    temperature_max: 1.0
+    salinity_min: 34.6
+    salinity_max: 34.75
+    depth_min: 3000
+    description: "Antarctic Bottom Water"
+
+  Deep_Other:
+    depth_min: 1000
+    description: "Unclassified deep water"

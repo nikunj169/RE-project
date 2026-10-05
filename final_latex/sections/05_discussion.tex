@@ -1,0 +1,37 @@
+\section{Discussion}
+
+\subsection{Empirical low-dimensionality of ocean carbon}
+The central finding of this study is that the empirical dependence of ocean $\tco$ on salinity, temperature, and $\aou$ is substantially compressible into a low-dimensional nonlinear representation. Across all four ocean basins, a five-parameter rank-1 quadratic model captures the vast majority of predictive structure, outperforming linear regression models while achieving accuracy comparable to a full 10-parameter second-order polynomial.
+
+\subsection{Significance of the rank-1 versus rank-2 comparison}
+The comparison between rank-1 and rank-2 quadratic models provides one of the strongest structural insights of our analysis. Increasing the quadratic rank from one to two introduces four additional parameters but produces virtually no predictive benefit ($\Delta\mathrm{RMSE} = +1.98, +0.25, -0.29, -0.04\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$). In the Atlantic and Indian Oceans, rank-2 models actually degrade out-of-sample precision due to parameter overfitting. This result demonstrates that the quadratic curvature governing empirical $\tco$ distributions is effectively one-dimensional: a single linear projection $z = \alpha S + \beta T + \gamma \aou_{100} + \delta$ accounts for virtually all non-additive quadratic variability.
+
+\subsection{Role of rank-1 as a complexity-efficient representation}
+While rank-1 provides a compact parameterization, higher-complexity symbolic regression expressions achieve lower absolute RMSE ($3$--$12\%$ reduction) in all basins. However, these gains require expression complexities of $C=15$--$25$ (compared to $C=8$ for rank-1). Thus, rank-1 should not be claimed as the single "most accurate" model or an invariant "Pareto knee." Instead, rank-1 represents a highly efficient low-complexity approximation that trades a minor fraction of predictive accuracy for exceptional parameter compactness and structural transparency.
+
+\subsection{Operator-space dependence in symbolic recovery}
+Our multi-search design ($48$ PySR runs across $4$ operator sets and $3$ seeds) demonstrates that symbolic regression outputs are inherently sensitive to the predefined operator space. Although rank-1 candidates recurred in $24$ of $48$ search cells and appeared in all four basins, recovery in the Atlantic Ocean occurred exclusively when explicit squaring operators were enabled (Search C). In basic arithmetic or log-exponential spaces, genetic algorithms failed to isolate the rank-1 form in the Atlantic. This highlights that symbolic candidate discovery is an interaction between observational data structure and search space parameterization, rather than an automated proof of equation uniqueness.
+
+\subsection{Domain dependence and generalization boundaries}
+Evaluating models across temporal validation, spatial-block ($5^\circ \times 10^\circ$) cross-validation, cruise-block cross-validation, and locked post-2018 external holdouts reveals that predictive performance is strongly domain-dependent. Model rankings shift between temporal and spatial validation schemes, emphasizing that no single model family is universally superior across all validation protocols.
+
+Crucially, identifying explicit failure regimes strengthens the scientific utility of compact parameterizations:
+\begin{enumerate}[label=(\roman*)]
+\item \textbf{Surface Waters ($0$--$100$\,m)}: High predictive error across all model families reflects unmodeled seasonal air--sea $\mathrm{CO}_2$ gas exchange, thermal warming/cooling, and rapid biological uptake.
+\item \textbf{Antarctic Intermediate Water (AAIW)}: Severe systematic bias ($+27.14\,\mu\mathrm{mol}\,\mathrm{kg}^{-1}$) in Atlantic AAIW indicates that $S, T, \aou$ alone lack sufficient state information to constrain intermediate water ventilation histories.
+\item \textbf{Southern Ocean Abyss ($>3000$\,m)}: Global model failure ($R^2 = -0.174$) contrasted with excellent local refit accuracy ($R^2 = 0.786$) demonstrates that basin-scale parameterizations cannot be extrapolated across distinct deep circulation regimes without local coefficient recalibration.
+\end{enumerate}
+
+\subsection{Physical interpretation versus empirical fitting}
+Mathematically, the rank-1 Hessian $H = 2 \mathbf{v} \mathbf{v}^T$ establishes a one-dimensional curvature structure in state space. Oceanographically, the monotonic partial derivatives ($\partial\tco/\partial S > 0, \partial\tco/\partial T < 0, \partial\tco/\partial\aou > 0$) align qualitatively with carbonate buffering dynamics and biological remineralization stoichiometry \citep{Sarmiento2006}. However, we explicitly emphasize that empirical curvature alignment does not constitute proof of a fundamental mixing axis, a first-principles derivation of aqueous carbonate equilibrium, or a universal physical law. The rank-1 quadratic is an empirical projection that efficiently captures observational correlations.
+
+\subsection{Limitations}
+Several limitations must be acknowledged:
+\begin{enumerate}[label=(\roman*)]
+\item Symbolic regression searches were restricted to static operator sets and fixed complexity caps ($C_{\max}=30$).
+\item Water-mass definitions relied on simplified depth and property thresholds rather than full neutral-density or multi-variable water-mass endmember analysis.
+\item Spatial and cruise blocking evaluated existing GLODAP sampling geometries but cannot replace fully independent autonomous sensor networks (e.g., Biogeochemical-Argo floats).
+\end{enumerate}
+
+\subsection{Implications for compact ocean carbon parameterizations}
+Despite these limitations, the compact rank-1 quadratic parameterization offers practical utility for oceanographic applications. With only five fitted coefficients per basin, it provides an interpretable, computationally lightweight baseline for gap-filling hydrographic bottle data, performing regional carbon diagnostics, and validating complex ocean biogeochemical models without the risk of unconstrained polynomial divergence.

@@ -1,0 +1,22 @@
+\section{Introduction}
+Total dissolved inorganic carbon ($\tco$) is a fundamental variable in ocean biogeochemistry, governing air--sea $\mathrm{CO}_2$ flux, ocean acidification, and the biological carbon pump \citep{Sarmiento2006,Takahashi1993}. Quantifying $\tco$ distributions from hydrographic predictors such as salinity ($S$), temperature ($T$), and apparent oxygen utilisation ($\aou$) is vital for gap-filling sparse observational networks, mapping global carbon inventories, and initializing numerical ocean models \citep{Goyet1991,Key2004,Broullon2019}.
+
+Traditional statistical formulations range from simple linear regressions \citep{Millero1998} to complex multi-layer neural networks \citep{Broullon2019} and multi-parameter interpolation tools \citep{Carter2018}. While linear models offer parameter efficiency and mathematical simplicity, they struggle to capture the nonlinear curvature driven by carbonate buffer chemistry and water-mass mixing dynamics. Conversely, non-parametric machine learning models attain high predictive precision but act as opaque black boxes, providing limited insight into the intrinsic degrees of freedom governing empirical carbon variability.
+
+Symbolic regression (SR) has emerged as an automated technique for discovering compact closed-form mathematical equations directly from observational datasets \citep{Cranmer2023}. Rather than treating SR as an automated algorithm for discovering an inviolable "universal law," this study uses symbolic regression as a rigorous probe of empirical low-dimensionality. Specifically, we address the following central question:
+\begin{quote}
+\emph{How low-dimensional is the empirical $S$--$T$--$\aou$ dependence of ocean total dissolved inorganic carbon, and how much predictive accuracy is retained as structural constraints become stronger?}
+\end{quote}
+
+We hypothesize that much of the empirical variability of $\tco$ across the global ocean can be compressed into a low-dimensional nonlinear representation---specifically a five-parameter rank-1 quadratic form---without requiring the full complexity of higher-degree polynomials or deep neural architectures. To test this hypothesis comprehensively, we evaluate candidate expressions across four major ocean basins (Atlantic, Indian, Pacific, and Southern Ocean) using a suite of 48 symbolic regression searches across four distinct mathematical operator spaces and three random seeds.
+
+Importantly, our work explicitly refrains from claiming:
+\begin{enumerate}[label=(\roman*)]
+\item the discovery of a universal physical ocean-carbon law;
+\item a first-principles derivation of aqueous carbonate equilibrium;
+\item proof of a single physical mixing axis;
+\item that a rank-1 model is universally optimal or invariant under all validation regimes; or
+\item that symbolic regression uniquely isolated the single "true" equation governing ocean carbon.
+\end{enumerate}
+
+Instead, we systematically evaluate the tradeoff between predictive precision and expression complexity across a broad model hierarchy ranging from mean baselines and linear models up to full quadratic polynomials, rank-2 quadratics, cubic regressions, and Pareto-optimal symbolic candidates. We test model transferability using temporal validation, $5^\circ \times 10^\circ$ spatial block cross-validation, cruise-level cross-validation, and a locked post-2018 external holdout dataset. Finally, we map out specific water-mass and abyssal failure regimes, establishing both the utility and the explicit boundaries of compact ocean carbon parameterizations.
