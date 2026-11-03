@@ -1,0 +1,197 @@
+Basin,Model,Model_name,Parameter,Coefficient
+Atlantic,Model0_mean,Baseline Mean,mean,2152.615377222245
+Atlantic,Model1_linear,Linear Regression,intercept,901.83859810991
+Atlantic,Model1_linear,Linear Regression,coef_S,35.85751381522238
+Atlantic,Model1_linear,Linear Regression,coef_T,-6.108818122572126
+Atlantic,Model1_linear,Linear Regression,coef_A,65.94145737123893
+Atlantic,Model2_rank1_quad,Rank-1 Quadratic,alpha,1.4855237127100376
+Atlantic,Model2_rank1_quad,Rank-1 Quadratic,beta,-0.2376653435475735
+Atlantic,Model2_rank1_quad,Rank-1 Quadratic,gamma,2.2196409390716485
+Atlantic,Model2_rank1_quad,Rank-1 Quadratic,delta,-36.610677187044566
+Atlantic,Model2_rank1_quad,Rank-1 Quadratic,epsilon,1923.453731887193
+Atlantic,Model3_rank2_quad,Rank-2 Quadratic,a1,1.7634031666795509
+Atlantic,Model3_rank2_quad,Rank-2 Quadratic,b1,-0.09392307697964525
+Atlantic,Model3_rank2_quad,Rank-2 Quadratic,c1,-1.0005096082499125
+Atlantic,Model3_rank2_quad,Rank-2 Quadratic,d1,-82.85311094391233
+Atlantic,Model3_rank2_quad,Rank-2 Quadratic,a2,1.3029254339376217
+Atlantic,Model3_rank2_quad,Rank-2 Quadratic,b2,-0.11952485966158356
+Atlantic,Model3_rank2_quad,Rank-2 Quadratic,c2,0.24306148625147206
+Atlantic,Model3_rank2_quad,Rank-2 Quadratic,d2,-0.13004553189757873
+Atlantic,Model3_rank2_quad,Rank-2 Quadratic,epsilon,-355.0224394918707
+Atlantic,Model4_full_quad,Full Second-Order Polynomial,intercept,6510.4853847890945
+Atlantic,Model4_full_quad,Full Second-Order Polynomial,coef_S,-289.45893222217404
+Atlantic,Model4_full_quad,Full Second-Order Polynomial,coef_T,10.728086101415352
+Atlantic,Model4_full_quad,Full Second-Order Polynomial,coef_A,0.9703428257421067
+Atlantic,Model4_full_quad,Full Second-Order Polynomial,coef_S2,4.710662602651231
+Atlantic,Model4_full_quad,Full Second-Order Polynomial,coef_T2,-0.05068856672290542
+Atlantic,Model4_full_quad,Full Second-Order Polynomial,coef_A2,4.720392437663019e-05
+Atlantic,Model4_full_quad,Full Second-Order Polynomial,coef_ST,-0.4460547051747745
+Atlantic,Model4_full_quad,Full Second-Order Polynomial,coef_SA,-0.0073119372593968114
+Atlantic,Model4_full_quad,Full Second-Order Polynomial,coef_TA,-0.006941724400540564
+Atlantic,Model5_cubic,Cubic Polynomial,intercept,1937.2984431884593
+Atlantic,Model5_cubic,Cubic Polynomial,coef_0,-0.006432892626864918
+Atlantic,Model5_cubic,Cubic Polynomial,coef_1,-0.03368345025293361
+Atlantic,Model5_cubic,Cubic Polynomial,coef_2,0.016944028983004886
+Atlantic,Model5_cubic,Cubic Polynomial,coef_3,-0.22601216096854576
+Atlantic,Model5_cubic,Cubic Polynomial,coef_4,-0.3844495764820056
+Atlantic,Model5_cubic,Cubic Polynomial,coef_5,-0.015783189717764594
+Atlantic,Model5_cubic,Cubic Polynomial,coef_6,-0.6259862337526978
+Atlantic,Model5_cubic,Cubic Polynomial,coef_7,0.16092279573531207
+Atlantic,Model5_cubic,Cubic Polynomial,coef_8,-0.7898459508465473
+Atlantic,Model5_cubic,Cubic Polynomial,coef_9,0.010819754979945683
+Atlantic,Model5_cubic,Cubic Polynomial,coef_10,0.013754059055821711
+Atlantic,Model5_cubic,Cubic Polynomial,coef_11,-1.9926995887518717e-07
+Atlantic,Model5_cubic,Cubic Polynomial,coef_12,0.021061911534349432
+Atlantic,Model5_cubic,Cubic Polynomial,coef_13,-0.0038619528531317654
+Atlantic,Model5_cubic,Cubic Polynomial,coef_14,-0.009433195692046311
+Atlantic,Model5_cubic,Cubic Polynomial,coef_15,0.0016721844725159237
+Atlantic,Model5_cubic,Cubic Polynomial,coef_16,0.0004505029036513305
+Atlantic,Model5_cubic,Cubic Polynomial,coef_17,7.98244087981961e-05
+Atlantic,Model5_cubic,Cubic Polynomial,coef_18,0.02069915875098761
+Indian,Model0_mean,Baseline Mean,mean,2194.2365807126594
+Indian,Model1_linear,Linear Regression,intercept,1305.4268456867653
+Indian,Model1_linear,Linear Regression,coef_S,25.348175582665043
+Indian,Model1_linear,Linear Regression,coef_T,-8.810856103901257
+Indian,Model1_linear,Linear Regression,coef_A,69.64811211966847
+Indian,Model2_rank1_quad,Rank-1 Quadratic,alpha,0.5010000549442951
+Indian,Model2_rank1_quad,Rank-1 Quadratic,beta,-0.16960816325336484
+Indian,Model2_rank1_quad,Rank-1 Quadratic,gamma,1.2877934341467099
+Indian,Model2_rank1_quad,Rank-1 Quadratic,delta,9.95496355352526
+Indian,Model2_rank1_quad,Rank-1 Quadratic,epsilon,1435.8891071350467
+Indian,Model3_rank2_quad,Rank-2 Quadratic,a1,0.06966082950615494
+Indian,Model3_rank2_quad,Rank-2 Quadratic,b1,-0.05963667232584578
+Indian,Model3_rank2_quad,Rank-2 Quadratic,c1,0.6691625082712651
+Indian,Model3_rank2_quad,Rank-2 Quadratic,d1,105.94423717052953
+Indian,Model3_rank2_quad,Rank-2 Quadratic,a2,-0.3418669222399402
+Indian,Model3_rank2_quad,Rank-2 Quadratic,b2,-0.12137349684797635
+Indian,Model3_rank2_quad,Rank-2 Quadratic,c2,2.6238694609056283
+Indian,Model3_rank2_quad,Rank-2 Quadratic,d2,-4.254939042045521
+Indian,Model3_rank2_quad,Rank-2 Quadratic,epsilon,-9817.706083087218
+Indian,Model4_full_quad,Full Second-Order Polynomial,intercept,-5787.206413237336
+Indian,Model4_full_quad,Full Second-Order Polynomial,coef_S,383.11793926455977
+Indian,Model4_full_quad,Full Second-Order Polynomial,coef_T,28.558693978847803
+Indian,Model4_full_quad,Full Second-Order Polynomial,coef_A,3.3975778385949256
+Indian,Model4_full_quad,Full Second-Order Polynomial,coef_S2,-4.411870451468471
+Indian,Model4_full_quad,Full Second-Order Polynomial,coef_T2,0.14935859374156016
+Indian,Model4_full_quad,Full Second-Order Polynomial,coef_A2,0.0003536449140677726
+Indian,Model4_full_quad,Full Second-Order Polynomial,coef_ST,-1.1971290791157567
+Indian,Model4_full_quad,Full Second-Order Polynomial,coef_SA,-0.07935311372465098
+Indian,Model4_full_quad,Full Second-Order Polynomial,coef_TA,0.0012693895576204122
+Indian,Model5_cubic,Cubic Polynomial,intercept,1694.2902011530684
+Indian,Model5_cubic,Cubic Polynomial,coef_0,0.00029827733005364875
+Indian,Model5_cubic,Cubic Polynomial,coef_1,-0.0007435820559411428
+Indian,Model5_cubic,Cubic Polynomial,coef_2,0.01164779529008254
+Indian,Model5_cubic,Cubic Polynomial,coef_3,0.011015135494033433
+Indian,Model5_cubic,Cubic Polynomial,coef_4,-0.019775733280679997
+Indian,Model5_cubic,Cubic Polynomial,coef_5,-0.0381225675204677
+Indian,Model5_cubic,Cubic Polynomial,coef_6,-0.010211048133022973
+Indian,Model5_cubic,Cubic Polynomial,coef_7,0.2279330810302776
+Indian,Model5_cubic,Cubic Polynomial,coef_8,0.15870181531205965
+Indian,Model5_cubic,Cubic Polynomial,coef_9,0.0107740244260018
+Indian,Model5_cubic,Cubic Polynomial,coef_10,0.0033314257576317033
+Indian,Model5_cubic,Cubic Polynomial,coef_11,-5.577281337920883e-06
+Indian,Model5_cubic,Cubic Polynomial,coef_12,-0.0030260692557957966
+Indian,Model5_cubic,Cubic Polynomial,coef_13,-0.006098743356487393
+Indian,Model5_cubic,Cubic Polynomial,coef_14,-0.006054479619907077
+Indian,Model5_cubic,Cubic Polynomial,coef_15,0.0027243954964391017
+Indian,Model5_cubic,Cubic Polynomial,coef_16,0.0011909459132468595
+Indian,Model5_cubic,Cubic Polynomial,coef_17,-3.5530895594190253e-05
+Indian,Model5_cubic,Cubic Polynomial,coef_18,-0.006255357113227313
+Pacific,Model0_mean,Baseline Mean,mean,2208.376552233857
+Pacific,Model1_linear,Linear Regression,intercept,787.7544128825557
+Pacific,Model1_linear,Linear Regression,coef_S,40.291721279331256
+Pacific,Model1_linear,Linear Regression,coef_T,-9.098164125249646
+Pacific,Model1_linear,Linear Regression,coef_A,74.82880374332387
+Pacific,Model2_rank1_quad,Rank-1 Quadratic,alpha,1.1593663523000102
+Pacific,Model2_rank1_quad,Rank-1 Quadratic,beta,-0.2695594771261973
+Pacific,Model2_rank1_quad,Rank-1 Quadratic,gamma,1.7755278174246434
+Pacific,Model2_rank1_quad,Rank-1 Quadratic,delta,-20.152634284952114
+Pacific,Model2_rank1_quad,Rank-1 Quadratic,epsilon,1790.2828103169832
+Pacific,Model3_rank2_quad,Rank-2 Quadratic,a1,-0.46881913596558367
+Pacific,Model3_rank2_quad,Rank-2 Quadratic,b1,-0.31586098920676536
+Pacific,Model3_rank2_quad,Rank-2 Quadratic,c1,1.1652685357907435
+Pacific,Model3_rank2_quad,Rank-2 Quadratic,d1,29.25477554814434
+Pacific,Model3_rank2_quad,Rank-2 Quadratic,a2,0.889263424329415
+Pacific,Model3_rank2_quad,Rank-2 Quadratic,b2,-0.059390603772792164
+Pacific,Model3_rank2_quad,Rank-2 Quadratic,c2,0.7590253806679779
+Pacific,Model3_rank2_quad,Rank-2 Quadratic,d2,-2.276911274057399
+Pacific,Model3_rank2_quad,Rank-2 Quadratic,epsilon,1207.3290088190038
+Pacific,Model4_full_quad,Full Second-Order Polynomial,intercept,1776.320114574311
+Pacific,Model4_full_quad,Full Second-Order Polynomial,coef_S,-3.18663770460218
+Pacific,Model4_full_quad,Full Second-Order Polynomial,coef_T,-31.43960509749161
+Pacific,Model4_full_quad,Full Second-Order Polynomial,coef_A,-1.667227651188573
+Pacific,Model4_full_quad,Full Second-Order Polynomial,coef_S2,0.40713971300785695
+Pacific,Model4_full_quad,Full Second-Order Polynomial,coef_T2,0.03184848113471923
+Pacific,Model4_full_quad,Full Second-Order Polynomial,coef_A2,-0.00035303259161918065
+Pacific,Model4_full_quad,Full Second-Order Polynomial,coef_ST,0.6675955182105042
+Pacific,Model4_full_quad,Full Second-Order Polynomial,coef_SA,0.07786190013233929
+Pacific,Model4_full_quad,Full Second-Order Polynomial,coef_TA,-0.021081762763608233
+Pacific,Model5_cubic,Cubic Polynomial,intercept,1588.5890234467627
+Pacific,Model5_cubic,Cubic Polynomial,coef_0,-5.775599736785185e-05
+Pacific,Model5_cubic,Cubic Polynomial,coef_1,-0.0012630600984817407
+Pacific,Model5_cubic,Cubic Polynomial,coef_2,0.016224410778108874
+Pacific,Model5_cubic,Cubic Polynomial,coef_3,-0.0017644308718560366
+Pacific,Model5_cubic,Cubic Polynomial,coef_4,-0.018886114847154804
+Pacific,Model5_cubic,Cubic Polynomial,coef_5,-0.026762964503696286
+Pacific,Model5_cubic,Cubic Polynomial,coef_6,-0.022154666373477797
+Pacific,Model5_cubic,Cubic Polynomial,coef_7,0.2662934450281702
+Pacific,Model5_cubic,Cubic Polynomial,coef_8,0.08834862111395905
+Pacific,Model5_cubic,Cubic Polynomial,coef_9,0.014874376800762406
+Pacific,Model5_cubic,Cubic Polynomial,coef_10,0.007069722331016718
+Pacific,Model5_cubic,Cubic Polynomial,coef_11,-1.0111489531594579e-05
+Pacific,Model5_cubic,Cubic Polynomial,coef_12,-0.006504686756587666
+Pacific,Model5_cubic,Cubic Polynomial,coef_13,-0.007674522388363122
+Pacific,Model5_cubic,Cubic Polynomial,coef_14,-0.005871147475778879
+Pacific,Model5_cubic,Cubic Polynomial,coef_15,0.003288596192439473
+Pacific,Model5_cubic,Cubic Polynomial,coef_16,0.000937859177583155
+Pacific,Model5_cubic,Cubic Polynomial,coef_17,-6.396327493953431e-05
+Pacific,Model5_cubic,Cubic Polynomial,coef_18,-0.0036790096479100347
+Southern Ocean,Model0_mean,Baseline Mean,mean,2211.661092083613
+Southern Ocean,Model1_linear,Linear Regression,intercept,1112.652622890443
+Southern Ocean,Model1_linear,Linear Regression,coef_S,30.714432709737473
+Southern Ocean,Model1_linear,Linear Regression,coef_T,-8.51800923797505
+Southern Ocean,Model1_linear,Linear Regression,coef_A,62.87122072512867
+Southern Ocean,Model2_rank1_quad,Rank-1 Quadratic,alpha,0.7289051502591855
+Southern Ocean,Model2_rank1_quad,Rank-1 Quadratic,beta,-0.23070626392293772
+Southern Ocean,Model2_rank1_quad,Rank-1 Quadratic,gamma,1.6378462908441531
+Southern Ocean,Model2_rank1_quad,Rank-1 Quadratic,delta,-6.201337884177182
+Southern Ocean,Model2_rank1_quad,Rank-1 Quadratic,epsilon,1811.1493863553103
+Southern Ocean,Model3_rank2_quad,Rank-2 Quadratic,a1,0.06858998823115856
+Southern Ocean,Model3_rank2_quad,Rank-2 Quadratic,b1,-0.09513083789440965
+Southern Ocean,Model3_rank2_quad,Rank-2 Quadratic,c1,2.6241076597495123
+Southern Ocean,Model3_rank2_quad,Rank-2 Quadratic,d1,2.4715254752975624
+Southern Ocean,Model3_rank2_quad,Rank-2 Quadratic,a2,-0.6275552572781669
+Southern Ocean,Model3_rank2_quad,Rank-2 Quadratic,b2,0.17033579822977613
+Southern Ocean,Model3_rank2_quad,Rank-2 Quadratic,c2,-0.6115716403868472
+Southern Ocean,Model3_rank2_quad,Rank-2 Quadratic,d2,-1.4791515091485656
+Southern Ocean,Model3_rank2_quad,Rank-2 Quadratic,epsilon,1614.6284899806014
+Southern Ocean,Model4_full_quad,Full Second-Order Polynomial,intercept,1659.4669098821514
+Southern Ocean,Model4_full_quad,Full Second-Order Polynomial,coef_S,0.018205563554963243
+Southern Ocean,Model4_full_quad,Full Second-Order Polynomial,coef_T,-8.032257596528293
+Southern Ocean,Model4_full_quad,Full Second-Order Polynomial,coef_A,0.2688969637006273
+Southern Ocean,Model4_full_quad,Full Second-Order Polynomial,coef_S2,0.4303448438074479
+Southern Ocean,Model4_full_quad,Full Second-Order Polynomial,coef_T2,-0.03210405904011449
+Southern Ocean,Model4_full_quad,Full Second-Order Polynomial,coef_A2,0.0007425021421523177
+Southern Ocean,Model4_full_quad,Full Second-Order Polynomial,coef_ST,0.00572943892865969
+Southern Ocean,Model4_full_quad,Full Second-Order Polynomial,coef_SA,0.007949072676374127
+Southern Ocean,Model4_full_quad,Full Second-Order Polynomial,coef_TA,-0.014818962488772559
+Southern Ocean,Model5_cubic,Cubic Polynomial,intercept,1754.1288530765935
+Southern Ocean,Model5_cubic,Cubic Polynomial,coef_0,0.00012328792675765827
+Southern Ocean,Model5_cubic,Cubic Polynomial,coef_1,-0.0029375314570805767
+Southern Ocean,Model5_cubic,Cubic Polynomial,coef_2,0.0007736569631176504
+Southern Ocean,Model5_cubic,Cubic Polynomial,coef_3,0.003866945783218394
+Southern Ocean,Model5_cubic,Cubic Polynomial,coef_4,-0.03740003282380282
+Southern Ocean,Model5_cubic,Cubic Polynomial,coef_5,0.011746402300528362
+Southern Ocean,Model5_cubic,Cubic Polynomial,coef_6,-0.0489852041430602
+Southern Ocean,Model5_cubic,Cubic Polynomial,coef_7,0.037857640900644994
+Southern Ocean,Model5_cubic,Cubic Polynomial,coef_8,-0.22253097449259945
+Southern Ocean,Model5_cubic,Cubic Polynomial,coef_9,0.010146411606676724
+Southern Ocean,Model5_cubic,Cubic Polynomial,coef_10,0.013589339315229305
+Southern Ocean,Model5_cubic,Cubic Polynomial,coef_11,1.775187614898534e-05
+Southern Ocean,Model5_cubic,Cubic Polynomial,coef_12,-0.00393202333988508
+Southern Ocean,Model5_cubic,Cubic Polynomial,coef_13,-0.0004790737783299339
+Southern Ocean,Model5_cubic,Cubic Polynomial,coef_14,-0.009431336151226773
+Southern Ocean,Model5_cubic,Cubic Polynomial,coef_15,-0.0005003605494952854
+Southern Ocean,Model5_cubic,Cubic Polynomial,coef_16,-0.00043502812291852514
+Southern Ocean,Model5_cubic,Cubic Polynomial,coef_17,-9.414553095757793e-05
+Southern Ocean,Model5_cubic,Cubic Polynomial,coef_18,0.006169775159771085

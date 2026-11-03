@@ -1,0 +1,68 @@
+basin,search_space,family,n_seeds_present,mean_count,total_count
+Atlantic,SearchA_basic,linear,3,10.0,30
+Atlantic,SearchA_basic,constant,3,1.0,3
+Atlantic,SearchB_explog,exponential,2,5.0,10
+Atlantic,SearchB_explog,linear,3,4.0,12
+Atlantic,SearchB_explog,constant,3,1.0,3
+Atlantic,SearchB_explog,logarithmic,1,4.0,4
+Atlantic,SearchC_sqrt_square,linear,3,7.333333333333333,22
+Atlantic,SearchC_sqrt_square,rank-1 quadratic,3,1.6666666666666667,5
+Atlantic,SearchC_sqrt_square,constant,3,1.0,3
+Atlantic,SearchC_sqrt_square,root,2,2.5,5
+Atlantic,SearchC_sqrt_square,exponential,2,2.0,4
+Atlantic,SearchD_broad,linear,3,11.0,33
+Atlantic,SearchD_broad,root,1,7.0,7
+Atlantic,SearchD_broad,constant,3,1.0,3
+Indian,SearchA_basic,linear,3,10.0,30
+Indian,SearchA_basic,constant,3,1.0,3
+Indian,SearchA_basic,rank-1 quadratic,1,1.0,1
+Indian,SearchB_explog,linear,3,9.0,27
+Indian,SearchB_explog,constant,3,1.0,3
+Indian,SearchB_explog,exponential,2,3.5,7
+Indian,SearchB_explog,logarithmic,1,5.0,5
+Indian,SearchB_explog,rank-1 quadratic,1,1.0,1
+Indian,SearchC_sqrt_square,linear,3,6.666666666666667,20
+Indian,SearchC_sqrt_square,constant,3,1.0,3
+Indian,SearchC_sqrt_square,rank-1 quadratic,3,3.3333333333333335,10
+Indian,SearchC_sqrt_square,full quadratic,1,1.0,1
+Indian,SearchC_sqrt_square,exponential,1,1.0,1
+Indian,SearchD_broad,linear,3,9.666666666666666,29
+Indian,SearchD_broad,rank-1 quadratic,2,3.5,7
+Indian,SearchD_broad,constant,3,1.0,3
+Indian,SearchD_broad,exponential,1,1.0,1
+Pacific,SearchA_basic,linear,3,10.333333333333334,31
+Pacific,SearchA_basic,other,1,2.0,2
+Pacific,SearchA_basic,constant,3,1.0,3
+Pacific,SearchB_explog,linear,3,7.0,21
+Pacific,SearchB_explog,logarithmic,2,4.0,8
+Pacific,SearchB_explog,constant,3,1.0,3
+Pacific,SearchB_explog,exponential,2,3.0,6
+Pacific,SearchC_sqrt_square,rank-1 quadratic,3,7.333333333333333,22
+Pacific,SearchC_sqrt_square,linear,3,5.0,15
+Pacific,SearchC_sqrt_square,constant,3,1.0,3
+Pacific,SearchC_sqrt_square,full quadratic,1,1.0,1
+Pacific,SearchD_broad,linear,3,8.0,24
+Pacific,SearchD_broad,rank-1 quadratic,2,7.5,15
+Pacific,SearchD_broad,constant,3,1.0,3
+Pacific,SearchD_broad,full quadratic,1,1.0,1
+Southern Ocean,SearchA_basic,linear,3,8.0,24
+Southern Ocean,SearchA_basic,rank-1 quadratic,2,1.5,3
+Southern Ocean,SearchA_basic,constant,3,1.0,3
+Southern Ocean,SearchB_explog,linear,3,7.666666666666667,23
+Southern Ocean,SearchB_explog,exponential,2,3.0,6
+Southern Ocean,SearchB_explog,constant,3,1.0,3
+Southern Ocean,SearchB_explog,rank-1 quadratic,1,1.0,1
+Southern Ocean,SearchB_explog,separable nonlinear,1,3.0,3
+Southern Ocean,SearchB_explog,logarithmic,1,1.0,1
+Southern Ocean,SearchC_sqrt_square,linear,3,6.666666666666667,20
+Southern Ocean,SearchC_sqrt_square,rank-1 quadratic,3,2.6666666666666665,8
+Southern Ocean,SearchC_sqrt_square,constant,3,1.0,3
+Southern Ocean,SearchC_sqrt_square,other,1,1.0,1
+Southern Ocean,SearchC_sqrt_square,exponential,1,1.0,1
+Southern Ocean,SearchC_sqrt_square,root,1,5.0,5
+Southern Ocean,SearchD_broad,linear,3,6.0,18
+Southern Ocean,SearchD_broad,polynomial higher-order,1,2.0,2
+Southern Ocean,SearchD_broad,constant,3,1.0,3
+Southern Ocean,SearchD_broad,rank-1 quadratic,3,4.333333333333333,13
+Southern Ocean,SearchD_broad,exponential,1,3.0,3
+Southern Ocean,SearchD_broad,logarithmic,1,1.0,1

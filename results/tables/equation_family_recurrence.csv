@@ -1,0 +1,49 @@
+basin,search_space,seed,rank1_present,rank1_n_candidates,rank1_best_RMSE_val,rank1_best_complexity,rank1_pareto_present,best_unrestricted_RMSE_val,best_unrestricted_family,rank1_minus_best_RMSE
+Atlantic,SearchA_basic,42,False,0,,,False,20.628945176989657,linear,
+Atlantic,SearchA_basic,123,False,0,,,False,20.500667897447816,linear,
+Atlantic,SearchA_basic,456,False,0,,,False,20.656343317299974,linear,
+Atlantic,SearchB_explog,42,False,0,,,False,19.985489552313705,linear,
+Atlantic,SearchB_explog,123,False,0,,,False,19.302182118474548,linear,
+Atlantic,SearchB_explog,456,False,0,,,False,19.35303011706315,logarithmic,
+Atlantic,SearchC_sqrt_square,42,True,3,21.442169995430845,16.0,False,21.024184370158636,linear,0.41798562527220895
+Atlantic,SearchC_sqrt_square,123,True,1,41.18471237264868,4.0,False,21.02063711353942,linear,20.164075259109264
+Atlantic,SearchC_sqrt_square,456,True,1,35.55522463208291,12.0,False,18.9979900461221,linear,16.55723458596081
+Atlantic,SearchD_broad,42,False,0,,,False,20.190380859240044,root,
+Atlantic,SearchD_broad,123,False,0,,,False,20.85879258735692,linear,
+Atlantic,SearchD_broad,456,False,0,,,False,19.04097750542019,linear,
+Indian,SearchA_basic,42,False,0,,,False,14.248382444866976,linear,
+Indian,SearchA_basic,123,False,0,,,False,14.75487384187993,linear,
+Indian,SearchA_basic,456,True,1,14.174592516613025,25.0,False,13.952204461752697,linear,0.2223880548603283
+Indian,SearchB_explog,42,False,0,,,False,14.159419806058487,linear,
+Indian,SearchB_explog,123,False,0,,,False,13.48880063818709,logarithmic,
+Indian,SearchB_explog,456,True,1,12.800258346619575,25.0,False,12.800258346619575,rank-1 quadratic,0.0
+Indian,SearchC_sqrt_square,42,True,1,65.77024321842656,4.0,False,13.067311336682554,linear,52.70293188174401
+Indian,SearchC_sqrt_square,123,True,7,14.14987056489171,21.0,False,14.14987056489171,rank-1 quadratic,0.0
+Indian,SearchC_sqrt_square,456,True,2,30.543656064890698,8.0,False,14.719340214340267,linear,15.82431585055043
+Indian,SearchD_broad,42,True,5,18.339849789221383,16.0,False,14.166613981208236,linear,4.173235808013146
+Indian,SearchD_broad,123,True,2,26.7740072410473,8.0,False,14.043402456135617,linear,12.730604784911684
+Indian,SearchD_broad,456,False,0,,,False,13.796635781902468,linear,
+Pacific,SearchA_basic,42,False,0,,,False,15.870898623292316,linear,
+Pacific,SearchA_basic,123,False,0,,,False,15.664478426180365,linear,
+Pacific,SearchA_basic,456,False,0,,,False,16.437885391337005,linear,
+Pacific,SearchB_explog,42,False,0,,,False,16.545946527120247,logarithmic,
+Pacific,SearchB_explog,123,False,0,,,False,15.487703254675528,exponential,
+Pacific,SearchB_explog,456,False,0,,,False,18.18822897692996,linear,
+Pacific,SearchC_sqrt_square,42,True,12,15.601433629940912,22.0,False,15.601433629940912,rank-1 quadratic,0.0
+Pacific,SearchC_sqrt_square,123,True,3,31.096694183417465,10.0,False,15.823334788242391,linear,15.273359395175074
+Pacific,SearchC_sqrt_square,456,True,7,16.02801045115954,16.0,False,16.02801045115954,rank-1 quadratic,0.0
+Pacific,SearchD_broad,42,True,4,17.64873248671779,12.0,False,16.057653853514243,linear,1.5910786332035478
+Pacific,SearchD_broad,123,True,11,15.549895691703943,22.0,False,15.549895691703943,rank-1 quadratic,0.0
+Pacific,SearchD_broad,456,False,0,,,False,15.887125191439756,linear,
+Southern Ocean,SearchA_basic,42,True,2,9.98751899476628,21.0,False,9.98751899476628,rank-1 quadratic,0.0
+Southern Ocean,SearchA_basic,123,False,0,,,False,10.93852707139347,linear,
+Southern Ocean,SearchA_basic,456,True,1,10.826677895905965,19.0,False,10.74002524939845,linear,0.08665264650751503
+Southern Ocean,SearchB_explog,42,True,1,10.622438368084351,23.0,False,10.499184946837053,linear,0.12325342124729843
+Southern Ocean,SearchB_explog,123,False,0,,,False,10.484772054898702,separable nonlinear,
+Southern Ocean,SearchB_explog,456,False,0,,,False,9.989490159281218,linear,
+Southern Ocean,SearchC_sqrt_square,42,True,2,11.862888530288592,20.0,False,11.1301663001723,linear,0.7327222301162912
+Southern Ocean,SearchC_sqrt_square,123,True,3,17.37924003932436,8.0,False,10.374361920732914,exponential,7.004878118591444
+Southern Ocean,SearchC_sqrt_square,456,True,3,20.526855502856524,8.0,False,10.080003005163077,root,10.446852497693447
+Southern Ocean,SearchD_broad,42,True,1,42.0116327397597,4.0,False,11.084839261095064,polynomial higher-order,30.926793478664635
+Southern Ocean,SearchD_broad,123,True,10,11.611955177814666,14.0,False,11.611955177814666,rank-1 quadratic,0.0
+Southern Ocean,SearchD_broad,456,True,2,12.277683325287326,17.0,False,11.612196056439007,linear,0.6654872688483184

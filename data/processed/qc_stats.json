@@ -1,0 +1,9 @@
+{
+  "total_raw": 1402829,
+  "finite": 513954,
+  "salinity_range": 513541,
+  "temperature_range": 513541,
+  "tco2_range": 513472,
+  "aou_range": 512384,
+  "after_qc": 512384
+}

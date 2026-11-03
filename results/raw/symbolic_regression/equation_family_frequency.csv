@@ -1,0 +1,49 @@
+basin,search_space,seed,family,count,fraction
+Atlantic,SearchA_basic,42,constant,12,1.0
+Atlantic,SearchA_basic,123,constant,12,1.0
+Atlantic,SearchA_basic,456,constant,9,1.0
+Atlantic,SearchB_explog,42,constant,9,1.0
+Atlantic,SearchB_explog,123,constant,10,1.0
+Atlantic,SearchB_explog,456,constant,10,1.0
+Atlantic,SearchC_sqrt_square,42,constant,13,1.0
+Atlantic,SearchC_sqrt_square,123,constant,13,1.0
+Atlantic,SearchC_sqrt_square,456,constant,13,1.0
+Atlantic,SearchD_broad,42,constant,16,1.0
+Atlantic,SearchD_broad,123,constant,11,1.0
+Atlantic,SearchD_broad,456,constant,16,1.0
+Indian,SearchA_basic,42,constant,11,1.0
+Indian,SearchA_basic,123,constant,11,1.0
+Indian,SearchA_basic,456,constant,12,1.0
+Indian,SearchB_explog,42,constant,11,1.0
+Indian,SearchB_explog,123,constant,15,1.0
+Indian,SearchB_explog,456,constant,17,1.0
+Indian,SearchC_sqrt_square,42,constant,13,1.0
+Indian,SearchC_sqrt_square,123,constant,12,1.0
+Indian,SearchC_sqrt_square,456,constant,10,1.0
+Indian,SearchD_broad,42,constant,14,1.0
+Indian,SearchD_broad,123,constant,15,1.0
+Indian,SearchD_broad,456,constant,11,1.0
+Pacific,SearchA_basic,42,constant,11,1.0
+Pacific,SearchA_basic,123,constant,12,1.0
+Pacific,SearchA_basic,456,constant,13,1.0
+Pacific,SearchB_explog,42,constant,13,1.0
+Pacific,SearchB_explog,123,constant,14,1.0
+Pacific,SearchB_explog,456,constant,11,1.0
+Pacific,SearchC_sqrt_square,42,constant,17,1.0
+Pacific,SearchC_sqrt_square,123,constant,11,1.0
+Pacific,SearchC_sqrt_square,456,constant,13,1.0
+Pacific,SearchD_broad,42,constant,13,1.0
+Pacific,SearchD_broad,123,constant,16,1.0
+Pacific,SearchD_broad,456,constant,14,1.0
+Southern Ocean,SearchA_basic,42,constant,11,1.0
+Southern Ocean,SearchA_basic,123,constant,10,1.0
+Southern Ocean,SearchA_basic,456,constant,9,1.0
+Southern Ocean,SearchB_explog,42,constant,13,1.0
+Southern Ocean,SearchB_explog,123,constant,11,1.0
+Southern Ocean,SearchB_explog,456,constant,13,1.0
+Southern Ocean,SearchC_sqrt_square,42,constant,13,1.0
+Southern Ocean,SearchC_sqrt_square,123,constant,11,1.0
+Southern Ocean,SearchC_sqrt_square,456,constant,14,1.0
+Southern Ocean,SearchD_broad,42,constant,11,1.0
+Southern Ocean,SearchD_broad,123,constant,13,1.0
+Southern Ocean,SearchD_broad,456,constant,16,1.0

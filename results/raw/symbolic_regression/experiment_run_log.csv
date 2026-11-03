@@ -1,0 +1,49 @@
+basin,search_space,seed,status,n_candidates,runtime_sec
+Atlantic,SearchA_basic,42,success,12,78.58312177658081
+Atlantic,SearchA_basic,123,success,12,52.816246032714844
+Atlantic,SearchA_basic,456,success,9,59.038816928863525
+Atlantic,SearchB_explog,42,success,9,76.85355591773987
+Atlantic,SearchB_explog,123,success,10,79.32394099235535
+Atlantic,SearchB_explog,456,success,10,67.23227906227112
+Atlantic,SearchC_sqrt_square,42,success,13,51.12411427497864
+Atlantic,SearchC_sqrt_square,123,success,13,53.62004494667053
+Atlantic,SearchC_sqrt_square,456,success,13,71.7725682258606
+Atlantic,SearchD_broad,42,success,16,101.27746415138245
+Atlantic,SearchD_broad,123,success,11,61.45712375640869
+Atlantic,SearchD_broad,456,success,16,63.618119955062866
+Indian,SearchA_basic,42,success,11,56.85955262184143
+Indian,SearchA_basic,123,success,11,58.292115926742554
+Indian,SearchA_basic,456,success,12,43.50242519378662
+Indian,SearchB_explog,42,success,11,74.51938509941101
+Indian,SearchB_explog,123,success,15,70.18548107147217
+Indian,SearchB_explog,456,success,17,63.30775690078735
+Indian,SearchC_sqrt_square,42,success,13,47.93543314933777
+Indian,SearchC_sqrt_square,123,success,12,45.86525368690491
+Indian,SearchC_sqrt_square,456,success,10,46.90957498550415
+Indian,SearchD_broad,42,success,14,48.456984996795654
+Indian,SearchD_broad,123,success,15,44.98931002616882
+Indian,SearchD_broad,456,success,11,62.86650896072388
+Pacific,SearchA_basic,42,success,11,37.210769176483154
+Pacific,SearchA_basic,123,success,12,39.77266311645508
+Pacific,SearchA_basic,456,success,13,41.33321690559387
+Pacific,SearchB_explog,42,success,13,61.034334897994995
+Pacific,SearchB_explog,123,success,14,50.08675003051758
+Pacific,SearchB_explog,456,success,11,57.6846718788147
+Pacific,SearchC_sqrt_square,42,success,17,49.5409300327301
+Pacific,SearchC_sqrt_square,123,success,11,47.10419201850891
+Pacific,SearchC_sqrt_square,456,success,13,47.83952307701111
+Pacific,SearchD_broad,42,success,13,41.96900391578674
+Pacific,SearchD_broad,123,success,16,46.30535817146301
+Pacific,SearchD_broad,456,success,14,44.74309015274048
+Southern Ocean,SearchA_basic,42,success,11,40.34768295288086
+Southern Ocean,SearchA_basic,123,success,10,37.13488984107971
+Southern Ocean,SearchA_basic,456,success,9,42.739161252975464
+Southern Ocean,SearchB_explog,42,success,13,60.50639724731445
+Southern Ocean,SearchB_explog,123,success,11,61.07570290565491
+Southern Ocean,SearchB_explog,456,success,13,62.70777201652527
+Southern Ocean,SearchC_sqrt_square,42,success,13,64.34255790710449
+Southern Ocean,SearchC_sqrt_square,123,success,11,58.53036594390869
+Southern Ocean,SearchC_sqrt_square,456,success,14,50.0734179019928
+Southern Ocean,SearchD_broad,42,success,11,59.82444429397583
+Southern Ocean,SearchD_broad,123,success,13,56.72256684303284
+Southern Ocean,SearchD_broad,456,success,16,63.93768763542175
