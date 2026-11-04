@@ -76,7 +76,7 @@ def build():
            weight="bold", color=INK, va="top", linespacing=1.2)
     f.text(0.05, 0.43, "A sample-matched test of 50 years of GLODAP carbon data\nagainst tracer-based anthropogenic-carbon estimates",
            fontsize=18, color=MUTED, va="top", linespacing=1.4)
-    f.text(0.05, 0.20, "[Your name]   ·   Meeting with [Professor]   ·   5 November 2026", fontsize=14, color=INK)
+    f.text(0.05, 0.20, "Ishaan Sodhi   ·   5 November 2026", fontsize=14, color=INK)
     f.add_artist(plt.Line2D([0.05, 0.35], [0.27, 0.27], color=ACCENT, lw=3))
     slides.append(f)
 
@@ -91,7 +91,7 @@ def build():
         "  are statistically equivalent within ±4 µmol kg⁻¹ (DIC measurement precision)",
         "15 % of the data used were calculated or non-QC'd DIC (GLODAP flags ignored)",
     ], y=0.76, size=16, gap=0.085)
-    box(f, 0.05, 0.08, 0.9, 0.12, "So the 'error' was a signal. Instead of hiding it, I made it the research question.",
+    box(f, 0.05, 0.08, 0.9, 0.12, "So the 'error' was a signal. Instead of hiding it, we made it the research question.",
         color=ACCENT, size=16)
     slides.append(f)
 
@@ -104,7 +104,7 @@ def build():
     box(f, 0.05, 0.10, 0.42, 0.32,
         "• DIC-based methods (eMLR) and tracer-based\n  methods (TTD/TRACE) both estimate human CO₂\n"
         "• They are usually compared as maps or inventories\n"
-        "• Never with one identical estimator at the\n  same samples over the whole record (that I found)",
+        "• Never with one identical estimator at the\n  same samples over the whole record (that we found)",
         title="Why it matters", size=14)
     box(f, 0.53, 0.10, 0.42, 0.32,
         "• Agreement → validates TRACE's rates\n  from carbon data directly\n"
@@ -152,7 +152,7 @@ def build():
     slides.append(f)
 
     # 8 Confidence
-    f = slide("How sure am I?", "Honest assessment")
+    f = slide("How sure are we?", "Honest assessment")
     box(f, 0.05, 0.18, 0.42, 0.58,
         "✓ Estimator unbiased on synthetic data\n"
         "✓ 11 sensitivity variants: same sign\n"
@@ -173,7 +173,7 @@ def build():
     slides.append(f)
 
     # 9 Claim
-    f = slide("The claim I think we can defend", "Takeaway")
+    f = slide("The claim we think we can defend", "Takeaway")
     box(f, 0.05, 0.50, 0.9, 0.26,
         "Observed interior-ocean carbon and tracer-based anthropogenic-carbon rates agree to first order,\n"
         "but DIC-based estimates accumulate systematically faster than TRACE in the upper ocean outside the\n"
@@ -183,12 +183,12 @@ def build():
     bullets(f, [
         "Side result (methods note): static DIC regressions must model time / C_ant;",
         "  temporal 'validation' of empirical carbon models is otherwise confounded",
-        "What I am NOT claiming: that TRACE is wrong, or that natural carbon is increasing",
+        "What we are NOT claiming: that TRACE is wrong, or that natural carbon is increasing",
     ], y=0.40, size=15, gap=0.08)
     slides.append(f)
 
     # 10 Next steps / asks
-    f = slide("Next steps — and where I'd value your input", "Plan")
+    f = slide("Next steps — and where we'd value your input", "Plan")
     box(f, 0.05, 0.14, 0.42, 0.62,
         "1. TRACE sensitivity: disequilibrium and\n    TTD-shape parameters (days)\n"
         "2. Independent comparator: Müller 2023\n    field + ocean-model C_ant (1–2 weeks)\n"
