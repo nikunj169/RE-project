@@ -1,0 +1,16 @@
+# Pre-registered settings (see research_docs/RESEARCH_METHODOLOGY.md)
+data:
+  path: research/data/glodap_research.csv.gz
+  raw_sha256: 002881fa71923d15c1bd5aca3b99bc220ad5d1c77a90f130ba1ff0d3910d8766
+basins: [Atlantic, Indian, Pacific, Southern Ocean]
+gamma_edges: [0, 26.0, 26.5, 27.0, 27.5, 27.8, 28.0, 28.1, 28.2, 29.5]
+shallow_gamma_max: 27.8      # H1 applies to layers with upper edge <= this
+cell_deg: 4
+min_span_years: 10
+min_samples: 500
+min_cells: 10
+conditioning: {form: quadratic, variables: [theta, salinity, aou]}
+bootstrap: {n: 500, seed: 20261104}
+trace: {atm_co2_trajectory: 1, canth_diseq: 1, eos: seawater}
+h1_band: [0.85, 1.15]
+dic_offset_umol_kg: 4.0

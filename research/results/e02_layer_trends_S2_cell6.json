@@ -1,0 +1,13 @@
+{
+  "variant": "S2_cell6",
+  "settings": {
+    "cell_deg": "6"
+  },
+  "n_boot": 300,
+  "seed": 20261104,
+  "responses": [
+    "tco2",
+    "canth"
+  ],
+  "raw_sha256": "002881fa71923d15c1bd5aca3b99bc220ad5d1c77a90f130ba1ff0d3910d8766"
+}

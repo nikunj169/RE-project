@@ -41,3 +41,9 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+
+# Research program (research/dev): version small results, figures and audit tables.
+# Large derived data (research/data/, data/raw/, data/external/) stay untracked; rebuild from checksummed sources.
+!research/results/*.csv
+!research/figures/*.png
+!research_docs/*.csv

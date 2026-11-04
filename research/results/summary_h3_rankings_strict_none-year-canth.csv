@@ -1,0 +1,49 @@
+covariate,basin,design,ranking
+year,Atlantic,external,cubic < rank2 < full_quadratic < linear < rank1
+year,Atlantic,validation,cubic < full_quadratic < rank2 < linear < rank1
+year,Indian,external,cubic < rank2 < full_quadratic < rank1 < linear
+year,Indian,validation,cubic < full_quadratic < rank2 < rank1 < linear
+year,Pacific,external,cubic < full_quadratic < rank2 < rank1 < linear
+year,Pacific,validation,cubic < full_quadratic < rank2 < rank1 < linear
+year,Southern Ocean,external,cubic < linear < full_quadratic < rank2 < rank1
+year,Southern Ocean,validation,cubic < full_quadratic < rank1 < rank2 < linear
+year,Atlantic,cruise-block,cubic < rank2 < linear < rank1 < full_quadratic
+year,Atlantic,spatial-block,cubic < full_quadratic < rank2 < linear < rank1
+year,Indian,cruise-block,cubic < full_quadratic < rank2 < rank1 < linear
+year,Indian,spatial-block,cubic < full_quadratic < rank2 < rank1 < linear
+year,Pacific,cruise-block,cubic < full_quadratic < rank2 < rank1 < linear
+year,Pacific,spatial-block,cubic < full_quadratic < rank2 < rank1 < linear
+year,Southern Ocean,cruise-block,full_quadratic < rank2 < rank1 < cubic < linear
+year,Southern Ocean,spatial-block,full_quadratic < rank2 < cubic < rank1 < linear
+canth,Atlantic,external,cubic < full_quadratic < rank2 < rank1 < linear
+canth,Atlantic,validation,cubic < full_quadratic < rank2 < rank1 < linear
+canth,Indian,external,cubic < full_quadratic < rank1 < rank2 < linear
+canth,Indian,validation,cubic < full_quadratic < rank2 < rank1 < linear
+canth,Pacific,external,cubic < full_quadratic < rank2 < rank1 < linear
+canth,Pacific,validation,cubic < full_quadratic < rank2 < rank1 < linear
+canth,Southern Ocean,external,cubic < full_quadratic < rank2 < rank1 < linear
+canth,Southern Ocean,validation,cubic < full_quadratic < rank2 < rank1 < linear
+canth,Atlantic,cruise-block,cubic < full_quadratic < rank1 < rank2 < linear
+canth,Atlantic,spatial-block,cubic < full_quadratic < rank2 < rank1 < linear
+canth,Indian,cruise-block,cubic < full_quadratic < rank2 < rank1 < linear
+canth,Indian,spatial-block,cubic < rank2 < full_quadratic < rank1 < linear
+canth,Pacific,cruise-block,cubic < full_quadratic < rank2 < rank1 < linear
+canth,Pacific,spatial-block,cubic < full_quadratic < rank2 < rank1 < linear
+canth,Southern Ocean,cruise-block,full_quadratic < rank2 < rank1 < linear < cubic
+canth,Southern Ocean,spatial-block,full_quadratic < rank2 < rank1 < cubic < linear
+none,Atlantic,external,cubic < full_quadratic < rank2 < rank1 < linear
+none,Atlantic,validation,cubic < full_quadratic < rank2 < linear < rank1
+none,Indian,external,cubic < rank2 < full_quadratic < rank1 < linear
+none,Indian,validation,cubic < full_quadratic < rank2 < rank1 < linear
+none,Pacific,external,cubic < full_quadratic < rank2 < rank1 < linear
+none,Pacific,validation,cubic < rank2 < full_quadratic < rank1 < linear
+none,Southern Ocean,external,cubic < rank2 < full_quadratic < linear < rank1
+none,Southern Ocean,validation,cubic < full_quadratic < rank1 < rank2 < linear
+none,Atlantic,cruise-block,cubic < rank2 < linear < rank1 < full_quadratic
+none,Atlantic,spatial-block,cubic < full_quadratic < rank2 < linear < rank1
+none,Indian,cruise-block,cubic < full_quadratic < rank1 < rank2 < linear
+none,Indian,spatial-block,cubic < full_quadratic < rank2 < rank1 < linear
+none,Pacific,cruise-block,cubic < full_quadratic < rank2 < rank1 < linear
+none,Pacific,spatial-block,cubic < full_quadratic < rank2 < rank1 < linear
+none,Southern Ocean,cruise-block,full_quadratic < rank2 < rank1 < cubic < linear
+none,Southern Ocean,spatial-block,full_quadratic < rank2 < cubic < rank1 < linear

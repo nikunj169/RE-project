@@ -1,0 +1,7 @@
+{
+  "max_abs_bias": 0.012285324099755232,
+  "coverage_min": 82.0,
+  "coverage_max": 99.0,
+  "pass_bias": true,
+  "pass_coverage": false
+}

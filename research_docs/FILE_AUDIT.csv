@@ -1,0 +1,482 @@
+file_path,file_type,purpose,inputs,outputs,dependencies,scientific_relevance,inspection_status,issues
+.gitignore,config,git ignore rules,-,-,-,none,read_full,Ignores *.csv/*.png/data/ yet these were force-committed
+README.md,doc,G3 study overview and quick-start,-,-,-,high: states claims,read_full,"Lists src/visualization modules that do not exist; claims no hard-coded results (false, see scripts/10)"
+Screenshot 2026-09-17 at 5.07.07 AM.png,image,unreferenced screenshot,-,-,-,none,listed_only,Orphan file
+config/global_config.yaml,config,"paths, variable names, QC thresholds, basins, splits, seeds, bootstrap, TOST margins",-,-,-,high,read_full,No GLODAP QC-flag filtering configured
+config/model_families.yaml,config,model family metadata,-,-,-,medium,read_full,Descriptive only; not loaded by scripts
+config/pysr_config.yaml,config,PySR operator sets A-D and common settings,-,-,-,high,read_full,Settings silently capped in experiments/run_symbolic_search.py; subsample key mismatch (subsample.max_train_samples vs common.subsample_max)
+config/selected_symbolic_candidate.yaml,config,frozen per-basin SR equations (written by scripts/09),symbolic_candidates_all.csv,-,-,high,read_full,Selected by min 2015-17 RMSE over 599 candidates -> optimistic validation score
+config/watermass.yaml,config,threshold water-mass definitions,-,-,-,medium,read_full,"In-situ T, depth-only; NADW not restricted to Atlantic; duplicated in src/analysis/watermass.py"
+data/processed/basin_counts.csv,data,per-basin/per-split counts,scripts/01,-,-,low,read_full,
+data/processed/glodap_qc_filtered.csv,data,QC-filtered GLODAP subset used by every G3 script,GLODAPv2.2023 .mat (absent),-,-,critical,profiled,"512,384 rows; only S,T(in-situ),AOU,TCO2 + metadata; no flags/pressure/theta/O2/nutrients/TAlk"
+data/processed/qc_stats.json,data,QC filter funnel counts,scripts/01,-,-,low,read_full,
+environment/environment.yml,config,conda env spec,-,-,-,low,read_full,Pins python<3.14 but results produced on 3.14.3
+environment/julia/VERSIONS.md,doc,verified tool versions,-,-,-,low,read_full,PySR 2.3.0 used; 2.7.2 now installed
+environment/requirements.txt,config,pip requirements,-,-,-,low,read_full,Unpinned lower bounds only
+experiments/analyze_pareto.py,python,Pareto plots vs reference models,SR candidates,"figures, frequency csv",src,low,read_partial,
+experiments/run_symbolic_search.py,python,the PySR experiment actually used (48 runs),processed CSV,results/raw/symbolic_regression/*,"src, pysr",critical,read_full,"Silently caps YAML settings (pop<=20, iters<=50, maxsize<=25)"
+final_latex/bibliography/references.bib,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/build/main.pdf,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/figures/fig1_data_overview.png,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/figures/fig1_pareto_frontier.png,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/figures/fig1_pareto_frontier_combined.png,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/figures/fig1_pareto_frontier_final.png,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/figures/fig2_model_comparison.png,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/figures/fig4_rank1_recurrence.png,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/figures/fig5_depth_stratified.png,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/figures/fig5_generalization.png,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/figures/fig7_watermass_performance.png,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/figures/fig8_southern_abyss.png,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/figures/fig_derivative_analysis.png,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/figures/figure10_obs_vs_pred.png,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/figures/figure11_yearwise_cubic_obs_vs_pred.png,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/figures/figure11_yearwise_full_quadratic_obs_vs_pred.png,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/figures/figure11_yearwise_linear_obs_vs_pred.png,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/figures/figure11_yearwise_mean_obs_vs_pred.png,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/figures/figure11_yearwise_rank1_obs_vs_pred.png,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/figures/figure11_yearwise_rank2_obs_vs_pred.png,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/figures/figure1_data_overview.png,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/figures/figure2_model_hierarchy.png,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/figures/figure3_pareto_frontier.png,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/figures/figure4_rank1_recurrence.png,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/figures/figure5_generalization.png,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/figures/figure6_depth_stratified.png,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/figures/figure7_watermass.png,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/figures/figure8_southern_abyss.png,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/figures/figure9_derivatives.png,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/figures/pareto_atlantic.png,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/figures/pareto_indian.png,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/figures/pareto_pacific.png,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/figures/pareto_southern_ocean.png,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/main.tex,latex,manuscript root + abstract,-,-,-,high,read_full,
+final_latex/references.bib,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/sections/01_introduction.tex,latex,current manuscript sections,-,-,-,high,read_partial,Claims 'robust temporal transferability' (contradicted by drift)
+final_latex/sections/02_data.tex,latex,current manuscript sections,-,-,-,high,read_partial,Claims 'robust temporal transferability' (contradicted by drift)
+final_latex/sections/03_methods.tex,latex,current manuscript sections,-,-,-,high,read_partial,Claims 'robust temporal transferability' (contradicted by drift)
+final_latex/sections/04_results.tex,latex,current manuscript sections,-,-,-,high,read_partial,Claims 'robust temporal transferability' (contradicted by drift)
+final_latex/sections/05_discussion.tex,latex,current manuscript sections,-,-,-,high,read_partial,Claims 'robust temporal transferability' (contradicted by drift)
+final_latex/sections/06_conclusions.tex,latex,current manuscript sections,-,-,-,high,read_partial,Claims 'robust temporal transferability' (contradicted by drift)
+final_latex/sections/availability.tex,latex,current manuscript sections,-,-,-,high,read_partial,Claims 'robust temporal transferability' (contradicted by drift)
+final_latex/supplementary/supplementary.tex,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/tables/table10_watermass.tex,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/tables/table10_watermass_results.tex,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/tables/table11_equivalence.tex,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/tables/table12_equivalence_margins.tex,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/tables/table12_prediction_intervals.tex,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/tables/table13_derivatives.tex,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/tables/table13_pysr_config.tex,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/tables/table1_sample_sizes.tex,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/tables/table2_model_families.tex,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/tables/table2_predictor_distributions.tex,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/tables/table3_pysr_configuration.tex,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/tables/table3_temporal_validation.tex,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/tables/table4_pareto_equations.tex,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/tables/table4_pareto_summary.tex,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/tables/table4_spatial_cruise.tex,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/tables/table5_external_holdout.tex,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/tables/table5_model_comparison.tex,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/tables/table6_model_hierarchy.tex,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/tables/table6_rank_comparison.tex,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/tables/table7_recurrence.tex,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/tables/table8_rank1_coefficients.tex,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/tables/table8_spatial_validation.tex,latex/asset,manuscript assets,-,-,-,low,listed_only,
+final_latex/tables/table9_depth_stratified.tex,latex/asset,manuscript assets,-,-,-,low,listed_only,
+logs/symbolic_search.log,log,PySR run log,-,-,-,low,read_partial,
+other/1.py,python,G2 scratch scripts,.mat,-,scipy,low,read_partial,main.py empty; 1.py references undefined variables
+other/5thgear.pdf,artifact,scratch outputs,-,-,-,none,listed_only,
+other/artic.py,python,G2 scratch scripts,.mat,-,scipy,low,read_partial,main.py empty; 1.py references undefined variables
+other/canyonb2.py,python,G2 scratch scripts,.mat,-,scipy,low,read_partial,main.py empty; 1.py references undefined variables
+other/compressed_data.csv,data,unknown,-,-,-,unknown,profiled,Non-UTF8 content; unreferenced
+other/diagnose.py,python,G2 scratch scripts,.mat,-,scipy,low,read_partial,main.py empty; 1.py references undefined variables
+other/glodap_canyonb_results.csv,data,CANYON-B DIC predictions with pres/oxy,other/canyonb2.py,-,-,medium,profiled,Generated with fixed date 2020-01-01 for every row; no year/cruise key
+other/main.py,python,G2 scratch scripts,.mat,-,scipy,low,read_partial,main.py empty; 1.py references undefined variables
+other/plotting_something.py,python,G2 scratch scripts,.mat,-,scipy,low,read_partial,main.py empty; 1.py references undefined variables
+other/something.py,python,G2 scratch scripts,.mat,-,scipy,low,read_partial,main.py empty; 1.py references undefined variables
+other/trail.py,python,G2 scratch scripts,.mat,-,scipy,low,read_partial,main.py empty; 1.py references undefined variables
+other/whale.py,python,G2 scratch scripts,.mat,-,scipy,low,read_partial,main.py empty; 1.py references undefined variables
+outputs/20260910_150818_K4NHzB/checkpoint.pkl,binary,PySR checkpoint / hall of fame from one run,-,-,-,low,listed_only,
+outputs/20260910_150818_K4NHzB/hall_of_fame.csv,binary,PySR checkpoint / hall of fame from one run,-,-,-,low,listed_only,
+outputs/20260910_150818_K4NHzB/hall_of_fame.csv.bak,binary,PySR checkpoint / hall of fame from one run,-,-,-,low,listed_only,
+paper/final_manuscript.pdf,latex/pdf,older manuscript copy,-,-,-,low,listed_only,Superseded
+paper/latex/main.tex,latex/pdf,older manuscript copy,-,-,-,low,listed_only,Superseded
+paper/latex/references.bib,latex/pdf,older manuscript copy,-,-,-,low,listed_only,Superseded
+paper_build/main.aux,build,LaTeX build artifacts,-,-,-,none,listed_only,
+paper_build/main.bbl,build,LaTeX build artifacts,-,-,-,none,listed_only,
+paper_build/main.blg,build,LaTeX build artifacts,-,-,-,none,listed_only,
+paper_build/main.log,build,LaTeX build artifacts,-,-,-,none,listed_only,
+paper_build/main.out,build,LaTeX build artifacts,-,-,-,none,listed_only,
+paper_build/main.pdf,build,LaTeX build artifacts,-,-,-,none,listed_only,
+paper_final/COMPLETENESS_FIGURES.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/CORRECTED_MANUSCRIPT.md,doc,G2 manuscript draft,-,-,-,low,listed_only,Superseded
+paper_final/Final_Carbon_Validation_Plots.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/Final_Ocean_Validation.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/Final_Validation_Results_Corrected.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/Residual_Analysis_Comprehensive.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/Spatial_Residual_Map.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/canyonb.py,python,G2 validation / fix / CANYON-B / Revelle scripts,GLODAP .mat (absent),csv/png in cwd,"scipy, sklearn",low-medium,read_partial,Cannot run without raw data; superseded by G3; several self-documented errors
+paper_final/canyonb3.py,python,G2 validation / fix / CANYON-B / Revelle scripts,GLODAP .mat (absent),csv/png in cwd,"scipy, sklearn",low-medium,read_partial,Cannot run without raw data; superseded by G3; several self-documented errors
+paper_final/claim_evidence_audit.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/cluster_bootstrap_results.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/completeness_summary.txt,doc,G2 run summaries,-,-,-,low,listed_only,
+paper_final/corrected_coefficients.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/corrected_depth_results.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/corrected_results.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/data/processed/southern_ocean_training.csv,data,G1 Southern Ocean training set,-,-,-,low,profiled,"13,191 rows"
+paper_final/final.pdf,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/final_atlantic_model.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/final_coefficients_table.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/final_depth_results.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/final_figure1_scatter.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/final_figure2_benchmark.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/final_figure3_depth.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/final_figure4_uncertainty.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/final_summary_for_paper.txt,doc,G2 run summaries,-,-,-,low,listed_only,
+paper_final/first_draft.pdf,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/fix1_pi_summary.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/fix1_prediction_intervals.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/fix2_atlantic_bias.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/fix2_atlantic_summary.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/fix3_indian_diagnosis.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/fix3_indian_model_results.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/fix3_route_a_assessment.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/latex/Makefile,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/latex/README.md,doc,G2 manuscript draft,-,-,-,low,listed_only,Superseded
+paper_final/latex/figures/COMPLETENESS_FIGURES.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/latex/figures/Final_Carbon_Validation_Plots.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/latex/figures/Final_Ocean_Validation.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/latex/figures/Final_Validation_Results_Corrected.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/latex/figures/Residual_Analysis_Comprehensive.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/latex/figures/Spatial_Residual_Map.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/latex/figures/final_figure1_scatter.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/latex/figures/final_figure2_benchmark.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/latex/figures/final_figure3_depth.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/latex/figures/final_figure4_uncertainty.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/latex/figures/fix1_prediction_intervals.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/latex/figures/fix2_atlantic_bias.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/latex/figures/fix3_route_a_assessment.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/latex/figures/ocean_validation_parity.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/latex/figures/publication_atlantic_watermass.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/latex/figures/publication_benchmark_figure.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/latex/figures/publication_depth_stratified.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/latex/figures/publication_main_figure.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/latex/figures/publication_residual_diagnostics.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/latex/figures/publication_surface_analysis.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/latex/figures/publication_uncertainty_figure.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/latex/figures/table3_canyonb_comparison.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/latex/figures/table3_corrected.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/latex/figures/table3_final.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/latex/main.tex,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/latex/references.bib,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/latex/supplementary.tex,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/master_fix_summary.txt,doc,G2 run summaries,-,-,-,low,listed_only,
+paper_final/models/phase2/randomforest_model.joblib,binary,joblib RF/XGB models (G1),-,-,-,none,listed_only,
+paper_final/models/phase2/xgboost_model.joblib,binary,joblib RF/XGB models (G1),-,-,-,none,listed_only,
+paper_final/notebooks/01_data_exploration.ipynb,notebook,exploration notebook,-,-,-,none,read_full,Empty file (0 bytes)
+paper_final/ocean_carbon_coefficients.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/ocean_validation_parity.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/outputs/20260210_154611_S8ffzT/checkpoint.pkl,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/outputs/20260210_154611_S8ffzT/hall_of_fame.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/outputs/20260210_154611_S8ffzT/hall_of_fame.csv.bak,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/process_data.py,python,G2 validation / fix / CANYON-B / Revelle scripts,GLODAP .mat (absent),csv/png in cwd,"scipy, sklearn",low-medium,read_partial,Cannot run without raw data; superseded by G3; several self-documented errors
+paper_final/publication_atlantic_watermass.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/publication_benchmark_figure.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/publication_depth_stratified.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/publication_main_figure.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/publication_residual_diagnostics.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/publication_surface_analysis.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/publication_uncertainty_figure.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/requirements.txt,doc,G2 run summaries,-,-,-,low,listed_only,
+paper_final/residual_analysis.py,python,G2 validation / fix / CANYON-B / Revelle scripts,GLODAP .mat (absent),csv/png in cwd,"scipy, sklearn",low-medium,read_partial,Cannot run without raw data; superseded by G3; several self-documented errors
+paper_final/results/phase2/figures/01_model_comparison.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results/phase2/figures/02_predicted_vs_actual.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results/phase2/figures/03_residual_analysis.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results/phase2/figures/04_feature_importance.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results/phase2/model_comparison.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results/phase2/phase2_report.md,doc,G2 manuscript draft,-,-,-,low,listed_only,Superseded
+paper_final/results/phase2/randomforest_feature_importance.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results/phase2/salinity_co2_ml_analysis/01_salinity_co2_relationships.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results/phase2/salinity_co2_ml_analysis/02_depth_dependent_relationships.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results/phase2/salinity_co2_ml_analysis/03_sector_specific_relationships.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results/phase2/salinity_co2_ml_analysis/04_temporal_evolution.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results/phase2/salinity_co2_ml_analysis/05_gap_evolution.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results/phase2/salinity_co2_ml_analysis/SUMMARY_REPORT.md,doc,G2 manuscript draft,-,-,-,low,listed_only,Superseded
+paper_final/results/phase2/salinity_co2_ml_analysis/overall_results.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results/phase2/xgboost_feature_importance.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results/phase3/01_equation_performance.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results/phase3/02_ml_vs_symbolic_comparison.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results/phase3/DISCOVERED_EQUATIONS.txt,doc,G2 run summaries,-,-,-,low,listed_only,
+paper_final/results/phase3/model_comparison.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results/phase3/validation/01_full_model_predicted_vs_actual.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results/phase3/validation/01_simple_model_predicted_vs_actual.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results/phase3/validation/02_full_model_residual_analysis.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results/phase3/validation/02_simple_model_residual_analysis.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results/phase3/validation/03_full_model_error_by_depth.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results/phase3/validation/03_simple_model_error_by_depth.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results/phase3/validation/04_full_model_error_by_sector.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results/phase3/validation/04_simple_model_error_by_sector.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results/phase3/validation/05_model_comparison.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results/phase3/validation/06_full_model_3d_surface.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results/phase3/validation/06_simple_model_3d_surface.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results/phase3/validation/actual vs predicted co2.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results_depth_breakdown.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results_depth_stratified.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results_outlier_flags.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results_prediction_intervals.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results_publication_summary.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/results_temporal_summary.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/revelle_analysis_table.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/revision_derivative_analysis.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/revision_predictor_correlations.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/revision_predictor_stats.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/revision_tost_corrected.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/revision_tost_final.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/robustness_results.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/src/config.py,python,"G1 preprocessing (gsw, CO2(aq))",.mat,csv,gsw,low,read_partial,config.py empty
+paper_final/src/phase2/__init__.py,python,G1 Southern Ocean CO2(aq) RF/XGBoost/SHAP/PySR pipeline,southern_ocean_training.csv,phase2 results,"sklearn, xgboost, shap, pysr",low (obsolete target),read_partial,Obsolete
+paper_final/src/phase2/baseline_models.py,python,G1 Southern Ocean CO2(aq) RF/XGBoost/SHAP/PySR pipeline,southern_ocean_training.csv,phase2 results,"sklearn, xgboost, shap, pysr",low (obsolete target),read_partial,Obsolete
+paper_final/src/phase2/evaluation.py,python,G1 Southern Ocean CO2(aq) RF/XGBoost/SHAP/PySR pipeline,southern_ocean_training.csv,phase2 results,"sklearn, xgboost, shap, pysr",low (obsolete target),read_partial,Obsolete
+paper_final/src/phase2/run_phase2.py,python,G1 Southern Ocean CO2(aq) RF/XGBoost/SHAP/PySR pipeline,southern_ocean_training.csv,phase2 results,"sklearn, xgboost, shap, pysr",low (obsolete target),read_partial,Obsolete
+paper_final/src/phase2/salinity_co2_ml_analysis.py,python,G1 Southern Ocean CO2(aq) RF/XGBoost/SHAP/PySR pipeline,southern_ocean_training.csv,phase2 results,"sklearn, xgboost, shap, pysr",low (obsolete target),read_partial,Obsolete
+paper_final/src/phase2/symbolic_regression.py,python,G1 Southern Ocean CO2(aq) RF/XGBoost/SHAP/PySR pipeline,southern_ocean_training.csv,phase2 results,"sklearn, xgboost, shap, pysr",low (obsolete target),read_partial,Obsolete
+paper_final/src/phase2/visualizations.py,python,G1 Southern Ocean CO2(aq) RF/XGBoost/SHAP/PySR pipeline,southern_ocean_training.csv,phase2 results,"sklearn, xgboost, shap, pysr",low (obsolete target),read_partial,Obsolete
+paper_final/src/phase3/equation_validation.py,python,G1 equation discovery/validation for CO2(aq),csv,figures,pysr,low,read_partial,Obsolete
+paper_final/src/phase3/symbolic_regression.py,python,G1 equation discovery/validation for CO2(aq),csv,figures,pysr,low,read_partial,Obsolete
+paper_final/src/preprocessing.py,python,"G1 preprocessing (gsw, CO2(aq))",.mat,csv,gsw,low,read_partial,config.py empty
+paper_final/table3_canyonb_comparison.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/table3_canyonb_comparison.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/table3_corrected.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/table3_corrected.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/table3_final.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/table3_final.png,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/tost_results.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/validation_claude.py,python,G2 validation / fix / CANYON-B / Revelle scripts,GLODAP .mat (absent),csv/png in cwd,"scipy, sklearn",low-medium,read_partial,Cannot run without raw data; superseded by G3; several self-documented errors
+paper_final/validation_enhanced.py,python,G2 validation / fix / CANYON-B / Revelle scripts,GLODAP .mat (absent),csv/png in cwd,"scipy, sklearn",low-medium,read_partial,Cannot run without raw data; superseded by G3; several self-documented errors
+paper_final/validation_final.py,python,G2 validation / fix / CANYON-B / Revelle scripts,GLODAP .mat (absent),csv/png in cwd,"scipy, sklearn",low-medium,read_partial,Cannot run without raw data; superseded by G3; several self-documented errors
+paper_final/validation_results_comprehensive.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/validaton_enhanced_results.txt,doc,G2 run summaries,-,-,-,low,listed_only,
+paper_final/watermass_analysis.csv,artifact,G1/G2 outputs (csv/png/pdf/latex),-,-,-,low,listed_only,Superseded
+paper_final/wgts_CT.txt,doc,G2 run summaries,-,-,-,low,listed_only,
+paper_final/z_completeness.py,python,G2 validation / fix / CANYON-B / Revelle scripts,GLODAP .mat (absent),csv/png in cwd,"scipy, sklearn",low-medium,read_partial,Cannot run without raw data; superseded by G3; several self-documented errors
+paper_final/z_fix1.py,python,G2 validation / fix / CANYON-B / Revelle scripts,GLODAP .mat (absent),csv/png in cwd,"scipy, sklearn",low-medium,read_partial,Cannot run without raw data; superseded by G3; several self-documented errors
+paper_final/z_fix2.py,python,G2 validation / fix / CANYON-B / Revelle scripts,GLODAP .mat (absent),csv/png in cwd,"scipy, sklearn",low-medium,read_partial,Cannot run without raw data; superseded by G3; several self-documented errors
+paper_final/z_fix3.py,python,G2 validation / fix / CANYON-B / Revelle scripts,GLODAP .mat (absent),csv/png in cwd,"scipy, sklearn",low-medium,read_partial,Cannot run without raw data; superseded by G3; several self-documented errors
+paper_final/z_fix4.py,python,G2 validation / fix / CANYON-B / Revelle scripts,GLODAP .mat (absent),csv/png in cwd,"scipy, sklearn",low-medium,read_partial,Cannot run without raw data; superseded by G3; several self-documented errors
+paper_final/z_master_fix.py,python,G2 validation / fix / CANYON-B / Revelle scripts,GLODAP .mat (absent),csv/png in cwd,"scipy, sklearn",low-medium,read_partial,Cannot run without raw data; superseded by G3; several self-documented errors
+paper_final/z_revel_factor.py,python,G2 validation / fix / CANYON-B / Revelle scripts,GLODAP .mat (absent),csv/png in cwd,"scipy, sklearn",low-medium,read_partial,Cannot run without raw data; superseded by G3; several self-documented errors
+paper_final/z_revision_data.py,python,G2 validation / fix / CANYON-B / Revelle scripts,GLODAP .mat (absent),csv/png in cwd,"scipy, sklearn",low-medium,read_partial,Cannot run without raw data; superseded by G3; several self-documented errors
+paper_final/z_tost_fix.py,python,G2 validation / fix / CANYON-B / Revelle scripts,GLODAP .mat (absent),csv/png in cwd,"scipy, sklearn",low-medium,read_partial,Cannot run without raw data; superseded by G3; several self-documented errors
+research/tools/build_file_audit.py,python,THIS research program's code,-,-,-,-,authored,
+research_docs/REPOSITORY_INTELLIGENCE.md,doc,THIS research program's documentation,-,-,-,-,authored,
+results/FINAL_CLAIMS_TABLE.md,doc,author audit / decision / risk reports,-,-,-,high,read_partial,SCIENTIFIC_DECISION_REPORT and FINAL_RESULTS_SUMMARY contradict each other on Pareto optimality
+results/FINAL_MANUSCRIPT_AUDIT.md,doc,author audit / decision / risk reports,-,-,-,high,read_partial,SCIENTIFIC_DECISION_REPORT and FINAL_RESULTS_SUMMARY contradict each other on Pareto optimality
+results/FINAL_MANUSCRIPT_NUMERIC_AUDIT.md,doc,author audit / decision / risk reports,-,-,-,high,read_partial,SCIENTIFIC_DECISION_REPORT and FINAL_RESULTS_SUMMARY contradict each other on Pareto optimality
+results/FINAL_RECOMMENDATION.md,doc,author audit / decision / risk reports,-,-,-,high,read_partial,SCIENTIFIC_DECISION_REPORT and FINAL_RESULTS_SUMMARY contradict each other on Pareto optimality
+results/FINAL_RESULTS_SUMMARY.md,doc,author audit / decision / risk reports,-,-,-,high,read_partial,SCIENTIFIC_DECISION_REPORT and FINAL_RESULTS_SUMMARY contradict each other on Pareto optimality
+results/FINAL_REVIEWER_RISK_REPORT.md,doc,author audit / decision / risk reports,-,-,-,high,read_partial,SCIENTIFIC_DECISION_REPORT and FINAL_RESULTS_SUMMARY contradict each other on Pareto optimality
+results/FINAL_SYMBOLIC_AUDIT.md,doc,author audit / decision / risk reports,-,-,-,high,read_partial,SCIENTIFIC_DECISION_REPORT and FINAL_RESULTS_SUMMARY contradict each other on Pareto optimality
+results/MANUSCRIPT_NUMERIC_AUDIT.md,doc,author audit / decision / risk reports,-,-,-,high,read_partial,SCIENTIFIC_DECISION_REPORT and FINAL_RESULTS_SUMMARY contradict each other on Pareto optimality
+results/REPRODUCIBILITY_FINAL.md,doc,author audit / decision / risk reports,-,-,-,high,read_partial,SCIENTIFIC_DECISION_REPORT and FINAL_RESULTS_SUMMARY contradict each other on Pareto optimality
+results/REPRODUCIBILITY_FINAL.yaml,data,provenance record,scripts/10,-,-,medium,read_full,raw_data_sha256 null (raw absent at time?)
+results/SCIENTIFIC_DECISION_REPORT.md,doc,author audit / decision / risk reports,-,-,-,high,read_partial,SCIENTIFIC_DECISION_REPORT and FINAL_RESULTS_SUMMARY contradict each other on Pareto optimality
+results/figures/fig1_data_overview.png,image,generated figures,scripts 07/13,-,-,low,listed_only,
+results/figures/fig1_pareto_frontier.png,image,generated figures,scripts 07/13,-,-,low,listed_only,
+results/figures/fig1_pareto_frontier_combined.png,image,generated figures,scripts 07/13,-,-,low,listed_only,
+results/figures/fig1_pareto_frontier_final.png,image,generated figures,scripts 07/13,-,-,low,listed_only,
+results/figures/fig2_model_comparison.png,image,generated figures,scripts 07/13,-,-,low,listed_only,
+results/figures/fig4_rank1_recurrence.png,image,generated figures,scripts 07/13,-,-,low,listed_only,
+results/figures/fig5_depth_stratified.png,image,generated figures,scripts 07/13,-,-,low,listed_only,
+results/figures/fig5_generalization.png,image,generated figures,scripts 07/13,-,-,low,listed_only,
+results/figures/fig7_watermass_performance.png,image,generated figures,scripts 07/13,-,-,low,listed_only,
+results/figures/fig8_southern_abyss.png,image,generated figures,scripts 07/13,-,-,low,listed_only,
+results/figures/fig_derivative_analysis.png,image,generated figures,scripts 07/13,-,-,low,listed_only,
+results/figures/figure10_obs_vs_pred.png,image,generated figures,scripts 07/13,-,-,low,listed_only,
+results/figures/figure11_yearwise_cubic_obs_vs_pred.png,image,generated figures,scripts 07/13,-,-,low,listed_only,
+results/figures/figure11_yearwise_full_quadratic_obs_vs_pred.png,image,generated figures,scripts 07/13,-,-,low,listed_only,
+results/figures/figure11_yearwise_linear_obs_vs_pred.png,image,generated figures,scripts 07/13,-,-,low,listed_only,
+results/figures/figure11_yearwise_mean_obs_vs_pred.png,image,generated figures,scripts 07/13,-,-,low,listed_only,
+results/figures/figure11_yearwise_rank1_obs_vs_pred.png,image,generated figures,scripts 07/13,-,-,low,listed_only,
+results/figures/figure11_yearwise_rank2_obs_vs_pred.png,image,generated figures,scripts 07/13,-,-,low,listed_only,
+results/figures/figure1_data_overview.png,image,generated figures,scripts 07/13,-,-,low,listed_only,
+results/figures/figure2_model_hierarchy.png,image,generated figures,scripts 07/13,-,-,low,listed_only,
+results/figures/figure3_pareto_frontier.png,image,generated figures,scripts 07/13,-,-,low,listed_only,
+results/figures/figure4_rank1_recurrence.png,image,generated figures,scripts 07/13,-,-,low,listed_only,
+results/figures/figure5_generalization.png,image,generated figures,scripts 07/13,-,-,low,listed_only,
+results/figures/figure6_depth_stratified.png,image,generated figures,scripts 07/13,-,-,low,listed_only,
+results/figures/figure7_watermass.png,image,generated figures,scripts 07/13,-,-,low,listed_only,
+results/figures/figure8_southern_abyss.png,image,generated figures,scripts 07/13,-,-,low,listed_only,
+results/figures/figure9_derivatives.png,image,generated figures,scripts 07/13,-,-,low,listed_only,
+results/figures/pareto_atlantic.png,image,generated figures,scripts 07/13,-,-,low,listed_only,
+results/figures/pareto_indian.png,image,generated figures,scripts 07/13,-,-,low,listed_only,
+results/figures/pareto_pacific.png,image,generated figures,scripts 07/13,-,-,low,listed_only,
+results/figures/pareto_southern_ocean.png,image,generated figures,scripts 07/13,-,-,low,listed_only,
+results/processed/VALIDATION_GENERALIZATION_SUMMARY.csv,data,processed analysis outputs,scripts 02-13,-,-,high,profiled,Temporal metrics include unmodelled time drift (see report 8.1)
+results/processed/VALIDATION_GENERALIZATION_SUMMARY.md,doc,markdown renderings of result tables,scripts,-,-,medium,read_partial,
+results/processed/baseline_coefficients.csv,data,processed analysis outputs,scripts 02-13,-,-,high,profiled,Temporal metrics include unmodelled time drift (see report 8.1)
+results/processed/baseline_depth_stratified.csv,data,processed analysis outputs,scripts 02-13,-,-,high,profiled,Temporal metrics include unmodelled time drift (see report 8.1)
+results/processed/baseline_reproduction.csv,data,processed analysis outputs,scripts 02-13,-,-,high,profiled,Temporal metrics include unmodelled time drift (see report 8.1)
+results/processed/baseline_reproduction_report.md,doc,markdown renderings of result tables,scripts,-,-,medium,read_partial,
+results/processed/depth_stratified_comparison.csv,data,processed analysis outputs,scripts 02-13,-,-,high,profiled,Temporal metrics include unmodelled time drift (see report 8.1)
+results/processed/derivative_analysis.csv,data,processed analysis outputs,scripts 02-13,-,-,high,profiled,Temporal metrics include unmodelled time drift (see report 8.1)
+results/processed/equation_family_frequency.csv,data,processed analysis outputs,scripts 02-13,-,-,high,profiled,Temporal metrics include unmodelled time drift (see report 8.1)
+results/processed/equations_and_coefficients.md,doc,markdown renderings of result tables,scripts,-,-,medium,read_partial,
+results/processed/equations_and_coefficients.pdf,pdf,equations summary PDF,-,-,-,low,listed_only,
+results/processed/equivalence_analysis.csv,data,processed analysis outputs,scripts 02-13,-,-,high,profiled,Temporal metrics include unmodelled time drift (see report 8.1)
+results/processed/final_model_hierarchy.csv,data,processed analysis outputs,scripts 02-13,-,-,high,profiled,Temporal metrics include unmodelled time drift (see report 8.1)
+results/processed/final_model_hierarchy.md,doc,markdown renderings of result tables,scripts,-,-,medium,read_partial,
+results/processed/model_family_coefficients.csv,data,processed analysis outputs,scripts 02-13,-,-,high,profiled,Temporal metrics include unmodelled time drift (see report 8.1)
+results/processed/model_family_comparison.csv,data,processed analysis outputs,scripts 02-13,-,-,high,profiled,Temporal metrics include unmodelled time drift (see report 8.1)
+results/processed/model_information_criteria.csv,data,processed analysis outputs,scripts 02-13,-,-,high,profiled,Temporal metrics include unmodelled time drift (see report 8.1)
+results/processed/parametric_model_hierarchy.csv,data,processed analysis outputs,scripts 02-13,-,-,high,profiled,Temporal metrics include unmodelled time drift (see report 8.1)
+results/processed/prediction_interval_coverage.csv,data,processed analysis outputs,scripts 02-13,-,-,high,profiled,Temporal metrics include unmodelled time drift (see report 8.1)
+results/processed/southern_ocean_abyssal.csv,data,processed analysis outputs,scripts 02-13,-,-,high,profiled,Temporal metrics include unmodelled time drift (see report 8.1)
+results/processed/spatial_cruise_validation_manifest.yaml,data,blocked-validation manifest,scripts/09,-,-,low,read_full,
+results/processed/spatial_cruise_validation_per_fold.csv,data,processed analysis outputs,scripts 02-13,-,-,high,profiled,Temporal metrics include unmodelled time drift (see report 8.1)
+results/processed/spatial_cruise_validation_summary.csv,data,processed analysis outputs,scripts 02-13,-,-,high,profiled,Temporal metrics include unmodelled time drift (see report 8.1)
+results/processed/watermass_atlantic.csv,data,processed analysis outputs,scripts 02-13,-,-,high,profiled,Temporal metrics include unmodelled time drift (see report 8.1)
+results/raw/symbolic_regression/equation_family_frequency.csv,data,PySR candidate libraries / Pareto / run log,experiments/run_symbolic_search,-,-,high,profiled,599 candidates; family labels heuristic
+results/raw/symbolic_regression/experiment_manifest.yaml,data,SR experiment manifest,-,-,-,medium,read_full,
+results/raw/symbolic_regression/experiment_run_log.csv,data,PySR candidate libraries / Pareto / run log,experiments/run_symbolic_search,-,-,high,profiled,599 candidates; family labels heuristic
+results/raw/symbolic_regression/pareto_frontiers.csv,data,PySR candidate libraries / Pareto / run log,experiments/run_symbolic_search,-,-,high,profiled,599 candidates; family labels heuristic
+results/raw/symbolic_regression/symbolic_candidates_SearchA_basic.csv,data,PySR candidate libraries / Pareto / run log,experiments/run_symbolic_search,-,-,high,profiled,599 candidates; family labels heuristic
+results/raw/symbolic_regression/symbolic_candidates_SearchB_explog.csv,data,PySR candidate libraries / Pareto / run log,experiments/run_symbolic_search,-,-,high,profiled,599 candidates; family labels heuristic
+results/raw/symbolic_regression/symbolic_candidates_SearchC_sqrt_square.csv,data,PySR candidate libraries / Pareto / run log,experiments/run_symbolic_search,-,-,high,profiled,599 candidates; family labels heuristic
+results/raw/symbolic_regression/symbolic_candidates_SearchD_broad.csv,data,PySR candidate libraries / Pareto / run log,experiments/run_symbolic_search,-,-,high,profiled,599 candidates; family labels heuristic
+results/raw/symbolic_regression/symbolic_candidates_all.csv,data,PySR candidate libraries / Pareto / run log,experiments/run_symbolic_search,-,-,high,profiled,599 candidates; family labels heuristic
+results/raw/symbolic_regression/symbolic_candidates_atlantic.csv,data,PySR candidate libraries / Pareto / run log,experiments/run_symbolic_search,-,-,high,profiled,599 candidates; family labels heuristic
+results/raw/symbolic_regression/symbolic_candidates_indian.csv,data,PySR candidate libraries / Pareto / run log,experiments/run_symbolic_search,-,-,high,profiled,599 candidates; family labels heuristic
+results/raw/symbolic_regression/symbolic_candidates_pacific.csv,data,PySR candidate libraries / Pareto / run log,experiments/run_symbolic_search,-,-,high,profiled,599 candidates; family labels heuristic
+results/raw/symbolic_regression/symbolic_candidates_southern_ocean.csv,data,PySR candidate libraries / Pareto / run log,experiments/run_symbolic_search,-,-,high,profiled,599 candidates; family labels heuristic
+results/tables/equation_family_recurrence.csv,data,recurrence and Pareto summary tables,scripts/10,-,-,medium,profiled,
+results/tables/pareto_summary.csv,data,recurrence and Pareto summary tables,scripts/10,-,-,medium,profiled,
+results/tables/table10_watermass.tex,latex,generated LaTeX tables,scripts 08/13,-,-,low,listed_only,
+results/tables/table10_watermass_results.tex,latex,generated LaTeX tables,scripts 08/13,-,-,low,listed_only,
+results/tables/table11_equivalence.tex,latex,generated LaTeX tables,scripts 08/13,-,-,low,listed_only,
+results/tables/table12_equivalence_margins.tex,latex,generated LaTeX tables,scripts 08/13,-,-,low,listed_only,
+results/tables/table12_prediction_intervals.tex,latex,generated LaTeX tables,scripts 08/13,-,-,low,listed_only,
+results/tables/table13_derivatives.tex,latex,generated LaTeX tables,scripts 08/13,-,-,low,listed_only,
+results/tables/table13_pysr_config.tex,latex,generated LaTeX tables,scripts 08/13,-,-,low,listed_only,
+results/tables/table1_sample_sizes.tex,latex,generated LaTeX tables,scripts 08/13,-,-,low,listed_only,
+results/tables/table2_model_families.tex,latex,generated LaTeX tables,scripts 08/13,-,-,low,listed_only,
+results/tables/table2_predictor_distributions.tex,latex,generated LaTeX tables,scripts 08/13,-,-,low,listed_only,
+results/tables/table3_pysr_configuration.tex,latex,generated LaTeX tables,scripts 08/13,-,-,low,listed_only,
+results/tables/table3_temporal_validation.tex,latex,generated LaTeX tables,scripts 08/13,-,-,low,listed_only,
+results/tables/table4_pareto_equations.tex,latex,generated LaTeX tables,scripts 08/13,-,-,low,listed_only,
+results/tables/table4_pareto_summary.tex,latex,generated LaTeX tables,scripts 08/13,-,-,low,listed_only,
+results/tables/table4_spatial_cruise.tex,latex,generated LaTeX tables,scripts 08/13,-,-,low,listed_only,
+results/tables/table5_external_holdout.tex,latex,generated LaTeX tables,scripts 08/13,-,-,low,listed_only,
+results/tables/table5_model_comparison.tex,latex,generated LaTeX tables,scripts 08/13,-,-,low,listed_only,
+results/tables/table6_model_hierarchy.tex,latex,generated LaTeX tables,scripts 08/13,-,-,low,listed_only,
+results/tables/table6_rank_comparison.tex,latex,generated LaTeX tables,scripts 08/13,-,-,low,listed_only,
+results/tables/table7_recurrence.tex,latex,generated LaTeX tables,scripts 08/13,-,-,low,listed_only,
+results/tables/table8_rank1_coefficients.tex,latex,generated LaTeX tables,scripts 08/13,-,-,low,listed_only,
+results/tables/table8_spatial_validation.tex,latex,generated LaTeX tables,scripts 08/13,-,-,low,listed_only,
+results/tables/table9_depth_stratified.tex,latex,generated LaTeX tables,scripts 08/13,-,-,low,listed_only,
+scripts/01_preprocess.py,python,raw .mat -> processed CSV + basin counts + QC stats,.mat,data/processed/*,src,critical,read_full,Cannot run: raw data absent
+scripts/02_baseline_reproduction.py,python,rank-1 and full-quad per basin vs old paper values,processed CSV,baseline_*.csv/md,src,high,read_full,Old-paper reference values hard-coded (for discrepancy logging only)
+scripts/03_model_families.py,python,fit model hierarchy 0-5 per basin; val/ext metrics,processed CSV,model_family_*.csv,src,critical,read_full,
+scripts/04_pysr_pareto_search.py,python,older single-seed PySR search,processed CSV,symbolic_candidates_all.csv,"src, pysr",low,read_full,Superseded; broken family classifier; would overwrite results
+scripts/05_equivalence_analysis.py,python,TOST + cluster bootstrap rank-1 vs full-quad,processed CSV,equivalence_analysis.csv,src,high,read_full,Inherits bootstrap bug
+scripts/06_depth_watermass_southern_ocean.py,python,"depth, Atlantic water-mass, derivative, SO abyss analyses",processed CSV,several csv,src,high,read_full,Derivatives computed on all years incl. external holdout
+scripts/07_generate_figures.py,python,matplotlib figures from results CSVs,results/processed,results/figures/*.png,matplotlib,low,read_partial,
+scripts/08_generate_tables.py,python,LaTeX tables from results CSVs,results/processed,results/tables/*.tex,pandas,low,read_partial,
+scripts/09_spatial_cruise_validation.py,python,select frozen SR candidate; GroupKFold spatial & cruise CV pre-2018,"processed CSV, SR candidates","spatial_cruise_*.csv, selected yaml",src,critical,read_full,Frozen SR not refit per fold (leakage); overwrites config/selected_symbolic_candidate.yaml
+scripts/10_finalize_analysis_outputs.py,python,"recurrence table, Pareto summary, provenance",results,"tables, REPRODUCIBILITY_FINAL",src,medium,read_full,Hard-coded rank-1 RMSE dict
+scripts/11_final_model_hierarchy.py,python,"definitive hierarchy incl. frozen SR, AIC/BIC on train",processed CSV,final_model_hierarchy.csv,src,critical,read_full,
+scripts/12_final_numeric_audit.py,python,assert manuscript numbers vs result files,results,FINAL_MANUSCRIPT_NUMERIC_AUDIT.md,pandas,medium,read_full,"Asserts exact counts (599, 86) - brittle"
+scripts/13_build_publication_assets.py,python,publication figures/tables + empirical PI coverage,"results, processed CSV",final_latex/*,matplotlib,medium,read_partial,PI from training residual quantiles; no time term
+scripts/run_all.py,python,pipeline orchestrator,-,-,os.system,low,read_full,"Stale: runs step 04, omits 09-13, uses bare 'python'"
+src/__init__.py,python,package marker,-,-,-,none,read_full,
+src/analysis/__init__.py,python,package marker,-,-,-,none,read_full,
+src/analysis/depth_analysis.py,python,metrics per depth bin,"y, yhat, depth",DataFrame,metrics,medium,read_full,
+src/analysis/derivatives.py,python,analytic partial derivatives of rank-1,"coeffs, S,T,A",summary,numpy,low,read_full,
+src/analysis/family_classification.py,python,string-heuristic SR family classifier,equation str,label,re,high,read_full,Not a test of algebraic rank; rational forms labelled linear; drives the 24/48 recurrence claim
+src/analysis/metrics.py,python,RMSE/MAE/R2/bias/within-X metrics,"y, yhat",dict,sklearn,medium,read_full,
+src/analysis/pareto.py,python,Pareto frontier + legacy family classifier,candidates,frontier,pandas,medium,read_full,classify_equation_family looks for x0/x1/x2 but equations use sal/tmp/aou100 -> all 'constant'
+src/analysis/southern_ocean.py,python,SO abyss global vs local rank-1 refit,SO arrays,dict,scipy,medium,read_full,
+src/analysis/watermass.py,python,threshold water-mass labels + metrics,DataFrame,labels,metrics,medium,read_full,See config/watermass.yaml issues
+src/basins.py,python,basin assignment by GLODAP region code + 35S cut,DataFrame,Series,"numpy, pandas",high,read_full,Arctic (region 4) -> Unclassified and dropped
+src/config_loader.py,python,YAML config loading and path resolution,config/*.yaml,dict/Path,pyyaml,low,read_full,
+src/data_loader.py,python,"load GLODAP .mat (scipy/h5py), range QC, build DataFrame",.mat,"DataFrame, QC stats","scipy, h5py, config_loader",critical,read_full,No QC flags; open-interval range filters only; pressure/theta/O2/nutrients/TAlk not extracted
+src/models/__init__.py,python,package marker,-,-,-,none,read_full,
+src/models/base.py,python,"abstract model interface fit(S,T,A,Y)/predict",-,-,abc,medium,read_full,
+src/models/cubic.py,python,Model 5: OLS full cubic (raw AOU),"S,T,A,Y",pred,sklearn,medium,read_full,Ill-conditioned (AOU^3 ~3e7)
+src/models/frozen_symbolic.py,python,evaluate frozen sympy expression without refit,equation,pred,sympy,medium,read_full,Used in blocked CV with constants fit on test blocks (leakage)
+src/models/full_quadratic.py,python,Model 4: OLS full 2nd-order polynomial (raw AOU),"S,T,A,Y",pred,sklearn,high,read_full,Raw AOU^2 ~1e5 -> ill-conditioned; small numeric discrepancies vs scaled fit
+src/models/linear.py,python,"Model 1: OLS on S,T,AOU/100","S,T,A,Y",pred,sklearn,medium,read_full,
+src/models/mean_baseline.py,python,Model 0: training mean,"S,T,A,Y",pred,base,low,read_full,
+src/models/rank1_quadratic.py,python,Model 2: (aS+bT+gA/100+d)^2+e via curve_fit,"S,T,A,Y","pred, Hessian eigenvalue",scipy,critical,read_full,Special case of rank-2 and full quadratic (nested) - not acknowledged in inference
+src/models/rank2_quadratic.py,python,Model 3: z1^2+z2^2+e via Nelder-Mead (5 restarts),"S,T,A,Y",pred,"scipy, rank1",high,read_full,Nelder-Mead on 9 params is weak; training RMSE checked <= rank-1 so convergence adequate
+src/models/symbolic.py,python,PySR wrapper; extracts hall-of-fame,"S,T,A,Y",candidate DataFrame,pysr,high,read_full,
+src/splits.py,python,"temporal split, spatial blocks, cruise groups, leakage assertions",DataFrame,masks/groups,sklearn,high,read_full,get_grouped_kfold_splits unused
+src/validation/__init__.py,python,package marker,-,-,-,none,read_full,
+src/validation/bootstrap.py,python,observation and cluster bootstrap prediction intervals,"model, data, groups",PI bounds,numpy,high,read_full,"BUG: np.isin(groups, sampled_groups) drops duplicate cluster draws -> not a bootstrap"
+src/validation/equivalence.py,python,per-observation TOST; bootstrap CI of paired AE difference,"y, preds, groups",dict,scipy,high,read_full,Same np.isin bug; naive TOST ignores dependence
+src/validation/spatial.py,python,GroupKFold spatial/cruise CV helpers,DataFrame,fold metrics,sklearn,medium,read_full,Superseded by scripts/09
+src/visualization/__init__.py,python,package marker,-,-,-,none,read_full,
+submission/COVER_LETTER_DRAFT.md,latex/asset,submission package,-,-,-,low,listed_only,
+submission/README.md,doc,submission package description,-,-,-,medium,read_partial,
+submission/figures/fig1_data_overview.png,latex/asset,submission package,-,-,-,low,listed_only,
+submission/figures/fig1_pareto_frontier.png,latex/asset,submission package,-,-,-,low,listed_only,
+submission/figures/fig1_pareto_frontier_combined.png,latex/asset,submission package,-,-,-,low,listed_only,
+submission/figures/fig1_pareto_frontier_final.png,latex/asset,submission package,-,-,-,low,listed_only,
+submission/figures/fig2_model_comparison.png,latex/asset,submission package,-,-,-,low,listed_only,
+submission/figures/fig4_rank1_recurrence.png,latex/asset,submission package,-,-,-,low,listed_only,
+submission/figures/fig5_depth_stratified.png,latex/asset,submission package,-,-,-,low,listed_only,
+submission/figures/fig5_generalization.png,latex/asset,submission package,-,-,-,low,listed_only,
+submission/figures/fig7_watermass_performance.png,latex/asset,submission package,-,-,-,low,listed_only,
+submission/figures/fig8_southern_abyss.png,latex/asset,submission package,-,-,-,low,listed_only,
+submission/figures/fig_derivative_analysis.png,latex/asset,submission package,-,-,-,low,listed_only,
+submission/figures/pareto_atlantic.png,latex/asset,submission package,-,-,-,low,listed_only,
+submission/figures/pareto_indian.png,latex/asset,submission package,-,-,-,low,listed_only,
+submission/figures/pareto_pacific.png,latex/asset,submission package,-,-,-,low,listed_only,
+submission/figures/pareto_southern_ocean.png,latex/asset,submission package,-,-,-,low,listed_only,
+submission/final_manuscript.pdf,latex/asset,submission package,-,-,-,low,listed_only,
+submission/manuscript.tex,latex/asset,submission package,-,-,-,low,listed_only,
+submission/manuscript_source/build/main.aux,latex/asset,submission manuscript copy,-,-,-,medium,listed_only,Divergent copy
+submission/manuscript_source/build/main.bbl,latex/asset,submission manuscript copy,-,-,-,medium,listed_only,Divergent copy
+submission/manuscript_source/build/main.blg,latex/asset,submission manuscript copy,-,-,-,medium,listed_only,Divergent copy
+submission/manuscript_source/build/main.log,latex/asset,submission manuscript copy,-,-,-,medium,listed_only,Divergent copy
+submission/manuscript_source/build/main.out,latex/asset,submission manuscript copy,-,-,-,medium,listed_only,Divergent copy
+submission/manuscript_source/build/main.pdf,latex/asset,submission manuscript copy,-,-,-,medium,listed_only,Divergent copy
+submission/manuscript_source/build/page_montage.png,latex/asset,submission manuscript copy,-,-,-,medium,listed_only,Divergent copy
+submission/manuscript_source/build/page_png/page-1.png,latex/asset,submission manuscript copy,-,-,-,medium,listed_only,Divergent copy
+submission/manuscript_source/build/page_png/page-2.png,latex/asset,submission manuscript copy,-,-,-,medium,listed_only,Divergent copy
+submission/manuscript_source/build/page_png/page-3.png,latex/asset,submission manuscript copy,-,-,-,medium,listed_only,Divergent copy
+submission/manuscript_source/build/page_png/page-4.png,latex/asset,submission manuscript copy,-,-,-,medium,listed_only,Divergent copy
+submission/manuscript_source/build/page_png/page-5.png,latex/asset,submission manuscript copy,-,-,-,medium,listed_only,Divergent copy
+submission/manuscript_source/build/page_png/page-6.png,latex/asset,submission manuscript copy,-,-,-,medium,listed_only,Divergent copy
+submission/manuscript_source/build/page_png/page-7.png,latex/asset,submission manuscript copy,-,-,-,medium,listed_only,Divergent copy
+submission/manuscript_source/build/page_png/page-8.png,latex/asset,submission manuscript copy,-,-,-,medium,listed_only,Divergent copy
+submission/manuscript_source/build/page_png/page-9.png,latex/asset,submission manuscript copy,-,-,-,medium,listed_only,Divergent copy
+submission/manuscript_source/figures/figure1_data_overview.png,latex/asset,submission manuscript copy,-,-,-,medium,listed_only,Divergent copy
+submission/manuscript_source/figures/figure2_model_hierarchy.png,latex/asset,submission manuscript copy,-,-,-,medium,listed_only,Divergent copy
+submission/manuscript_source/figures/figure3_pareto_frontier.png,latex/asset,submission manuscript copy,-,-,-,medium,listed_only,Divergent copy
+submission/manuscript_source/figures/figure4_generalization.png,latex/asset,submission manuscript copy,-,-,-,medium,listed_only,Divergent copy
+submission/manuscript_source/figures/figure5_southern_abyss.png,latex/asset,submission manuscript copy,-,-,-,medium,listed_only,Divergent copy
+submission/manuscript_source/main.tex,latex/asset,submission manuscript copy,-,-,-,medium,listed_only,Divergent copy
+submission/manuscript_source/sections/01_introduction.tex,latex/asset,submission manuscript copy,-,-,-,medium,listed_only,Divergent copy
+submission/manuscript_source/sections/02_data.tex,latex/asset,submission manuscript copy,-,-,-,medium,listed_only,Divergent copy
+submission/manuscript_source/sections/03_methods.tex,latex/asset,submission manuscript copy,-,-,-,medium,listed_only,Divergent copy
+submission/manuscript_source/sections/04_results.tex,latex/asset,submission manuscript copy,-,-,-,medium,listed_only,Divergent copy
+submission/manuscript_source/sections/05_discussion.tex,latex/asset,submission manuscript copy,-,-,-,medium,listed_only,Divergent copy
+submission/manuscript_source/sections/06_conclusions.tex,latex/asset,submission manuscript copy,-,-,-,medium,listed_only,Divergent copy
+submission/manuscript_source/sections/availability.tex,latex/asset,submission manuscript copy,-,-,-,medium,listed_only,Divergent copy
+submission/references.bib,latex/asset,submission package,-,-,-,low,listed_only,
+submission/supplementary/supplementary.tex,latex/asset,submission package,-,-,-,low,listed_only,
+submission/tables/table10_watermass_results.tex,latex/asset,submission package,-,-,-,low,listed_only,
+submission/tables/table11_equivalence.tex,latex/asset,submission package,-,-,-,low,listed_only,
+submission/tables/table12_equivalence_margins.tex,latex/asset,submission package,-,-,-,low,listed_only,
+submission/tables/table13_derivatives.tex,latex/asset,submission package,-,-,-,low,listed_only,
+submission/tables/table1_sample_sizes.tex,latex/asset,submission package,-,-,-,low,listed_only,
+submission/tables/table2_predictor_distributions.tex,latex/asset,submission package,-,-,-,low,listed_only,
+submission/tables/table3_pysr_configuration.tex,latex/asset,submission package,-,-,-,low,listed_only,
+submission/tables/table4_pareto_equations.tex,latex/asset,submission package,-,-,-,low,listed_only,
+submission/tables/table4_pareto_summary.tex,latex/asset,submission package,-,-,-,low,listed_only,
+submission/tables/table5_model_comparison.tex,latex/asset,submission package,-,-,-,low,listed_only,
+submission/tables/table6_model_hierarchy.tex,latex/asset,submission package,-,-,-,low,listed_only,
+submission/tables/table7_recurrence.tex,latex/asset,submission package,-,-,-,low,listed_only,
+submission/tables/table8_spatial_validation.tex,latex/asset,submission package,-,-,-,low,listed_only,
+submission/tables/table9_depth_stratified.tex,latex/asset,submission package,-,-,-,low,listed_only,
+submission/verification_report.md,doc,author verification of manuscript numbers,-,-,-,medium,read_partial,Status B: revision required
+tests/__init__.py,python,package marker,-,-,-,none,read_full,
+tests/test_basins.py,python,"22 unit tests: basins, splits, models, metrics, TOST, Pareto",synthetic data,-,"pytest, src",medium,read_partial,No test for bootstrap correctness or family classifier; not executed (sandbox)

@@ -1,0 +1,3 @@
+{'basin': 'Atlantic', 'layer': '(27.8, 28.0]', 'beta_true': 0.0, 'sigma_cruise': 4.0, 'reps': 200, 'coverage_boot': np.float64(90.5), 'coverage_cr1': np.float64(86.5), 'coverage_union': np.float64(90.5)}
+{'basin': 'Atlantic', 'layer': '(27.8, 28.0]', 'beta_true': 0.1, 'sigma_cruise': 4.0, 'reps': 200, 'coverage_boot': np.float64(91.0), 'coverage_cr1': np.float64(86.0), 'coverage_union': np.float64(91.5)}
+{'basin': 'Pacific', 'layer': '(26.0, 26.5]', 'beta_true': 0.5, 'sigma_cruise': 4.0, 'reps': 200, 'coverage_boot': np.float64(91.0), 'coverage_cr1': np.float64(86.5), 'coverage_union': np.float64(91.0)}

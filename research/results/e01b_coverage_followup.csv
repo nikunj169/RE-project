@@ -1,0 +1,4 @@
+basin,layer,beta_true,sigma_cruise,reps,coverage_boot,coverage_cr1,coverage_union
+Atlantic,"(27.8, 28.0]",0.0,4.0,200,90.5,86.5,90.5
+Atlantic,"(27.8, 28.0]",0.1,4.0,200,91.0,86.0,91.5
+Pacific,"(26.0, 26.5]",0.5,4.0,200,91.0,86.5,91.0
