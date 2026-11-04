@@ -113,7 +113,7 @@ def fig4_delta():
     axs[0].invert_yaxis()
     axs[0].set_ylabel("γ$^n$ layer midpoint (kg m$^{-3}$)")
     h, l = axs[0].get_legend_handles_labels()
-    fig.legend(h, l, fontsize=8, loc="lower center", ncol=3, bbox_to_anchor=(0.5, -0.08), frameon=False)
+    fig.legend(h, l, fontsize=8, loc="lower center", ncol=3, bbox_to_anchor=(0.5, -0.12), frameon=False)
     save(fig, "fig4_delta_robustness")
 
 
