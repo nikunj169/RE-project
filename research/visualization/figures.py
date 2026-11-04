@@ -145,6 +145,30 @@ def fig5_h3():
     save(fig, "fig5_h3_holdout_bias")
 
 
+def fig6_emlr():
+    p = RES / "e05_emlr_comparison.csv"
+    if not p.exists():
+        return
+    d = pd.read_csv(p)
+    fig, axs = plt.subplots(1, 4, figsize=(11, 3.8), sharey=True)
+    for ax, b in zip(axs, BASINS):
+        s = d[d.basin == b].copy()
+        s["y"] = s.layer.map(mid)
+        s = s.sort_values("y")
+        ax.errorbar(s.beta_dic, s.y, xerr=[s.beta_dic - s.beta_dic_lo, s.beta_dic_hi - s.beta_dic],
+                    fmt="o", color="k", ms=4, capsize=2, label="Observed DIC (1989–2012)")
+        ax.plot(s.trace_rate_94_07, s.y, "s-", color=COL[b], ms=4, label="TRACE C$_{ant}$ 1994–2007")
+        ax.errorbar(s.emlr_rate, s.y, xerr=[s.emlr_rate - s.emlr_ens_min, s.emlr_ens_max - s.emlr_rate],
+                    fmt="D--", color="0.45", ms=4, capsize=2, label="eMLR(C*) 1994–2007 (ens. range)")
+        ax.axvline(0, color="0.8", lw=0.8)
+        ax.set(title=b, xlabel="Rate (µmol kg$^{-1}$ yr$^{-1}$)", xlim=(-0.1, 1.45))
+    axs[0].invert_yaxis()
+    axs[0].set_ylabel("γ$^n$ layer midpoint (kg m$^{-3}$)")
+    h, l = axs[0].get_legend_handles_labels()
+    fig.legend(h, l, fontsize=8, loc="lower center", ncol=3, bbox_to_anchor=(0.5, -0.08), frameon=False)
+    save(fig, "fig6_emlr_comparison")
+
+
 def figS1_synthetic():
     d = pd.read_csv(RES / "e01_synthetic_recovery.csv")
     fig, ax = plt.subplots(1, 2, figsize=(8, 3.2))
@@ -168,6 +192,7 @@ def main():
     fig3_ratio(cfg)
     fig4_delta()
     fig5_h3()
+    fig6_emlr()
     figS1_synthetic()
     print("figures written to", OUT)
 
