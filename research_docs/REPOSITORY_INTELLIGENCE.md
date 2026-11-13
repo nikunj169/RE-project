@@ -199,3 +199,28 @@ Consequences:
 6. **Measurement-flag sensitivity** (measured vs calculated TCO2) — requires raw GLODAP.
 
 Items 4 and 6 (and any carbonate-system analysis) require the GLODAPv2.2023 merged product, which is not in the repository.
+
+---
+## 12. Round-2 addendum (2026-11-14)
+
+**New modules.**
+* `research/models/differential_trend.py`: cruise-FE differential estimator with an exact two-way FE solver (`exact_twoway`).
+* `research/experiments/e06…e12`: Round-2 experiments.
+* `research/evaluation/summarize_round2.py`: Round-2 summaries.
+* `research/visualization/figures_round2.py`: Figs. 1 (now with coastlines) and 7–11.
+* `tests/test_research_estimators.py`: estimator unit tests.
+
+All of these were authored and read in full.
+
+**External data (untracked, read-only, checksummed).**
+* `data/external/gruber2019/…_94-07_vs1.nc`
+* `data/external/mueller2023/dcant_emlr_cstar_mueller_94-04-14.nc` (+ README PDF)
+
+**Environment.** `.venv` (Python 3.12, uv), TRACE-Python v1.1.2 installed from the checksummed release zipball. `data/raw/GLODAPv2.2023_Merged_Master_File.mat` on this machine is a symlink into `../continued_project/paper_final/data/raw/` (SHA-256 verified).
+
+**Status changes to §8–9.**
+* The repository test suite was run for the first time: 22/22 pass once `sympy` is installed (it was missing from the environment, not from `requirements.txt`).
+* Round-1 results reproduce bit-for-bit on a second machine.
+* `build_dataset.py` gained nutrient secondary-QC columns.
+
+**Known stale artifact.** `paper/pitch_for_professor.pdf` (Round 1) predates the Round-2 results and should be regenerated before it is shared.

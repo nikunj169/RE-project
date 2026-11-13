@@ -72,3 +72,31 @@ No published symbolic-regression study of ocean DIC was found (one targeted sear
 | Southern Ocean AOU disequilibrium effects on DIC regressions | Ito 2004 (model); later work | Abyssal failure of the repo’s regressions is plausibly AOU disequilibrium + water-mass mixing | Known mechanism; incremental |
 
 **Novelty caveat.** “Not found” is based on a limited search (≈15 queries; some publishers blocked). Before submission, a systematic search (Web of Science / Scopus: “TRACE” OR “transit time distribution” AND “DIC trend”; “eMLR” AND “TTD” comparison; Tanhua 2007 follow-ups; Carter et al. 2017 Pacific DIC change; Woosley et al. 2016 Indian Ocean; Pérez et al. Atlantic) is required. Known closest neighbours: the eMLR(C*) vs TTD comparisons inside Steinfeldt et al. (2024) and the TRACE paper (inventory-level, not trend-level, not sample-matched).
+
+---
+## Round-2 additions (2026-11-14)
+
+**Verification upgrade.** All nine Round-1 [M] references were checked against Crossref metadata (title, journal, volume, pages, year): Olsen 2016, Sabine 2004, Friis 2005, Gruber 2023, Carter 2018, Broullón 2020, Roberts 2017, Kapoor 2023, Ito 2004. All match; they are retagged **[V-meta]**. Bibliographic details are verified; the cited claims rest on prior knowledge or abstracts.
+
+| Ref | Relevance | Tag |
+|---|---|---|
+| Sandborn, D. E., et al. (2026). TRACE-Python … *GMD* 19, 5961–5978. doi:10.5194/gmd-19-5961-2026 | Full text read (§4.1). Comparison with DIC-based estimates (Sabine 2004; Gruber 2019; Müller 2023) is **inventory-level** and qualitative ("good"). The accumulation-rate comparison is with Davila et al. (2022) and DeVries (2014), not with decadal DIC-based rates. **No sample-level or rate-level comparison with observed DIC.** | [V] |
+| Müller, J. D., et al. (2023) data, NCEI 0279447 | Gridded ΔC_ant 1994–2004 and 2004–2014; 11 cases; standard = mask "3", "Standard case". The README was read in full. | [V] |
+| Carter, B. R., et al. (2017). Two decades of Pacific anthropogenic carbon storage … P16 and P02. *GBC* 31, 306–327. doi:10.1002/2016GB005485 | eMLR along repeat sections; C_ant increase reaches ~1000 m | [V-meta] + [A] |
+| Sabine, C. L., et al. (2008). Decadal changes in Pacific carbon. *JGR Oceans* 113. doi:10.1029/2007JC004577 | AOU-related circulation term can dominate DIC change in the North Pacific thermocline. This is relevant to our tracer-dependent Pacific-thermocline result (E08). | [V-meta] + [A] |
+| Carter, B. R., et al. (2024). Random and systematic uncertainty in ship-based seawater carbonate chemistry observations. *L&O* 69, 2473–2488. doi:10.1002/lno.12674 | Systematic (cruise-level) uncertainty in GLODAP carbonate data; GLODAP adjustments improve consistency for some subsets and worsen it for others. Motivates the drift-immune design. | [A] |
+| Gruber, N., Sarmiento, J. L., Stocker, T. F. (1996). *GBC* 10, 809–837. doi:10.1029/96GB01608 | C* definition used in E08 | [V-meta] |
+| Bates, N. R., et al. (2014). *Oceanography* 27(1), 126–141. doi:10.5670/oceanog.2014.16 | Seven surface time series; surface pCO₂ trends. The statement "comparable to the atmospheric increase" is from prior knowledge and the abstract and **must be checked against the full-text table**. | [V-meta] + [A] |
+| Hong et al. (2026). Changes in oceanic carbon storage due to anthropogenic carbon input over the past three decades. *Atmosphere-Ocean* 64, 296–319. doi:10.1080/07055900.2026.2660361 | **Closest new neighbour.** Global C_ant storage rates 1995–2022 (eMLR(C*)-type; nonlinear increase). Publisher page blocked (403), so only Crossref metadata and a search snippet were seen. **Must be read before submission** to confirm it does not contain a sample-matched DIC-vs-TTD rate comparison. | [A-snippet] |
+| Boteler, C., et al. (2023). *JGR Oceans* 128. doi:10.1029/2022JC019483 | Isopycnal-layer C_ant trends in the NW Atlantic (state-space); ~0.57 µmol kg⁻¹ yr⁻¹ across layers 1993–2015 | [V-meta] + [A] |
+
+**Novelty re-check (Round 2).** Eight further targeted searches were run, covering TRACE validation against DIC trends, TTD vs repeat-hydrography rate comparisons, fixed-effects or isopycnal DIC trends, and GLODAP drift. None found:
+- a sample-matched comparison of DIC trends with TTD C_ant rates; or
+- an estimator that removes cruise-level offsets (cruise fixed effects) from interior DIC trend estimates.
+
+The closest are:
+- the inventory-level comparisons in the TRACE papers;
+- Steinfeldt et al. (2024): TTD vs eMLR, Atlantic only, inventory-level;
+- Hong et al. (2026): not fully accessed.
+
+The novelty claim stands at "not found in a targeted search". A Web of Science/Scopus search and expert consultation are still required.

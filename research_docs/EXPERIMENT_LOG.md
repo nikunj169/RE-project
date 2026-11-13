@@ -93,3 +93,51 @@ Status labels: **exploratory** (not used for inference) · **validation** (tests
 * Estimator-independent comparison (eMLR vs TRACE rates, same samples, 1994–2007): eMLR exceeds TRACE by ~10–35 % in γⁿ < 27.0 in all basins and in Pacific/Indian intermediate layers; eMLR is **lower** than TRACE in Southern Ocean 27.0–27.8 (0.46 vs 0.58; 0.26 vs 0.37) and Atlantic deep layers.
 * Within the 1989–2012 window, observed δ shrinks and CIs widen (fewer samples); only Pacific 27.0–27.5, Atlantic 26.0–26.5, Indian 26.5–27.0 and SO 26.5–27.0 keep CI excluding 0.
 * Interpretation constraint: eMLR(C*) is derived from GLODAP DIC → not independent of the observations; the supportable statement is that two DIC-based estimates agree with each other and exceed the tracer-based (TTD/TRACE) estimate in the upper ocean outside the Southern Ocean, while the Southern Ocean intermediate layers show the opposite sign between eMLR and TRACE.
+
+---
+# Round 2 (2026-11-14) — plan in `research_docs/GAP_AUDIT_ROUND2.md`, written before E06–E11
+Environment: macOS (Darwin 27.2), fresh `.venv` (Python 3.12, uv), numpy/pandas/scipy/xarray/netCDF4/cartopy, TRACE-Python release v1.1.2 (GitHub zipball SHA-256 `01cf923e…0b51`, identical to Round 1), PyCO2SYS 2.0.0b8. Seeds: 20261104 (E02-type fits), 20261114 (Round-2 bootstraps).
+
+## R0 — Cross-machine reproduction (validation)
+* `build_dataset` → 512,384 / 428,264 rows (identical); `e02a_run_trace` → 400,755 finite C_ant (identical); `e02_layer_trends --variant primary` reproduces all committed numbers incl. bootstrap CIs to ≤ 2·10⁻¹⁴. Repository test suite run for the first time: 22/22 pass (after installing sympy); 3 new estimator tests pass.
+* `build_dataset.py` gained `nitrate_qc`, `phosphate_qc` columns (additive; all other columns and row order unchanged).
+
+## E06 — Drift-immune differential trends (confirmatory, pre-registered in GAP_AUDIT_ROUND2 §2)
+* Command: `python -m research.experiments.e06_differential_trends --boot 300` → `e06_differential_trends.csv`.
+* Estimator: two-way FE (cell×layer, cruise); exact solver (`differential_trend.exact_twoway`, Schur complement over cruise effects) — verified against alternating projections to 1.8·10⁻¹⁴. (A first implementation with alternating projections was correct but ~110× slower; replaced before the B = 300 run.)
+* Result (Δδ = excess of target layer relative to γⁿ > 27.8 reference, same cruises): Atlantic 26.0–26.5 +0.190 [0.137, 0.268], 26.5–27.0 +0.177 [0.110, 0.237], 27.0–27.5 +0.131 [0.087, 0.186]; Indian +0.126…+0.153 (γ < 27.0), +0.105, +0.064; Pacific +0.124, +0.120, +0.078, +0.070, +0.021; Southern Ocean +0.138 (CI incl. 0), +0.186, +0.122, +0.023, −0.016.
+* Pre-registered verdicts: upper layers (γⁿ ≤ 27.0) — 10/12 "excess not explained by cruise offsets", 2 inconclusive (Atlantic and Southern Ocean surface, γ < 26). Intermediate — 4 not explained, 2 attributable to offset/deep signal (Pacific and SO 27.5–27.8), 2 inconclusive.
+
+## E06s — Synthetic drift test (validation)
+* Command: `... e06_differential_trends --synthetic --reps 60 --boot 150` → `e06_synthetic_drift.csv`. Cruise offsets = d·(t_cruise − 2000) + N(0, 3²), d ∈ {0, 0.05, 0.1}.
+* E06 bias ≤ 0.002 µmol kg⁻¹ yr⁻¹ for all d; 95 % CI coverage 93–100 % → **passed**. The single-layer estimator's bias increases by exactly d (column `e02_target_bias_noiseless` rises 0.05 per 0.05 of drift; its absolute level also contains the real-data cruise component of the synthetic null, so only the increments are interpretable).
+
+## E07 — TRACE structural sensitivity (sensitivity, pre-registered)
+* Command: `python -m research.experiments.e07_trace_sensitivity --boot 300` → `e07_trace_sensitivity.csv` (TRACE re-run at all samples for 7 variants).
+* Δ/Γ ∈ {1.0, 1.6} and θ-instead-of-T change δ by ≤ 0.015; mean age ×0.8/×1.2 by −0.04…+0.03; disequilibrium scale ×0.9/×1.1 by ±0.03–0.07 in upper layers (dominant knob).
+* Rule "excess within TRACE structural uncertainty if any variant's δ CI includes 0": survives all 8 variants in Pacific (all layers ≤ 28.2), Atlantic 26.0–26.5, Indian 26.5–27.0, SO 26.0–26.5; 6–7/8 in other upper layers (the failing variant is always diseq × 1.1 or mean age × 0.8).
+
+## E08 — C* response and control variables (sensitivity, pre-registered)
+* Command: `python -m research.experiments.e08_cstar_controls --boot 300` → `e08_cstar_controls.csv`; summary in `summary_round2_cstar.csv`.
+* C* = DIC − 117·PO4 − ½(TAlk + 16·PO4) on rows with flag-2/qc-1 PO4 and TAlk (≈ 30–70 % of each group). Upper layers: C* excess CI > 0 in 9/12 (same count as the AOU estimator on the same rows). Pacific 26.0–27.0 (largest AOU trends, +0.16 and +0.43 µmol kg⁻¹ yr⁻¹ at fixed θ,S) drops to +0.08/+0.02 with CIs incl. 0 → excess there depends on the remineralisation tracer.
+* Control: TAlk at fixed θ,S has CI excluding 0 in 5/34 groups, all negative (−0.05…−0.08), all deep Pacific/Indian. No physical process lowers deep TAlk; interpreted as TAlk measurement drift (CRMs certified for TAlk only from 1996) → C* is not used at depth.
+
+## E09 — Pooled estimates with a global cruise bootstrap; piecewise time (pre-registered)
+* Command: `python -m research.experiments.e09_pooled_and_timeshape --boot 500` → `e09_pooled.csv`, `e09_piecewise_time.csv`.
+* Upper (γⁿ ≤ 27.0, 12 groups): δ = 0.130 [0.090, 0.171], R = 1.163 [1.114, 1.213]. Atlantic 1.08 [1.02, 1.15], Indian 1.17 [1.07, 1.32], Pacific 1.19 [1.12, 1.28], SO 1.16 [1.03, 1.26]. Intermediate: δ = 0.042 [0.019, 0.068], R = 1.15 [1.07, 1.25]. Deep: δ = −0.012 [−0.036, 0.013] (Atlantic −0.065, Pacific +0.055).
+* Piecewise (knot 2000): post-2000 upper-layer δ > 0 with CI excluding 0 in Atlantic 26.0–27.0, Pacific surface, SO 26.0–26.5 → the excess is present in the CRM era. Pre-2000 slopes are poorly constrained (CIs ±0.2–0.5); post-minus-pre differences significant only in Atlantic 26.5–27.0 (+0.31 [0.11, 0.57]). No resolvable era dependence overall.
+
+## E10 — Two eMLR(C*) products at the same samples (pre-registered)
+* Data: Gruber et al. (2019) (SHA-256 `a5dcf2b0…a4d`, identical to Round 1); Müller et al. (2023) NCEI 0279447 `dcant_emlr_cstar_mueller_94-04-14.nc` SHA-256 `6b1669c4dcd2deb7a90bd7b1f03d0cc6385caf7afec2d2421c6fddbd4d9d3aba` (standard case = mask "3", "Standard case"; 11 defined cases). Both read-only in `data/external/`.
+* Command: `python -m research.experiments.e10_emlr_products` → `e10_emlr_products.csv`; pooled by `python -m research.evaluation.summarize_round2` → `summary_round2_emlr_pooled.csv`. (First version with lazy xarray point sampling stalled >40 min; replaced by in-memory nearest/linear sampling, numerically identical by construction.)
+* Upper-ocean pooled eMLR/TRACE ratios (same samples, same periods, no regression on our side): Gruber 1994–2007 1.13 (ensemble 1.06–1.27); Müller 1994–2004 1.20 (1.01–1.25); Müller 2004–2014 1.13. Observed (E02 pooled) 1.16. Deep Atlantic: eMLR also below TRACE (0.80; 0.35 in 2004–2014), as is observed DIC (0.75). Deep Pacific: eMLR also above TRACE (absolute rates ≤ 0.09 vs 0.01).
+
+## E11 — Proportional form of the drift-immune excess (post hoc summary of E06; logged as such)
+* Command: `python -m research.experiments.e11_scale_factor --boot 500` → `e11_scale_factor.csv`. m = LS slope (through origin) of Δδ on the TRACE differential rate; global shared cruise bootstrap.
+* m = 0.181 [0.114, 0.232] (all basins); Atlantic 0.20 [0.12, 0.32], Indian 0.19 [0.06, 0.32], Pacific 0.16 [0.06, 0.23], SO 0.18 [0.04, 0.29]. Deviations from proportionality: Indo-Pacific/Atlantic intermediate layers (TRACE rate 0.1–0.25) sit above the line; SO intermediate layers below.
+
+## E12 — TRACE with the unadjusted atmospheric trajectory (post hoc, pre-logged in GAP_AUDIT_ROUND2 §4)
+* Observation: TRACE's `CO2TrajectoriesAdjusted.txt` grows at 0.883× the atmospheric rate (1972–2021); its anomaly is 0.89–0.91× atmospheric.
+* Commands: `python -m research.experiments.e12_trace_unadjusted --fit --boot 300`; `... e09_pooled_and_timeshape --cant atm`; `... e11_scale_factor --cant atm`.
+* TRACE rates rise by 9–10 % (`rate_ratio_atm_default` 1.09–1.13). Upper pooled R = 1.059 [1.014, 1.105] (Atlantic 0.99, Indian 1.07, Pacific 1.09, SO 1.06); m = 0.075 [0.014, 0.122]. Deep: Atlantic R 0.69 [0.53, 0.89], SO 0.74 [0.53, 0.96].
+* Pre-logged expectation (R within 0.95–1.05 with CI incl. 1) **not met**: the undamped boundary condition removes ≈ 60 % of the excess; a residual ≈ 6–8 % remains with CIs narrowly excluding 0.

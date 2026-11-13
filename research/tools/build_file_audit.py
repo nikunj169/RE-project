@@ -20,6 +20,7 @@ OUT = ROOT / "research_docs" / "FILE_AUDIT.csv"
 
 # (glob, file_type, purpose, inputs, outputs, dependencies, scientific_relevance, status, issues)
 RULES: list[tuple[str, ...]] = [
+    ("tests/test_research_estimators.py", "test", "unit tests for research/ trend estimators (exact two-way FE solver, drift immunity)", "-", "-", "research.models", "high", "authored", ""),
     ("README.md", "doc", "G3 study overview and quick-start", "-", "-", "-", "high: states claims", "read_full",
      "Lists src/visualization modules that do not exist; claims no hard-coded results (false, see scripts/10)"),
     (".gitignore", "config", "git ignore rules", "-", "-", "-", "none", "read_full",

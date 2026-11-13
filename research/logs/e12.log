@@ -1,0 +1,51 @@
+25000/402747 6s
+50000/402747 7s
+75000/402747 8s
+100000/402747 8s
+125000/402747 9s
+150000/402747 10s
+175000/402747 10s
+200000/402747 11s
+225000/402747 11s
+250000/402747 12s
+275000/402747 13s
+300000/402747 13s
+325000/402747 14s
+350000/402747 14s
+375000/402747 15s
+400000/402747 15s
+402747/402747 16s
+{'basin': 'Southern Ocean', 'layer': '(27.5, 27.8]', 'n': 7942, 'beta_dic': 0.346, 'beta_cant': 0.383, 'beta_cant_atm': 0.418, 'delta_atm': -0.072, 'delta_atm_lo': np.float64(-0.124), 'delta_atm_hi': np.float64(-0.03), 'R_atm': 0.828, 'rate_ratio_atm_default': 1.092}
+{'basin': 'Southern Ocean', 'layer': '(27.8, 28.0]', 'n': 10627, 'beta_dic': 0.189, 'beta_cant': 0.219, 'beta_cant_atm': 0.239, 'delta_atm': -0.05, 'delta_atm_lo': np.float64(-0.093), 'delta_atm_hi': np.float64(-0.009), 'R_atm': 0.791, 'rate_ratio_atm_default': 1.091}
+{'basin': 'Southern Ocean', 'layer': '(28.0, 28.1]', 'n': 8889, 'beta_dic': 0.124, 'beta_cant': 0.124, 'beta_cant_atm': 0.136, 'delta_atm': -0.011, 'delta_atm_lo': np.float64(-0.06), 'delta_atm_hi': np.float64(0.023), 'R_atm': 0.917, 'rate_ratio_atm_default': 1.091}
+{'basin': 'Southern Ocean', 'layer': '(28.1, 28.2]', 'n': 10696, 'beta_dic': 0.1, 'beta_cant': 0.095, 'beta_cant_atm': 0.104, 'delta_atm': -0.004, 'delta_atm_lo': np.float64(-0.049), 'delta_atm_hi': np.float64(0.03), 'R_atm': 0.964, 'rate_ratio_atm_default': 1.089}
+{'basin': 'Southern Ocean', 'layer': '(28.2, 29.5]', 'n': 18312, 'beta_dic': 0.097, 'beta_cant': 0.163, 'beta_cant_atm': 0.178, 'delta_atm': -0.081, 'delta_atm_lo': np.float64(-0.124), 'delta_atm_hi': np.float64(-0.032), 'R_atm': 0.546, 'rate_ratio_atm_default': 1.088}
+{'basin': 'Southern Ocean', 'layer': '(27.0, 27.5]', 'n': 11667, 'beta_dic': 0.615, 'beta_cant': 0.616, 'beta_cant_atm': 0.674, 'delta_atm': -0.059, 'delta_atm_lo': np.float64(-0.116), 'delta_atm_hi': np.float64(-0.011), 'R_atm': 0.912, 'rate_ratio_atm_default': 1.095}
+{'basin': 'Southern Ocean', 'layer': '(26.5, 27.0]', 'n': 5392, 'beta_dic': 0.871, 'beta_cant': 0.757, 'beta_cant_atm': 0.831, 'delta_atm': 0.04, 'delta_atm_lo': np.float64(-0.048), 'delta_atm_hi': np.float64(0.118), 'R_atm': 1.048, 'rate_ratio_atm_default': 1.097}
+{'basin': 'Southern Ocean', 'layer': '(26.0, 26.5]', 'n': 1203, 'beta_dic': 0.986, 'beta_cant': 0.814, 'beta_cant_atm': 0.894, 'delta_atm': 0.091, 'delta_atm_lo': np.float64(-0.006), 'delta_atm_hi': np.float64(0.216), 'R_atm': 1.102, 'rate_ratio_atm_default': 1.098}
+{'basin': 'Southern Ocean', 'layer': '(0.0, 26.0]', 'n': 914, 'beta_dic': 1.012, 'beta_cant': 0.89, 'beta_cant_atm': 0.978, 'delta_atm': 0.033, 'delta_atm_lo': np.float64(-0.203), 'delta_atm_hi': np.float64(0.159), 'R_atm': 1.034, 'rate_ratio_atm_default': 1.099}
+{'basin': 'Atlantic', 'layer': '(27.0, 27.5]', 'n': 14169, 'beta_dic': 0.496, 'beta_cant': 0.454, 'beta_cant_atm': 0.496, 'delta_atm': 0.0, 'delta_atm_lo': np.float64(-0.059), 'delta_atm_hi': np.float64(0.058), 'R_atm': 1.001, 'rate_ratio_atm_default': 1.092}
+{'basin': 'Atlantic', 'layer': '(27.5, 27.8]', 'n': 10949, 'beta_dic': 0.322, 'beta_cant': 0.359, 'beta_cant_atm': 0.392, 'delta_atm': -0.07, 'delta_atm_lo': np.float64(-0.134), 'delta_atm_hi': np.float64(-0.013), 'R_atm': 0.822, 'rate_ratio_atm_default': 1.092}
+{'basin': 'Atlantic', 'layer': '(27.8, 28.0]', 'n': 21979, 'beta_dic': 0.287, 'beta_cant': 0.349, 'beta_cant_atm': 0.38, 'delta_atm': -0.093, 'delta_atm_lo': np.float64(-0.172), 'delta_atm_hi': np.float64(-0.015), 'R_atm': 0.754, 'rate_ratio_atm_default': 1.092}
+{'basin': 'Atlantic', 'layer': '(28.0, 28.1]', 'n': 12990, 'beta_dic': 0.135, 'beta_cant': 0.207, 'beta_cant_atm': 0.225, 'delta_atm': -0.09, 'delta_atm_lo': np.float64(-0.145), 'delta_atm_hi': np.float64(-0.036), 'R_atm': 0.6, 'rate_ratio_atm_default': 1.089}
+{'basin': 'Atlantic', 'layer': '(28.1, 28.2]', 'n': 9578, 'beta_dic': 0.094, 'beta_cant': 0.173, 'beta_cant_atm': 0.189, 'delta_atm': -0.095, 'delta_atm_lo': np.float64(-0.164), 'delta_atm_hi': np.float64(-0.015), 'R_atm': 0.496, 'rate_ratio_atm_default': 1.09}
+{'basin': 'Atlantic', 'layer': '(26.5, 27.0]', 'n': 8584, 'beta_dic': 0.82, 'beta_cant': 0.719, 'beta_cant_atm': 0.787, 'delta_atm': 0.033, 'delta_atm_lo': np.float64(-0.032), 'delta_atm_hi': np.float64(0.106), 'R_atm': 1.042, 'rate_ratio_atm_default': 1.095}
+{'basin': 'Atlantic', 'layer': '(26.0, 26.5]', 'n': 5066, 'beta_dic': 1.025, 'beta_cant': 0.893, 'beta_cant_atm': 0.98, 'delta_atm': 0.045, 'delta_atm_lo': np.float64(-0.002), 'delta_atm_hi': np.float64(0.103), 'R_atm': 1.046, 'rate_ratio_atm_default': 1.098}
+{'basin': 'Atlantic', 'layer': '(0.0, 26.0]', 'n': 7422, 'beta_dic': 0.983, 'beta_cant': 0.988, 'beta_cant_atm': 1.088, 'delta_atm': -0.105, 'delta_atm_lo': np.float64(-0.202), 'delta_atm_hi': np.float64(0.023), 'R_atm': 0.903, 'rate_ratio_atm_default': 1.101}
+{'basin': 'Atlantic', 'layer': '(28.2, 29.5]', 'n': 1300, 'beta_dic': 0.121, 'beta_cant': 0.068, 'beta_cant_atm': 0.074, 'delta_atm': 0.046, 'delta_atm_lo': np.float64(-0.051), 'delta_atm_hi': np.float64(0.133), 'R_atm': 1.624, 'rate_ratio_atm_default': 1.094}
+{'basin': 'Indian', 'layer': '(0.0, 26.0]', 'n': 5545, 'beta_dic': 1.048, 'beta_cant': 0.927, 'beta_cant_atm': 1.019, 'delta_atm': 0.029, 'delta_atm_lo': np.float64(-0.084), 'delta_atm_hi': np.float64(0.248), 'R_atm': 1.029, 'rate_ratio_atm_default': 1.099}
+{'basin': 'Indian', 'layer': '(26.0, 26.5]', 'n': 1707, 'beta_dic': 0.845, 'beta_cant': 0.717, 'beta_cant_atm': 0.785, 'delta_atm': 0.059, 'delta_atm_lo': np.float64(-0.025), 'delta_atm_hi': np.float64(0.174), 'R_atm': 1.076, 'rate_ratio_atm_default': 1.095}
+{'basin': 'Indian', 'layer': '(26.5, 27.0]', 'n': 4208, 'beta_dic': 0.681, 'beta_cant': 0.544, 'beta_cant_atm': 0.595, 'delta_atm': 0.087, 'delta_atm_lo': np.float64(0.024), 'delta_atm_hi': np.float64(0.157), 'R_atm': 1.146, 'rate_ratio_atm_default': 1.094}
+{'basin': 'Indian', 'layer': '(27.0, 27.5]', 'n': 3817, 'beta_dic': 0.267, 'beta_cant': 0.169, 'beta_cant_atm': 0.184, 'delta_atm': 0.083, 'delta_atm_lo': np.float64(-0.005), 'delta_atm_hi': np.float64(0.16), 'R_atm': 1.45, 'rate_ratio_atm_default': 1.091}
+{'basin': 'Indian', 'layer': '(27.5, 27.8]', 'n': 3093, 'beta_dic': 0.09, 'beta_cant': 0.035, 'beta_cant_atm': 0.038, 'delta_atm': 0.052, 'delta_atm_lo': np.float64(-0.016), 'delta_atm_hi': np.float64(0.12), 'R_atm': 2.366, 'rate_ratio_atm_default': 1.1}
+{'basin': 'Indian', 'layer': '(27.8, 28.0]', 'n': 2865, 'beta_dic': 0.036, 'beta_cant': 0.019, 'beta_cant_atm': 0.021, 'delta_atm': 0.015, 'delta_atm_lo': np.float64(-0.055), 'delta_atm_hi': np.float64(0.093), 'R_atm': 1.711, 'rate_ratio_atm_default': 1.11}
+{'basin': 'Indian', 'layer': '(28.0, 28.1]', 'n': 3062, 'beta_dic': 0.002, 'beta_cant': 0.016, 'beta_cant_atm': 0.017, 'delta_atm': -0.016, 'delta_atm_lo': np.float64(-0.099), 'delta_atm_hi': np.float64(0.083), 'R_atm': 0.107, 'rate_ratio_atm_default': 1.114}
+{'basin': 'Indian', 'layer': '(28.1, 28.2]', 'n': 3796, 'beta_dic': 0.006, 'beta_cant': 0.018, 'beta_cant_atm': 0.02, 'delta_atm': -0.015, 'delta_atm_lo': np.float64(-0.098), 'delta_atm_hi': np.float64(0.058), 'R_atm': 0.275, 'rate_ratio_atm_default': 1.111}
+{'basin': 'Pacific', 'layer': '(0.0, 26.0]', 'n': 35740, 'beta_dic': 1.089, 'beta_cant': 0.92, 'beta_cant_atm': 1.012, 'delta_atm': 0.077, 'delta_atm_lo': np.float64(0.011), 'delta_atm_hi': np.float64(0.177), 'R_atm': 1.076, 'rate_ratio_atm_default': 1.1}
+{'basin': 'Pacific', 'layer': '(26.0, 26.5]', 'n': 9352, 'beta_dic': 0.856, 'beta_cant': 0.699, 'beta_cant_atm': 0.766, 'delta_atm': 0.09, 'delta_atm_lo': np.float64(0.003), 'delta_atm_hi': np.float64(0.143), 'R_atm': 1.117, 'rate_ratio_atm_default': 1.097}
+{'basin': 'Pacific', 'layer': '(26.5, 27.0]', 'n': 13643, 'beta_dic': 0.587, 'beta_cant': 0.483, 'beta_cant_atm': 0.529, 'delta_atm': 0.058, 'delta_atm_lo': np.float64(-0.014), 'delta_atm_hi': np.float64(0.102), 'R_atm': 1.11, 'rate_ratio_atm_default': 1.093}
+{'basin': 'Pacific', 'layer': '(27.0, 27.5]', 'n': 21608, 'beta_dic': 0.258, 'beta_cant': 0.154, 'beta_cant_atm': 0.168, 'delta_atm': 0.09, 'delta_atm_lo': np.float64(0.051), 'delta_atm_hi': np.float64(0.142), 'R_atm': 1.538, 'rate_ratio_atm_default': 1.091}
+{'basin': 'Pacific', 'layer': '(27.5, 27.8]', 'n': 17237, 'beta_dic': 0.08, 'beta_cant': 0.016, 'beta_cant_atm': 0.017, 'delta_atm': 0.063, 'delta_atm_lo': np.float64(0.025), 'delta_atm_hi': np.float64(0.092), 'R_atm': 4.665, 'rate_ratio_atm_default': 1.109}
+{'basin': 'Pacific', 'layer': '(27.8, 28.0]', 'n': 18728, 'beta_dic': 0.068, 'beta_cant': 0.01, 'beta_cant_atm': 0.012, 'delta_atm': 0.056, 'delta_atm_lo': np.float64(0.023), 'delta_atm_hi': np.float64(0.086), 'R_atm': 5.864, 'rate_ratio_atm_default': 1.121}
+{'basin': 'Pacific', 'layer': '(28.0, 28.1]', 'n': 20687, 'beta_dic': 0.064, 'beta_cant': 0.008, 'beta_cant_atm': 0.009, 'delta_atm': 0.054, 'delta_atm_lo': np.float64(0.023), 'delta_atm_hi': np.float64(0.087), 'R_atm': 6.773, 'rate_ratio_atm_default': 1.126}
+{'basin': 'Pacific', 'layer': '(28.1, 28.2]', 'n': 9510, 'beta_dic': 0.063, 'beta_cant': 0.015, 'beta_cant_atm': 0.017, 'delta_atm': 0.045, 'delta_atm_lo': np.float64(0.016), 'delta_atm_hi': np.float64(0.088), 'R_atm': 3.654, 'rate_ratio_atm_default': 1.113}

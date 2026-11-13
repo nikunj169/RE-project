@@ -39,3 +39,87 @@ Documented in `research_docs/REPOSITORY_INTELLIGENCE.md` §8, including:
 
 ## S8. Software
 Python 3.12.16; numpy, pandas, scipy, scikit-learn, xarray; TRACE-Python (package version 1.1.1, release tag v1.1.2; zip SHA-256 01cf923e…0b51) with PyCO2SYS 2.0.0b8.
+
+---
+# Round-2 supplementary material (2026-11-14)
+
+## S-R2.1 Differential estimator: derivation and solver
+For one basin, let T be the target-layer samples and R the reference-layer samples (γⁿ > 27.8), restricted to cruises with samples in both. The model is y = Dₐα + D_cγ + Xφ + Δβ·t·1_T + ε, where:
+- Dₐ: dummies for cell × {T, R};
+- D_c: cruise dummies;
+- X: layer-specific quadratic conditioning terms.
+
+**Solution.**
+1. Sweep out Dₐ by within-(cell×layer) demeaning: Z̃ = Z − P_a Z.
+2. With weights w (bootstrap multiplicities), the normal equations for (φ, Δβ, γ) partition into
+ - S_ZZ = Z̃ᵀWZ̃;
+ - S_DZ = per-cruise weighted sums of Z̃;
+ - S_DD = diag(w_c) − Nᵀ diag(1/w_a) N, where N is the (cell × cruise) weighted count matrix.
+3. Eliminate γ with the pseudo-inverse of S_DD (rank-deficient by one): S = S_ZZ − S_DZᵀ S_DD⁺ S_DZ. The coefficients follow from the X-block of S.
+
+**Checks and cost.**
+- Agrees with alternating projections to 1.8·10⁻¹⁴ (`tests/test_research_estimators.py`).
+- Cost is O(n·k) per bootstrap replicate plus a G×G pseudo-inverse (G ≤ 300 cruises).
+
+**Identification.** Δβ comes from how the within-cruise target-minus-reference contrast varies across cruises of different dates, net of cell effects. Any cruise-level additive offset, constant or trending in time, is absorbed by γ.
+
+## S-R2.2 Synthetic drift test (E06s)
+**Setup.** Three groups (Pacific 26.0–26.5, Atlantic 26.5–27.0, Indian 26.5–27.0). Each synthetic series is built from:
+- the fitted static two-way-FE component of the observed data;
+- true trends of 0.8 (target) and 0.1 (reference), so the true Δβ = 0.7;
+- cruise offsets d·(t_cruise − 2000) + N(0, 3²);
+- permuted residuals.
+
+60 replicates; B = 150.
+
+**Results.**
+- Differential estimator: bias ≤ 0.002 µmol kg⁻¹ yr⁻¹; coverage 93–100 % for d ∈ {0, 0.05, 0.1}.
+- Single-layer estimator: absorbs d one-for-one.
+
+File: `research/results/e06_synthetic_drift.csv`.
+
+## S-R2.3 TRACE structural variants (E07) and boundary condition (E12)
+TRACE inputs (lon, lat, depth, S, T, decimal year) are unchanged across variants.
+
+| Variant | Change | Upper-layer Δδ range (µmol kg⁻¹ yr⁻¹) |
+|---|---|---|
+| Δ/Γ 1.0 / 1.6 | TTD width (ages re-estimated by TRACE's network) | ≤ 0.015 |
+| θ input | potential instead of in-situ T | ≤ 0.004 |
+| mean age ×0.8 / ×1.2 | scale factors × constant | −0.04 / +0.03 |
+| diseq ×0.9 / ×1.1 | scales atmospheric CO₂ anomaly | +0.03…+0.07 / −0.03…−0.07 |
+| unadjusted atm. trajectory (E12) | CO2Trajectories.txt instead of CO2TrajectoriesAdjusted.txt | −0.05…−0.12 |
+
+TRACE's adjusted trajectory has anomaly/atmospheric-anomaly ratios of 0.912 (1960), 0.906 (1990), 0.903 (2000), 0.898 (2010) and 0.893 (2020). Its 1972–2021 slope is 1.57 vs 1.78 ppm yr⁻¹ for the atmosphere (ratio 0.883).
+
+## S-R2.4 C* and alkalinity control (E08)
+C* = DIC − 117·PO₄ − ½(TAlk + 16·PO₄), on samples with PO₄ and TAlk WOCE flag 2 and secondary-QC 1. Full table: `research/results/e08_cstar_controls.csv`.
+
+TAlk trends at fixed θ, S with 95 % intervals excluding 0 are all negative:
+- Pacific 27.5–27.8, 27.8–28.0, 28.0–28.1, 28.1–28.2: −0.057, −0.057, −0.048, −0.074;
+- Indian 27.5–27.8: −0.082 µmol kg⁻¹ yr⁻¹.
+
+## S-R2.5 Pooled statistics (E09, E12) and eMLR products (E10)
+Files:
+- `e09_pooled.csv`, `e09_pooled_atm.csv`: pooled δ and R, global cruise bootstrap B = 500.
+- `summary_round2_emlr_pooled.csv`: sample-weighted product/TRACE ratios, with sensitivity-case minima and maxima.
+- `e09_piecewise_time.csv`: slopes before and after 2000.
+
+## S-R2.6 Reproduction
+Round-1 results were reproduced bit-for-bit on a second machine (≤ 2·10⁻¹⁴); see `EXPERIMENT_LOG.md` R0.
+
+Full Round-2 pipeline after `build_dataset` and `e02a_run_trace` (about 45 min on a laptop):
+
+```
+python -m research.experiments.e06_differential_trends --boot 300
+python -m research.experiments.e06_differential_trends --synthetic --reps 60 --boot 150
+python -m research.experiments.e07_trace_sensitivity --boot 300
+python -m research.experiments.e08_cstar_controls --boot 300
+python -m research.experiments.e09_pooled_and_timeshape --boot 500
+python -m research.experiments.e10_emlr_products
+python -m research.experiments.e11_scale_factor --boot 500
+python -m research.experiments.e12_trace_unadjusted --fit --boot 300
+python -m research.experiments.e09_pooled_and_timeshape --boot 500 --cant atm
+python -m research.experiments.e11_scale_factor --boot 500 --cant atm
+python -m research.evaluation.summarize_round2
+python -m research.visualization.figures_round2
+```
