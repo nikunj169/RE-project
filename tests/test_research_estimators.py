@@ -48,3 +48,18 @@ def test_single_layer_estimator_absorbs_drift():
     df, mask = _synthetic(0.1)
     est = fit_trend(df[mask], ["y"], form="linear").beta["y"]
     assert abs(est - 0.9) < 0.06  # 0.8 true + 0.1 drift
+
+
+def test_wet_sampler_nearest_wet_column_and_depth_interpolation():
+    from research.experiments.e13_sample_model import WetSampler
+
+    lat_g, lon_g, dep_g = np.array([0.5, 1.5]), np.array([0.5, 1.5]), np.array([0.0, 100.0, 200.0])
+    wet = np.ones((3, 2, 2), bool)
+    wet[2, 0, 0] = False  # column (0,0) is shallow
+    field = np.arange(3)[:, None, None] * 10.0 + np.zeros((3, 2, 2))
+    field[:, 1, 1] += 1000.0
+    s = WetSampler(lat_g, lon_g, dep_g, wet, np.array([0.5, 0.5]), np.array([0.5, 0.5]), np.array([50.0, 150.0]))
+    out = s(field, np.array([0, 1]))
+    assert (s.i[0], s.j[0]) == (0, 0) and out[0] == 5.0  # shallow sample stays in its own column
+    assert (s.i[1], s.j[1]) != (0, 0) and wet[2, s.i[1], s.j[1]]  # deep sample moves to a wet neighbour
+    assert out[1] in (15.0, 1015.0)

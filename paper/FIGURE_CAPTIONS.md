@@ -64,4 +64,10 @@ No regression is involved for the eMLR ratios.
 - Excess of the pump-corrected tracer C* conditioned on θ and S (coloured).
 - −½ × the TAlk trend at fixed θ, S (crosses): the alkalinity contribution to C*. Its negative deep values indicate TAlk measurement drift.
 
+**Figure 12 (`fig12_perfect_model`).** Perfect-model test in MRI-ESM2-0 sampled at the GLODAP samples (E13), by basin and neutral-density layer; within-cell trends at fixed θ, S, AOU.
+- Model true C_ant (DIC − natural DIC; black line).
+- Model DIC (circles): the estimator applied to model data.
+- TRACE on model T, S, with default (grey squares) and unadjusted atmospheric (orange triangles, E13d) boundary conditions.
+- Observed DIC (red stars) and TRACE on observed T, S (red crosses), from E02, for reference.
+
 **Figure S1 (`figS1_synthetic_recovery`).** Validation of the single-layer estimator on synthetic data: (a) mean bias; (b) coverage of nominal 95 % bootstrap intervals.

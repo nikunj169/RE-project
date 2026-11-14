@@ -141,3 +141,43 @@ Environment: macOS (Darwin 27.2), fresh `.venv` (Python 3.12, uv), numpy/pandas/
 * Commands: `python -m research.experiments.e12_trace_unadjusted --fit --boot 300`; `... e09_pooled_and_timeshape --cant atm`; `... e11_scale_factor --cant atm`.
 * TRACE rates rise by 9–10 % (`rate_ratio_atm_default` 1.09–1.13). Upper pooled R = 1.059 [1.014, 1.105] (Atlantic 0.99, Indian 1.07, Pacific 1.09, SO 1.06); m = 0.075 [0.014, 0.122]. Deep: Atlantic R 0.69 [0.53, 0.89], SO 0.74 [0.53, 0.96].
 * Pre-logged expectation (R within 0.95–1.05 with CI incl. 1) **not met**: the undamped boundary condition removes ≈ 60 % of the excess; a residual ≈ 6–8 % remains with CIs narrowly excluding 0.
+
+---
+
+# Round 3 (2026-11-14): independent model comparator, reference layers, full-text checks
+
+Design and decision rules were written in `GAP_AUDIT_ROUND3.md` before any model data were sampled (§1–4). E13d was logged in §6 after seeing E13 and before running it.
+
+## R5: Full-text reference checks
+* **Bates et al. (2014):** read in full (Oceanography PDF). Table 2 surface pCO₂ trends: BATS 1.69 ± 0.11, HOT 1.72 ± 0.09, ESTOC 1.92 ± 0.24, Iceland Sea 1.29 ± 0.36, Munida 1.28 ± 0.33 µatm yr⁻¹. The text states the subtropical-gyre sites track the atmospheric increase. The manuscript sentence was revised with these values and the high-latitude caveat.
+* **Hong & Zemskova (2026):** read from the EarthArXiv preprint v2 (doi:10.31223/X5QX88; the publisher page returns 403). It is an ECCO-Darwin C* storage analysis for 1992–2022, with no TTD comparison, no sample matching and no cruise-offset treatment. No overlap.
+
+## E13: Perfect-model test in MRI-ESM2-0 (pre-registered)
+* **Sampling.** Command: `python -m research.experiments.e13_sample_model` → `research/data/model_mri_esm2_0.csv.gz`; log `e13_sample_model.log`; about 35 min, streamed and not stored.
+  * Stores: Pangeo CMIP6 Zarr, MRI-ESM2-0 r1i2p1f1 `gr` v20200303. Historical (1972–2014) and ssp585 (2015–2021): Oyr `dissic`, `dissicnat`, `o2`; Omon `thetao`, `so` (annual means).
+  * Sampler: nearest column wet at the sample's depth, linear in depth. Depths below the deepest wet level (6150 m) are clamped (first run crashed on this; fixed).
+  * Output SHA-256 `6b76b131e3d2e4bb202430459d6cc5c1ceee80204f8c639f7f1ab493b192b01c`. All 343,826 E02 samples are finite. Model vs observed: θ r = 0.975 (mean +0.8 °C); S r = 0.86; AOU r = 0.89 (−14); DIC r = 0.90 (−26 µmol kg⁻¹).
+* **Analysis.** Command: `python -m research.experiments.e13_perfect_model --boot 500` → `e13_model_layer_trends.csv`, `e13_model_pooled.csv`, `e13_model_differential.csv`, `e13_model_scale_factor.csv`. TRACE on model S and in-situ T is cached in `research/data/trace_canth_model_mri.csv.gz`.
+  * 6,177 rows (1.8 %; warm, salty Pacific/Atlantic thermocline, 0–700 m) return NaN from TRACE for model T, S and are excluded. 5,304 of these are finite for observed T, S.
+* **(a) Estimator vs model truth.**
+  * Upper pooled R = 0.970 [0.948, 0.982], δ = −0.027 [−0.047, −0.015]; intermediate R = 0.947; deep δ = −0.023.
+  * Differential m = −0.011 [−0.045, 0.017]. By basin: Atlantic +0.002, Indian +0.016, Pacific −0.056 [−0.106, −0.030], Southern Ocean −0.009.
+  * **H13a met** (point estimates within the band). The Pacific bias is negative, i.e. conservative for the observed excess.
+* **(b) Model truth vs TRACE(model T, S).**
+  * Upper pooled R = 1.116 [1.103, 1.138]. By basin: Atlantic 1.036, Indian 1.011, Pacific 1.182, Southern Ocean 1.064. Intermediate 1.104; deep 0.757.
+  * Differential m = 0.125 [0.102, 0.154]. By basin: Atlantic 0.086, Indian 0.026, Pacific 0.221, Southern Ocean 0.210.
+* **(c) Model DIC vs TRACE (analogue of the observed comparison).** Upper R = 1.082 [1.063, 1.099]; m = 0.116 [0.079, 0.153].
+* **Reading.** The sign and about two thirds of the size of the observed shortfall (m 0.18) are reproduced without GLODAP DIC. The basin pattern differs from the observations, which show 16–20 % everywhere.
+
+## E13d: TRACE with the unadjusted trajectory on model T, S (post hoc, logged before running)
+* Command: `python -m research.experiments.e13_perfect_model --trace-variant atm` → `*_atm.csv`; TRACE cache `trace_canth_model_mri_atm.csv.gz`.
+* **(b) result.**
+  * Upper pooled R = 1.016 [1.004, 1.036]. By basin: Atlantic 0.944, Indian 0.920, Pacific 1.076, Southern Ocean 0.969. Deep 0.693.
+  * m = 0.024 [0.003, 0.050].
+* Logged expectation (upper R in [0.95, 1.05]) **met**: the boundary condition accounts for ≈ 85–90 % of the model-world shortfall, against ≈ 60 % of the observed one (E12).
+
+## E14: Alternative reference layers (pre-registered)
+* Commands: `python -m research.experiments.e11_scale_factor --ref upperdeep` and `--ref abyssal` → `e11_scale_factor_ref_upperdeep.csv`, `e11_scale_factor_ref_abyssal.csv`.
+* Reference γⁿ 27.8–28.0: all-basin m = 0.162 [0.107, 0.206]. By basin: Atlantic 0.18, Indian 0.15, Pacific 0.15, Southern Ocean 0.17.
+* Reference γⁿ > 28.0: all-basin m = 0.192 [0.124, 0.249]. By basin: Atlantic 0.19, Indian 0.21, Pacific 0.18, Southern Ocean 0.19.
+* Primary (γⁿ > 27.8): 0.181. The decision rule (CI > 0, point within 0.08 of 0.18) is **met**. The Atlantic did not move as much as expected.

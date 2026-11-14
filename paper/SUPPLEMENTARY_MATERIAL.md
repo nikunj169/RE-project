@@ -123,3 +123,47 @@ python -m research.experiments.e11_scale_factor --boot 500 --cant atm
 python -m research.evaluation.summarize_round2
 python -m research.visualization.figures_round2
 ```
+
+# Round-3 supplementary material (2026-11-14)
+
+## S-R3.1 Earth-system-model sampling (E13)
+
+**Data.** MRI-ESM2-0, CMIP6 r1i2p1f1, regular 1° grid (`gr`), version v20200303. Historical for 1972–2014; ssp585 for 2015–2021 (scenario differences before 2021 are negligible). Variables:
+- annual `dissic`, `dissicnat`, `o2`;
+- monthly `thetao`, `so`, averaged to calendar years.
+
+**Sampling.** Each sample takes model values for its calendar year:
+- horizontally, the nearest model column (great-circle distance) wet at both bracketing levels;
+- vertically, linear interpolation between levels; depths beyond the deepest wet level (6150 m) are clamped.
+
+**Conversions** (all from model fields, via TEOS-10/GSW):
+- concentrations from mol m⁻³ to µmol kg⁻¹ with in-situ density;
+- AOU = O₂sol(S, θ) − O₂ (Garcia & Gordon 1992 fit);
+- in-situ temperature for TRACE from θ.
+
+The analysis uses the observed basin, layer, cell, cruise and date of every sample, so the sampling design is identical to the observational analysis.
+
+**Fidelity.**
+- Model vs observed correlations at the samples: θ 0.975, S 0.86, AOU 0.89, DIC 0.90.
+- Mean biases: θ +0.8 °C, AOU −14 µmol kg⁻¹, DIC −26 µmol kg⁻¹.
+- TRACE returns NaN for model T, S at 1.8 % of samples (warm, salty upper-thermocline waters); these are excluded.
+
+## S-R3.2 Perfect-model results (E13, E13d)
+
+Pooled upper-ocean ratios (global shared cruise bootstrap, 500 replicates):
+
+| Comparison | All | Atlantic | Indian | Pacific | Southern Ocean |
+|---|---|---|---|---|---|
+| model DIC / C_ant^true | 0.97 | 1.00 | 1.00 | 0.95 | 0.99 |
+| C_ant^true / TRACE (default) | 1.12 | 1.04 | 1.01 | 1.18 | 1.06 |
+| C_ant^true / TRACE (unadjusted atm.) | 1.02 | 0.94 | 0.92 | 1.08 | 0.97 |
+
+Differential scale factors m (all 20 layers): DIC vs truth −0.01; truth vs TRACE 0.125 (default) and 0.024 (unadjusted). Full tables are in `research/results/e13_*.csv`.
+
+## S-R3.3 Alternative reference layers (E14)
+
+| Reference | m (all basins) | Atlantic | Indian | Pacific | Southern Ocean |
+|---|---|---|---|---|---|
+| γⁿ > 27.8 (primary) | 0.18 [0.11, 0.23] | 0.20 | 0.19 | 0.16 | 0.18 |
+| γⁿ 27.8–28.0 | 0.16 [0.11, 0.21] | 0.18 | 0.15 | 0.15 | 0.17 |
+| γⁿ > 28.0 | 0.19 [0.12, 0.25] | 0.19 | 0.21 | 0.18 | 0.19 |

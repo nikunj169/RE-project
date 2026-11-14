@@ -159,6 +159,36 @@ def fig11_cstar():
     save(fig, "fig11_cstar_controls")
 
 
+def fig12_perfect_model():
+    """E13: rates in MRI-ESM2-0 sampled like GLODAP, beside the observed rates."""
+    p = RES / "e13_model_layer_trends.csv"
+    if not p.exists():
+        return
+    m = pd.read_csv(p)
+    o = pd.read_csv(RES / "e02_layer_trends_primary.csv")
+    fig, axs = plt.subplots(1, 4, figsize=(11, 3.8), sharey=True)
+    for ax, b in zip(axs, BASINS):
+        s = m[m.basin == b].assign(y=lambda q: q.layer.map(mid)).sort_values("y")
+        t = o[o.basin == b].assign(y=lambda q: q.layer.map(mid)).sort_values("y")
+        ax.plot(s.beta_canth_true, s.y, "-", color="k", lw=2, label="model true C$_{ant}$")
+        ax.plot(s.beta_tco2, s.y, "o", color=COL[b], ms=4, label="model DIC | θ, S, AOU")
+        ax.plot(s.beta_canth_trace, s.y, "s--", color="0.5", ms=3, mfc="none", label="TRACE on model T, S")
+        pa = RES / "e13_model_layer_trends_atm.csv"
+        if pa.exists():
+            a = pd.read_csv(pa)
+            a = a[a.basin == b].assign(y=lambda q: q.layer.map(mid)).sort_values("y")
+            ax.plot(a.beta_canth_trace, a.y, "^:", color="C1", ms=3, label="TRACE on model T, S, unadjusted atm. CO$_2$ (E13d)")
+        ax.plot(t.beta_tco2, t.y, "*", color="C3", ms=6, label="observed DIC | θ, S, AOU (E02)")
+        ax.plot(t.beta_canth, t.y, "x", color="C3", ms=4, label="TRACE on observed T, S (E02)")
+        ax.axvline(0, color="0.6", lw=0.7)
+        ax.set(title=b, xlabel="Trend (µmol kg$^{-1}$ yr$^{-1}$)")
+    axs[0].invert_yaxis()
+    axs[0].set_ylabel("γ$^n$ layer midpoint (kg m$^{-3}$)")
+    h, l = axs[0].get_legend_handles_labels()
+    fig.legend(h, l, fontsize=8, loc="lower center", ncol=3, bbox_to_anchor=(0.5, -0.16), frameon=False)
+    save(fig, "fig12_perfect_model")
+
+
 def main():
     cfg = load_config()
     try:
@@ -170,6 +200,7 @@ def main():
     fig9_trace_sensitivity()
     fig10_emlr_products()
     fig11_cstar()
+    fig12_perfect_model()
     print("round-2 figures written to", OUT)
 
 

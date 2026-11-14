@@ -9,7 +9,7 @@ m is the fractional amount by which DIC-based accumulation (relative to the deep
 exceeds the TRACE prediction. Joint CIs use one cruise resample per replicate shared by all
 layer frames (cruise ids global), so layers that share cruises are resampled consistently.
 
-Usage: python -m research.experiments.e11_scale_factor [--boot 500]
+Usage: python -m research.experiments.e11_scale_factor [--boot 500] [--cant default|atm] [--ref primary|upperdeep|abyssal]
 """
 
 from __future__ import annotations
@@ -25,17 +25,19 @@ from research.models.differential_trend import _codes, design, exact_twoway
 
 SEED = 20261114
 CANT_FILES = {"default": "trace_canth.csv.gz", "atm": "trace_canth_atm.csv.gz"}
+REFS = {"primary": (27.8, np.inf), "upperdeep": (27.8, 28.0), "abyssal": (28.0, np.inf)}  # E14 (GAP_AUDIT_ROUND3 §4)
 
 
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--boot", type=int, default=500)
     ap.add_argument("--cant", default="default", choices=list(CANT_FILES))
+    ap.add_argument("--ref", default="primary", choices=list(REFS))
     args = ap.parse_args()
-    sfx = "" if args.cant == "default" else f"_{args.cant}"
+    sfx = ("" if args.cant == "default" else f"_{args.cant}") + ("" if args.ref == "primary" else f"_ref_{args.ref}")
     cfg = load_config()
     frames = []
-    for basin, layer, st, mask in basin_frames(cfg, CANT_FILES[args.cant]):
+    for basin, layer, st, mask in basin_frames(cfg, CANT_FILES[args.cant], ref=REFS[args.ref]):
         X = design(st, mask, ("theta", "salinity", "aou"))
         Y = st[["tco2", "canth"]].to_numpy(float)
         a = _codes(st["cell"].astype(str) + "|" + np.where(mask, "T", "R"))

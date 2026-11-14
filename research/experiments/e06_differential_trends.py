@@ -36,11 +36,16 @@ def upper(layer: str) -> float:
     return float(layer.strip("(]").split(",")[1])
 
 
-def basin_frames(cfg: dict, cant_file: str = "trace_canth.csv.gz"):
-    """Yield (basin, target_layer, stacked frame, target mask) following E02 inclusion rules."""
-    df = load_data(cfg)
-    tr = pd.read_csv(ROOT / "research" / "data" / cant_file).set_index("row_id")
-    df = df.join(tr[["canth"]], how="inner")
+def basin_frames(cfg: dict, cant_file: str = "trace_canth.csv.gz", df: pd.DataFrame | None = None,
+                 ref: tuple[float, float] = (REF_MIN, np.inf)):
+    """Yield (basin, target_layer, stacked frame, target mask) following E02 inclusion rules.
+
+    If df is given it is used as is (it must already carry a canth column). Reference layers are
+    those with ref[0] <= lower edge < ref[1]; targets are layers with upper edge <= REF_MIN."""
+    if df is None:
+        df = load_data(cfg)
+        tr = pd.read_csv(ROOT / "research" / "data" / cant_file).set_index("row_id")
+        df = df.join(tr[["canth"]], how="inner")
     df = df[np.isfinite(df.canth)]
     for basin, b in df.groupby("basin"):
         kept = {}
@@ -48,13 +53,13 @@ def basin_frames(cfg: dict, cant_file: str = "trace_canth.csv.gz"):
             g = select_cells(g, cfg["min_span_years"])
             if len(g) >= cfg["min_samples"] and g["cell"].nunique() >= cfg["min_cells"]:
                 kept[layer] = g
-        ref = pd.concat([g for l, g in kept.items() if lower(l) >= REF_MIN])
+        ref_df = pd.concat([g for l, g in kept.items() if ref[0] <= lower(l) < ref[1]])
         for layer, g in sorted(kept.items(), key=lambda kv: lower(kv[0])):
             if upper(layer) > REF_MIN:
                 continue
-            both = np.intersect1d(g.cruise.unique(), ref.cruise.unique())
-            st = pd.concat([g[g.cruise.isin(both)], ref[ref.cruise.isin(both)]])
-            mask = np.r_[np.ones(g.cruise.isin(both).sum(), bool), np.zeros(ref.cruise.isin(both).sum(), bool)]
+            both = np.intersect1d(g.cruise.unique(), ref_df.cruise.unique())
+            st = pd.concat([g[g.cruise.isin(both)], ref_df[ref_df.cruise.isin(both)]])
+            mask = np.r_[np.ones(g.cruise.isin(both).sum(), bool), np.zeros(ref_df.cruise.isin(both).sum(), bool)]
             yield basin, layer, st, mask
 
 

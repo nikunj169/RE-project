@@ -1,6 +1,17 @@
 # Final Scientific Review: Round 2 (Phase 11)
 
-*Written as a sceptical reviewer for GRL, GBC or Biogeosciences. Covers `paper/MANUSCRIPT.md` (revision 2) and its evidence in `research/`. Date: 2026-11-14. The Round-1 review (2026-11-04) is in git history at `e3dcab7`.*
+*Written as a sceptical reviewer for GRL, GBC or Biogeosciences. Covers `paper/MANUSCRIPT.md` (revision 3) and its evidence in `research/`. Date: 2026-11-14. Updated after Round 3 (§0). The Round-1 review is in git history at `e3dcab7`; the Round-2 version at `a2f2e6a`.*
+
+## 0. Round-3 update
+
+| Round-2 item | Round-3 response | Status |
+|---|---|---|
+| R1: no comparator independent of GLODAP DIC | E13: MRI-ESM2-0 sampled at all 343,826 samples. Estimators unbiased against the exact model C_ant (m = −0.01). TRACE falls short of model truth by 12 % (m = 0.125). E13d: the unadjusted boundary condition removes most of it | **Largely resolved.** Single model; basin pattern differs from observations; TRACE ages ≠ model ages |
+| R2: reference-layer assumption | E14: m = 0.16 / 0.19 with alternative references (primary 0.18) | **Resolved** |
+| R5: Bates 2014, Hong 2026 unread | Both read in full (Hong from the preprint); the Bates sentence was made quantitative; no overlap from Hong | **Resolved** (published version of Hong unchecked) |
+| R3: post hoc E11/E12 | E13d gives an out-of-sample check of the boundary-condition mechanism in a different "world" (model). Logged before running | **Partly resolved** |
+
+The main remaining weaknesses are now R4 (within-cruise, depth-dependent artefacts), single-model dependence, and the absence of expert review.
 
 ## 1. What changed since Round 1
 
@@ -38,7 +49,7 @@ The main residual weakness is independence. All corroborating evidence comes fro
 
 | # | Weakness | Severity | Mitigation |
 |---|---|---|---|
-| R1 | All supporting estimates use GLODAP DIC; no independent C_ant (ocean model, other tracers) | **High** | Sample RECCAP2/CMIP6 model C_ant (or OCIM) at the same points and dates; apply the identical estimator to model DIC (a perfect-model test of the estimator *and* of TTD) |
+| R1 | All observational estimates use GLODAP DIC. *Round 3: one ESM test done (E13); a second model would firm it up* | ~~High~~ → Medium | Sample RECCAP2/CMIP6 model C_ant (or OCIM) at the same points and dates; apply the identical estimator to model DIC (a perfect-model test of the estimator *and* of TTD) |
 | R2 | The reference-layer assumption: Δδ is relative to γⁿ > 27.8; the deep Atlantic deficit inflates Atlantic Δδ | Medium | Already bracketed (E02 vs E06). Add an alternative reference (e.g., 27.8–28.0 only, or deep Indian/Pacific only) as a sensitivity |
 | R3 | E11 and E12 are post hoc | Medium | Labelled as such. Ideally re-test the boundary-condition hypothesis on held-out data (e.g., fit on 1972–2005 cruises, test 2006–2021) or with a physically derived surface pCO₂ history (SOCAT-based) instead of the atmosphere |
 | R4 | Within-cruise, depth-dependent DIC artefacts not excluded | Medium–low | Argue from coulometric/CRM practice (offsets are scale or additive); a check against cruises with documented CRM corrections |
@@ -48,10 +59,10 @@ The main residual weakness is independence. All corroborating evidence comes fro
 | R8 | Era dependence unresolved before 2000 | Low | Disclosed |
 
 ## 5. Concrete steps before submission (priority order)
-1. **Independent comparator (R1):** sample one ocean-model historical run (DIC and C_ant tracers) at GLODAP sample locations and dates; run E02/E06 on model DIC vs model C_ant (estimator check) and vs TRACE applied to model T, S (method check).
-2. **Read Hong et al. (2026) and Bates et al. (2014) full texts**; confirm novelty and the surface-pCO₂ statement.
+1. ~~**Independent comparator (R1):**~~ *Done in Round 3 (E13, E13d) for one model; optional second model (NorESM2-LM, ~2.5× data).* sample one ocean-model historical run (DIC and C_ant tracers) at GLODAP sample locations and dates; run E02/E06 on model DIC vs model C_ant (estimator check) and vs TRACE applied to model T, S (method check).
+2. ~~**Read Hong et al. (2026) and Bates et al. (2014) full texts**~~ *Done in Round 3.*
 3. **Out-of-sample test of the boundary-condition hypothesis (R3).**
-4. **Alternative reference layers (R2).**
+4. ~~**Alternative reference layers (R2).**~~ *Done in Round 3 (E14).*
 5. Expert review by a carbon-cycle oceanographer, ideally a TRACE or eMLR(C*) developer; offer them the diagnostic.
 6. Convert to the journal template (LaTeX/Word); renumber figures (7–11 become main-text 3–6; Round-1 Figs. 3, 4 and 6 move to the supplement).
 7. Zenodo release of code and derived results.
@@ -83,6 +94,7 @@ The main residual weakness is independence. All corroborating evidence comes fro
 | E06–E10 (pre-registered) | Complete |
 | E11, E12 (post hoc, logged) | Complete |
 | Manuscript, abstract, captions, supplement, bibliography | Revised (revision 2) |
-| Independent model comparator | **Not done** (R1) |
-| Full-text checks of 2 references | **Not done** (R5) |
+| Independent model comparator | Done for one model (E13, E13d; Round 3) |
+| Full-text checks of 2 references | Done (Round 3) |
+| Alternative reference layers | Done (E14; Round 3) |
 | Expert review | **Not done** |

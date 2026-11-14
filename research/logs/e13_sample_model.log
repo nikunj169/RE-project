@@ -1,0 +1,69 @@
+samples 343826
+historical dissic Oyr 20200303 gs://cmip6/CMIP6/CMIP/MRI/MRI-ESM2-0/historical/r1i2p1f1/Oyr/dissic/gr/v20200303/
+historical dissicnat Oyr 20200303 gs://cmip6/CMIP6/CMIP/MRI/MRI-ESM2-0/historical/r1i2p1f1/Oyr/dissicnat/gr/v20200303/
+historical o2 Oyr 20200303 gs://cmip6/CMIP6/CMIP/MRI/MRI-ESM2-0/historical/r1i2p1f1/Oyr/o2/gr/v20200303/
+historical thetao Omon 20200303 gs://cmip6/CMIP6/CMIP/MRI/MRI-ESM2-0/historical/r1i2p1f1/Omon/thetao/gr/v20200303/
+historical so Omon 20200303 gs://cmip6/CMIP6/CMIP/MRI/MRI-ESM2-0/historical/r1i2p1f1/Omon/so/gr/v20200303/
+ssp585 dissic Oyr 20200303 gs://cmip6/CMIP6/ScenarioMIP/MRI/MRI-ESM2-0/ssp585/r1i2p1f1/Oyr/dissic/gr/v20200303/
+ssp585 dissicnat Oyr 20200303 gs://cmip6/CMIP6/ScenarioMIP/MRI/MRI-ESM2-0/ssp585/r1i2p1f1/Oyr/dissicnat/gr/v20200303/
+ssp585 o2 Oyr 20200303 gs://cmip6/CMIP6/ScenarioMIP/MRI/MRI-ESM2-0/ssp585/r1i2p1f1/Oyr/o2/gr/v20200303/
+ssp585 thetao Omon 20200303 gs://cmip6/CMIP6/ScenarioMIP/MRI/MRI-ESM2-0/ssp585/r1i2p1f1/Omon/thetao/gr/v20200303/
+ssp585 so Omon 20200303 gs://cmip6/CMIP6/ScenarioMIP/MRI/MRI-ESM2-0/ssp585/r1i2p1f1/Omon/so/gr/v20200303/
+1972: 1209 samples, 43s
+1973: 1421 samples, 90s
+1974: 479 samples, 136s
+1977: 62 samples, 182s
+1978: 836 samples, 229s
+1981: 2328 samples, 276s
+1982: 446 samples, 318s
+1983: 1216 samples, 361s
+1984: 421 samples, 409s
+1985: 421 samples, 457s
+1986: 810 samples, 500s
+1987: 1348 samples, 548s
+1988: 1889 samples, 596s
+1989: 3132 samples, 638s
+1990: 1629 samples, 680s
+1991: 4957 samples, 728s
+1992: 9898 samples, 775s
+1993: 10529 samples, 818s
+1994: 15910 samples, 864s
+1995: 15483 samples, 912s
+1996: 11798 samples, 954s
+1997: 10788 samples, 996s
+1998: 6442 samples, 1044s
+1999: 4330 samples, 1091s
+2000: 3548 samples, 1132s
+2001: 6718 samples, 1181s
+2002: 2690 samples, 1233s
+2003: 13724 samples, 1294s
+2004: 9948 samples, 1340s
+2005: 15648 samples, 1391s
+2006: 7636 samples, 1458s
+2007: 15884 samples, 1507s
+2008: 12362 samples, 1558s
+2009: 15204 samples, 1611s
+2010: 12300 samples, 1656s
+2011: 9657 samples, 1695s
+2012: 10412 samples, 1732s
+2013: 12331 samples, 1771s
+2014: 11888 samples, 1803s
+2015: 11145 samples, 1845s
+2016: 16360 samples, 1892s
+2017: 15282 samples, 1938s
+2018: 14186 samples, 1980s
+2019: 7047 samples, 2027s
+2020: 3966 samples, 2073s
+2021: 8108 samples, 2114s
+                count       mean        std      min        25%        50%        75%        max
+row_id       343826.0  253342.21  150150.72     0.00  127239.25  242608.50  389555.75  511715.00
+theta        343826.0       7.42       7.18    -1.78       1.99       4.62      11.02      30.99
+salinity     343826.0      34.86       0.64    30.65      34.55      34.60      35.13      42.97
+temperature  343826.0       7.54       7.12    -1.78       2.19       4.77      11.07      30.99
+oxygen       343826.0     198.40      69.96     1.87     148.01     208.02     240.11     358.23
+aou          343826.0      98.86      82.67   -40.03      19.27      91.92     158.50     332.78
+tco2         343826.0    2173.87      80.50  1706.33    2119.04    2170.90    2225.50    2479.89
+tco2nat      343826.0    2152.46      99.10  1675.65    2085.17    2152.18    2223.46    2480.26
+canth_true   343826.0      21.40      22.82    -1.43       0.01      14.32      38.02      88.75
+non-finite rows: 0
+wrote /Users/nikunjmahajan/Desktop/RE/revised_symbolic_tco2/research/data/model_mri_esm2_0.csv.gz
