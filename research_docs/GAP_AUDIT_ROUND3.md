@@ -72,3 +72,21 @@ E13(b) showed the model's true upper-ocean C_ant rate exceeds TRACE-on-model-T/S
 | E13d (post hoc) | Expectation **met**: R = 1.016 [1.004, 1.036], m = 0.024 |
 | E14 (reference layers) | **Met**: m = 0.16 and 0.19 against the primary 0.18 |
 | R5 (literature) | Both references read in full; manuscript wording adjusted for Bates; no overlap from Hong & Zemskova |
+
+## 8. E15: second model, NorESM2-LM (pre-registered 2026-11-14, before any NorESM data values were read)
+
+**Data.** NorESM2-LM, CMIP6 `historical` r2i1p1f1, grid `gr`: curvilinear 385 × 360 with 2-D lat/lon, 70 levels.
+* Annual (`Oyr`): `dissic`, `dissicnat`, `o2`.
+* Monthly (`Omon`): `thetao`, `so`, averaged to calendar years.
+
+No scenario run with `dissicnat` is in the Pangeo catalogue, so **E15 covers 1972–2014 only**. Samples after 2014 are dropped, and the inclusion rules (10-year span per cell, etc.) are re-applied to the remaining samples.
+
+**Like-for-like control.** MRI-ESM2-0 is re-analysed on the same ≤ 2014 subset (`--max-year 2014`). Model differences are then not confounded by the period.
+
+**Same tests as E13**, with TRACE on each model's own T and S: (a) estimator vs truth, (b) truth vs TRACE, (c) DIC vs TRACE, and (d) the unadjusted-boundary variant. Variant (d) is no longer post hoc for this model, because the E13d result motivates it.
+
+**Expectations, applied to NorESM2-LM:**
+* **H15a (estimator):** pooled upper R_(DIC/true) within [0.95, 1.05].
+* **H15b (TRACE shortfall):** if the boundary-condition explanation is general, upper R_(true/TRACE) > 1.05 with a CI excluding 1, and the unadjusted variant brings it within [0.95, 1.05].
+  * A NorESM ratio ≤ 1.0 would mean the MRI result is model-specific, and the manuscript would say so.
+* The basin pattern is reported without a prediction.

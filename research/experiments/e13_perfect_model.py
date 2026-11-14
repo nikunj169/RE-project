@@ -1,4 +1,4 @@
-"""E13 step 2: perfect-model tests in MRI-ESM2-0 sampled like GLODAP (GAP_AUDIT_ROUND3 §1-2).
+"""E13/E15 step 2: perfect-model tests in an ESM sampled like GLODAP (GAP_AUDIT_ROUND3 §1-2, §8).
 
 Model data (from e13_sample_model) replace the observed theta, S, in-situ T, AOU and DIC at every
 E02 sample; basin, layer, cell, cruise and dates stay observed. Responses:
@@ -11,7 +11,11 @@ Tests (one global cruise resample per replicate, shared by all groups/frames):
   (c) model analogue of the observed comparison: tco2 vs canth_trace
 Single-layer pooled form as E09; differential (cruise FE vs gamma > 27.8) scale factor as E11.
 
+--model selects the sampled model (E13: mri_esm2_0; E15: noresm2_lm); --max-year restricts the samples
+(E15 like-for-like: 2014) before the inclusion rules are applied.
+
 Usage: python -m research.experiments.e13_perfect_model [--boot 500] [--trace-variant default|atm]
+       [--model mri_esm2_0|noresm2_lm] [--max-year 2014]
 """
 
 from __future__ import annotations
@@ -32,7 +36,8 @@ from research.models.within_cell_trend import T_REF, conditioning_terms, solve_s
 SEED = 20261114
 DATA = ROOT / "research" / "data"
 RES = ROOT / "research" / "results"
-SFX = ""  # set from --trace-variant
+SFX = ""  # set from --model, --max-year, --trace-variant
+TRACE_CACHE = {"mri_esm2_0": "trace_canth_model_mri"}  # E13 cache name; other models use trace_canth_model_<name>
 RESP = ["tco2", "canth_true", "canth_trace"]
 PAIRS = {"a_dic_vs_true": ("tco2", "canth_true"), "b_true_vs_trace": ("canth_true", "canth_trace"),
          "c_dic_vs_trace": ("tco2", "canth_trace")}
@@ -40,10 +45,13 @@ SETS = {"upper (<=27.0)": lambda u: u <= 27.0, "intermediate (27.0-27.8]": lambd
         "deep (>27.8)": lambda u: u > 27.8}
 
 
-def model_frame(cfg, trace_variant: str = "default") -> pd.DataFrame:
+def model_frame(cfg, trace_variant: str = "default", model: str = "mri_esm2_0",
+                max_year: int | None = None) -> pd.DataFrame:
     df = load_data(cfg)
-    m = pd.read_csv(DATA / "model_mri_esm2_0.csv.gz").set_index("row_id")
-    tf = DATA / ("trace_canth_model_mri.csv.gz" if trace_variant == "default" else f"trace_canth_model_mri_{trace_variant}.csv.gz")
+    m = pd.read_csv(DATA / f"model_{model}.csv.gz").set_index("row_id")
+    m = m[np.isfinite(m[["salinity", "temperature"]]).all(axis=1)]  # NorESM2-LM: no samples after 2014
+    stem = TRACE_CACHE.get(model, f"trace_canth_model_{model}")
+    tf = DATA / (f"{stem}.csv.gz" if trace_variant == "default" else f"{stem}_{trace_variant}.csv.gz")
     if not tf.exists():
         lon = np.mod(df.loc[m.index, "longitude"].to_numpy(float) + 180, 360) - 180
         g = df.loc[m.index]
@@ -60,7 +68,9 @@ def model_frame(cfg, trace_variant: str = "default") -> pd.DataFrame:
     df["canth_true"], df["canth_trace"] = m.canth_true, tr.loc[m.index, "canth"]
     df["canth"] = df.canth_true  # basin_frames filters on canth
     ok = np.isfinite(df[["theta", "salinity", "aou"] + RESP]).all(axis=1)
-    print(f"model rows {len(df)}, finite {int(ok.sum())}", flush=True)
+    if max_year is not None:
+        ok &= df.year <= max_year
+    print(f"model rows {len(df)}, used {int(ok.sum())}", flush=True)
     return df[ok]
 
 
@@ -176,11 +186,15 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--boot", type=int, default=500)
     ap.add_argument("--trace-variant", default="default", choices=["default", "atm"])  # atm: E13d, post hoc
+    ap.add_argument("--model", default="mri_esm2_0", choices=["mri_esm2_0", "noresm2_lm"])
+    ap.add_argument("--max-year", type=int, default=None)
     args = ap.parse_args()
     global SFX
-    SFX = "" if args.trace_variant == "default" else f"_{args.trace_variant}"
+    SFX = ("" if args.model == "mri_esm2_0" else f"_{args.model}") + \
+          ("" if args.max_year is None else f"_to{args.max_year}") + \
+          ("" if args.trace_variant == "default" else f"_{args.trace_variant}")
     cfg = load_config()
-    df = model_frame(cfg, args.trace_variant)
+    df = model_frame(cfg, args.trace_variant, args.model, args.max_year)
     single_layer(df, cfg, args.boot)
     differential(df, cfg, args.boot)
 

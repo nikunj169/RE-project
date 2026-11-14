@@ -189,6 +189,35 @@ def fig12_perfect_model():
     save(fig, "fig12_perfect_model")
 
 
+def fig13_models():
+    """Upper-ocean (gamma <= 27.0) ratios by basin: observed DIC/TRACE vs model truth/TRACE (E13, E15)."""
+    obs = pd.read_csv(RES / "e09_pooled.csv")
+    series = [("observed DIC / TRACE (E09)", obs, None, "k", "*")]
+    for f, lab, c, mk in (("e13_model_pooled_to2014.csv", "MRI-ESM2-0, true / TRACE", "C0", "o"),
+                          ("e13_model_pooled_to2014_atm.csv", "MRI-ESM2-0, true / TRACE unadjusted", "C0", "^"),
+                          ("e13_model_pooled_noresm2_lm.csv", "NorESM2-LM, true / TRACE", "C2", "s"),
+                          ("e13_model_pooled_noresm2_lm_atm.csv", "NorESM2-LM, true / TRACE unadjusted", "C2", "v")):
+        if (RES / f).exists():
+            series.append((lab, pd.read_csv(RES / f), "b_true_vs_trace", c, mk))
+    if len(series) < 5:
+        return
+    cats = ["all"] + BASINS
+    fig, ax = plt.subplots(figsize=(7.5, 3.6))
+    for k, (lab, d, test, c, mk) in enumerate(series):
+        d = d[d.layer_set.str.startswith("upper")]
+        if test:
+            d = d[d.test == test]
+        d = d.set_index("basin").reindex(cats)
+        x = np.arange(len(cats)) + (k - 2) * 0.13
+        ax.errorbar(x, d.R, yerr=[d.R - d.R_lo, d.R_hi - d.R], fmt=mk, color=c, ms=6 if mk == "*" else 4,
+                    mfc="none" if lab.endswith("unadjusted") else c, capsize=2, label=lab)
+    ax.axhline(1, color="0.5", lw=0.8)
+    ax.set_xticks(np.arange(len(cats)), ["All basins"] + BASINS)
+    ax.set(ylabel="Upper-ocean rate ratio (γ$^n$ ≤ 27.0)", title="TRACE shortfall: observations and two Earth system models")
+    ax.legend(fontsize=7, ncol=2, loc="upper center", bbox_to_anchor=(0.5, -0.12), frameon=False)
+    save(fig, "fig13_models")
+
+
 def main():
     cfg = load_config()
     try:
@@ -201,6 +230,7 @@ def main():
     fig10_emlr_products()
     fig11_cstar()
     fig12_perfect_model()
+    fig13_models()
     print("round-2 figures written to", OUT)
 
 

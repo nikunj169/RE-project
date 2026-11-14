@@ -181,3 +181,15 @@ Design and decision rules were written in `GAP_AUDIT_ROUND3.md` before any model
 * Reference γⁿ 27.8–28.0: all-basin m = 0.162 [0.107, 0.206]. By basin: Atlantic 0.18, Indian 0.15, Pacific 0.15, Southern Ocean 0.17.
 * Reference γⁿ > 28.0: all-basin m = 0.192 [0.124, 0.249]. By basin: Atlantic 0.19, Indian 0.21, Pacific 0.18, Southern Ocean 0.19.
 * Primary (γⁿ > 27.8): 0.181. The decision rule (CI > 0, point within 0.08 of 0.18) is **met**. The Atlantic did not move as much as expected.
+
+## E15: Second model, NorESM2-LM (pre-registered, GAP_AUDIT_ROUND3 §8). **In progress; blocked by bandwidth**
+
+* **Like-for-like MRI control (done).** Command: `python -m research.experiments.e13_perfect_model --max-year 2014 [--trace-variant atm]` → `e13_model_*_to2014[_atm].csv`; 263,118 samples.
+  * Upper true/TRACE: R = 1.117 [1.098, 1.144], m = 0.132 [0.093, 0.170]. With the unadjusted boundary: R = 1.020 [1.003, 1.044], m = 0.033.
+  * Estimator: R = 0.962, m = −0.023.
+  * Dropping 2015–2021 does not change the MRI conclusions.
+* **NorESM2-LM sampling** (`python -m research.experiments.e13_sample_model --model noresm2_lm`).
+  * First attempt: reached 2008 (about 60 s per year), then hung on a Google Cloud read with no timeout (log `e15_sample_noresm2_lm_attempt0_hung.log`). No checkpoints existed, so that progress was lost.
+  * Added per-year checkpoints (`research/data/_cache_model_<name>/`), a local catalogue cache, and a stall watchdog.
+  * Attempts 1–5 hung on the first year. Diagnosis (14:40 IST): the whole connection had dropped to about 0.03–0.3 MB/s (Google Cloud, AWS and Cloudflare alike), against about 8 MB/s during E13. Not a code fault.
+  * Remaining download is about 45 GB. **Paused** pending bandwidth; the run resumes from checkpoints.

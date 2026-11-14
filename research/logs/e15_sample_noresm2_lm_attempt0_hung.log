@@ -1,0 +1,39 @@
+samples 343826
+historical dissic Oyr 20190920 gs://cmip6/CMIP6/CMIP/NCC/NorESM2-LM/historical/r2i1p1f1/Oyr/dissic/gr/v20190920/
+historical dissicnat Oyr 20190920 gs://cmip6/CMIP6/CMIP/NCC/NorESM2-LM/historical/r2i1p1f1/Oyr/dissicnat/gr/v20190920/
+historical o2 Oyr 20190920 gs://cmip6/CMIP6/CMIP/NCC/NorESM2-LM/historical/r2i1p1f1/Oyr/o2/gr/v20190920/
+historical thetao Omon 20190920 gs://cmip6/CMIP6/CMIP/NCC/NorESM2-LM/historical/r2i1p1f1/Omon/thetao/gr/v20190920/
+historical so Omon 20190920 gs://cmip6/CMIP6/CMIP/NCC/NorESM2-LM/historical/r2i1p1f1/Omon/so/gr/v20190920/
+1972: 1209 samples, 69s
+1973: 1421 samples, 128s
+1974: 479 samples, 187s
+1977: 62 samples, 254s
+1978: 836 samples, 312s
+1981: 2328 samples, 372s
+1982: 446 samples, 442s
+1983: 1216 samples, 505s
+1984: 421 samples, 572s
+1985: 421 samples, 638s
+1986: 810 samples, 703s
+1987: 1348 samples, 774s
+1988: 1889 samples, 838s
+1989: 3132 samples, 901s
+1990: 1629 samples, 964s
+1991: 4957 samples, 1028s
+1992: 9898 samples, 1097s
+1993: 10529 samples, 1158s
+1994: 15910 samples, 1220s
+1995: 15483 samples, 1282s
+1996: 11798 samples, 1344s
+1997: 10788 samples, 1413s
+1998: 6442 samples, 1475s
+1999: 4330 samples, 1539s
+2000: 3548 samples, 1601s
+2001: 6718 samples, 1665s
+2002: 2690 samples, 1737s
+2003: 13724 samples, 1800s
+2004: 9948 samples, 1862s
+2005: 15648 samples, 1923s
+2006: 7636 samples, 1985s
+2007: 15884 samples, 2054s
+2008: 12362 samples, 2114s
