@@ -37,3 +37,71 @@ historical so Omon 20190920 gs://cmip6/CMIP6/CMIP/NCC/NorESM2-LM/historical/r2i1
 1987: 1348 samples, 1255s
 1988: 1889 samples, 1362s
 1989: 3132 samples, 1471s
+1990: 1629 samples, 1582s
+1991: 4957 samples, 1678s
+1992: 9898 samples, 1779s
+1993: 10529 samples, 1862s
+1994: 15910 samples, 1957s
+1995: 15483 samples, 2044s
+1996: 11798 samples, 2152s
+1997: 10788 samples, 2319s
+1998: 6442 samples, 2454s
+1999: 4330 samples, 2563s
+2000: 3548 samples, 2693s
+samples 343826
+historical dissic Oyr 20190920 gs://cmip6/CMIP6/CMIP/NCC/NorESM2-LM/historical/r2i1p1f1/Oyr/dissic/gr/v20190920/
+historical dissicnat Oyr 20190920 gs://cmip6/CMIP6/CMIP/NCC/NorESM2-LM/historical/r2i1p1f1/Oyr/dissicnat/gr/v20190920/
+historical o2 Oyr 20190920 gs://cmip6/CMIP6/CMIP/NCC/NorESM2-LM/historical/r2i1p1f1/Oyr/o2/gr/v20190920/
+historical thetao Omon 20190920 gs://cmip6/CMIP6/CMIP/NCC/NorESM2-LM/historical/r2i1p1f1/Omon/thetao/gr/v20190920/
+historical so Omon 20190920 gs://cmip6/CMIP6/CMIP/NCC/NorESM2-LM/historical/r2i1p1f1/Omon/so/gr/v20190920/
+1972: 1209 samples (cached)
+1973: 1421 samples (cached)
+1974: 479 samples (cached)
+1977: 62 samples (cached)
+1978: 836 samples (cached)
+1981: 2328 samples (cached)
+1982: 446 samples (cached)
+1983: 1216 samples (cached)
+1984: 421 samples (cached)
+1985: 421 samples (cached)
+1986: 810 samples (cached)
+1987: 1348 samples (cached)
+1988: 1889 samples (cached)
+1989: 3132 samples (cached)
+1990: 1629 samples (cached)
+1991: 4957 samples (cached)
+1992: 9898 samples (cached)
+1993: 10529 samples (cached)
+1994: 15910 samples (cached)
+1995: 15483 samples (cached)
+1996: 11798 samples (cached)
+1997: 10788 samples (cached)
+1998: 6442 samples (cached)
+1999: 4330 samples (cached)
+2000: 3548 samples (cached)
+2001: 6718 samples, 70s
+2002: 2690 samples, 149s
+2003: 13724 samples, 224s
+2004: 9948 samples, 308s
+2005: 15648 samples, 383s
+2006: 7636 samples, 454s
+2007: 15884 samples, 555s
+2008: 12362 samples, 627s
+2009: 15204 samples, 699s
+2010: 12300 samples, 774s
+2011: 9657 samples, 863s
+2012: 10412 samples, 943s
+2013: 12331 samples, 1018s
+2014: 11888 samples, 1077s
+                count       mean        std      min        25%        50%        75%        max
+row_id       343826.0  253342.21  150150.72     0.00  127239.25  242608.50  389555.75  511715.00
+theta        267732.0       6.89       7.54    -1.87       1.29       4.51      10.22      31.43
+salinity     267732.0      34.69       0.79    30.65      34.26      34.63      35.12      41.63
+temperature  267732.0       7.00       7.49    -1.87       1.43       4.66      10.27      31.43
+oxygen       267732.0     218.08      76.76     0.05     175.81     230.16     281.78     350.11
+aou          267732.0      83.83      78.65   -13.77      18.60      59.37     132.68     343.19
+tco2         267732.0    2143.19     104.12  1800.93    2102.79    2144.21    2197.78    2520.10
+tco2nat      267732.0    2124.03     120.60  1768.85    2069.00    2132.32    2194.41    2520.10
+canth_true   267732.0      19.15      19.52    -1.19       1.07      12.48      33.83      71.62
+non-finite rows: 76094
+wrote /Users/nikunjmahajan/Desktop/RE/revised_symbolic_tco2/research/data/model_noresm2_lm.csv.gz

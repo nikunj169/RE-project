@@ -1,6 +1,6 @@
 # Upper-ocean carbon accumulates 16–18 % faster than tracer-based anthropogenic CO₂ estimates predict: a drift-immune, sample-matched test against fifty years of GLODAP DIC
 
-*Draft manuscript, revision 3: `research/dev` branch, 2026-11-14 (revision 3 adds the Earth-system-model perfect-model test, alternative reference layers and two full-text reference checks). Every number is produced by code in `research/` (commands in `research_docs/EXPERIMENT_LOG.md`). It has not yet been reviewed by a domain expert.*
+*Draft manuscript, revision 4: `research/dev` branch, 2026-11-14. Revision 3 added the Earth-system-model perfect-model test, alternative reference layers and two full-text reference checks. Revision 4 adds a second Earth system model and tests for depth-dependent artefacts within cruises. Every number is produced by code in `research/` (commands in `research_docs/EXPERIMENT_LOG.md`). It has not yet been reviewed by a domain expert.*
 
 ## Abstract
 See `ABSTRACT.md`.
@@ -35,7 +35,11 @@ This work grew out of an audit of an empirical-regression project that modelled 
 
 **TRACE.** TRACE-Python v1.1.2 was evaluated at every sample with the historical atmospheric trajectory and default settings. 400,755 of 402,747 strict-QC samples returned finite values. Seven structural variants and an unadjusted surface boundary condition were also evaluated (§3.4).
 
-**Earth system model (E13).** MRI-ESM2-0 (Yukimoto et al., 2019), CMIP6 (Eyring et al., 2016) `historical` r1i2p1f1 for 1972–2014 and `ssp585` r1i2p1f1 for 2015–2021, on the regular 1° grid (`gr`, version v20200303), read from the public Pangeo Google Cloud copies. Variables:
+**Earth system models (E13, E15).** Both are CMIP6 runs (Eyring et al., 2016), read from the public Pangeo Google Cloud copies:
+- MRI-ESM2-0 (Yukimoto et al., 2019): `historical` r1i2p1f1 for 1972–2014 and `ssp585` r1i2p1f1 for 2015–2021, on the regular 1° grid (`gr`, version v20200303).
+- NorESM2-LM (Seland et al., 2020): `historical` r2i1p1f1 for 1972–2014 (`gr`, a curvilinear grid; version v20190920). No scenario run with `dissicnat` is available, so NorESM2-LM covers 265,516 samples up to 2014.
+
+Variables:
 - annual `dissic`, `dissicnat` and `o2`;
 - monthly `thetao` and `so`, averaged to calendar years.
 
@@ -75,12 +79,12 @@ Synthetic tests calibrated both estimators:
 - **Pump-corrected response (E08):** C* = DIC − 117·PO₄ − ½(TAlk + 16·PO₄) (Gruber et al., 1996), conditioned on θ and S only, on samples with measured, quality-controlled PO₄ and TAlk. The TAlk trend at fixed θ, S serves as a control variable.
 - **Time shape (E09b):** piecewise-linear trends with a knot at 2000.
 - **eMLR(C*) products (E10):** C_ant rate at the same samples and periods for both products and for TRACE, with no regression involved.
-- **Perfect-model test (E13):** MRI-ESM2-0 sampled at every sample's position, depth and year: nearest model column wet at that depth, linear in depth, unit conversion with in-situ density. AOU is computed from model O₂ and O₂ solubility at model θ, S. Basin, layer, cell, cruise and date assignments are the observed ones. Both estimators are applied to model θ, S, AOU and DIC, and compared with C_ant^true and with TRACE run on model S and in-situ T. E13d (post hoc) repeats this with TRACE's unadjusted boundary condition.
+- **Perfect-model test (E13, E15):** each model sampled at every sample's position, depth and year: nearest model column wet at that depth, linear in depth, unit conversion with in-situ density. AOU is computed from model O₂ and O₂ solubility at model θ, S. Basin, layer, cell, cruise and date assignments are the observed ones. Both estimators are applied to model θ, S, AOU and DIC, and compared with C_ant^true and with TRACE run on model S and in-situ T. E13d (post hoc) repeats this with TRACE's unadjusted boundary condition. E15 repeats all tests in NorESM2-LM, with the unadjusted variant pre-registered. MRI-ESM2-0 is also analysed on the same ≤ 2014 subset as a like-for-like control.
 - **Alternative reference layers (E14):** the differential estimate (E11 form) with the reference restricted to γⁿ 27.8–28.0 or to γⁿ > 28.0.
 - **Near reference (E16):** the same estimate with the intermediate layers (27.0 < γⁿ ≤ 27.8) as reference and the 12 layers with γⁿ ≤ 27.0 as targets. This shortens the target–reference separation from kilometres to a few hundred metres, so an artefact that grows with depth or DIC contrast within a cruise would shrink the excess. E16b computes, for each layer, the uniform DIC scale drift that the single-layer and the differential excess would each require.
 
 ### 3.5 Pre-registration
-Round-1 hypotheses (H1–H4) and the Round-2 experiments E06–E10, with their decision rules, were written down before computation (`RESEARCH_METHODOLOGY.md`, `GAP_AUDIT_ROUND2.md`). E11 (a summary of E06) and E12 were added after seeing the results and are labelled post hoc throughout. In revision 3, E13 and E14 were pre-registered (`GAP_AUDIT_ROUND3.md`) before any model data were sampled. E13d was logged after seeing E13 and before running it. E16 and E16b were pre-registered in `GAP_AUDIT_ROUND4.md`.
+Round-1 hypotheses (H1–H4) and the Round-2 experiments E06–E10, with their decision rules, were written down before computation (`RESEARCH_METHODOLOGY.md`, `GAP_AUDIT_ROUND2.md`). E11 (a summary of E06) and E12 were added after seeing the results and are labelled post hoc throughout. In revision 3, E13 and E14 were pre-registered (`GAP_AUDIT_ROUND3.md`) before any model data were sampled. E13d was logged after seeing E13 and before running it. E15 (second model) and its expectations were pre-registered before any NorESM2-LM values were read. E16 and E16b were pre-registered in `GAP_AUDIT_ROUND4.md`.
 
 ### 3.6 Static empirical models
 We re-implemented the original model hierarchy (mean, linear, rank-1, rank-2, full-quadratic and cubic regressions of DIC on S, T and AOU). Each was evaluated with and without a time or C_ant covariate under temporal, spatial-block and cruise-block validation.
@@ -150,7 +154,7 @@ TRACE's structural knobs differ greatly in leverage (E07; Fig. 9):
 
 The excess persists in every variant in the Pacific and in one or more upper layers of each other basin.
 
-TRACE's built-in surface boundary condition grows at 0.88 times the atmospheric rate over 1972–2021: it encodes a damped surface-ocean response. Replacing it with the atmospheric record raises TRACE rates by 9–10 % (E12, post hoc). This lowers the pooled upper-ocean ratio to R = 1.06 [1.01, 1.10] and the differential factor to m = 0.075 [0.014, 0.12]. An undamped boundary condition therefore accounts for about 60 % of the excess. A residual of 6–8 % remains, and its interval narrowly excludes zero. The prediction logged before this test (R within 0.95–1.05) was not met. In the Earth-system-model test (§4.9), the same substitution removes most of the model-world shortfall.
+TRACE's built-in surface boundary condition grows at 0.88 times the atmospheric rate over 1972–2021: it encodes a damped surface-ocean response. Replacing it with the atmospheric record raises TRACE rates by 9–10 % (E12, post hoc). This lowers the pooled upper-ocean ratio to R = 1.06 [1.01, 1.10] and the differential factor to m = 0.075 [0.014, 0.12]. An undamped boundary condition therefore accounts for about 60 % of the excess. A residual of 6–8 % remains, and its interval narrowly excludes zero. The prediction logged before this test (R within 0.95–1.05) was not met. In MRI-ESM2-0 (§4.9), the same substitution removes most of the model-world shortfall, but in NorESM2-LM there is no shortfall to remove.
 
 ### 4.7 The excess does not depend on AOU conditioning, except in the Pacific thermocline
 C*, which removes soft-tissue and carbonate-pump contributions using measured phosphate and alkalinity instead of AOU, gives an upper-ocean excess with CI > 0 in 9 of 12 layers. The AOU estimator gives the same count on the same rows (E08; Fig. 11).
@@ -170,8 +174,8 @@ At the same samples and periods, and with no regression on our side, both eMLR(C
 
 Even the lowest sensitivity case of each product exceeds TRACE. In the deep Atlantic both products, like observed DIC (R = 0.75), fall below TRACE: 0.80 (1994–2007) and 0.35 (2004–2014). This is consistent with reduced deep ventilation and North Atlantic departures from steady state (Gruber et al., 2019; Steinfeldt et al., 2024).
 
-### 4.9 A perfect-model test: an Earth system model sampled like GLODAP
-In MRI-ESM2-0 sampled at the GLODAP samples (E13; Fig. 12), anthropogenic carbon is known exactly, and no GLODAP DIC is involved. The model fields resemble the observations (correlation with observed θ 0.98, DIC 0.90; mean DIC bias −26 µmol kg⁻¹).
+### 4.9 Perfect-model tests: two Earth system models sampled like GLODAP
+In an Earth system model sampled at the GLODAP samples, anthropogenic carbon is known exactly, and no GLODAP DIC is involved. We first report MRI-ESM2-0 (E13; Fig. 12), then the pre-registered second model, NorESM2-LM (E15; Fig. 13). In MRI-ESM2-0, the model fields resemble the observations (correlation with observed θ 0.98, DIC 0.90; mean DIC bias −26 µmol kg⁻¹).
 
 **The estimators recover the model's true C_ant rate.** Upper ocean, pooled:
 - single-layer: β_DIC/β_Cant^true = 0.97 [0.95, 0.98], δ = −0.027;
@@ -179,7 +183,7 @@ In MRI-ESM2-0 sampled at the GLODAP samples (E13; Fig. 12), anthropogenic carbon
 
 This meets the pre-registered criterion (R within 0.95–1.05, |δ| ≤ 0.03). The only basin-level bias is in the Pacific (R = 0.95; m = −0.06 [−0.11, −0.03]), consistent with circulation-driven AOU change in the thermocline (Sabine et al., 2008). It biases the estimate toward *less* excess, so the observed Pacific excess, if anything, is understated. In deep layers, model DIC at fixed properties rises 0.02 µmol kg⁻¹ yr⁻¹ less than C_ant^true: a measure of non-anthropogenic change in the model.
 
-**TRACE underestimates the model's own upper-ocean C_ant accumulation.** With TRACE run on model T and S:
+**TRACE underestimates MRI-ESM2-0's upper-ocean C_ant accumulation.** With TRACE run on model T and S:
 
 | | Upper ocean (pooled) | Differential |
 |---|---|---|
@@ -190,10 +194,18 @@ The sign and roughly two thirds of the observed size are reproduced without GLOD
 
 **The boundary condition accounts for most of the model-world shortfall (E13d, post hoc).** With TRACE's unadjusted atmospheric trajectory, the upper-ocean ratio falls to 1.016 [1.004, 1.036] and m to 0.024 [0.003, 0.050], meeting the logged expectation (R within 0.95–1.05). By basin it overshoots in the Atlantic (0.94) and Indian (0.92) Oceans and leaves +8 % in the Pacific.
 
-TRACE's ages describe the real ocean, not the model's circulation, so this is not a clean test of TRACE. It does show three things:
-- in a model whose surface C_ant follows its own air–sea exchange, the upper ocean accumulates C_ant 10–12 % faster than TRACE with its damped boundary condition implies;
-- most of that gap is the boundary condition;
-- the estimators themselves introduce no positive bias.
+**The second model does not reproduce the shortfall (E15, pre-registered).** In NorESM2-LM (1972–2014):
+- **The estimators again recover the truth:** upper-ocean β_DIC/β_Cant^true = 1.007 [0.972, 1.037], drift-immune m = −0.008 [−0.05, 0.02]. Expectation H15a was met.
+- **TRACE does not fall short.** C_ant^true/TRACE = 0.94 [0.91, 0.97], and the differential m = −0.02 [−0.05, 0.01]. NorESM2-LM accumulates upper-ocean C_ant slightly *slower* than TRACE predicts on the model's T and S.
+- **The unadjusted boundary moves the ratio further from 1,** to 0.86 [0.84, 0.88].
+
+H15b (a shortfall > 5 % that the unadjusted boundary removes) is therefore not met. By the pre-registered rule, the MRI-ESM2-0 shortfall is model-specific.
+
+The like-for-like MRI-ESM2-0 control on the same ≤ 2014 samples gives 1.117 [1.098, 1.144], so the difference between the models is not a matter of period. A descriptive comparison (post hoc) points to ventilation. At the same upper-ocean samples, NorESM2-LM holds 10 % less C_ant than MRI-ESM2-0 and 15 % less than TRACE, whereas MRI-ESM2-0 holds the same amount as TRACE (ratio 1.01).
+
+TRACE's ages describe the real ocean, not either model's circulation. The ratio C_ant^true/TRACE therefore mostly measures how fast each model ventilates relative to the real ocean, not a bias in TRACE. This confound was stated before the runs (GAP_AUDIT_ROUND3 §2). The two models together show two things:
+- the estimators introduce no positive bias in either model (pooled upper-ocean bias within ±3 %);
+- whether TRACE under- or overestimates a model's C_ant accumulation depends on the model (+12 % and −6 %). The perfect-model test therefore cannot independently confirm, or refute, the TRACE shortfall seen in the observations. The observational evidence (§4.3–4.8) stands on its own.
 
 ### 4.10 Time shape and data quality
 With a knot at 2000, the upper-ocean excess appears in the post-2000 slopes, when DIC reference materials were in routine use. It is significant in Atlantic γⁿ 26.0–27.0, the Pacific surface layer and Southern Ocean γⁿ 26.0–26.5. Pre-2000 slopes are too uncertain to test for a change (E09).
@@ -212,12 +224,12 @@ Static S–T–AOU regressions trained before 2015 underpredict later DIC by 4�
 
 Our estimators use AOU or C* conditioning within fixed locations. eMLR(C*) uses period-wise multiple linear regressions on mapped climatologies. The estimates are therefore methodologically distinct, but not statistically independent: all draw on GLODAP DIC.
 
-An Earth system model sampled at the same points provides evidence that does not use GLODAP DIC (§4.9). There the estimators are unbiased (m = −0.01), and TRACE falls short of the model's exact C_ant accumulation by a similar factor (m = 0.125).
+Two Earth system models sampled at the same points test the estimators without GLODAP DIC (§4.9). In both, the estimators recover the exact C_ant rate (m = −0.01 in both). TRACE falls short of one model's accumulation (MRI-ESM2-0, m = 0.125) but not the other's (NorESM2-LM, m = −0.02). The model test thus rules out an estimator artefact. It does not, however, provide independent confirmation of the TRACE shortfall, because each model's ventilation differs from the real ocean's.
 
 The new design element makes the most common objection untenable: that the excess is a slow calibration drift. Additive cruise offsets, including drifting ones, cannot produce it. A uniform scale (proportional) drift would bias the single-layer and the differential estimates in opposite directions, yet both are positive. With a reference only a few hundred metres deeper, about 70 % of the excess remains (E16). What would still be needed is a measurement artefact within cruises that depends on depth in a more complex way, or a real excess in the reference layers. The magnitude, about 18 % of the TRACE rate, sits at the edge of TRACE's stated 1σ uncertainty of 15 %. Our result can therefore be read as an observational constraint on TRACE's rate scale (1.18 [1.11, 1.23] relative to the deep ocean), rather than a refutation of the TTD approach.
 
 **Candidate explanations, ranked by evidence.**
-1. *Surface boundary condition / air–sea disequilibrium.* The disequilibrium scale is TRACE's most influential knob. Replacing the damped surface trajectory by the atmospheric one removes about 60 % of the observed excess and most of the model-world shortfall (§4.9). Multi-decadal time series in the subtropical gyres (BATS, HOT, ESTOC) report surface-ocean pCO₂ rising at 1.7–1.9 µatm yr⁻¹, similar to the atmospheric increase, with a roughly constant air–sea ΔpCO₂ (Bates et al., 2014, Table 2). This favours a less damped boundary condition there. At higher-latitude sites (Iceland Sea, Munida), surface pCO₂ rose more slowly (≈1.3 µatm yr⁻¹), and in formation regions with short surface residence times real disequilibrium is expected. The Southern Ocean intermediate layers, which lie below the proportional line, are consistent with that.
+1. *Surface boundary condition / air–sea disequilibrium.* The disequilibrium scale is TRACE's most influential knob. Replacing the damped surface trajectory by the atmospheric one removes about 60 % of the observed excess (§4.6). In MRI-ESM2-0 it also removes most of the model-world shortfall, but this did not carry over to NorESM2-LM (§4.9), so the model evidence for this mechanism is mixed. Multi-decadal time series in the subtropical gyres (BATS, HOT, ESTOC) report surface-ocean pCO₂ rising at 1.7–1.9 µatm yr⁻¹, similar to the atmospheric increase, with a roughly constant air–sea ΔpCO₂ (Bates et al., 2014, Table 2). This favours a less damped boundary condition there. At higher-latitude sites (Iceland Sea, Munida), surface pCO₂ rose more slowly (≈1.3 µatm yr⁻¹), and in formation regions with short surface residence times real disequilibrium is expected. The Southern Ocean intermediate layers, which lie below the proportional line, are consistent with that.
 2. *Ventilation ages in intermediate waters.* Excess relative to the TRACE rate is largest in Atlantic and Indo-Pacific intermediate layers (γⁿ 27.0–27.5). Ages that are too old there, or mixing not captured by a single inverse-Gaussian TTD, would produce this; younger ages (×0.8) reduce it.
 3. *Natural (non-C_ant) DIC change at fixed properties.* This cannot be excluded. In the Pacific thermocline, the excess depends on the remineralisation tracer, so part of it there may be respiration change associated with deoxygenation that AOU and phosphate partition differently. Elsewhere, a natural DIC *gain* would conflict with the net natural carbon *loss* inferred by Müller et al. (2023).
 
@@ -232,12 +244,12 @@ The new design element makes the most common objection untenable: that the exces
 
 ## 6. Limitations
 - **Independence.** All five DIC-based estimates use GLODAP DIC. Uniform scale drift is excluded (E16b), and most of the excess remains against a near reference (E16). A more complex depth-dependent artefact within cruises cannot be excluded, and the near-reference estimate is about 30 % lower. The Earth-system-model test is independent of GLODAP DIC, but:
-  - it is a single model and member. A second model (NorESM2-LM, 1972–2014) was pre-registered and its sampling code is in place, but the run could not be completed because of data-transfer limits (~45 GB);
-  - the model's basin pattern differs from the observed one;
-  - TRACE's ages are not the model's ages;
-  - 1.8 % of samples (warm, salty thermocline waters) return no TRACE value for model T, S and are excluded from E13.
+  - the two models disagree on whether TRACE under- or overestimates their C_ant accumulation (+12 %, −6 %), so the model test validates the estimators only. The TRACE shortfall rests on GLODAP-based evidence;
+  - TRACE's ages are not the models' ages, and the models' ventilation differs from the real ocean's;
+  - each model is a single member;
+  - 1.8 % (MRI-ESM2-0) and 0.8 % (NorESM2-LM) of samples return no TRACE value for model T, S and are excluded.
 - **Reference-layer assumption.** Δδ is relative to the deep layers. If deep layers truly accumulate less than TRACE (Atlantic) or more (Pacific), Δδ over- or underestimates the absolute excess. We bracket it with δ and Δδ. Restricting the reference to γⁿ 27.8–28.0 or > 28.0 changes m by ≤ 0.02.
-- **Post hoc elements.** E11 (proportional form), E12 and E13d (boundary condition) were formulated after seeing the results.
+- **Post hoc elements.** E11 (proportional form), E12 and E13d (boundary condition) were formulated after seeing the results. The pre-registered out-of-sample test of the boundary-condition mechanism in a second model (E15) did not support it, so the mechanism remains a hypothesis.
 - **Single linear trend per layer.** Rates under transient steady state increase in time. Sample matching makes the comparison like-for-like, but R is period-weighted; the piecewise analysis cannot resolve era differences before 2000.
 - **Interval coverage.** About 91 % (single-layer) under large random cruise offsets; 93–100 % for the differential estimator in synthetic tests.
 - **Conditioning.** AOU is not true oxygen utilisation in Southern Ocean source waters. C* is compromised at depth by TAlk drift.
@@ -248,7 +260,7 @@ The new design element makes the most common objection untenable: that the exces
 1. At fixed water properties and within fixed locations, GLODAP DIC rose by about 1 µmol kg⁻¹ yr⁻¹ in light layers, decreasing with density and water-mass age.
 2. In the upper ocean (γⁿ ≤ 27.0), observed DIC accumulates 16 % [11, 21 %] faster than TRACE predicts at the same samples, and 18 % [11, 23 %] relative to the deep ocean when all cruise-level offsets are removed. The excess is similar in all four basins, survives every TRACE structural variant in most layers, and is matched by two eMLR(C*) products (13–20 %).
 3. About 60 % of the excess is equivalent to replacing TRACE's damped surface CO₂ boundary condition with the atmospheric record. The remainder points to intermediate-water ventilation ages or natural carbon change.
-4. In an Earth system model sampled like GLODAP, the estimators recover the exact C_ant rate (no positive bias). TRACE falls 12 % short of the model's upper-ocean accumulation, mostly because of the same boundary condition. This is support that does not rely on GLODAP DIC, though with a different basin pattern.
+4. In two Earth system models sampled like GLODAP, the estimators recover the exact C_ant rate (no positive bias). Whether TRACE under- or overestimates model accumulation depends on the model (+12 % in MRI-ESM2-0, −6 % in NorESM2-LM). The models therefore validate the method but cannot independently confirm the TRACE shortfall.
 5. Deep Atlantic carbon accumulates 25–35 % below the steady-state tracer expectation in observations and eMLR(C*), consistent with non-steady ventilation.
 6. Static DIC regressions are confounded by this signal, and their temporal-validation rankings are not interpretable without modelling it.
 
@@ -257,7 +269,7 @@ The new design element makes the most common objection untenable: that the exces
 - Gruber et al. (2019) ΔC_ant: NCEI 0186034, doi:10.25921/wdn2-pt10.
 - Müller et al. (2023) ΔC_ant: NCEI 0279447.
 - TRACE-Python v1.1.2: doi:10.5281/zenodo.17822675.
-- MRI-ESM2-0 CMIP6 output (historical, ssp585; r1i2p1f1; gr; v20200303): ESGF, via the Pangeo CMIP6 Google Cloud catalogue.
+- MRI-ESM2-0 CMIP6 output (historical, ssp585; r1i2p1f1; gr; v20200303) and NorESM2-LM CMIP6 output (historical; r2i1p1f1; gr; v20190920): ESGF, via the Pangeo CMIP6 Google Cloud catalogue.
 
 Derived datasets are rebuilt by `research/preprocessing/build_dataset.py` (checksum-verified).
 

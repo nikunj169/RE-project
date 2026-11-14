@@ -1,6 +1,6 @@
 # Figure Captions
 
-Figure files are in `research/figures/` (PNG at 300 dpi, and PDF). They are produced from saved results only, by `python -m research.visualization.figures` (Figs. 2–6, S1) and `python -m research.visualization.figures_round2` (Figs. 1, 7–11).
+Figure files are in `research/figures/` (PNG at 300 dpi, and PDF). They are produced from saved results only, by `python -m research.visualization.figures` (Figs. 2–6, S1) and `python -m research.visualization.figures_round2` (Figs. 1, 7–13).
 
 **Figure 1 (`fig1_study_area`).** Study data.
 (a) Positions of the profiles that enter the trend analysis: strict-QC GLODAPv2.2023 samples in 4°×4° cells whose observations span ≥ 10 years, coloured by basin. Robinson projection centred at 150°W.
@@ -69,5 +69,11 @@ No regression is involved for the eMLR ratios.
 - Model DIC (circles): the estimator applied to model data.
 - TRACE on model T, S, with default (grey squares) and unadjusted atmospheric (orange triangles, E13d) boundary conditions.
 - Observed DIC (red stars) and TRACE on observed T, S (red crosses), from E02, for reference.
+
+**Figure 13 (`fig13_models`).** Upper-ocean (γⁿ ≤ 27.0) rate ratios relative to TRACE, pooled by basin, with 95 % global cruise-bootstrap intervals (B = 500).
+- Observed DIC / TRACE (black stars; E09).
+- Model true C_ant / TRACE on model T, S, with default (filled) and unadjusted atmospheric (open) boundary conditions, for MRI-ESM2-0 (blue; samples ≤ 2014) and NorESM2-LM (green; E15).
+
+The two models bracket 1 (1.12 and 0.94). The model ratio mainly reflects each model's ventilation relative to the real ocean, on which TRACE's ages are trained.
 
 **Figure S1 (`figS1_synthetic_recovery`).** Validation of the single-layer estimator on synthetic data: (a) mean bias; (b) coverage of nominal 95 % bootstrap intervals.

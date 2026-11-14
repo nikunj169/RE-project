@@ -76,7 +76,7 @@ def build():
            weight="bold", color=INK, va="top", linespacing=1.2)
     f.text(0.05, 0.43, "A sample-matched test of 50 years of GLODAP carbon data\nagainst tracer-based anthropogenic-carbon estimates",
            fontsize=18, color=MUTED, va="top", linespacing=1.4)
-    f.text(0.05, 0.20, "Ishaan Sodhi   ·   14 November 2026 (updated with Rounds 2–3)", fontsize=14, color=INK)
+    f.text(0.05, 0.20, "Ishaan Sodhi   ·   14 November 2026 (updated with Rounds 2–4)", fontsize=14, color=INK)
     f.add_artist(plt.Line2D([0.05, 0.35], [0.27, 0.27], color=ACCENT, lw=3))
     slides.append(f)
 
@@ -152,10 +152,10 @@ def build():
     slides.append(f)
 
     # 8 Result 4 (model)
-    f = slide("Result 4 — an independent check in an Earth system model", "Results")
-    image(f, FIG / "fig12_perfect_model.png", [0.03, 0.22, 0.94, 0.58])
-    f.text(0.05, 0.13, "MRI-ESM2-0 sampled at every GLODAP sample (true C_ant known exactly; no GLODAP DIC involved):\n"
-                       "our estimator is unbiased (factor −0.01), and TRACE falls 12 % short of the model's true upper-ocean uptake.",
+    f = slide("Result 4 — two climate models: method validated, shortfall not confirmed", "Results")
+    image(f, FIG / "fig13_models.png", [0.12, 0.22, 0.76, 0.58])
+    f.text(0.05, 0.13, "Two climate models sampled at every GLODAP sample (true C_ant known exactly): our estimator is unbiased in both.\n"
+                       "But TRACE is 12 % short in MRI-ESM2-0 and 6 % over in NorESM2-LM, so the models cannot confirm the shortfall.",
            fontsize=13, color=INK, va="top", linespacing=1.5)
     slides.append(f)
 
@@ -165,12 +165,12 @@ def build():
         "TRACE's built-in surface-ocean CO₂ history rises at only 0.88 × the atmospheric rate",
         "Swap in the real atmospheric record:",
         "  Observations: excess falls from 16 % to 6 % [1, 10] → explains ≈ 60 %",
-        "  Earth system model: shortfall falls from 12 % to 2 % → explains ≈ 85–90 %",
+        "  MRI-ESM2-0: 12 % → 2 %;  NorESM2-LM (pre-registered test): no shortfall to explain",
         "Time series (BATS, HOT, ESTOC) show surface pCO₂ keeping pace with the atmosphere",
         "Other TRACE knobs (age-distribution shape, ages ±20 %, θ input) matter little",
         "Deep Atlantic: 25–35 % below TRACE in data and eMLR — slowing deep ventilation",
     ], y=0.76, size=16, gap=0.085)
-    box(f, 0.05, 0.08, 0.9, 0.12, "The mechanism was found after seeing the data (labelled post hoc); the model test was logged before running.",
+    box(f, 0.05, 0.08, 0.9, 0.12, "Found after seeing the data (post hoc); the pre-registered out-of-sample test in a 2nd model did not confirm it.",
         color=WARN, size=14)
     slides.append(f)
 
@@ -182,14 +182,14 @@ def build():
         "✓ 7 TRACE structural variants\n"
         "✓ C* (phosphate + alkalinity): 9/12 layers\n"
         "✓ Two eMLR(C*) products agree\n"
-        "✓ ESM: estimator unbiased; TRACE short\n"
+        "✓ Two ESMs: estimator unbiased\n"
         "✓ Robust to deep reference choice\n"
         "✓ Pre-registered; all runs logged",
         title="What holds up", color=GOOD, size=15)
     box(f, 0.53, 0.14, 0.42, 0.62,
         "! All observational evidence uses GLODAP DIC\n"
-        "! One Earth system model so far; its\n   basin pattern differs from the data\n"
-        "! Within-cruise, depth-dependent\n   artefacts not excluded\n"
+        "! The two ESMs disagree on the TRACE\n   shortfall (+12 %, −6 %)\n"
+        "! Near reference: excess ~30 % smaller\n"
         "! Pacific thermocline depends on AOU vs\n   phosphate correction\n"
         "! Not yet reviewed by a carbon expert",
         title="What could break it", color=WARN, size=15)
@@ -200,8 +200,8 @@ def build():
     box(f, 0.05, 0.50, 0.9, 0.26,
         "Upper-ocean anthropogenic carbon accumulates 16–18 % faster than TRACE predicts at the\n"
         "same samples. The excess is not caused by cruise-level calibration drift, is matched by two\n"
-        "eMLR(C*) products, and is reproduced (12 %) in an Earth system model. Most of it traces to\n"
-        "TRACE's damped surface CO₂ boundary condition: an observational constraint on C_ant rates.",
+        "eMLR(C*) products; our method is validated in two Earth system models. About 60 % of it\n"
+        "matches TRACE's damped surface CO₂ boundary condition: an observational constraint on C_ant rates.",
         color=ACCENT, size=16)
     bullets(f, [
         "Side results: a reusable drift-immune diagnostic for any interior C_ant product;",
@@ -213,15 +213,15 @@ def build():
     # 12 Next steps / asks
     f = slide("Next steps — and where we'd value your input", "Plan")
     box(f, 0.05, 0.14, 0.42, 0.62,
-        "1. Second Earth system model (NorESM2-LM):\n    code ready, needs ~45 GB download\n"
-        "2. Contact TRACE / eMLR(C*) developers\n"
-        "3. Convert to journal template; GBC or\n    Biogeosciences (GRL if model 2 agrees)\n"
+        "1. Contact TRACE / eMLR(C*) developers\n    (request drafted)\n"
+        "2. Non-GLODAP check, e.g. SOCAT-based\n    surface CO₂ history in TRACE\n"
+        "3. Submit to GBC or Biogeosciences\n    (journal-format draft ready)\n"
         "4. OSM 2028 / EGU 2027 abstract now\n"
         "5. Zenodo release of code + results",
         title="Next 2–4 weeks", size=15)
     box(f, 0.53, 0.14, 0.42, 0.62,
         "• Is the boundary-condition explanation\n  plausible, or a known TRACE issue?\n"
-        "• Best way to rule out within-cruise,\n  depth-dependent DIC artefacts?\n"
+        "• Why do the two climate models\n  disagree with TRACE in opposite ways?\n"
         "• Who should we show this to first?\n"
         "• Should the original rank-1 paper be\n  retired or reframed?\n"
         "• Venue and timeline you'd recommend",

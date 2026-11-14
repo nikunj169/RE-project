@@ -34,4 +34,4 @@ E15(d) (GAP_AUDIT_ROUND3 §8) is pre-registered and serves as the held-out test:
 |---|---|
 | E16 (near reference) | **Met.** All-basin m = 0.127 [0.065, 0.199]: the CI excludes 0 and the estimate is 0.055 below the primary 0.18 (rule: within 0.08). About 30 % smaller, so a minor separation-dependent part cannot be excluded. Basins: Atlantic 0.09, Indian 0.07, Pacific 0.11, Southern Ocean 0.48 (wide CIs) |
 | E16b (scale-drift sign) | 11 of 12 upper layers need κ of opposite sign for the single-layer and differential excess (the exception, Atlantic γⁿ ≤ 26.0, has single-layer excess ≈ 0). The differential excess alone would need κ ≈ −0.04 to −0.46 % yr⁻¹, i.e., a 2–23 % scale drift over 50 years. Uniform scale drift is excluded |
-| E15 / R3 | *pending* |
+| E15 / R3 | **Not supported.** In NorESM2-LM, the true C_ant rate is below TRACE (R = 0.94), and the unadjusted boundary moves it further away (0.86). The boundary-condition mechanism is not confirmed out of sample; it remains a hypothesis supported by observations (E12) and one model (E13d) |

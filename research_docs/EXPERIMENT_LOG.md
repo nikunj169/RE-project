@@ -182,7 +182,17 @@ Design and decision rules were written in `GAP_AUDIT_ROUND3.md` before any model
 * Reference γⁿ > 28.0: all-basin m = 0.192 [0.124, 0.249]. By basin: Atlantic 0.19, Indian 0.21, Pacific 0.18, Southern Ocean 0.19.
 * Primary (γⁿ > 27.8): 0.181. The decision rule (CI > 0, point within 0.08 of 0.18) is **met**. The Atlantic did not move as much as expected.
 
-## E15: Second model, NorESM2-LM (pre-registered, GAP_AUDIT_ROUND3 §8). **In progress; blocked by bandwidth**
+## E15: Second model, NorESM2-LM (pre-registered, GAP_AUDIT_ROUND3 §8). **Completed in Round 4**
+
+* **Completion (Round 4).** The sampler was resumed under the watchdog at about 7 MB/s.
+  * Attempts 1–2 stalled and were restarted automatically; attempt 3 completed (18:26 IST).
+  * Output `research/data/model_noresm2_lm.csv.gz`, SHA-256 `7c7630f275613bcd8d0022e8182a5895d436eddff7f77f91205661526f58bd4c`: 267,732 finite rows (≤ 2014) and 76,094 NaN rows (> 2014, by design).
+* **Analyses.** Commands: `python -m research.experiments.e13_perfect_model --model noresm2_lm [--trace-variant atm]` (logs `e15_perfect_model_noresm2_lm[_atm].log`); 265,516 rows used.
+  * (a) Estimator: upper R = 1.007 [0.972, 1.037], m = −0.008 [−0.052, 0.023]. **H15a met.**
+  * (b) Truth vs TRACE: upper R = 0.938 [0.914, 0.969], m = −0.021 [−0.048, 0.011]. Basins: Atlantic 0.93, Indian 1.02, Pacific 0.92, Southern Ocean 1.02.
+  * (d) Unadjusted boundary: R = 0.856 [0.835, 0.884], m = −0.106. **H15b not met**; per the rule, the MRI result is model-specific.
+* **Post hoc descriptive check.** At the same upper-ocean samples (≤ 2014), mean C_ant^true/TRACE is 1.01 (MRI) vs 0.85 (NorESM), and NorESM/MRI is 0.90. The difference between the models follows their ventilation.
+* **Earlier attempts (Round 3):**
 
 * **Like-for-like MRI control (done).** Command: `python -m research.experiments.e13_perfect_model --max-year 2014 [--trace-variant atm]` → `e13_model_*_to2014[_atm].csv`; 263,118 samples.
   * Upper true/TRACE: R = 1.117 [1.098, 1.144], m = 0.132 [0.093, 0.170]. With the unadjusted boundary: R = 1.020 [1.003, 1.044], m = 0.033.

@@ -213,7 +213,7 @@ def fig13_models():
                     mfc="none" if lab.endswith("unadjusted") else c, capsize=2, label=lab)
     ax.axhline(1, color="0.5", lw=0.8)
     ax.set_xticks(np.arange(len(cats)), ["All basins"] + BASINS)
-    ax.set(ylabel="Upper-ocean rate ratio (γ$^n$ ≤ 27.0)", title="TRACE shortfall: observations and two Earth system models")
+    ax.set(ylabel="Upper-ocean rate ratio (γ$^n$ ≤ 27.0)", title="Rate ratios relative to TRACE: observations and two Earth system models")
     ax.legend(fontsize=7, ncol=2, loc="upper center", bbox_to_anchor=(0.5, -0.12), frameon=False)
     save(fig, "fig13_models")
 

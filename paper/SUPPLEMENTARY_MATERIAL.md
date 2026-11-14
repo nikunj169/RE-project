@@ -182,3 +182,22 @@ Differential scale factors m (all 20 layers): DIC vs truth −0.01; truth vs TRA
 - the differential excess implies κ = Δδ / (DIC_target − DIC_ref) (negative: −0.4 to −4.6 × 10⁻³ yr⁻¹).
 
 The signs conflict in 11 of 12 upper layers (the exception has δ ≈ 0). The full table is in `research/results/e16_scale_drift_sign.csv`.
+
+## S-R4.2 Second model: NorESM2-LM (E15, pre-registered)
+
+Samples ≤ 2014; 265,516 used (0.8 % without a TRACE value). Pooled upper-ocean ratios (global shared cruise bootstrap, 500 replicates):
+
+| Comparison | All | Atlantic | Indian | Pacific | Southern Ocean |
+|---|---|---|---|---|---|
+| model DIC / C_ant^true | 1.01 [0.97, 1.04] | 0.98 | 0.92 | 1.04 | 1.00 |
+| C_ant^true / TRACE (default) | 0.94 [0.91, 0.97] | 0.93 | 1.02 | 0.92 | 1.02 |
+| C_ant^true / TRACE (unadjusted atm.) | 0.86 [0.84, 0.88] | 0.85 | 0.93 | 0.84 | 0.93 |
+| MRI-ESM2-0 ≤ 2014, C_ant^true / TRACE (default) | 1.12 [1.10, 1.14] | — | — | — | — |
+
+Differential scale factors m (all 20 layers): DIC vs truth −0.008 [−0.05, 0.02]; truth vs TRACE −0.02 [−0.05, 0.01] (default) and −0.11 [−0.13, −0.08] (unadjusted).
+
+**Outcome against the pre-registered expectations.**
+- H15a (estimator unbiased): met.
+- H15b (shortfall > 5 % that the unadjusted boundary removes): not met.
+
+**Descriptive comparison (post hoc).** At the same upper-ocean samples (≤ 2014), mean C_ant^true relative to TRACE is 1.01 in MRI-ESM2-0 and 0.85 in NorESM2-LM, and NorESM2-LM holds 0.90 × MRI-ESM2-0's C_ant. The difference in rate ratios between the models follows their ventilation. Full tables are in `research/results/e13_model_*_noresm2_lm*.csv`.

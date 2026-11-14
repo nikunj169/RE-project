@@ -71,6 +71,7 @@ E13(b) showed the model's true upper-ocean C_ant rate exceeds TRACE-on-model-T/S
 | H13b (TRACE in a model world) | Model truth exceeds TRACE: upper R = 1.12, m = 0.125. Same sign and ≈ ⅔ of the observed size, but a different basin pattern |
 | E13d (post hoc) | Expectation **met**: R = 1.016 [1.004, 1.036], m = 0.024 |
 | E14 (reference layers) | **Met**: m = 0.16 and 0.19 against the primary 0.18 |
+| E15 (second model) | H15a **met**; H15b **not met** (R_true/TRACE = 0.94). The model test validates the estimators only |
 | R5 (literature) | Both references read in full; manuscript wording adjusted for Bates; no overlap from Hong & Zemskova |
 
 ## 8. E15: second model, NorESM2-LM (pre-registered 2026-11-14, before any NorESM data values were read)
@@ -91,4 +92,10 @@ No scenario run with `dissicnat` is in the Pangeo catalogue, so **E15 covers 197
   * A NorESM ratio ≤ 1.0 would mean the MRI result is model-specific, and the manuscript would say so.
 * The basin pattern is reported without a prediction.
 
-**E15 status (2026-11-14, final for this round).** The like-for-like MRI control was run: ≤ 2014 results equal the full-period ones. NorESM2-LM sampling was not completed: the connection dropped to ≈ 0.3 MB/s and about 45 GB remained (see EXPERIMENT_LOG). H15a and H15b remain untested. The manuscript states that only one model was used. Resume with `python -m research.experiments.e13_sample_model --model noresm2_lm` (per-year checkpoints), then `python -m research.experiments.e13_perfect_model --model noresm2_lm [--trace-variant atm]` and `python -m research.visualization.figures_round2` (Fig. 13 appears once the NorESM results exist).
+**E15 outcome (2026-11-14, Round 4).** NorESM2-LM sampling completed when bandwidth recovered (data SHA-256 `7c7630f2…bd4c`).
+* H15a: **met** (upper R_DIC/true = 1.007 [0.972, 1.037]).
+* H15b: **not met.** Upper R_true/TRACE = 0.938 [0.914, 0.969], m = −0.021; unadjusted 0.856.
+
+Per the rule above, the MRI-ESM2-0 shortfall is model-specific, and the manuscript says so (revision 4).
+
+*Earlier status (superseded):* NorESM2-LM sampling was not completed: the connection dropped to ≈ 0.3 MB/s and about 45 GB remained (see EXPERIMENT_LOG). H15a and H15b remain untested. The manuscript states that only one model was used. Resume with `python -m research.experiments.e13_sample_model --model noresm2_lm` (per-year checkpoints), then `python -m research.experiments.e13_perfect_model --model noresm2_lm [--trace-variant atm]` and `python -m research.visualization.figures_round2` (Fig. 13 appears once the NorESM results exist).

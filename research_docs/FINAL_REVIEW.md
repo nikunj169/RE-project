@@ -1,6 +1,6 @@
 # Final Scientific Review: Round 2 (Phase 11)
 
-*Written as a sceptical reviewer for GRL, GBC or Biogeosciences. Covers `paper/MANUSCRIPT.md` (revision 3) and its evidence in `research/`. Date: 2026-11-14. Updated after Round 3 (§0). The Round-1 review is in git history at `e3dcab7`; the Round-2 version at `a2f2e6a`.*
+*Written as a sceptical reviewer for GRL, GBC or Biogeosciences. Covers `paper/MANUSCRIPT.md` (revision 4) and its evidence in `research/`. Date: 2026-11-14. Updated after Rounds 3 and 4 (§0). The Round-1 review is in git history at `e3dcab7`; the Round-2 version at `a2f2e6a`.*
 
 ## 0. Round-3 update
 
@@ -18,6 +18,12 @@ The main remaining weaknesses are now R4 (within-cruise, depth-dependent artefac
 * A near reference (γⁿ 27.0–27.8) keeps m = 0.13 [0.06, 0.20] (rule met), which is about 30 % lower than the primary estimate.
 
 R4 is therefore **largely resolved**. Only a more complex depth-dependent artefact is left.
+
+**Round 4, E15 (second model, pre-registered): a negative result for R1.**
+* NorESM2-LM confirms that the estimators are unbiased (H15a met).
+* It does *not* reproduce the TRACE shortfall: R_true/TRACE = 0.94, and the unadjusted boundary gives 0.86 (H15b not met).
+
+The perfect-model test therefore validates the method but provides no independent confirmation of the shortfall. R1 goes back to **Medium–High**, and the boundary-condition mechanism (R3) is not confirmed out of sample. The paper's central claim now rests on GLODAP-based evidence alone: two estimators and two eMLR(C*) products, all from the same DIC data. That makes it a solid GBC/Biogeosciences paper, but not a GRL headline.
 
 ## 1. What changed since Round 1
 
@@ -39,7 +45,7 @@ The drift-immune design is a genuine methodological contribution: a reusable way
 
 The main residual weakness is independence. All corroborating evidence comes from GLODAP DIC. An observation-independent check (ocean-model C_ant sampled identically, or TTDs run on different tracer subsets) would make the paper considerably stronger.
 
-**Publication readiness:** close to submittable to *GBC* or *Biogeosciences* after the items in §5; a *GRL* submission is plausible if items 1–3 hold up. Not ready today. The manuscript is Markdown, needs expert review, and one closely related paper (Hong 2026) has not been read.
+**Publication readiness:** close to submittable to *GBC* or *Biogeosciences* after the items in §5; *Round 4:* the second model did not reproduce the TRACE shortfall, so a *GRL* headline is no longer supported; GBC or Biogeosciences is the target. Not ready today. The manuscript is Markdown, needs expert review, and one closely related paper (Hong 2026) has not been read.
 
 ## 3. Strongest contributions
 1. **Drift-immune, sample-matched comparison** of observed DIC trends with TTD C_ant rates (the cruise-FE differential estimator). It is novel as far as a targeted search can tell, validated, and fast (exact solver).
@@ -55,7 +61,7 @@ The main residual weakness is independence. All corroborating evidence comes fro
 
 | # | Weakness | Severity | Mitigation |
 |---|---|---|---|
-| R1 | All observational estimates use GLODAP DIC. *Round 3: one ESM test done (E13); a second model would firm it up* | ~~High~~ → Medium | Sample RECCAP2/CMIP6 model C_ant (or OCIM) at the same points and dates; apply the identical estimator to model DIC (a perfect-model test of the estimator *and* of TTD) |
+| R1 | All observational estimates use GLODAP DIC. *Round 3: one ESM supports the shortfall (E13). Round 4: the second ESM does not (E15); the models validate the estimators only* | ~~High~~ → Medium → **Medium–High** | Sample RECCAP2/CMIP6 model C_ant (or OCIM) at the same points and dates; apply the identical estimator to model DIC (a perfect-model test of the estimator *and* of TTD) |
 | R2 | The reference-layer assumption: Δδ is relative to γⁿ > 27.8; the deep Atlantic deficit inflates Atlantic Δδ | Medium | Already bracketed (E02 vs E06). Add an alternative reference (e.g., 27.8–28.0 only, or deep Indian/Pacific only) as a sensitivity |
 | R3 | E11 and E12 are post hoc | Medium | Labelled as such. Ideally re-test the boundary-condition hypothesis on held-out data (e.g., fit on 1972–2005 cruises, test 2006–2021) or with a physically derived surface pCO₂ history (SOCAT-based) instead of the atmosphere |
 | R4 | Within-cruise, depth-dependent DIC artefacts not excluded. *Round 4: uniform scale drift excluded; near reference keeps ~70 % (E16)* | ~~Medium–low~~ → Low | Argue from coulometric/CRM practice (offsets are scale or additive); a check against cruises with documented CRM corrections |
@@ -65,7 +71,7 @@ The main residual weakness is independence. All corroborating evidence comes fro
 | R8 | Era dependence unresolved before 2000 | Low | Disclosed |
 
 ## 5. Concrete steps before submission (priority order)
-1. ~~**Independent comparator (R1):**~~ *Done in Round 3 (E13, E13d) for one model, with a ≤ 2014 control. The second model (NorESM2-LM, E15) is pre-registered and the code is ready; sampling was not completed because of bandwidth (~45 GB). This is the top remaining item and would decide GRL vs GBC.* sample one ocean-model historical run (DIC and C_ant tracers) at GLODAP sample locations and dates; run E02/E06 on model DIC vs model C_ant (estimator check) and vs TRACE applied to model T, S (method check).
+1. ~~**Independent comparator (R1):**~~ *Done for two models (E13, E15). The estimators are unbiased in both; the TRACE shortfall appears in MRI-ESM2-0 but not in NorESM2-LM. The independence gap is not closed. An observation-based comparator not built on GLODAP DIC (e.g., SOCAT-constrained surface trajectories in TRACE) would be the next step.* sample one ocean-model historical run (DIC and C_ant tracers) at GLODAP sample locations and dates; run E02/E06 on model DIC vs model C_ant (estimator check) and vs TRACE applied to model T, S (method check).
 2. ~~**Read Hong et al. (2026) and Bates et al. (2014) full texts**~~ *Done in Round 3.*
 3. **Out-of-sample test of the boundary-condition hypothesis (R3).**
 4. ~~**Alternative reference layers (R2).**~~ *Done in Round 3 (E14).*
@@ -100,7 +106,7 @@ The main residual weakness is independence. All corroborating evidence comes fro
 | E06–E10 (pre-registered) | Complete |
 | E11, E12 (post hoc, logged) | Complete |
 | Manuscript, abstract, captions, supplement, bibliography | Revised (revision 2) |
-| Independent model comparator | Done for one model (E13, E13d; Round 3); second model (E15) pending data transfer |
+| Independent model comparator | Done for two models (E13, E15). Estimators validated in both; TRACE shortfall reproduced in MRI-ESM2-0 only |
 | Full-text checks of 2 references | Done (Round 3) |
 | Advisor pitch deck | Regenerated with Round 2–3 results (12 slides; `research/visualization/pitch.py`) |
 | Alternative reference layers | Done (E14; Round 3) |

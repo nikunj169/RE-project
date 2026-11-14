@@ -30,7 +30,7 @@ CITE = {  # (surname as written, year) -> bib key
     ("Clement & Gruber", "2018"): "ClementGruber2018", ("Carter", "2017"): "Carter2017",
     ("Carter", "2025"): "Carter2025", ("Steinfeldt", "2024"): "Steinfeldt2024", ("Sandborn", "2026"): "Sandborn2026",
     ("Olsen", "2016"): "Olsen2016", ("Lauvset", "2024"): "Lauvset2024", ("Bates", "2014"): "Bates2014",
-    ("Eyring", "2016"): "Eyring2016", ("Yukimoto", "2019"): "Yukimoto2019",
+    ("Eyring", "2016"): "Eyring2016", ("Yukimoto", "2019"): "Yukimoto2019", ("Seland", "2020"): "Seland2020",
 }
 NAME = r"(Clement & Gruber|[A-ZÄÖÜ][a-zäöü]+)(?: et al\.)?"
 
