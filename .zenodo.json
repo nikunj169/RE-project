@@ -1,0 +1,10 @@
+{
+  "title": "Drift-immune, sample-matched comparison of GLODAP DIC trends with tracer-based anthropogenic carbon (TRACE): code and derived results",
+  "upload_type": "software",
+  "creators": [{"name": "Sodhi, Ishaan"}],
+  "description": "Code, configuration and derived result tables for the manuscript 'Upper-ocean carbon accumulates 16-18 % faster than tracer-based anthropogenic CO2 estimates predict'. Raw GLODAPv2.2023, eMLR(C*) and CMIP6 inputs are not redistributed; research/preprocessing/build_dataset.py rebuilds them with checksum verification.",
+  "keywords": ["anthropogenic carbon", "GLODAP", "TRACE", "transit-time distribution", "eMLR(C*)", "perfect-model test"],
+  "related_identifiers": [
+    {"identifier": "10.5281/zenodo.17822675", "relation": "references", "scheme": "doi"}
+  ]
+}

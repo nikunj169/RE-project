@@ -193,3 +193,14 @@ Design and decision rules were written in `GAP_AUDIT_ROUND3.md` before any model
   * Added per-year checkpoints (`research/data/_cache_model_<name>/`), a local catalogue cache, and a stall watchdog.
   * Attempts 1–5 hung on the first year. Diagnosis (14:40 IST): the whole connection had dropped to about 0.03–0.3 MB/s (Google Cloud, AWS and Cloudflare alike), against about 8 MB/s during E13. Not a code fault.
   * Remaining download is about 45 GB. **Paused** pending bandwidth; the run resumes from checkpoints.
+
+## E16: Near reference against within-cruise depth-dependent artefacts (pre-registered, GAP_AUDIT_ROUND4 §1)
+* Command: `python -m research.experiments.e11_scale_factor --ref near` → `e11_scale_factor_ref_near.csv`. Reference: 27.0 < γⁿ ≤ 27.8; targets: the 12 layers with γⁿ ≤ 27.0; 500 shared cruise replicates.
+* All-basin m = 0.127 [0.065, 0.199] (primary upper-layer m = 0.182 [0.112, 0.234]). Rule met (CI excludes 0; within 0.08).
+* By basin: Atlantic 0.090 [−0.026, 0.237], Indian 0.073 [−0.047, 0.245], Pacific 0.108 [0.020, 0.186], Southern Ocean 0.483 [0.175, 0.783].
+* Interpretation: the excess survives a reference only a few hundred metres deeper, but is about 30 % smaller. A minor separation-dependent component, or a lower proportional excess in intermediate waters, cannot be told apart.
+
+## E16b: Scale-drift sign test (pre-registered, analytic)
+* Command: `python -m research.experiments.e16_scale_drift_sign` → `e16_scale_drift_sign.csv`.
+* In 11 of 12 upper layers, the uniform scale drift κ needed for the single-layer excess (κ > 0) and for the differential excess (κ < 0) have opposite signs. The exception, Atlantic γⁿ ≤ 26.0, has single-layer excess −0.005.
+* The differential excess alone would need κ between −0.04 and −0.46 % yr⁻¹ (2–23 % over 50 years), far beyond CRM-based accuracy (≈ 0.1 %).

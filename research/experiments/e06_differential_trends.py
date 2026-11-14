@@ -37,11 +37,11 @@ def upper(layer: str) -> float:
 
 
 def basin_frames(cfg: dict, cant_file: str = "trace_canth.csv.gz", df: pd.DataFrame | None = None,
-                 ref: tuple[float, float] = (REF_MIN, np.inf)):
+                 ref: tuple[float, float] = (REF_MIN, np.inf), target_max: float = REF_MIN):
     """Yield (basin, target_layer, stacked frame, target mask) following E02 inclusion rules.
 
     If df is given it is used as is (it must already carry a canth column). Reference layers are
-    those with ref[0] <= lower edge < ref[1]; targets are layers with upper edge <= REF_MIN."""
+    those with ref[0] <= lower edge < ref[1]; targets are layers with upper edge <= target_max."""
     if df is None:
         df = load_data(cfg)
         tr = pd.read_csv(ROOT / "research" / "data" / cant_file).set_index("row_id")
@@ -55,7 +55,7 @@ def basin_frames(cfg: dict, cant_file: str = "trace_canth.csv.gz", df: pd.DataFr
                 kept[layer] = g
         ref_df = pd.concat([g for l, g in kept.items() if ref[0] <= lower(l) < ref[1]])
         for layer, g in sorted(kept.items(), key=lambda kv: lower(kv[0])):
-            if upper(layer) > REF_MIN:
+            if upper(layer) > target_max:
                 continue
             both = np.intersect1d(g.cruise.unique(), ref_df.cruise.unique())
             st = pd.concat([g[g.cruise.isin(both)], ref_df[ref_df.cruise.isin(both)]])

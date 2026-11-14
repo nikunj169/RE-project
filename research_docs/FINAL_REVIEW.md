@@ -13,6 +13,12 @@
 
 The main remaining weaknesses are now R4 (within-cruise, depth-dependent artefacts), single-model dependence, and the absence of expert review.
 
+**Round 4 (GAP_AUDIT_ROUND4).** R4 was addressed by E16 and E16b, both pre-registered:
+* Uniform scale drift is excluded: 11 of 12 upper layers would need opposite signs.
+* A near reference (γⁿ 27.0–27.8) keeps m = 0.13 [0.06, 0.20] (rule met), which is about 30 % lower than the primary estimate.
+
+R4 is therefore **largely resolved**. Only a more complex depth-dependent artefact is left.
+
 ## 1. What changed since Round 1
 
 | Round-1 weakness | Round-2 response | Status |
@@ -52,7 +58,7 @@ The main residual weakness is independence. All corroborating evidence comes fro
 | R1 | All observational estimates use GLODAP DIC. *Round 3: one ESM test done (E13); a second model would firm it up* | ~~High~~ → Medium | Sample RECCAP2/CMIP6 model C_ant (or OCIM) at the same points and dates; apply the identical estimator to model DIC (a perfect-model test of the estimator *and* of TTD) |
 | R2 | The reference-layer assumption: Δδ is relative to γⁿ > 27.8; the deep Atlantic deficit inflates Atlantic Δδ | Medium | Already bracketed (E02 vs E06). Add an alternative reference (e.g., 27.8–28.0 only, or deep Indian/Pacific only) as a sensitivity |
 | R3 | E11 and E12 are post hoc | Medium | Labelled as such. Ideally re-test the boundary-condition hypothesis on held-out data (e.g., fit on 1972–2005 cruises, test 2006–2021) or with a physically derived surface pCO₂ history (SOCAT-based) instead of the atmosphere |
-| R4 | Within-cruise, depth-dependent DIC artefacts not excluded | Medium–low | Argue from coulometric/CRM practice (offsets are scale or additive); a check against cruises with documented CRM corrections |
+| R4 | Within-cruise, depth-dependent DIC artefacts not excluded. *Round 4: uniform scale drift excluded; near reference keeps ~70 % (E16)* | ~~Medium–low~~ → Low | Argue from coulometric/CRM practice (offsets are scale or additive); a check against cruises with documented CRM corrections |
 | R5 | Bates 2014 rate comparison and Hong 2026 content not verified in full text | Medium (must fix) | Read both |
 | R6 | Interval coverage ≈ 91 % (single-layer) under large offsets | Low | Disclosed; the differential estimator achieves 93–100 % |
 | R7 | Pacific thermocline excess depends on AOU vs PO₄ conditioning | Low–medium | Disclosed. Could add a nitrate-based variant or preformed-nutrient approach |
@@ -63,9 +69,9 @@ The main residual weakness is independence. All corroborating evidence comes fro
 2. ~~**Read Hong et al. (2026) and Bates et al. (2014) full texts**~~ *Done in Round 3.*
 3. **Out-of-sample test of the boundary-condition hypothesis (R3).**
 4. ~~**Alternative reference layers (R2).**~~ *Done in Round 3 (E14).*
-5. Expert review by a carbon-cycle oceanographer, ideally a TRACE or eMLR(C*) developer; offer them the diagnostic.
-6. Convert to the journal template (LaTeX/Word); renumber figures (7–11 become main-text 3–6; Round-1 Figs. 3, 4 and 6 move to the supplement).
-7. Zenodo release of code and derived results.
+5. Expert review by a carbon-cycle oceanographer, ideally a TRACE or eMLR(C*) developer; offer them the diagnostic. *Request drafted (`EXPERT_REVIEW_REQUEST.md`); sending is the author's step.*
+6. ~~Convert to the journal template; renumber figures.~~ *Done: `paper/submission_gbc/` (AGU section structure with Key Points, Plain Language Summary and Open Research; figures renumbered by first mention; Round-1 Figs. 3, 4 and 6 become S2–S4; `figure_map.csv`). Moving it into AGU's own class is a copy step.*
+7. Zenodo release of code and derived results. *Metadata ready (`CITATION.cff`, `.zenodo.json`). A licence must be chosen and the release made by the author.*
 
 ## 6. Hypothesis status
 
@@ -98,4 +104,7 @@ The main residual weakness is independence. All corroborating evidence comes fro
 | Full-text checks of 2 references | Done (Round 3) |
 | Advisor pitch deck | Regenerated with Round 2–3 results (12 slides; `research/visualization/pitch.py`) |
 | Alternative reference layers | Done (E14; Round 3) |
-| Expert review | **Not done** |
+| Within-cruise depth-dependent artefacts (R4) | Done (E16, E16b; Round 4) |
+| Journal-format draft | Done (`paper/submission_gbc/main.pdf`) |
+| Zenodo / citation metadata | Prepared; release pending author (licence choice) |
+| Expert review | **Not done** (request drafted) |

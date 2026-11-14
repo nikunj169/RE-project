@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this code or its derived results, please cite it as below."
+title: "Drift-immune, sample-matched comparison of GLODAP DIC trends with tracer-based anthropogenic carbon (TRACE): code and derived results"
+type: software
+authors:
+  - family-names: Sodhi
+    given-names: Ishaan
+repository-code: "https://github.com/nikunj169/RE-project"
+date-released: "2026-11-14"
+version: "rev3"
+keywords:
+  - anthropogenic carbon
+  - GLODAP
+  - TRACE
+  - transit-time distribution
+  - eMLR(C*)
+  - perfect-model test

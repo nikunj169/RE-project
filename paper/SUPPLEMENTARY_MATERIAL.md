@@ -167,3 +167,18 @@ Differential scale factors m (all 20 layers): DIC vs truth −0.01; truth vs TRA
 | γⁿ > 27.8 (primary) | 0.18 [0.11, 0.23] | 0.20 | 0.19 | 0.16 | 0.18 |
 | γⁿ 27.8–28.0 | 0.16 [0.11, 0.21] | 0.18 | 0.15 | 0.15 | 0.17 |
 | γⁿ > 28.0 | 0.19 [0.12, 0.25] | 0.19 | 0.21 | 0.18 | 0.19 |
+
+## S-R4.1 Within-cruise depth-dependent artefacts (E16, E16b)
+
+**Near reference (E16).** Targets are the layers with γⁿ ≤ 27.0; the reference is 27.0 < γⁿ ≤ 27.8.
+
+| Reference | m (all basins) | Atlantic | Indian | Pacific | Southern Ocean |
+|---|---|---|---|---|---|
+| γⁿ > 27.8 (primary, γⁿ ≤ 27.0 targets) | 0.18 [0.11, 0.23] | — | — | — | — |
+| γⁿ 27.0–27.8 (near) | 0.13 [0.06, 0.20] | 0.09 [−0.03, 0.24] | 0.07 [−0.05, 0.25] | 0.11 [0.02, 0.19] | 0.48 [0.18, 0.78] |
+
+**Scale-drift sign test (E16b).** For a drift DIC_obs = DIC_true·(1 + κ(t − 2000)):
+- the single-layer excess implies κ = δ / DIC_target (positive: +2 to +8 × 10⁻⁵ yr⁻¹);
+- the differential excess implies κ = Δδ / (DIC_target − DIC_ref) (negative: −0.4 to −4.6 × 10⁻³ yr⁻¹).
+
+The signs conflict in 11 of 12 upper layers (the exception has δ ≈ 0). The full table is in `research/results/e16_scale_drift_sign.csv`.
