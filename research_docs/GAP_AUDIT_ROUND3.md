@@ -90,3 +90,5 @@ No scenario run with `dissicnat` is in the Pangeo catalogue, so **E15 covers 197
 * **H15b (TRACE shortfall):** if the boundary-condition explanation is general, upper R_(true/TRACE) > 1.05 with a CI excluding 1, and the unadjusted variant brings it within [0.95, 1.05].
   * A NorESM ratio ≤ 1.0 would mean the MRI result is model-specific, and the manuscript would say so.
 * The basin pattern is reported without a prediction.
+
+**E15 status (2026-11-14, final for this round).** The like-for-like MRI control was run: ≤ 2014 results equal the full-period ones. NorESM2-LM sampling was not completed: the connection dropped to ≈ 0.3 MB/s and about 45 GB remained (see EXPERIMENT_LOG). H15a and H15b remain untested. The manuscript states that only one model was used. Resume with `python -m research.experiments.e13_sample_model --model noresm2_lm` (per-year checkpoints), then `python -m research.experiments.e13_perfect_model --model noresm2_lm [--trace-variant atm]` and `python -m research.visualization.figures_round2` (Fig. 13 appears once the NorESM results exist).

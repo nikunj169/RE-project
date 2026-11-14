@@ -76,7 +76,7 @@ def build():
            weight="bold", color=INK, va="top", linespacing=1.2)
     f.text(0.05, 0.43, "A sample-matched test of 50 years of GLODAP carbon data\nagainst tracer-based anthropogenic-carbon estimates",
            fontsize=18, color=MUTED, va="top", linespacing=1.4)
-    f.text(0.05, 0.20, "Ishaan Sodhi   ·   5 November 2026", fontsize=14, color=INK)
+    f.text(0.05, 0.20, "Ishaan Sodhi   ·   14 November 2026 (updated with Rounds 2–3)", fontsize=14, color=INK)
     f.add_artist(plt.Line2D([0.05, 0.35], [0.27, 0.27], color=ACCENT, lw=3))
     slides.append(f)
 
@@ -119,11 +119,11 @@ def build():
         "Data: 342,277 strict-QC GLODAPv2.2023 samples, 515 cruises, 1972–2021",
         "Grid: 4°×4° cells revisited over ≥ 10 years; 9 neutral-density layers; 4 basins",
         "Model per basin × layer:  y = cell effect + f(θ, S, AOU) + β·year",
-        "  Cell effects → compare the same place over time (removes where-ships-went bias)",
         "  Run with y = observed DIC  →  β_DIC;   with y = TRACE C_ant  →  β_Cant",
-        "Uncertainty: cruise-level bootstrap (fixed the repo's broken bootstrap)",
-        "Pre-registered hypotheses and pass/fail rules before running anything",
-        "Validated: synthetic data with known trends → bias ≤ 0.012 µmol kg⁻¹ yr⁻¹",
+        "New: drift-immune version — upper layer vs deep layers within the same cruises",
+        "  Cruise fixed effects cancel any per-cruise calibration offset, even one drifting in time",
+        "Uncertainty: cruise-level bootstrap shared across all groups (valid pooled CIs)",
+        "Pre-registered pass/fail rules; validated on synthetic data with drift (bias ≤ 0.002)",
     ], y=0.76, size=16, gap=0.08)
     slides.append(f)
 
@@ -131,76 +131,98 @@ def build():
     f = slide("Result 1 — a clear human-CO₂ signature", "Results")
     image(f, FIG / "fig2_trend_profiles.png", [0.03, 0.22, 0.94, 0.58])
     f.text(0.05, 0.13, "≈ 1 µmol kg⁻¹ yr⁻¹ at the surface in every basin (matches CO₂ equilibrium theory), decaying with depth;\n"
-                       "reaches North Atlantic Deep Water (0.29) but not old Indian deep water (≈0).  TRACE within ±15 % in 18 of 20 upper layers.",
+                       "reaches North Atlantic Deep Water but not old Indian deep water.",
            fontsize=13, color=INK, va="top", linespacing=1.5)
     slides.append(f)
 
     # 6 Result 2
-    f = slide("Result 2 — upper ocean: 10–25 % faster than TRACE", "Results")
-    image(f, FIG / "fig4_delta_robustness.png", [0.03, 0.22, 0.94, 0.58])
-    f.text(0.05, 0.13, "δ = observed − TRACE ≈ +0.10 to +0.17 µmol kg⁻¹ yr⁻¹ in light layers (all basins except Atlantic surface).\n"
-                       "Same sign in all 11 sensitivity variants and every leave-one-cruise-out test; unchanged using post-1990 data only.",
+    f = slide("Result 2 — upper ocean 16–18 % faster than TRACE, not drift", "Results")
+    image(f, FIG / "fig7_drift_immune_excess.png", [0.03, 0.22, 0.94, 0.58])
+    f.text(0.05, 0.13, "Pooled upper ocean (γⁿ ≤ 27.0): observed / TRACE = 1.16 [1.11, 1.21].  Drift-immune (cruise offsets removed): 1.18 [1.11, 1.23].\n"
+                       "Similar in all four basins (16–20 %); 10 of 12 upper layers survive the drift test; robust to the choice of deep reference (1.16–1.19).",
            fontsize=13, color=INK, va="top", linespacing=1.5)
     slides.append(f)
 
     # 7 Result 3
-    f = slide("Result 3 — eMLR(C*) sides with the data", "Results")
-    image(f, FIG / "fig6_emlr_comparison.png", [0.03, 0.22, 0.94, 0.58])
-    f.text(0.05, 0.13, "Gruber et al. 2019 eMLR(C*) also exceeds TRACE by 10–35 % in upper layers → 13 of 15 robust layers point to 'TRACE too low'.\n"
-                       "Southern Ocean intermediate waters show the opposite sign.  Caveat: eMLR uses the same GLODAP DIC (not fully independent).",
+    f = slide("Result 3 — two eMLR(C*) products agree", "Results")
+    image(f, FIG / "fig10_emlr_products.png", [0.03, 0.22, 0.94, 0.58])
+    f.text(0.05, 0.13, "At the same samples: Gruber 2019 (1994–2007) 1.13;  Müller 2023 (1994–2004) 1.20 and (2004–2014) 1.13 × TRACE.\n"
+                       "Even their lowest sensitivity cases exceed TRACE.  Caveat: both use GLODAP DIC, so not independent.",
            fontsize=13, color=INK, va="top", linespacing=1.5)
     slides.append(f)
 
-    # 8 Confidence
+    # 8 Result 4 (model)
+    f = slide("Result 4 — an independent check in an Earth system model", "Results")
+    image(f, FIG / "fig12_perfect_model.png", [0.03, 0.22, 0.94, 0.58])
+    f.text(0.05, 0.13, "MRI-ESM2-0 sampled at every GLODAP sample (true C_ant known exactly; no GLODAP DIC involved):\n"
+                       "our estimator is unbiased (factor −0.01), and TRACE falls 12 % short of the model's true upper-ocean uptake.",
+           fontsize=13, color=INK, va="top", linespacing=1.5)
+    slides.append(f)
+
+    # 9 Mechanism
+    f = slide("Why? Most of it is TRACE's surface CO₂ boundary condition", "Mechanism")
+    bullets(f, [
+        "TRACE's built-in surface-ocean CO₂ history rises at only 0.88 × the atmospheric rate",
+        "Swap in the real atmospheric record:",
+        "  Observations: excess falls from 16 % to 6 % [1, 10] → explains ≈ 60 %",
+        "  Earth system model: shortfall falls from 12 % to 2 % → explains ≈ 85–90 %",
+        "Time series (BATS, HOT, ESTOC) show surface pCO₂ keeping pace with the atmosphere",
+        "Other TRACE knobs (age-distribution shape, ages ±20 %, θ input) matter little",
+        "Deep Atlantic: 25–35 % below TRACE in data and eMLR — slowing deep ventilation",
+    ], y=0.76, size=16, gap=0.085)
+    box(f, 0.05, 0.08, 0.9, 0.12, "The mechanism was found after seeing the data (labelled post hoc); the model test was logged before running.",
+        color=WARN, size=14)
+    slides.append(f)
+
+    # 10 Confidence
     f = slide("How sure are we?", "Honest assessment")
-    box(f, 0.05, 0.18, 0.42, 0.58,
-        "✓ Estimator unbiased on synthetic data\n"
-        "✓ 11 sensitivity variants: same sign\n"
-        "✓ Leave-one-cruise-out: no sign flips\n"
-        "✓ Post-1990 only: excess unchanged\n"
-        "✓ Phosphate instead of AOU: same sign\n"
-        "✓ QC choice barely matters (0/14 layers)\n"
+    box(f, 0.05, 0.14, 0.42, 0.62,
+        "✓ Survives cruise-offset/drift removal\n"
+        "✓ Same in all four basins; pooled CIs\n"
+        "✓ 7 TRACE structural variants\n"
+        "✓ C* (phosphate + alkalinity): 9/12 layers\n"
+        "✓ Two eMLR(C*) products agree\n"
+        "✓ ESM: estimator unbiased; TRACE short\n"
+        "✓ Robust to deep reference choice\n"
         "✓ Pre-registered; all runs logged",
         title="What holds up", color=GOOD, size=15)
-    box(f, 0.53, 0.18, 0.42, 0.58,
-        "! Excess (2.5–4 µmol kg⁻¹ over the record) is\n   at the level of possible calibration drift\n"
-        "! eMLR(C*) is not independent of the data\n"
-        "! TRACE run only with default settings\n"
-        "! One linear trend over 1972–2021\n"
-        "! CIs cover ≈ 91 % (not 95 %) under\n   large cruise offsets\n"
-        "! Literature search not yet systematic",
+    box(f, 0.53, 0.14, 0.42, 0.62,
+        "! All observational evidence uses GLODAP DIC\n"
+        "! One Earth system model so far; its\n   basin pattern differs from the data\n"
+        "! Within-cruise, depth-dependent\n   artefacts not excluded\n"
+        "! Pacific thermocline depends on AOU vs\n   phosphate correction\n"
+        "! Not yet reviewed by a carbon expert",
         title="What could break it", color=WARN, size=15)
     slides.append(f)
 
-    # 9 Claim
+    # 11 Claim
     f = slide("The claim we think we can defend", "Takeaway")
     box(f, 0.05, 0.50, 0.9, 0.26,
-        "Observed interior-ocean carbon and tracer-based anthropogenic-carbon rates agree to first order,\n"
-        "but DIC-based estimates accumulate systematically faster than TRACE in the upper ocean outside the\n"
-        "Southern Ocean — a robust DIC-versus-tracer discrepancy that is not yet distinguishable from\n"
-        "measurement drift or TRACE parameter uncertainty.",
+        "Upper-ocean anthropogenic carbon accumulates 16–18 % faster than TRACE predicts at the\n"
+        "same samples. The excess is not caused by cruise-level calibration drift, is matched by two\n"
+        "eMLR(C*) products, and is reproduced (12 %) in an Earth system model. Most of it traces to\n"
+        "TRACE's damped surface CO₂ boundary condition: an observational constraint on C_ant rates.",
         color=ACCENT, size=16)
     bullets(f, [
-        "Side result (methods note): static DIC regressions must model time / C_ant;",
-        "  temporal 'validation' of empirical carbon models is otherwise confounded",
-        "What we are NOT claiming: that TRACE is wrong, or that natural carbon is increasing",
+        "Side results: a reusable drift-immune diagnostic for any interior C_ant product;",
+        "  alkalinity drift at depth (matters for C* methods); static DIC regressions must model time",
+        "What we are NOT claiming: that the TTD approach is wrong, or that natural carbon is increasing",
     ], y=0.40, size=15, gap=0.08)
     slides.append(f)
 
-    # 10 Next steps / asks
+    # 12 Next steps / asks
     f = slide("Next steps — and where we'd value your input", "Plan")
     box(f, 0.05, 0.14, 0.42, 0.62,
-        "1. TRACE sensitivity: disequilibrium and\n    TTD-shape parameters (days)\n"
-        "2. Independent comparator: Müller 2023\n    field + ocean-model C_ant (1–2 weeks)\n"
-        "3. Drift tests by era / CRM use (days)\n"
-        "4. Systematic literature search\n"
-        "5. Target: Biogeosciences / Ocean Science\n    (GRL if the excess survives 1–3);\n"
-        "    OSM / EGU abstract now",
+        "1. Second Earth system model (NorESM2-LM):\n    code ready, needs ~45 GB download\n"
+        "2. Contact TRACE / eMLR(C*) developers\n"
+        "3. Convert to journal template; GBC or\n    Biogeosciences (GRL if model 2 agrees)\n"
+        "4. OSM 2028 / EGU 2027 abstract now\n"
+        "5. Zenodo release of code + results",
         title="Next 2–4 weeks", size=15)
     box(f, 0.53, 0.14, 0.42, 0.62,
-        "• Is the upper-ocean excess plausible to you,\n  or a known TTD/TRACE issue?\n"
-        "• Best way to rule out DIC calibration drift?\n"
-        "• Access to ocean-model C_ant output\n  (e.g., RECCAP2) for an independent test?\n"
+        "• Is the boundary-condition explanation\n  plausible, or a known TRACE issue?\n"
+        "• Best way to rule out within-cruise,\n  depth-dependent DIC artefacts?\n"
+        "• Who should we show this to first?\n"
         "• Should the original rank-1 paper be\n  retired or reframed?\n"
         "• Venue and timeline you'd recommend",
         title="Questions for you", color=GOOD, size=15)

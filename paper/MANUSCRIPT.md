@@ -181,7 +181,7 @@ This meets the pre-registered criterion (R within 0.95–1.05, |δ| ≤ 0.03). T
 | C_ant^true / TRACE | 1.12 [1.10, 1.14] | m = 0.125 [0.10, 0.15] |
 | Model DIC / TRACE (analogue of the observed comparison) | 1.08 [1.06, 1.10] | m = 0.12 [0.08, 0.15] |
 
-The sign and roughly two thirds of the observed size are reproduced without GLODAP DIC. The basin pattern is not: the model shortfall is concentrated in the Pacific (1.18) and Southern Ocean (1.06), with only 1.04 in the Atlantic and 1.01 in the Indian Ocean, whereas the observations show 16–20 % in all basins. In deep layers, TRACE *over*estimates the model (0.76), as expected because CMIP-class models ventilate the deep ocean more slowly than the real ocean on which TRACE's ages are trained.
+The sign and roughly two thirds of the observed size are reproduced without GLODAP DIC. Restricting the samples to 1972–2014 (no scenario years) gives the same result: C_ant^true/TRACE = 1.117 [1.098, 1.144], m = 0.13. The basin pattern is not: the model shortfall is concentrated in the Pacific (1.18) and Southern Ocean (1.06), with only 1.04 in the Atlantic and 1.01 in the Indian Ocean, whereas the observations show 16–20 % in all basins. In deep layers, TRACE *over*estimates the model (0.76), as expected because CMIP-class models ventilate the deep ocean more slowly than the real ocean on which TRACE's ages are trained.
 
 **The boundary condition accounts for most of the model-world shortfall (E13d, post hoc).** With TRACE's unadjusted atmospheric trajectory, the upper-ocean ratio falls to 1.016 [1.004, 1.036] and m to 0.024 [0.003, 0.050], meeting the logged expectation (R within 0.95–1.05). By basin it overshoots in the Atlantic (0.94) and Indian (0.92) Oceans and leaves +8 % in the Pacific.
 
@@ -227,7 +227,7 @@ The new design element makes the most common objection untenable: that the exces
 
 ## 6. Limitations
 - **Independence.** All five DIC-based estimates use GLODAP DIC. A non-additive measurement artefact affecting upper and deep samples differently within a cruise cannot be excluded. The Earth-system-model test is independent of GLODAP DIC, but:
-  - it is a single model and member;
+  - it is a single model and member. A second model (NorESM2-LM, 1972–2014) was pre-registered and its sampling code is in place, but the run could not be completed because of data-transfer limits (~45 GB);
   - the model's basin pattern differs from the observed one;
   - TRACE's ages are not the model's ages;
   - 1.8 % of samples (warm, salty thermocline waters) return no TRACE value for model T, S and are excluded from E13.

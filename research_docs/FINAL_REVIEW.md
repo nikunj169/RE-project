@@ -59,7 +59,7 @@ The main residual weakness is independence. All corroborating evidence comes fro
 | R8 | Era dependence unresolved before 2000 | Low | Disclosed |
 
 ## 5. Concrete steps before submission (priority order)
-1. ~~**Independent comparator (R1):**~~ *Done in Round 3 (E13, E13d) for one model; optional second model (NorESM2-LM, ~2.5× data).* sample one ocean-model historical run (DIC and C_ant tracers) at GLODAP sample locations and dates; run E02/E06 on model DIC vs model C_ant (estimator check) and vs TRACE applied to model T, S (method check).
+1. ~~**Independent comparator (R1):**~~ *Done in Round 3 (E13, E13d) for one model, with a ≤ 2014 control. The second model (NorESM2-LM, E15) is pre-registered and the code is ready; sampling was not completed because of bandwidth (~45 GB). This is the top remaining item and would decide GRL vs GBC.* sample one ocean-model historical run (DIC and C_ant tracers) at GLODAP sample locations and dates; run E02/E06 on model DIC vs model C_ant (estimator check) and vs TRACE applied to model T, S (method check).
 2. ~~**Read Hong et al. (2026) and Bates et al. (2014) full texts**~~ *Done in Round 3.*
 3. **Out-of-sample test of the boundary-condition hypothesis (R3).**
 4. ~~**Alternative reference layers (R2).**~~ *Done in Round 3 (E14).*
@@ -94,7 +94,8 @@ The main residual weakness is independence. All corroborating evidence comes fro
 | E06–E10 (pre-registered) | Complete |
 | E11, E12 (post hoc, logged) | Complete |
 | Manuscript, abstract, captions, supplement, bibliography | Revised (revision 2) |
-| Independent model comparator | Done for one model (E13, E13d; Round 3) |
+| Independent model comparator | Done for one model (E13, E13d; Round 3); second model (E15) pending data transfer |
 | Full-text checks of 2 references | Done (Round 3) |
+| Advisor pitch deck | Regenerated with Round 2–3 results (12 slides; `research/visualization/pitch.py`) |
 | Alternative reference layers | Done (E14; Round 3) |
 | Expert review | **Not done** |
