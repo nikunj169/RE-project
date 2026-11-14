@@ -1,0 +1,15 @@
+old,new,file
+1,1,fig1_study_area
+5,10,fig5_h3_holdout_bias
+2,2,fig2_trend_profiles
+7,3,fig7_drift_immune_excess
+8,4,fig8_scale_factor
+9,5,fig9_trace_sensitivity
+11,6,fig11_cstar_controls
+10,7,fig10_emlr_products
+12,8,fig12_perfect_model
+13,9,fig13_models
+S1,S1,figS1_synthetic_recovery
+3,S2,fig3_ratio_h1
+4,S3,fig4_delta_robustness
+6,S4,fig6_emlr_comparison
